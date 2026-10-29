@@ -229,7 +229,12 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
             alt={allowedSocket}
             className="h-3.5 w-3.5 object-contain shrink-0 opacity-70 filter drop-shadow"
             onError={(e) => {
-              (e.target as HTMLElement).style.display = 'none';
+              const img = e.target as HTMLImageElement;
+              if (!img.src.endsWith('.svg')) {
+                img.src = img.src.replace(/\.png$/i, '.svg');
+              } else {
+                img.style.display = 'none';
+              }
             }}
           />
           <span className="capitalize">Empty {allowedSocket} Socket</span>
@@ -248,7 +253,12 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
           alt={allowedSocket}
           className="h-3.5 w-3.5 object-contain shrink-0 filter drop-shadow"
           onError={(e) => {
-            (e.target as HTMLElement).style.display = 'none';
+            const img = e.target as HTMLImageElement;
+            if (!img.src.endsWith('.svg')) {
+              img.src = img.src.replace(/\.png$/i, '.svg');
+            } else {
+              img.style.display = 'none';
+            }
           }}
         />
         <span className="font-semibold text-cyan-300 truncate">

@@ -227,6 +227,14 @@ export const BuildSummaryDrawer: React.FC<BuildSummaryDrawerProps> = ({
                               src={resolveAssetUrl(getCellCategoryIcon(perk.type))}
                               alt={perk.type}
                               className="h-2.5 w-2.5 object-contain filter drop-shadow opacity-80"
+                              onError={(e) => {
+                                const img = e.target as HTMLImageElement;
+                                if (!img.src.endsWith('.svg')) {
+                                  img.src = img.src.replace(/\.png$/i, '.svg');
+                                } else {
+                                  img.style.display = 'none';
+                                }
+                              }}
                             />
                             {perk.type}
                           </span>

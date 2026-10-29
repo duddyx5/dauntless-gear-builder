@@ -513,6 +513,8 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                             const fallback = resolveAssetUrl(getCellCategoryIcon(c.slot));
                             if (img.src !== fallback) {
                               img.src = fallback;
+                            } else if (!img.src.endsWith('.svg')) {
+                              img.src = fallback.replace(/\.png$/i, '.svg');
                             }
                           }}
                         />

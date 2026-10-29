@@ -174,6 +174,14 @@ export const DesktopStatsSidebar: React.FC<DesktopStatsSidebarProps> = ({
                           src={resolveAssetUrl(getCellCategoryIcon(perk.type))}
                           alt={perk.type}
                           className="h-3 w-3 object-contain filter drop-shadow opacity-80"
+                          onError={(e) => {
+                            const img = e.target as HTMLImageElement;
+                            if (!img.src.endsWith('.svg')) {
+                              img.src = img.src.replace(/\.png$/i, '.svg');
+                            } else {
+                              img.style.display = 'none';
+                            }
+                          }}
                         />
                         {perk.type}
                       </span>
