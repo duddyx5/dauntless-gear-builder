@@ -1,0 +1,1202 @@
+{
+  "acidic": {
+    "id": "acidic",
+    "name": "Acidic",
+    "type": "finesse",
+    "description": "You deal 30% increased Wound Damage as long as you have at least 1 MIGHT.",
+    "icon": "/assets/icons/perks/Acidic.png",
+    "tiers": {
+      "1": "You deal 30% increased Wound Damage as long as you have at least 1 MIGHT.",
+      "2": "You deal 30% increased Wound Damage as long as you have at least 1 MIGHT.",
+      "3": "You deal 30% increased Wound Damage as long as you have at least 1 MIGHT.",
+      "4": "You deal 30% increased Wound Damage as long as you have at least 1 MIGHT.",
+      "5": "You deal 30% increased Wound Damage as long as you have at least 1 MIGHT.",
+      "6": "You deal 30% increased Wound Damage as long as you have at least 1 MIGHT."
+    }
+  },
+  "adrenaline": {
+    "id": "adrenaline",
+    "name": "Adrenaline",
+    "type": "alacrity",
+    "description": "You gain 1 held stack of MIGHT for every 30 stamina missing.",
+    "icon": "/assets/icons/perks/Adrenaline.png",
+    "tiers": {
+      "1": "You gain 1 held stack of MIGHT for every 30 stamina missing.",
+      "2": "You gain 1 held stack of MIGHT for every 30 stamina missing.",
+      "3": "You gain 1 held stack of MIGHT for every 30 stamina missing.",
+      "4": "You gain 1 held stack of MIGHT for every 30 stamina missing.",
+      "5": "You gain 1 held stack of MIGHT for every 30 stamina missing.",
+      "6": "You gain 1 held stack of MIGHT for every 30 stamina missing."
+    }
+  },
+  "aegis": {
+    "id": "aegis",
+    "name": "Aegis",
+    "type": "fortitude",
+    "description": "Increases all shields received by +20%.",
+    "icon": "/assets/icons/perks/Aegis.png",
+    "tiers": {
+      "1": "Increases all shields received by +20%.",
+      "2": "Increases all shields received by +20%.",
+      "3": "Increases all shields received by +20%.",
+      "4": "Increases all shields received by +20%.",
+      "5": "Increases all shields received by +20%.",
+      "6": "Increases all shields received by +20%."
+    }
+  },
+  "aether_syphon": {
+    "id": "aether_syphon",
+    "name": "Aether Syphon",
+    "type": "insight",
+    "description": "Destroying a Behemoth created object grants 1 stack of MIGHT, SPEED, and ENDURANCE.",
+    "icon": "/assets/icons/perks/AetherSyphon.png",
+    "tiers": {
+      "1": "Destroying a Behemoth created object grants 1 stack of MIGHT, SPEED, and ENDURANCE.",
+      "2": "Destroying a Behemoth created object grants 1 stack of MIGHT, SPEED, and ENDURANCE.",
+      "3": "Destroying a Behemoth created object grants 1 stack of MIGHT, SPEED, and ENDURANCE.",
+      "4": "Destroying a Behemoth created object grants 1 stack of MIGHT, SPEED, and ENDURANCE.",
+      "5": "Destroying a Behemoth created object grants 1 stack of MIGHT, SPEED, and ENDURANCE.",
+      "6": "Destroying a Behemoth created object grants 1 stack of MIGHT, SPEED, and ENDURANCE."
+    }
+  },
+  "aetherborne": {
+    "id": "aetherborne",
+    "name": "Aetherborne",
+    "type": "insight",
+    "description": "When using an Aether Vent, gain an additional +200 healing and have a 25% chance to not consume a vent charge.",
+    "icon": "/assets/icons/perks/Aetherborne.png",
+    "tiers": {
+      "1": "When using an Aether Vent, gain an additional +200 healing and have a 25% chance to not consume a vent charge.",
+      "2": "When using an Aether Vent, gain an additional +200 healing and have a 25% chance to not consume a vent charge.",
+      "3": "When using an Aether Vent, gain an additional +200 healing and have a 25% chance to not consume a vent charge.",
+      "4": "When using an Aether Vent, gain an additional +200 healing and have a 25% chance to not consume a vent charge.",
+      "5": "When using an Aether Vent, gain an additional +200 healing and have a 25% chance to not consume a vent charge.",
+      "6": "When using an Aether Vent, gain an additional +200 healing and have a 25% chance to not consume a vent charge."
+    }
+  },
+  "aetherhunter": {
+    "id": "aetherhunter",
+    "name": "Aetherhunter",
+    "type": "brutality",
+    "description": "Gain 3 temporary MIGHT when a Behemoth enters Aether-Charge",
+    "icon": "/assets/icons/perks/Aetherhunter.png",
+    "tiers": {
+      "1": "Gain 3 temporary MIGHT when a Behemoth enters Aether-Charge",
+      "2": "Gain 3 temporary MIGHT when a Behemoth enters Aether-Charge",
+      "3": "Gain 3 temporary MIGHT when a Behemoth enters Aether-Charge",
+      "4": "Gain 3 temporary MIGHT when a Behemoth enters Aether-Charge",
+      "5": "Gain 3 temporary MIGHT when a Behemoth enters Aether-Charge",
+      "6": "Gain 3 temporary MIGHT when a Behemoth enters Aether-Charge"
+    }
+  },
+  "aetheric_armour": {
+    "id": "aetheric_armour",
+    "name": "Aetheric Armour",
+    "type": "fortitude",
+    "description": "Give 2 stacks of temporary DEFENSE to all nearby Slayers after drinking from an Aether Vent",
+    "icon": "/assets/icons/perks/AethericArmour.png",
+    "tiers": {
+      "1": "Give 2 stacks of temporary DEFENSE to all nearby Slayers after drinking from an Aether Vent",
+      "2": "Give 2 stacks of temporary DEFENSE to all nearby Slayers after drinking from an Aether Vent",
+      "3": "Give 2 stacks of temporary DEFENSE to all nearby Slayers after drinking from an Aether Vent",
+      "4": "Give 2 stacks of temporary DEFENSE to all nearby Slayers after drinking from an Aether Vent",
+      "5": "Give 2 stacks of temporary DEFENSE to all nearby Slayers after drinking from an Aether Vent",
+      "6": "Give 2 stacks of temporary DEFENSE to all nearby Slayers after drinking from an Aether Vent"
+    }
+  },
+  "agility": {
+    "id": "agility",
+    "name": "Agility",
+    "type": "alacrity",
+    "description": "Reduce stamina cost of Dodge Roll by 50%",
+    "icon": "/assets/icons/perks/Agility.png",
+    "tiers": {
+      "1": "Reduce stamina cost of Dodge Roll by 50%",
+      "2": "Reduce stamina cost of Dodge Roll by 50%",
+      "3": "Reduce stamina cost of Dodge Roll by 50%",
+      "4": "Reduce stamina cost of Dodge Roll by 50%",
+      "5": "Reduce stamina cost of Dodge Roll by 50%",
+      "6": "Reduce stamina cost of Dodge Roll by 50%"
+    }
+  },
+  "armoured": {
+    "id": "armoured",
+    "name": "Armoured",
+    "type": "fortitude",
+    "description": "You have 3 Permanent stacks of DEFENSE",
+    "icon": "/assets/icons/perks/Armoured.png",
+    "tiers": {
+      "1": "You have 3 Permanent stacks of DEFENSE",
+      "2": "You have 3 Permanent stacks of DEFENSE",
+      "3": "You have 3 Permanent stacks of DEFENSE",
+      "4": "You have 3 Permanent stacks of DEFENSE",
+      "5": "You have 3 Permanent stacks of DEFENSE",
+      "6": "You have 3 Permanent stacks of DEFENSE"
+    }
+  },
+  "assassin_s_bulwark": {
+    "id": "assassin_s_bulwark",
+    "name": "Assassin's Bulwark",
+    "type": "fortitude",
+    "description": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of DEFENSE",
+    "icon": "/assets/icons/perks/Assassin'sBulwark.png",
+    "tiers": {
+      "1": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of DEFENSE",
+      "2": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of DEFENSE",
+      "3": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of DEFENSE",
+      "4": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of DEFENSE",
+      "5": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of DEFENSE",
+      "6": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of DEFENSE"
+    }
+  },
+  "assassin_s_edge": {
+    "id": "assassin_s_edge",
+    "name": "Assassin's Edge",
+    "type": "finesse",
+    "description": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of CRITICAL",
+    "icon": "/assets/icons/perks/Assassin'sEdge.png",
+    "tiers": {
+      "1": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of CRITICAL",
+      "2": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of CRITICAL",
+      "3": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of CRITICAL",
+      "4": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of CRITICAL",
+      "5": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of CRITICAL",
+      "6": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of CRITICAL"
+    }
+  },
+  "assassin_s_frenzy": {
+    "id": "assassin_s_frenzy",
+    "name": "Assassin's Frenzy",
+    "type": "finesse",
+    "description": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of SPEED",
+    "icon": "/assets/icons/perks/Assassin'sFrenzy.png",
+    "tiers": {
+      "1": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of SPEED",
+      "2": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of SPEED",
+      "3": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of SPEED",
+      "4": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of SPEED",
+      "5": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of SPEED",
+      "6": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of SPEED"
+    }
+  },
+  "assassin_s_momentum": {
+    "id": "assassin_s_momentum",
+    "name": "Assassin's Momentum",
+    "type": "alacrity",
+    "description": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of ENDURANCE",
+    "icon": "/assets/icons/perks/Assassin'sMomentum.png",
+    "tiers": {
+      "1": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of ENDURANCE",
+      "2": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of ENDURANCE",
+      "3": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of ENDURANCE",
+      "4": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of ENDURANCE",
+      "5": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of ENDURANCE",
+      "6": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of ENDURANCE"
+    }
+  },
+  "assassin_s_vigour": {
+    "id": "assassin_s_vigour",
+    "name": "Assassin's Vigour",
+    "type": "fortitude",
+    "description": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of VITALITY",
+    "icon": "/assets/icons/perks/Assassin'sVigour.png",
+    "tiers": {
+      "1": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of VITALITY",
+      "2": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of VITALITY",
+      "3": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of VITALITY",
+      "4": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of VITALITY",
+      "5": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of VITALITY",
+      "6": "Each time you break or assist breaking a Behemoth part, gain 3 temporary stacks of VITALITY"
+    }
+  },
+  "barbed": {
+    "id": "barbed",
+    "name": "Barbed",
+    "type": "finesse",
+    "description": "After dodging through an attack, your next attack deals 400 wound damage",
+    "icon": "/assets/icons/perks/Barbed.png",
+    "tiers": {
+      "1": "After dodging through an attack, your next attack deals 400 wound damage",
+      "2": "After dodging through an attack, your next attack deals 400 wound damage",
+      "3": "After dodging through an attack, your next attack deals 400 wound damage",
+      "4": "After dodging through an attack, your next attack deals 400 wound damage",
+      "5": "After dodging through an attack, your next attack deals 400 wound damage",
+      "6": "After dodging through an attack, your next attack deals 400 wound damage"
+    }
+  },
+  "berserker": {
+    "id": "berserker",
+    "name": "Berserker",
+    "type": "brutality",
+    "description": "Gain 4 permanent negative VITALITY. When you deal damage, gain one temporary stack of MIGHT. This can only happen once every 30 seconds",
+    "icon": "/assets/icons/perks/Berserker.png",
+    "tiers": {
+      "1": "Gain 4 permanent negative VITALITY. When you deal damage, gain one temporary stack of MIGHT. This can only happen once every 30 seconds",
+      "2": "Gain 4 permanent negative VITALITY. When you deal damage, gain one temporary stack of MIGHT. This can only happen once every 30 seconds",
+      "3": "Gain 4 permanent negative VITALITY. When you deal damage, gain one temporary stack of MIGHT. This can only happen once every 30 seconds",
+      "4": "Gain 4 permanent negative VITALITY. When you deal damage, gain one temporary stack of MIGHT. This can only happen once every 30 seconds",
+      "5": "Gain 4 permanent negative VITALITY. When you deal damage, gain one temporary stack of MIGHT. This can only happen once every 30 seconds",
+      "6": "Gain 4 permanent negative VITALITY. When you deal damage, gain one temporary stack of MIGHT. This can only happen once every 30 seconds"
+    }
+  },
+  "bladestorm": {
+    "id": "bladestorm",
+    "name": "Bladestorm",
+    "type": "brutality",
+    "description": "+30 part damage.",
+    "icon": "/assets/icons/perks/Bladestorm.png",
+    "tiers": {
+      "1": "+30 part damage.",
+      "2": "+30 part damage.",
+      "3": "+30 part damage.",
+      "4": "+30 part damage.",
+      "5": "+30 part damage.",
+      "6": "+30 part damage."
+    }
+  },
+  "carve": {
+    "id": "carve",
+    "name": "Carve",
+    "type": "finesse",
+    "description": "When a behemoth is staggered, gain 3 temporary CRITICAL",
+    "icon": "/assets/icons/perks/Carve.png",
+    "tiers": {
+      "1": "When a behemoth is staggered, gain 3 temporary CRITICAL",
+      "2": "When a behemoth is staggered, gain 3 temporary CRITICAL",
+      "3": "When a behemoth is staggered, gain 3 temporary CRITICAL",
+      "4": "When a behemoth is staggered, gain 3 temporary CRITICAL",
+      "5": "When a behemoth is staggered, gain 3 temporary CRITICAL",
+      "6": "When a behemoth is staggered, gain 3 temporary CRITICAL"
+    }
+  },
+  "cascade": {
+    "id": "cascade",
+    "name": "Cascade",
+    "type": "insight",
+    "description": "On Omnicell activation, randomly generate 4 of the following Boosts: Healing, Stamina, Power",
+    "icon": "/assets/icons/perks/Cascade.png",
+    "tiers": {
+      "1": "On Omnicell activation, randomly generate 4 of the following Boosts: Healing, Stamina, Power",
+      "2": "On Omnicell activation, randomly generate 4 of the following Boosts: Healing, Stamina, Power",
+      "3": "On Omnicell activation, randomly generate 4 of the following Boosts: Healing, Stamina, Power",
+      "4": "On Omnicell activation, randomly generate 4 of the following Boosts: Healing, Stamina, Power",
+      "5": "On Omnicell activation, randomly generate 4 of the following Boosts: Healing, Stamina, Power",
+      "6": "On Omnicell activation, randomly generate 4 of the following Boosts: Healing, Stamina, Power"
+    }
+  },
+  "catalyst": {
+    "id": "catalyst",
+    "name": "Catalyst",
+    "type": "insight",
+    "description": "Tonics grant +2 Stacks of the same type to other Slayers, either when consumed or when its bonus conditions are met.",
+    "icon": "/assets/icons/perks/Catalyst.png",
+    "tiers": {
+      "1": "Tonics grant +2 Stacks of the same type to other Slayers, either when consumed or when its bonus conditions are met.",
+      "2": "Tonics grant +2 Stacks of the same type to other Slayers, either when consumed or when its bonus conditions are met.",
+      "3": "Tonics grant +2 Stacks of the same type to other Slayers, either when consumed or when its bonus conditions are met.",
+      "4": "Tonics grant +2 Stacks of the same type to other Slayers, either when consumed or when its bonus conditions are met.",
+      "5": "Tonics grant +2 Stacks of the same type to other Slayers, either when consumed or when its bonus conditions are met.",
+      "6": "Tonics grant +2 Stacks of the same type to other Slayers, either when consumed or when its bonus conditions are met."
+    }
+  },
+  "conduit": {
+    "id": "conduit",
+    "name": "Conduit",
+    "type": "alacrity",
+    "description": "Using your Weapon Active Ability also grants 2 temporary SPEED to all Slayers.",
+    "icon": "/assets/icons/perks/Conduit.png",
+    "tiers": {
+      "1": "Using your Weapon Active Ability also grants 2 temporary SPEED to all Slayers.",
+      "2": "Using your Weapon Active Ability also grants 2 temporary SPEED to all Slayers.",
+      "3": "Using your Weapon Active Ability also grants 2 temporary SPEED to all Slayers.",
+      "4": "Using your Weapon Active Ability also grants 2 temporary SPEED to all Slayers.",
+      "5": "Using your Weapon Active Ability also grants 2 temporary SPEED to all Slayers.",
+      "6": "Using your Weapon Active Ability also grants 2 temporary SPEED to all Slayers."
+    }
+  },
+  "conservation": {
+    "id": "conservation",
+    "name": "Conservation",
+    "type": "fortitude",
+    "description": "When a stack of SPEED is lost, gain 200 Shields.",
+    "icon": "/assets/icons/perks/Conservation.png",
+    "tiers": {
+      "1": "When a stack of SPEED is lost, gain 200 Shields.",
+      "2": "When a stack of SPEED is lost, gain 200 Shields.",
+      "3": "When a stack of SPEED is lost, gain 200 Shields.",
+      "4": "When a stack of SPEED is lost, gain 200 Shields.",
+      "5": "When a stack of SPEED is lost, gain 200 Shields.",
+      "6": "When a stack of SPEED is lost, gain 200 Shields."
+    }
+  },
+  "cunning": {
+    "id": "cunning",
+    "name": "Cunning",
+    "type": "finesse",
+    "description": "Gain 3 held stacks of CRITICAL.",
+    "icon": "/assets/icons/perks/Cunning.png",
+    "tiers": {
+      "1": "Gain 3 held stacks of CRITICAL.",
+      "2": "Gain 3 held stacks of CRITICAL.",
+      "3": "Gain 3 held stacks of CRITICAL.",
+      "4": "Gain 3 held stacks of CRITICAL.",
+      "5": "Gain 3 held stacks of CRITICAL.",
+      "6": "Gain 3 held stacks of CRITICAL."
+    }
+  },
+  "deconstruction": {
+    "id": "deconstruction",
+    "name": "Deconstruction",
+    "type": "brutality",
+    "description": "Deal 50% more damage to objects created by Behemoths.",
+    "icon": "/assets/icons/perks/Deconstruction.png",
+    "tiers": {
+      "1": "Deal 50% more damage to objects created by Behemoths.",
+      "2": "Deal 50% more damage to objects created by Behemoths.",
+      "3": "Deal 50% more damage to objects created by Behemoths.",
+      "4": "Deal 50% more damage to objects created by Behemoths.",
+      "5": "Deal 50% more damage to objects created by Behemoths.",
+      "6": "Deal 50% more damage to objects created by Behemoths."
+    }
+  },
+  "defiance": {
+    "id": "defiance",
+    "name": "Defiance",
+    "type": "alacrity",
+    "description": "Gain 3 temp DEFENSE when a Behemoth enters Rage.",
+    "icon": "/assets/icons/perks/Defiance.png",
+    "tiers": {
+      "1": "Gain 3 temp DEFENSE when a Behemoth enters Rage.",
+      "2": "Gain 3 temp DEFENSE when a Behemoth enters Rage.",
+      "3": "Gain 3 temp DEFENSE when a Behemoth enters Rage.",
+      "4": "Gain 3 temp DEFENSE when a Behemoth enters Rage.",
+      "5": "Gain 3 temp DEFENSE when a Behemoth enters Rage.",
+      "6": "Gain 3 temp DEFENSE when a Behemoth enters Rage."
+    }
+  },
+  "drop": {
+    "id": "drop",
+    "name": "Drop",
+    "type": "finesse",
+    "description": "Gain 4 permanent negative ENDURANCE, while stamina is full, you have 4 permanent SPEED.",
+    "icon": "/assets/icons/perks/Drop.png",
+    "tiers": {
+      "1": "Gain 4 permanent negative ENDURANCE, while stamina is full, you have 4 permanent SPEED.",
+      "2": "Gain 4 permanent negative ENDURANCE, while stamina is full, you have 4 permanent SPEED.",
+      "3": "Gain 4 permanent negative ENDURANCE, while stamina is full, you have 4 permanent SPEED.",
+      "4": "Gain 4 permanent negative ENDURANCE, while stamina is full, you have 4 permanent SPEED.",
+      "5": "Gain 4 permanent negative ENDURANCE, while stamina is full, you have 4 permanent SPEED.",
+      "6": "Gain 4 permanent negative ENDURANCE, while stamina is full, you have 4 permanent SPEED."
+    }
+  },
+  "earth": {
+    "id": "earth",
+    "name": "Earth",
+    "type": "brutality",
+    "description": "Hitting a Behemoth with a weapon attack while shields are over 200 will detonate all your shields, depleating them and dealing damage equal to 400% of the value of the removed shield.",
+    "icon": "/assets/icons/perks/Earth.png",
+    "tiers": {
+      "1": "Hitting a Behemoth with a weapon attack while shields are over 200 will detonate all your shields, depleating them and dealing damage equal to 400% of the value of the removed shield.",
+      "2": "Hitting a Behemoth with a weapon attack while shields are over 200 will detonate all your shields, depleating them and dealing damage equal to 400% of the value of the removed shield.",
+      "3": "Hitting a Behemoth with a weapon attack while shields are over 200 will detonate all your shields, depleating them and dealing damage equal to 400% of the value of the removed shield.",
+      "4": "Hitting a Behemoth with a weapon attack while shields are over 200 will detonate all your shields, depleating them and dealing damage equal to 400% of the value of the removed shield.",
+      "5": "Hitting a Behemoth with a weapon attack while shields are over 200 will detonate all your shields, depleating them and dealing damage equal to 400% of the value of the removed shield.",
+      "6": "Hitting a Behemoth with a weapon attack while shields are over 200 will detonate all your shields, depleating them and dealing damage equal to 400% of the value of the removed shield."
+    }
+  },
+  "endurance": {
+    "id": "endurance",
+    "name": "Endurance",
+    "type": "alacrity",
+    "description": "Gain 3 permanent ENDURANCE",
+    "icon": "/assets/icons/perks/Endurance.png",
+    "tiers": {
+      "1": "Gain 3 permanent ENDURANCE",
+      "2": "Gain 3 permanent ENDURANCE",
+      "3": "Gain 3 permanent ENDURANCE",
+      "4": "Gain 3 permanent ENDURANCE",
+      "5": "Gain 3 permanent ENDURANCE",
+      "6": "Gain 3 permanent ENDURANCE"
+    }
+  },
+  "energized": {
+    "id": "energized",
+    "name": "Energized",
+    "type": "insight",
+    "description": "Increase weapon charge rate for weapons with meter by 30%",
+    "icon": "/assets/icons/perks/Energized.png",
+    "tiers": {
+      "1": "Increase weapon charge rate for weapons with meter by 30%",
+      "2": "Increase weapon charge rate for weapons with meter by 30%",
+      "3": "Increase weapon charge rate for weapons with meter by 30%",
+      "4": "Increase weapon charge rate for weapons with meter by 30%",
+      "5": "Increase weapon charge rate for weapons with meter by 30%",
+      "6": "Increase weapon charge rate for weapons with meter by 30%"
+    }
+  },
+  "engineer": {
+    "id": "engineer",
+    "name": "Engineer",
+    "type": "insight",
+    "description": "Increase Pylon range by 100%",
+    "icon": "/assets/icons/perks/Engineer.png",
+    "tiers": {
+      "1": "Increase Pylon range by 100%",
+      "2": "Increase Pylon range by 100%",
+      "3": "Increase Pylon range by 100%",
+      "4": "Increase Pylon range by 100%",
+      "5": "Increase Pylon range by 100%",
+      "6": "Increase Pylon range by 100%"
+    }
+  },
+  "evasion": {
+    "id": "evasion",
+    "name": "Evasion",
+    "type": "alacrity",
+    "description": "Increase Dodge invulnerability windows by 40%",
+    "icon": "/assets/icons/perks/Evasion.png",
+    "tiers": {
+      "1": "Increase Dodge invulnerability windows by 40%",
+      "2": "Increase Dodge invulnerability windows by 40%",
+      "3": "Increase Dodge invulnerability windows by 40%",
+      "4": "Increase Dodge invulnerability windows by 40%",
+      "5": "Increase Dodge invulnerability windows by 40%",
+      "6": "Increase Dodge invulnerability windows by 40%"
+    }
+  },
+  "evasive_fury": {
+    "id": "evasive_fury",
+    "name": "Evasive Fury",
+    "type": "alacrity",
+    "description": "After dodging through an attack, gain 1 temporary stack of SPEED",
+    "icon": "/assets/icons/perks/EvasiveFury.png",
+    "tiers": {
+      "1": "After dodging through an attack, gain 1 temporary stack of SPEED",
+      "2": "After dodging through an attack, gain 1 temporary stack of SPEED",
+      "3": "After dodging through an attack, gain 1 temporary stack of SPEED",
+      "4": "After dodging through an attack, gain 1 temporary stack of SPEED",
+      "5": "After dodging through an attack, gain 1 temporary stack of SPEED",
+      "6": "After dodging through an attack, gain 1 temporary stack of SPEED"
+    }
+  },
+  "fire": {
+    "id": "fire",
+    "name": "Fire",
+    "type": "finesse",
+    "description": "Gain 5 permanent stacks of SPEED, but take damage equal to 5% of your max health on hitting a Behemoth",
+    "icon": "/assets/icons/perks/Fire.png",
+    "tiers": {
+      "1": "Gain 5 permanent stacks of SPEED, but take damage equal to 5% of your max health on hitting a Behemoth",
+      "2": "Gain 5 permanent stacks of SPEED, but take damage equal to 5% of your max health on hitting a Behemoth",
+      "3": "Gain 5 permanent stacks of SPEED, but take damage equal to 5% of your max health on hitting a Behemoth",
+      "4": "Gain 5 permanent stacks of SPEED, but take damage equal to 5% of your max health on hitting a Behemoth",
+      "5": "Gain 5 permanent stacks of SPEED, but take damage equal to 5% of your max health on hitting a Behemoth",
+      "6": "Gain 5 permanent stacks of SPEED, but take damage equal to 5% of your max health on hitting a Behemoth"
+    }
+  },
+  "fireproof": {
+    "id": "fireproof",
+    "name": "Fireproof",
+    "type": "insight",
+    "description": "Immune to On Fire status.",
+    "icon": "/assets/icons/perks/Fireproof.png",
+    "tiers": {
+      "1": "Immune to On Fire status.",
+      "2": "Immune to On Fire status.",
+      "3": "Immune to On Fire status.",
+      "4": "Immune to On Fire status.",
+      "5": "Immune to On Fire status.",
+      "6": "Immune to On Fire status."
+    }
+  },
+  "fortress": {
+    "id": "fortress",
+    "name": "Fortress",
+    "type": "fortitude",
+    "description": "After not taking hostile damage for 10 seconds, gain a 150 health shield. Stacks 3 times.",
+    "icon": "/assets/icons/perks/Fortress.png",
+    "tiers": {
+      "1": "After not taking hostile damage for 10 seconds, gain a 150 health shield. Stacks 3 times.",
+      "2": "After not taking hostile damage for 10 seconds, gain a 150 health shield. Stacks 3 times.",
+      "3": "After not taking hostile damage for 10 seconds, gain a 150 health shield. Stacks 3 times.",
+      "4": "After not taking hostile damage for 10 seconds, gain a 150 health shield. Stacks 3 times.",
+      "5": "After not taking hostile damage for 10 seconds, gain a 150 health shield. Stacks 3 times.",
+      "6": "After not taking hostile damage for 10 seconds, gain a 150 health shield. Stacks 3 times."
+    }
+  },
+  "galvanized": {
+    "id": "galvanized",
+    "name": "Galvanized",
+    "type": "finesse",
+    "description": "For every 150 shield, gain one permanent CRITICAL stack.",
+    "icon": "/assets/icons/perks/Galvanized.png",
+    "tiers": {
+      "1": "For every 150 shield, gain one permanent CRITICAL stack.",
+      "2": "For every 150 shield, gain one permanent CRITICAL stack.",
+      "3": "For every 150 shield, gain one permanent CRITICAL stack.",
+      "4": "For every 150 shield, gain one permanent CRITICAL stack.",
+      "5": "For every 150 shield, gain one permanent CRITICAL stack.",
+      "6": "For every 150 shield, gain one permanent CRITICAL stack."
+    }
+  },
+  "generator": {
+    "id": "generator",
+    "name": "Generator",
+    "type": "alacrity",
+    "description": "When you gain any source of Shields, gain 1 temporary stack of ENDURANCE",
+    "icon": "/assets/icons/perks/Generator.png",
+    "tiers": {
+      "1": "When you gain any source of Shields, gain 1 temporary stack of ENDURANCE",
+      "2": "When you gain any source of Shields, gain 1 temporary stack of ENDURANCE",
+      "3": "When you gain any source of Shields, gain 1 temporary stack of ENDURANCE",
+      "4": "When you gain any source of Shields, gain 1 temporary stack of ENDURANCE",
+      "5": "When you gain any source of Shields, gain 1 temporary stack of ENDURANCE",
+      "6": "When you gain any source of Shields, gain 1 temporary stack of ENDURANCE"
+    }
+  },
+  "grace": {
+    "id": "grace",
+    "name": "Grace",
+    "type": "alacrity",
+    "description": "After sprinting for 4 seconds, gain 4 permanent SPEED. This speed is lost after 4 seconds.",
+    "icon": "/assets/icons/perks/Grace.png",
+    "tiers": {
+      "1": "After sprinting for 4 seconds, gain 4 permanent SPEED. This speed is lost after 4 seconds.",
+      "2": "After sprinting for 4 seconds, gain 4 permanent SPEED. This speed is lost after 4 seconds.",
+      "3": "After sprinting for 4 seconds, gain 4 permanent SPEED. This speed is lost after 4 seconds.",
+      "4": "After sprinting for 4 seconds, gain 4 permanent SPEED. This speed is lost after 4 seconds.",
+      "5": "After sprinting for 4 seconds, gain 4 permanent SPEED. This speed is lost after 4 seconds.",
+      "6": "After sprinting for 4 seconds, gain 4 permanent SPEED. This speed is lost after 4 seconds."
+    }
+  },
+  "guardian": {
+    "id": "guardian",
+    "name": "Guardian",
+    "type": "fortitude",
+    "description": "20% of Shields applied to you is also applied to your nearest ally for 15 seconds",
+    "icon": "/assets/icons/perks/Guardian.png",
+    "tiers": {
+      "1": "20% of Shields applied to you is also applied to your nearest ally for 15 seconds",
+      "2": "20% of Shields applied to you is also applied to your nearest ally for 15 seconds",
+      "3": "20% of Shields applied to you is also applied to your nearest ally for 15 seconds",
+      "4": "20% of Shields applied to you is also applied to your nearest ally for 15 seconds",
+      "5": "20% of Shields applied to you is also applied to your nearest ally for 15 seconds",
+      "6": "20% of Shields applied to you is also applied to your nearest ally for 15 seconds"
+    }
+  },
+  "inertia": {
+    "id": "inertia",
+    "name": "Inertia",
+    "type": "alacrity",
+    "description": "After sprinting for 4 seconds, your next attack within 2 seconds be a Critical Hit",
+    "icon": "/assets/icons/perks/Inertia.png",
+    "tiers": {
+      "1": "After sprinting for 4 seconds, your next attack within 2 seconds be a Critical Hit",
+      "2": "After sprinting for 4 seconds, your next attack within 2 seconds be a Critical Hit",
+      "3": "After sprinting for 4 seconds, your next attack within 2 seconds be a Critical Hit",
+      "4": "After sprinting for 4 seconds, your next attack within 2 seconds be a Critical Hit",
+      "5": "After sprinting for 4 seconds, your next attack within 2 seconds be a Critical Hit",
+      "6": "After sprinting for 4 seconds, your next attack within 2 seconds be a Critical Hit"
+    }
+  },
+  "insulated": {
+    "id": "insulated",
+    "name": "Insulated",
+    "type": "insight",
+    "description": "Immune to Shocked status.",
+    "icon": "/assets/icons/perks/Insulated.png",
+    "tiers": {
+      "1": "Immune to Shocked status.",
+      "2": "Immune to Shocked status.",
+      "3": "Immune to Shocked status.",
+      "4": "Immune to Shocked status.",
+      "5": "Immune to Shocked status.",
+      "6": "Immune to Shocked status."
+    }
+  },
+  "iron_stomach": {
+    "id": "iron_stomach",
+    "name": "Iron Stomach",
+    "type": "fortitude",
+    "description": "Gain 2 temp DEFENSE after drinking a healing Flask.",
+    "icon": "/assets/icons/perks/IronStomach.png",
+    "tiers": {
+      "1": "Gain 2 temp DEFENSE after drinking a healing Flask.",
+      "2": "Gain 2 temp DEFENSE after drinking a healing Flask.",
+      "3": "Gain 2 temp DEFENSE after drinking a healing Flask.",
+      "4": "Gain 2 temp DEFENSE after drinking a healing Flask.",
+      "5": "Gain 2 temp DEFENSE after drinking a healing Flask.",
+      "6": "Gain 2 temp DEFENSE after drinking a healing Flask."
+    }
+  },
+  "knockout_king": {
+    "id": "knockout_king",
+    "name": "Knockout King",
+    "type": "brutality",
+    "description": "Deal 30% increased Stagger Damage",
+    "icon": "/assets/icons/perks/KnockoutKing.png",
+    "tiers": {
+      "1": "Deal 30% increased Stagger Damage",
+      "2": "Deal 30% increased Stagger Damage",
+      "3": "Deal 30% increased Stagger Damage",
+      "4": "Deal 30% increased Stagger Damage",
+      "5": "Deal 30% increased Stagger Damage",
+      "6": "Deal 30% increased Stagger Damage"
+    }
+  },
+  "lucent": {
+    "id": "lucent",
+    "name": "Lucent",
+    "type": "insight",
+    "description": "Your flask heals over 20 seconds but for 20% increased healing. It also gives this healing to nearby slayers each tick.",
+    "icon": "/assets/icons/perks/Lucent.png",
+    "tiers": {
+      "1": "Your flask heals over 20 seconds but for 20% increased healing. It also gives this healing to nearby slayers each tick.",
+      "2": "Your flask heals over 20 seconds but for 20% increased healing. It also gives this healing to nearby slayers each tick.",
+      "3": "Your flask heals over 20 seconds but for 20% increased healing. It also gives this healing to nearby slayers each tick.",
+      "4": "Your flask heals over 20 seconds but for 20% increased healing. It also gives this healing to nearby slayers each tick.",
+      "5": "Your flask heals over 20 seconds but for 20% increased healing. It also gives this healing to nearby slayers each tick.",
+      "6": "Your flask heals over 20 seconds but for 20% increased healing. It also gives this healing to nearby slayers each tick."
+    }
+  },
+  "medic": {
+    "id": "medic",
+    "name": "Medic",
+    "type": "insight",
+    "description": "When reviving an ally, they are healed an additional 40%. Increases Revive speed by 66%",
+    "icon": "/assets/icons/perks/Medic.png",
+    "tiers": {
+      "1": "When reviving an ally, they are healed an additional 40%. Increases Revive speed by 66%",
+      "2": "When reviving an ally, they are healed an additional 40%. Increases Revive speed by 66%",
+      "3": "When reviving an ally, they are healed an additional 40%. Increases Revive speed by 66%",
+      "4": "When reviving an ally, they are healed an additional 40%. Increases Revive speed by 66%",
+      "5": "When reviving an ally, they are healed an additional 40%. Increases Revive speed by 66%",
+      "6": "When reviving an ally, they are healed an additional 40%. Increases Revive speed by 66%"
+    }
+  },
+  "merciless": {
+    "id": "merciless",
+    "name": "Merciless",
+    "type": "finesse",
+    "description": "Add 100 wound damage to attacks against staggered behemoths. Increases the duration of wounds by 40%",
+    "icon": "/assets/icons/perks/Merciless.png",
+    "tiers": {
+      "1": "Add 100 wound damage to attacks against staggered behemoths. Increases the duration of wounds by 40%",
+      "2": "Add 100 wound damage to attacks against staggered behemoths. Increases the duration of wounds by 40%",
+      "3": "Add 100 wound damage to attacks against staggered behemoths. Increases the duration of wounds by 40%",
+      "4": "Add 100 wound damage to attacks against staggered behemoths. Increases the duration of wounds by 40%",
+      "5": "Add 100 wound damage to attacks against staggered behemoths. Increases the duration of wounds by 40%",
+      "6": "Add 100 wound damage to attacks against staggered behemoths. Increases the duration of wounds by 40%"
+    }
+  },
+  "molten": {
+    "id": "molten",
+    "name": "Molten",
+    "type": "insight",
+    "description": "Dealing damage generates a Molten Heart on a 35 second cooldown. They grant immunity to burning and give 1 stack of SPEED. Cannot be collected while at max SPEED.",
+    "icon": "/assets/icons/perks/Molten.png",
+    "tiers": {
+      "1": "Dealing damage generates a Molten Heart on a 35 second cooldown. They grant immunity to burning and give 1 stack of SPEED. Cannot be collected while at max SPEED.",
+      "2": "Dealing damage generates a Molten Heart on a 35 second cooldown. They grant immunity to burning and give 1 stack of SPEED. Cannot be collected while at max SPEED.",
+      "3": "Dealing damage generates a Molten Heart on a 35 second cooldown. They grant immunity to burning and give 1 stack of SPEED. Cannot be collected while at max SPEED.",
+      "4": "Dealing damage generates a Molten Heart on a 35 second cooldown. They grant immunity to burning and give 1 stack of SPEED. Cannot be collected while at max SPEED.",
+      "5": "Dealing damage generates a Molten Heart on a 35 second cooldown. They grant immunity to burning and give 1 stack of SPEED. Cannot be collected while at max SPEED.",
+      "6": "Dealing damage generates a Molten Heart on a 35 second cooldown. They grant immunity to burning and give 1 stack of SPEED. Cannot be collected while at max SPEED."
+    }
+  },
+  "nimble": {
+    "id": "nimble",
+    "name": "Nimble",
+    "type": "alacrity",
+    "description": "After dodging through an attack, gain 30 stamina.",
+    "icon": "/assets/icons/perks/Nimble.png",
+    "tiers": {
+      "1": "After dodging through an attack, gain 30 stamina.",
+      "2": "After dodging through an attack, gain 30 stamina.",
+      "3": "After dodging through an attack, gain 30 stamina.",
+      "4": "After dodging through an attack, gain 30 stamina.",
+      "5": "After dodging through an attack, gain 30 stamina.",
+      "6": "After dodging through an attack, gain 30 stamina."
+    }
+  },
+  "nine_lives": {
+    "id": "nine_lives",
+    "name": "Nine Lives",
+    "type": "fortitude",
+    "description": "10% chance to half incoming damage. If you would be knocked out, stay up and heal for 400, 5 min cooldown.",
+    "icon": "/assets/icons/perks/NineLives.png",
+    "tiers": {
+      "1": "10% chance to half incoming damage. If you would be knocked out, stay up and heal for 400, 5 min cooldown.",
+      "2": "10% chance to half incoming damage. If you would be knocked out, stay up and heal for 400, 5 min cooldown.",
+      "3": "10% chance to half incoming damage. If you would be knocked out, stay up and heal for 400, 5 min cooldown.",
+      "4": "10% chance to half incoming damage. If you would be knocked out, stay up and heal for 400, 5 min cooldown.",
+      "5": "10% chance to half incoming damage. If you would be knocked out, stay up and heal for 400, 5 min cooldown.",
+      "6": "10% chance to half incoming damage. If you would be knocked out, stay up and heal for 400, 5 min cooldown."
+    }
+  },
+  "overpower": {
+    "id": "overpower",
+    "name": "Overpower",
+    "type": "brutality",
+    "description": "When a behemoth is staggered, gain 3 temporary MIGHT.",
+    "icon": "/assets/icons/perks/Overpower.png",
+    "tiers": {
+      "1": "When a behemoth is staggered, gain 3 temporary MIGHT.",
+      "2": "When a behemoth is staggered, gain 3 temporary MIGHT.",
+      "3": "When a behemoth is staggered, gain 3 temporary MIGHT.",
+      "4": "When a behemoth is staggered, gain 3 temporary MIGHT.",
+      "5": "When a behemoth is staggered, gain 3 temporary MIGHT.",
+      "6": "When a behemoth is staggered, gain 3 temporary MIGHT."
+    }
+  },
+  "pacifier": {
+    "id": "pacifier",
+    "name": "Pacifier",
+    "type": "brutality",
+    "description": "Deal 60% increased stagger damage vs. Enraged Behemoths",
+    "icon": "/assets/icons/perks/Pacifier.png",
+    "tiers": {
+      "1": "Deal 60% increased stagger damage vs. Enraged Behemoths",
+      "2": "Deal 60% increased stagger damage vs. Enraged Behemoths",
+      "3": "Deal 60% increased stagger damage vs. Enraged Behemoths",
+      "4": "Deal 60% increased stagger damage vs. Enraged Behemoths",
+      "5": "Deal 60% increased stagger damage vs. Enraged Behemoths",
+      "6": "Deal 60% increased stagger damage vs. Enraged Behemoths"
+    }
+  },
+  "pack_caller": {
+    "id": "pack_caller",
+    "name": "Pack Caller",
+    "type": "insight",
+    "description": "Spawn 1 Chaox when a Behemoth part is broken.",
+    "icon": "/assets/icons/perks/PackCaller.png",
+    "tiers": {
+      "1": "Spawn 1 Chaox when a Behemoth part is broken.",
+      "2": "Spawn 1 Chaox when a Behemoth part is broken.",
+      "3": "Spawn 1 Chaox when a Behemoth part is broken.",
+      "4": "Spawn 1 Chaox when a Behemoth part is broken.",
+      "5": "Spawn 1 Chaox when a Behemoth part is broken.",
+      "6": "Spawn 1 Chaox when a Behemoth part is broken."
+    }
+  },
+  "pack_hunter": {
+    "id": "pack_hunter",
+    "name": "Pack Hunter",
+    "type": "brutality",
+    "description": "Gain 1 stack of temp MIGHT and one stack of temp DEFENSE after killing a Creature.",
+    "icon": "/assets/icons/perks/PackHunter.png",
+    "tiers": {
+      "1": "Gain 1 stack of temp MIGHT and one stack of temp DEFENSE after killing a Creature.",
+      "2": "Gain 1 stack of temp MIGHT and one stack of temp DEFENSE after killing a Creature.",
+      "3": "Gain 1 stack of temp MIGHT and one stack of temp DEFENSE after killing a Creature.",
+      "4": "Gain 1 stack of temp MIGHT and one stack of temp DEFENSE after killing a Creature.",
+      "5": "Gain 1 stack of temp MIGHT and one stack of temp DEFENSE after killing a Creature.",
+      "6": "Gain 1 stack of temp MIGHT and one stack of temp DEFENSE after killing a Creature."
+    }
+  },
+  "pack_walker": {
+    "id": "pack_walker",
+    "name": "Pack Walker",
+    "type": "alacrity",
+    "description": "Gain 3 stacks of permanent SPEED while near a Creature. This is lost when too far away from a Creature.",
+    "icon": "/assets/icons/perks/PackWalker.png",
+    "tiers": {
+      "1": "Gain 3 stacks of permanent SPEED while near a Creature. This is lost when too far away from a Creature.",
+      "2": "Gain 3 stacks of permanent SPEED while near a Creature. This is lost when too far away from a Creature.",
+      "3": "Gain 3 stacks of permanent SPEED while near a Creature. This is lost when too far away from a Creature.",
+      "4": "Gain 3 stacks of permanent SPEED while near a Creature. This is lost when too far away from a Creature.",
+      "5": "Gain 3 stacks of permanent SPEED while near a Creature. This is lost when too far away from a Creature.",
+      "6": "Gain 3 stacks of permanent SPEED while near a Creature. This is lost when too far away from a Creature."
+    }
+  },
+  "parasitic": {
+    "id": "parasitic",
+    "name": "Parasitic",
+    "type": "fortitude",
+    "description": "When you take damage, 35% of it is delayed and instead dealt over 10 seconds. While you take delayed damage, gain 5% lifesteal. Does not apply to damage under 10% of your max HP.",
+    "icon": "/assets/icons/perks/Parasitic.png",
+    "tiers": {
+      "1": "When you take damage, 35% of it is delayed and instead dealt over 10 seconds. While you take delayed damage, gain 5% lifesteal. Does not apply to damage under 10% of your max HP.",
+      "2": "When you take damage, 35% of it is delayed and instead dealt over 10 seconds. While you take delayed damage, gain 5% lifesteal. Does not apply to damage under 10% of your max HP.",
+      "3": "When you take damage, 35% of it is delayed and instead dealt over 10 seconds. While you take delayed damage, gain 5% lifesteal. Does not apply to damage under 10% of your max HP.",
+      "4": "When you take damage, 35% of it is delayed and instead dealt over 10 seconds. While you take delayed damage, gain 5% lifesteal. Does not apply to damage under 10% of your max HP.",
+      "5": "When you take damage, 35% of it is delayed and instead dealt over 10 seconds. While you take delayed damage, gain 5% lifesteal. Does not apply to damage under 10% of your max HP.",
+      "6": "When you take damage, 35% of it is delayed and instead dealt over 10 seconds. While you take delayed damage, gain 5% lifesteal. Does not apply to damage under 10% of your max HP."
+    }
+  },
+  "predator": {
+    "id": "predator",
+    "name": "Predator",
+    "type": "finesse",
+    "description": "After not taking damage for 15 seconds, gain 3 permanent MIGHT. This is lost when you take damage.",
+    "icon": "/assets/icons/perks/Predator.png",
+    "tiers": {
+      "1": "After not taking damage for 15 seconds, gain 3 permanent MIGHT. This is lost when you take damage.",
+      "2": "After not taking damage for 15 seconds, gain 3 permanent MIGHT. This is lost when you take damage.",
+      "3": "After not taking damage for 15 seconds, gain 3 permanent MIGHT. This is lost when you take damage.",
+      "4": "After not taking damage for 15 seconds, gain 3 permanent MIGHT. This is lost when you take damage.",
+      "5": "After not taking damage for 15 seconds, gain 3 permanent MIGHT. This is lost when you take damage.",
+      "6": "After not taking damage for 15 seconds, gain 3 permanent MIGHT. This is lost when you take damage."
+    }
+  },
+  "pulse": {
+    "id": "pulse",
+    "name": "Pulse",
+    "type": "finesse",
+    "description": "Every 6th hit with your weapon is a Critical Strike",
+    "icon": "/assets/icons/perks/Pulse.png",
+    "tiers": {
+      "1": "Every 6th hit with your weapon is a Critical Strike",
+      "2": "Every 6th hit with your weapon is a Critical Strike",
+      "3": "Every 6th hit with your weapon is a Critical Strike",
+      "4": "Every 6th hit with your weapon is a Critical Strike",
+      "5": "Every 6th hit with your weapon is a Critical Strike",
+      "6": "Every 6th hit with your weapon is a Critical Strike"
+    }
+  },
+  "ragehunter": {
+    "id": "ragehunter",
+    "name": "Ragehunter",
+    "type": "brutality",
+    "description": "Gain 3 temp MIGHT when a Behemoth enters Rage.",
+    "icon": "/assets/icons/perks/Ragehunter.png",
+    "tiers": {
+      "1": "Gain 3 temp MIGHT when a Behemoth enters Rage.",
+      "2": "Gain 3 temp MIGHT when a Behemoth enters Rage.",
+      "3": "Gain 3 temp MIGHT when a Behemoth enters Rage.",
+      "4": "Gain 3 temp MIGHT when a Behemoth enters Rage.",
+      "5": "Gain 3 temp MIGHT when a Behemoth enters Rage.",
+      "6": "Gain 3 temp MIGHT when a Behemoth enters Rage."
+    }
+  },
+  "recycle": {
+    "id": "recycle",
+    "name": "Recycle",
+    "type": "brutality",
+    "description": "Dealing damage to the same part 5 times in a row grants you a stack of MIGHT.",
+    "icon": "/assets/icons/perks/Recycle.png",
+    "tiers": {
+      "1": "Dealing damage to the same part 5 times in a row grants you a stack of MIGHT.",
+      "2": "Dealing damage to the same part 5 times in a row grants you a stack of MIGHT.",
+      "3": "Dealing damage to the same part 5 times in a row grants you a stack of MIGHT.",
+      "4": "Dealing damage to the same part 5 times in a row grants you a stack of MIGHT.",
+      "5": "Dealing damage to the same part 5 times in a row grants you a stack of MIGHT.",
+      "6": "Dealing damage to the same part 5 times in a row grants you a stack of MIGHT."
+    }
+  },
+  "reduce": {
+    "id": "reduce",
+    "name": "Reduce",
+    "type": "brutality",
+    "description": "You gain 4 held stacks of MIGHT.\nYou gain 4 negative held stacks of SPEED.",
+    "icon": "/assets/icons/perks/Reduce.png",
+    "tiers": {
+      "1": "You gain 4 held stacks of MIGHT.\nYou gain 4 negative held stacks of SPEED.",
+      "2": "You gain 4 held stacks of MIGHT.\nYou gain 4 negative held stacks of SPEED.",
+      "3": "You gain 4 held stacks of MIGHT.\nYou gain 4 negative held stacks of SPEED.",
+      "4": "You gain 4 held stacks of MIGHT.\nYou gain 4 negative held stacks of SPEED.",
+      "5": "You gain 4 held stacks of MIGHT.\nYou gain 4 negative held stacks of SPEED.",
+      "6": "You gain 4 held stacks of MIGHT.\nYou gain 4 negative held stacks of SPEED."
+    }
+  },
+  "relentless": {
+    "id": "relentless",
+    "name": "Relentless",
+    "type": "finesse",
+    "description": "Increase the duration of your Aether Rush by 50%. Increases the effects of your Aether Rush by 100%",
+    "icon": "/assets/icons/perks/Relentless.png",
+    "tiers": {
+      "1": "Increase the duration of your Aether Rush by 50%. Increases the effects of your Aether Rush by 100%",
+      "2": "Increase the duration of your Aether Rush by 50%. Increases the effects of your Aether Rush by 100%",
+      "3": "Increase the duration of your Aether Rush by 50%. Increases the effects of your Aether Rush by 100%",
+      "4": "Increase the duration of your Aether Rush by 50%. Increases the effects of your Aether Rush by 100%",
+      "5": "Increase the duration of your Aether Rush by 50%. Increases the effects of your Aether Rush by 100%",
+      "6": "Increase the duration of your Aether Rush by 50%. Increases the effects of your Aether Rush by 100%"
+    }
+  },
+  "reuse": {
+    "id": "reuse",
+    "name": "Reuse",
+    "type": "finesse",
+    "description": "30% chance on breaking a Behemoth part to grant 2 stacks of SPEED to all allies and self. Else gain 2 stacks of SPEED yourself only.",
+    "icon": "/assets/icons/perks/Reuse.png",
+    "tiers": {
+      "1": "30% chance on breaking a Behemoth part to grant 2 stacks of SPEED to all allies and self. Else gain 2 stacks of SPEED yourself only.",
+      "2": "30% chance on breaking a Behemoth part to grant 2 stacks of SPEED to all allies and self. Else gain 2 stacks of SPEED yourself only.",
+      "3": "30% chance on breaking a Behemoth part to grant 2 stacks of SPEED to all allies and self. Else gain 2 stacks of SPEED yourself only.",
+      "4": "30% chance on breaking a Behemoth part to grant 2 stacks of SPEED to all allies and self. Else gain 2 stacks of SPEED yourself only.",
+      "5": "30% chance on breaking a Behemoth part to grant 2 stacks of SPEED to all allies and self. Else gain 2 stacks of SPEED yourself only.",
+      "6": "30% chance on breaking a Behemoth part to grant 2 stacks of SPEED to all allies and self. Else gain 2 stacks of SPEED yourself only."
+    }
+  },
+  "roll": {
+    "id": "roll",
+    "name": "Roll",
+    "type": "alacrity",
+    "description": "Staggering a Behemoth grants you 5 temporary ENDURANCE stacks.",
+    "icon": "/assets/icons/perks/Roll.png",
+    "tiers": {
+      "1": "Staggering a Behemoth grants you 5 temporary ENDURANCE stacks.",
+      "2": "Staggering a Behemoth grants you 5 temporary ENDURANCE stacks.",
+      "3": "Staggering a Behemoth grants you 5 temporary ENDURANCE stacks.",
+      "4": "Staggering a Behemoth grants you 5 temporary ENDURANCE stacks.",
+      "5": "Staggering a Behemoth grants you 5 temporary ENDURANCE stacks.",
+      "6": "Staggering a Behemoth grants you 5 temporary ENDURANCE stacks."
+    }
+  },
+  "rushdown": {
+    "id": "rushdown",
+    "name": "Rushdown",
+    "type": "alacrity",
+    "description": "Interrupting a Behemoth restores 100% of maximum stamina and grants 3 temporary stacks of SPEED.",
+    "icon": "/assets/icons/perks/Rushdown.png",
+    "tiers": {
+      "1": "Interrupting a Behemoth restores 100% of maximum stamina and grants 3 temporary stacks of SPEED.",
+      "2": "Interrupting a Behemoth restores 100% of maximum stamina and grants 3 temporary stacks of SPEED.",
+      "3": "Interrupting a Behemoth restores 100% of maximum stamina and grants 3 temporary stacks of SPEED.",
+      "4": "Interrupting a Behemoth restores 100% of maximum stamina and grants 3 temporary stacks of SPEED.",
+      "5": "Interrupting a Behemoth restores 100% of maximum stamina and grants 3 temporary stacks of SPEED.",
+      "6": "Interrupting a Behemoth restores 100% of maximum stamina and grants 3 temporary stacks of SPEED."
+    }
+  },
+  "savagery": {
+    "id": "savagery",
+    "name": "Savagery",
+    "type": "finesse",
+    "description": "Deal 50% increased damage to Wounded parts.",
+    "icon": "/assets/icons/perks/Savagery.png",
+    "tiers": {
+      "1": "Deal 50% increased damage to Wounded parts.",
+      "2": "Deal 50% increased damage to Wounded parts.",
+      "3": "Deal 50% increased damage to Wounded parts.",
+      "4": "Deal 50% increased damage to Wounded parts.",
+      "5": "Deal 50% increased damage to Wounded parts.",
+      "6": "Deal 50% increased damage to Wounded parts."
+    }
+  },
+  "sharpened": {
+    "id": "sharpened",
+    "name": "Sharpened",
+    "type": "brutality",
+    "description": "Deal 30% increased damage to unbroken parts.",
+    "icon": "/assets/icons/perks/Sharpened.png",
+    "tiers": {
+      "1": "Deal 30% increased damage to unbroken parts.",
+      "2": "Deal 30% increased damage to unbroken parts.",
+      "3": "Deal 30% increased damage to unbroken parts.",
+      "4": "Deal 30% increased damage to unbroken parts.",
+      "5": "Deal 30% increased damage to unbroken parts.",
+      "6": "Deal 30% increased damage to unbroken parts."
+    }
+  },
+  "sprinter": {
+    "id": "sprinter",
+    "name": "Sprinter",
+    "type": "alacrity",
+    "description": "Gain 1 permanent stack of SPEED. Cost of sprinting is reduced by 35%.",
+    "icon": "/assets/icons/perks/Sprinter.png",
+    "tiers": {
+      "1": "Gain 1 permanent stack of SPEED. Cost of sprinting is reduced by 35%.",
+      "2": "Gain 1 permanent stack of SPEED. Cost of sprinting is reduced by 35%.",
+      "3": "Gain 1 permanent stack of SPEED. Cost of sprinting is reduced by 35%.",
+      "4": "Gain 1 permanent stack of SPEED. Cost of sprinting is reduced by 35%.",
+      "5": "Gain 1 permanent stack of SPEED. Cost of sprinting is reduced by 35%.",
+      "6": "Gain 1 permanent stack of SPEED. Cost of sprinting is reduced by 35%."
+    }
+  },
+  "stop": {
+    "id": "stop",
+    "name": "Stop",
+    "type": "brutality",
+    "description": "Dodging through a Behemoth's physical attack deals 250 stagger damage to its head.",
+    "icon": "/assets/icons/perks/Stop.png",
+    "tiers": {
+      "1": "Dodging through a Behemoth's physical attack deals 250 stagger damage to its head.",
+      "2": "Dodging through a Behemoth's physical attack deals 250 stagger damage to its head.",
+      "3": "Dodging through a Behemoth's physical attack deals 250 stagger damage to its head.",
+      "4": "Dodging through a Behemoth's physical attack deals 250 stagger damage to its head.",
+      "5": "Dodging through a Behemoth's physical attack deals 250 stagger damage to its head.",
+      "6": "Dodging through a Behemoth's physical attack deals 250 stagger damage to its head."
+    }
+  },
+  "strategist": {
+    "id": "strategist",
+    "name": "Strategist",
+    "type": "fortitude",
+    "description": "After dodging through an attack, grant a 100 health shield to all Slayers. Stacks up to 500 shield.",
+    "icon": "/assets/icons/perks/Strategist.png",
+    "tiers": {
+      "1": "After dodging through an attack, grant a 100 health shield to all Slayers. Stacks up to 500 shield.",
+      "2": "After dodging through an attack, grant a 100 health shield to all Slayers. Stacks up to 500 shield.",
+      "3": "After dodging through an attack, grant a 100 health shield to all Slayers. Stacks up to 500 shield.",
+      "4": "After dodging through an attack, grant a 100 health shield to all Slayers. Stacks up to 500 shield.",
+      "5": "After dodging through an attack, grant a 100 health shield to all Slayers. Stacks up to 500 shield.",
+      "6": "After dodging through an attack, grant a 100 health shield to all Slayers. Stacks up to 500 shield."
+    }
+  },
+  "stunning_vigour": {
+    "id": "stunning_vigour",
+    "name": "Stunning Vigour",
+    "type": "fortitude",
+    "description": "Heal for 200 whenever a Behemoth is Staggered.",
+    "icon": "/assets/icons/perks/StunningVigour.png",
+    "tiers": {
+      "1": "Heal for 200 whenever a Behemoth is Staggered.",
+      "2": "Heal for 200 whenever a Behemoth is Staggered.",
+      "3": "Heal for 200 whenever a Behemoth is Staggered.",
+      "4": "Heal for 200 whenever a Behemoth is Staggered.",
+      "5": "Heal for 200 whenever a Behemoth is Staggered.",
+      "6": "Heal for 200 whenever a Behemoth is Staggered."
+    }
+  },
+  "sturdy": {
+    "id": "sturdy",
+    "name": "Sturdy",
+    "type": "insight",
+    "description": "Prevents you from being staggered on a 10 second cooldown.",
+    "icon": "/assets/icons/perks/Sturdy.png",
+    "tiers": {
+      "1": "Prevents you from being staggered on a 10 second cooldown.",
+      "2": "Prevents you from being staggered on a 10 second cooldown.",
+      "3": "Prevents you from being staggered on a 10 second cooldown.",
+      "4": "Prevents you from being staggered on a 10 second cooldown.",
+      "5": "Prevents you from being staggered on a 10 second cooldown.",
+      "6": "Prevents you from being staggered on a 10 second cooldown."
+    }
+  },
+  "swift": {
+    "id": "swift",
+    "name": "Swift",
+    "type": "alacrity",
+    "description": "While sheathed, you have 6 permanent SPEED. These stacks are lost when unsheathed.",
+    "icon": "/assets/icons/perks/Swift.png",
+    "tiers": {
+      "1": "While sheathed, you have 6 permanent SPEED. These stacks are lost when unsheathed.",
+      "2": "While sheathed, you have 6 permanent SPEED. These stacks are lost when unsheathed.",
+      "3": "While sheathed, you have 6 permanent SPEED. These stacks are lost when unsheathed.",
+      "4": "While sheathed, you have 6 permanent SPEED. These stacks are lost when unsheathed.",
+      "5": "While sheathed, you have 6 permanent SPEED. These stacks are lost when unsheathed.",
+      "6": "While sheathed, you have 6 permanent SPEED. These stacks are lost when unsheathed."
+    }
+  },
+  "tactician": {
+    "id": "tactician",
+    "name": "Tactician",
+    "type": "finesse",
+    "description": "After dodging through an attack, all nearby slayers gain +100% wound damage based on their core damage for their next hit.",
+    "icon": "/assets/icons/perks/Tactician.png",
+    "tiers": {
+      "1": "After dodging through an attack, all nearby slayers gain +100% wound damage based on their core damage for their next hit.",
+      "2": "After dodging through an attack, all nearby slayers gain +100% wound damage based on their core damage for their next hit.",
+      "3": "After dodging through an attack, all nearby slayers gain +100% wound damage based on their core damage for their next hit.",
+      "4": "After dodging through an attack, all nearby slayers gain +100% wound damage based on their core damage for their next hit.",
+      "5": "After dodging through an attack, all nearby slayers gain +100% wound damage based on their core damage for their next hit.",
+      "6": "After dodging through an attack, all nearby slayers gain +100% wound damage based on their core damage for their next hit."
+    }
+  },
+  "tenacious": {
+    "id": "tenacious",
+    "name": "Tenacious",
+    "type": "brutality",
+    "description": "For every 400 HP you currently have, you have 1 Permanent MIGHT.",
+    "icon": "/assets/icons/perks/Tenacious.png",
+    "tiers": {
+      "1": "For every 400 HP you currently have, you have 1 Permanent MIGHT.",
+      "2": "For every 400 HP you currently have, you have 1 Permanent MIGHT.",
+      "3": "For every 400 HP you currently have, you have 1 Permanent MIGHT.",
+      "4": "For every 400 HP you currently have, you have 1 Permanent MIGHT.",
+      "5": "For every 400 HP you currently have, you have 1 Permanent MIGHT.",
+      "6": "For every 400 HP you currently have, you have 1 Permanent MIGHT."
+    }
+  },
+  "tough": {
+    "id": "tough",
+    "name": "Tough",
+    "type": "fortitude",
+    "description": "You have 4 Permanent stacks of VITALITY",
+    "icon": "/assets/icons/perks/Tough.png",
+    "tiers": {
+      "1": "You have 4 Permanent stacks of VITALITY",
+      "2": "You have 4 Permanent stacks of VITALITY",
+      "3": "You have 4 Permanent stacks of VITALITY",
+      "4": "You have 4 Permanent stacks of VITALITY",
+      "5": "You have 4 Permanent stacks of VITALITY",
+      "6": "You have 4 Permanent stacks of VITALITY"
+    }
+  },
+  "vampiric": {
+    "id": "vampiric",
+    "name": "Vampiric",
+    "type": "fortitude",
+    "description": "Heal for 300 whenever a Behemoth is wounded",
+    "icon": "/assets/icons/perks/Vampiric.png",
+    "tiers": {
+      "1": "Heal for 300 whenever a Behemoth is wounded",
+      "2": "Heal for 300 whenever a Behemoth is wounded",
+      "3": "Heal for 300 whenever a Behemoth is wounded",
+      "4": "Heal for 300 whenever a Behemoth is wounded",
+      "5": "Heal for 300 whenever a Behemoth is wounded",
+      "6": "Heal for 300 whenever a Behemoth is wounded"
+    }
+  },
+  "warmth": {
+    "id": "warmth",
+    "name": "Warmth",
+    "type": "insight",
+    "description": "Immune to Chilled status.",
+    "icon": "/assets/icons/perks/Warmth.png",
+    "tiers": {
+      "1": "Immune to Chilled status.",
+      "2": "Immune to Chilled status.",
+      "3": "Immune to Chilled status.",
+      "4": "Immune to Chilled status.",
+      "5": "Immune to Chilled status.",
+      "6": "Immune to Chilled status."
+    }
+  },
+  "water": {
+    "id": "water",
+    "name": "Water",
+    "type": "insight",
+    "description": "After dodging through a Behemoth attack, you will be immune to stagger and take 100% less damage from the next Behemoth attack within the next 45 seconds.",
+    "icon": "/assets/icons/perks/Water.png",
+    "tiers": {
+      "1": "After dodging through a Behemoth attack, you will be immune to stagger and take 100% less damage from the next Behemoth attack within the next 45 seconds.",
+      "2": "After dodging through a Behemoth attack, you will be immune to stagger and take 100% less damage from the next Behemoth attack within the next 45 seconds.",
+      "3": "After dodging through a Behemoth attack, you will be immune to stagger and take 100% less damage from the next Behemoth attack within the next 45 seconds.",
+      "4": "After dodging through a Behemoth attack, you will be immune to stagger and take 100% less damage from the next Behemoth attack within the next 45 seconds.",
+      "5": "After dodging through a Behemoth attack, you will be immune to stagger and take 100% less damage from the next Behemoth attack within the next 45 seconds.",
+      "6": "After dodging through a Behemoth attack, you will be immune to stagger and take 100% less damage from the next Behemoth attack within the next 45 seconds."
+    }
+  },
+  "weighted_strikes": {
+    "id": "weighted_strikes",
+    "name": "Weighted Strikes",
+    "type": "brutality",
+    "description": "After dodging through an attack, your next attack deals +200 stagger damage. Ranged swings and missiles can interrupt behemoth attacks.",
+    "icon": "/assets/icons/perks/WeightedStrikes.png",
+    "tiers": {
+      "1": "After dodging through an attack, your next attack deals +200 stagger damage. Ranged swings and missiles can interrupt behemoth attacks.",
+      "2": "After dodging through an attack, your next attack deals +200 stagger damage. Ranged swings and missiles can interrupt behemoth attacks.",
+      "3": "After dodging through an attack, your next attack deals +200 stagger damage. Ranged swings and missiles can interrupt behemoth attacks.",
+      "4": "After dodging through an attack, your next attack deals +200 stagger damage. Ranged swings and missiles can interrupt behemoth attacks.",
+      "5": "After dodging through an attack, your next attack deals +200 stagger damage. Ranged swings and missiles can interrupt behemoth attacks.",
+      "6": "After dodging through an attack, your next attack deals +200 stagger damage. Ranged swings and missiles can interrupt behemoth attacks."
+    }
+  },
+  "focus": {
+    "id": "focus",
+    "name": "Focus",
+    "type": "insight",
+    "description": "Reduce the cooldown of your Lantern Core ability by 20%.",
+    "icon": "/assets/icons/perks/Focus.png",
+    "tiers": {
+      "1": "Reduce the cooldown of your Lantern Core ability by 20%.",
+      "2": "Reduce the cooldown of your Lantern Core ability by 20%.",
+      "3": "Reduce the cooldown of your Lantern Core ability by 20%.",
+      "4": "Reduce the cooldown of your Lantern Core ability by 20%.",
+      "5": "Reduce the cooldown of your Lantern Core ability by 20%.",
+      "6": "Reduce the cooldown of your Lantern Core ability by 20%."
+    }
+  }
+}

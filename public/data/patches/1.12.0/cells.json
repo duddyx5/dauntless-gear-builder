@@ -1,0 +1,2279 @@
+[
+  {
+    "id": "adrenaline_cell",
+    "name": "Adrenaline Cell",
+    "slot": "alacrity",
+    "slotName": "Alacrity",
+    "icon": "/assets/icons/cells/alacrity/AdrenalineCell.png",
+    "variants": [
+      {
+        "name": "+1 Adrenaline Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "adrenaline",
+        "perkName": "Adrenaline",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Adrenaline Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "adrenaline",
+        "perkName": "Adrenaline",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Adrenaline Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "adrenaline",
+        "perkName": "Adrenaline",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "agility_cell",
+    "name": "Agility Cell",
+    "slot": "alacrity",
+    "slotName": "Alacrity",
+    "icon": "/assets/icons/cells/alacrity/AgilityCell.png",
+    "variants": [
+      {
+        "name": "+1 Agility Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "agility",
+        "perkName": "Agility",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Agility Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "agility",
+        "perkName": "Agility",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Agility Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "agility",
+        "perkName": "Agility",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "assassin_s_frenzy_cell",
+    "name": "Assassin's Frenzy Cell",
+    "slot": "alacrity",
+    "slotName": "Alacrity",
+    "icon": "/assets/icons/cells/alacrity/Assassin'sFrenzyCell.png",
+    "variants": [
+      {
+        "name": "+1 Assassin's Frenzy Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "assassin_s_frenzy",
+        "perkName": "Assassin's Frenzy",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Assassin's Frenzy Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "assassin_s_frenzy",
+        "perkName": "Assassin's Frenzy",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Assassin's Frenzy Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "assassin_s_frenzy",
+        "perkName": "Assassin's Frenzy",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "conditioning_cell",
+    "name": "Conditioning Cell",
+    "slot": "alacrity",
+    "slotName": "Alacrity",
+    "icon": "/assets/icons/cells/alacrity/ConditioningCell.png",
+    "variants": [
+      {
+        "name": "+1 Conditioning Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "conditioning",
+        "perkName": "Conditioning",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Conditioning Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "conditioning",
+        "perkName": "Conditioning",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Conditioning Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "conditioning",
+        "perkName": "Conditioning",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "endurance_cell",
+    "name": "Endurance Cell",
+    "slot": "alacrity",
+    "slotName": "Alacrity",
+    "icon": "/assets/icons/cells/alacrity/EnduranceCell.png",
+    "variants": [
+      {
+        "name": "+1 Endurance Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "endurance",
+        "perkName": "Endurance",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Endurance Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "endurance",
+        "perkName": "Endurance",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Endurance Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "endurance",
+        "perkName": "Endurance",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "evasion_cell",
+    "name": "Evasion Cell",
+    "slot": "alacrity",
+    "slotName": "Alacrity",
+    "icon": "/assets/icons/cells/alacrity/EvasionCell.png",
+    "variants": [
+      {
+        "name": "+1 Evasion Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "evasion",
+        "perkName": "Evasion",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Evasion Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "evasion",
+        "perkName": "Evasion",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Evasion Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "evasion",
+        "perkName": "Evasion",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "evasive_fury_cell",
+    "name": "Evasive Fury Cell",
+    "slot": "alacrity",
+    "slotName": "Alacrity",
+    "icon": "/assets/icons/cells/alacrity/EvasiveFuryCell.png",
+    "variants": [
+      {
+        "name": "+1 Evasive Fury Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "evasive_fury",
+        "perkName": "Evasive Fury",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Evasive Fury Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "evasive_fury",
+        "perkName": "Evasive Fury",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Evasive Fury Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "evasive_fury",
+        "perkName": "Evasive Fury",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "fleet_footed_cell",
+    "name": "Fleet Footed Cell",
+    "slot": "alacrity",
+    "slotName": "Alacrity",
+    "icon": "/assets/icons/cells/alacrity/FleetFootedCell.png",
+    "variants": [
+      {
+        "name": "+1 Fleet Footed Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "fleet_footed",
+        "perkName": "Fleet Footed",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Fleet Footed Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "fleet_footed",
+        "perkName": "Fleet Footed",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Fleet Footed Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "fleet_footed",
+        "perkName": "Fleet Footed",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "grace_cell",
+    "name": "Grace Cell",
+    "slot": "alacrity",
+    "slotName": "Alacrity",
+    "icon": "/assets/icons/cells/alacrity/GraceCell.png",
+    "variants": [
+      {
+        "name": "+1 Grace Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "grace",
+        "perkName": "Grace",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Grace Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "grace",
+        "perkName": "Grace",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Grace Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "grace",
+        "perkName": "Grace",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "invigorated_cell",
+    "name": "Invigorated Cell",
+    "slot": "alacrity",
+    "slotName": "Alacrity",
+    "icon": "/assets/icons/cells/alacrity/InvigoratedCell.png",
+    "variants": [
+      {
+        "name": "+1 Invigorated Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "invigorated",
+        "perkName": "Invigorated",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Invigorated Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "invigorated",
+        "perkName": "Invigorated",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Invigorated Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "invigorated",
+        "perkName": "Invigorated",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "nimble_cell",
+    "name": "Nimble Cell",
+    "slot": "alacrity",
+    "slotName": "Alacrity",
+    "icon": "/assets/icons/cells/alacrity/NimbleCell.png",
+    "variants": [
+      {
+        "name": "+1 Nimble Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "nimble",
+        "perkName": "Nimble",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Nimble Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "nimble",
+        "perkName": "Nimble",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Nimble Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "nimble",
+        "perkName": "Nimble",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "roll_cell",
+    "name": "Roll Cell",
+    "slot": "alacrity",
+    "slotName": "Alacrity",
+    "icon": "/assets/icons/cells/alacrity/RollCell.png",
+    "variants": [
+      {
+        "name": "+1 Roll Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "roll",
+        "perkName": "Roll",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Roll Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "roll",
+        "perkName": "Roll",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Roll Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "roll",
+        "perkName": "Roll",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "sprinter_cell",
+    "name": "Sprinter Cell",
+    "slot": "alacrity",
+    "slotName": "Alacrity",
+    "icon": "/assets/icons/cells/alacrity/SprinterCell.png",
+    "variants": [
+      {
+        "name": "+1 Sprinter Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "sprinter",
+        "perkName": "Sprinter",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Sprinter Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "sprinter",
+        "perkName": "Sprinter",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Sprinter Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "sprinter",
+        "perkName": "Sprinter",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "swift_cell",
+    "name": "Swift Cell",
+    "slot": "alacrity",
+    "slotName": "Alacrity",
+    "icon": "/assets/icons/cells/alacrity/SwiftCell.png",
+    "variants": [
+      {
+        "name": "+1 Swift Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "swift",
+        "perkName": "Swift",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Swift Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "swift",
+        "perkName": "Swift",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Swift Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "swift",
+        "perkName": "Swift",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "aetherhunter_cell",
+    "name": "Aetherhunter Cell",
+    "slot": "brutality",
+    "slotName": "Brutality",
+    "icon": "/assets/icons/cells/brutality/AetherhunterCell.png",
+    "variants": [
+      {
+        "name": "+1 Aetherhunter Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "aetherhunter",
+        "perkName": "Aetherhunter",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Aetherhunter Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "aetherhunter",
+        "perkName": "Aetherhunter",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Aetherhunter Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "aetherhunter",
+        "perkName": "Aetherhunter",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "berserker_cell",
+    "name": "Berserker Cell",
+    "slot": "brutality",
+    "slotName": "Brutality",
+    "icon": "/assets/icons/cells/brutality/BerserkerCell.png",
+    "variants": [
+      {
+        "name": "+1 Berserker Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "berserker",
+        "perkName": "Berserker",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Berserker Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "berserker",
+        "perkName": "Berserker",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Berserker Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "berserker",
+        "perkName": "Berserker",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "bladestorm_cell",
+    "name": "Bladestorm Cell",
+    "slot": "brutality",
+    "slotName": "Brutality",
+    "icon": "/assets/icons/cells/brutality/BladestormCell.png",
+    "variants": [
+      {
+        "name": "+1 Bladestorm Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "bladestorm",
+        "perkName": "Bladestorm",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Bladestorm Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "bladestorm",
+        "perkName": "Bladestorm",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Bladestorm Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "bladestorm",
+        "perkName": "Bladestorm",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "deconstruction_cell",
+    "name": "Deconstruction Cell",
+    "slot": "brutality",
+    "slotName": "Brutality",
+    "icon": "/assets/icons/cells/brutality/DeconstructionCell.png",
+    "variants": [
+      {
+        "name": "+1 Deconstruction Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "deconstruction",
+        "perkName": "Deconstruction",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Deconstruction Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "deconstruction",
+        "perkName": "Deconstruction",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Deconstruction Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "deconstruction",
+        "perkName": "Deconstruction",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "knockout_king_cell",
+    "name": "Knockout King Cell",
+    "slot": "brutality",
+    "slotName": "Brutality",
+    "icon": "/assets/icons/cells/brutality/KnockoutKingCell.png",
+    "variants": [
+      {
+        "name": "+1 Knockout King Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "knockout_king",
+        "perkName": "Knockout King",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Knockout King Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "knockout_king",
+        "perkName": "Knockout King",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Knockout King Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "knockout_king",
+        "perkName": "Knockout King",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "overpower_cell",
+    "name": "Overpower Cell",
+    "slot": "brutality",
+    "slotName": "Brutality",
+    "icon": "/assets/icons/cells/brutality/OverpowerCell.png",
+    "variants": [
+      {
+        "name": "+1 Overpower Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "overpower",
+        "perkName": "Overpower",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Overpower Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "overpower",
+        "perkName": "Overpower",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Overpower Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "overpower",
+        "perkName": "Overpower",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "pacifier_cell",
+    "name": "Pacifier Cell",
+    "slot": "brutality",
+    "slotName": "Brutality",
+    "icon": "/assets/icons/cells/brutality/PacifierCell.png",
+    "variants": [
+      {
+        "name": "+1 Pacifier Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "pacifier",
+        "perkName": "Pacifier",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Pacifier Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "pacifier",
+        "perkName": "Pacifier",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Pacifier Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "pacifier",
+        "perkName": "Pacifier",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "rage_cell",
+    "name": "Rage Cell",
+    "slot": "brutality",
+    "slotName": "Brutality",
+    "icon": "/assets/icons/cells/brutality/RageCell.png",
+    "variants": [
+      {
+        "name": "+1 Rage Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "rage",
+        "perkName": "Rage",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Rage Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "rage",
+        "perkName": "Rage",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Rage Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "rage",
+        "perkName": "Rage",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "ragehunter_cell",
+    "name": "Ragehunter Cell",
+    "slot": "brutality",
+    "slotName": "Brutality",
+    "icon": "/assets/icons/cells/brutality/RagehunterCell.png",
+    "variants": [
+      {
+        "name": "+1 Ragehunter Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "ragehunter",
+        "perkName": "Ragehunter",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Ragehunter Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "ragehunter",
+        "perkName": "Ragehunter",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Ragehunter Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "ragehunter",
+        "perkName": "Ragehunter",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "sharpened_cell",
+    "name": "Sharpened Cell",
+    "slot": "brutality",
+    "slotName": "Brutality",
+    "icon": "/assets/icons/cells/brutality/SharpenedCell.png",
+    "variants": [
+      {
+        "name": "+1 Sharpened Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "sharpened",
+        "perkName": "Sharpened",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Sharpened Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "sharpened",
+        "perkName": "Sharpened",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Sharpened Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "sharpened",
+        "perkName": "Sharpened",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "stop_cell",
+    "name": "Stop Cell",
+    "slot": "brutality",
+    "slotName": "Brutality",
+    "icon": "/assets/icons/cells/brutality/StopCell.png",
+    "variants": [
+      {
+        "name": "+1 Stop Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "stop",
+        "perkName": "Stop",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Stop Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "stop",
+        "perkName": "Stop",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Stop Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "stop",
+        "perkName": "Stop",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "tenacious_cell",
+    "name": "Tenacious Cell",
+    "slot": "brutality",
+    "slotName": "Brutality",
+    "icon": "/assets/icons/cells/brutality/TenaciousCell.png",
+    "variants": [
+      {
+        "name": "+1 Tenacious Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "tenacious",
+        "perkName": "Tenacious",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Tenacious Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "tenacious",
+        "perkName": "Tenacious",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Tenacious Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "tenacious",
+        "perkName": "Tenacious",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "weighted_strikes_cell",
+    "name": "Weighted Strikes Cell",
+    "slot": "brutality",
+    "slotName": "Brutality",
+    "icon": "/assets/icons/cells/brutality/WeightedStrikesCell.png",
+    "variants": [
+      {
+        "name": "+1 Weighted Strikes Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "weighted_strikes",
+        "perkName": "Weighted Strikes",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Weighted Strikes Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "weighted_strikes",
+        "perkName": "Weighted Strikes",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Weighted Strikes Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "weighted_strikes",
+        "perkName": "Weighted Strikes",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "acidic_cell",
+    "name": "Acidic Cell",
+    "slot": "finesse",
+    "slotName": "Finesse",
+    "icon": "/assets/icons/cells/finesse/AcidicCell.png",
+    "variants": [
+      {
+        "name": "+1 Acidic Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "acidic",
+        "perkName": "Acidic",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Acidic Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "acidic",
+        "perkName": "Acidic",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Acidic Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "acidic",
+        "perkName": "Acidic",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "barbed_cell",
+    "name": "Barbed Cell",
+    "slot": "finesse",
+    "slotName": "Finesse",
+    "icon": "/assets/icons/cells/finesse/BarbedCell.png",
+    "variants": [
+      {
+        "name": "+1 Barbed Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "barbed",
+        "perkName": "Barbed",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Barbed Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "barbed",
+        "perkName": "Barbed",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Barbed Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "barbed",
+        "perkName": "Barbed",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "cunning_cell",
+    "name": "Cunning Cell",
+    "slot": "finesse",
+    "slotName": "Finesse",
+    "icon": "/assets/icons/cells/finesse/CunningCell.png",
+    "variants": [
+      {
+        "name": "+1 Cunning Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "cunning",
+        "perkName": "Cunning",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Cunning Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "cunning",
+        "perkName": "Cunning",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Cunning Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "cunning",
+        "perkName": "Cunning",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "galvanized_cell",
+    "name": "Galvanized Cell",
+    "slot": "finesse",
+    "slotName": "Finesse",
+    "icon": "/assets/icons/cells/finesse/GalvanizedCell.png",
+    "variants": [
+      {
+        "name": "+1 Galvanized Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "galvanized",
+        "perkName": "Galvanized",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Galvanized Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "galvanized",
+        "perkName": "Galvanized",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Galvanized Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "galvanized",
+        "perkName": "Galvanized",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "merciless_cell",
+    "name": "Merciless Cell",
+    "slot": "finesse",
+    "slotName": "Finesse",
+    "icon": "/assets/icons/cells/finesse/MercilessCell.png",
+    "variants": [
+      {
+        "name": "+1 Merciless Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "merciless",
+        "perkName": "Merciless",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Merciless Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "merciless",
+        "perkName": "Merciless",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Merciless Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "merciless",
+        "perkName": "Merciless",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "predator_cell",
+    "name": "Predator Cell",
+    "slot": "finesse",
+    "slotName": "Finesse",
+    "icon": "/assets/icons/cells/finesse/PredatorCell.png",
+    "variants": [
+      {
+        "name": "+1 Predator Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "predator",
+        "perkName": "Predator",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Predator Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "predator",
+        "perkName": "Predator",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Predator Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "predator",
+        "perkName": "Predator",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "pulse_cell",
+    "name": "Pulse Cell",
+    "slot": "finesse",
+    "slotName": "Finesse",
+    "icon": "/assets/icons/cells/finesse/PulseCell.png",
+    "variants": [
+      {
+        "name": "+1 Pulse Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "pulse",
+        "perkName": "Pulse",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Pulse Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "pulse",
+        "perkName": "Pulse",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Pulse Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "pulse",
+        "perkName": "Pulse",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "relentless_cell",
+    "name": "Relentless Cell",
+    "slot": "finesse",
+    "slotName": "Finesse",
+    "icon": "/assets/icons/cells/finesse/RelentlessCell.png",
+    "variants": [
+      {
+        "name": "+1 Relentless Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "relentless",
+        "perkName": "Relentless",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Relentless Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "relentless",
+        "perkName": "Relentless",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Relentless Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "relentless",
+        "perkName": "Relentless",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "rushdown_cell",
+    "name": "Rushdown Cell",
+    "slot": "finesse",
+    "slotName": "Finesse",
+    "icon": "/assets/icons/cells/finesse/RushdownCell.png",
+    "variants": [
+      {
+        "name": "+1 Rushdown Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "rushdown",
+        "perkName": "Rushdown",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Rushdown Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "rushdown",
+        "perkName": "Rushdown",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Rushdown Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "rushdown",
+        "perkName": "Rushdown",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "savagery_cell",
+    "name": "Savagery Cell",
+    "slot": "finesse",
+    "slotName": "Finesse",
+    "icon": "/assets/icons/cells/finesse/SavageryCell.png",
+    "variants": [
+      {
+        "name": "+1 Savagery Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "savagery",
+        "perkName": "Savagery",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Savagery Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "savagery",
+        "perkName": "Savagery",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Savagery Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "savagery",
+        "perkName": "Savagery",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "tactician_cell",
+    "name": "Tactician Cell",
+    "slot": "finesse",
+    "slotName": "Finesse",
+    "icon": "/assets/icons/cells/finesse/TacticianCell.png",
+    "variants": [
+      {
+        "name": "+1 Tactician Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "tactician",
+        "perkName": "Tactician",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Tactician Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "tactician",
+        "perkName": "Tactician",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Tactician Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "tactician",
+        "perkName": "Tactician",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "aegis_cell",
+    "name": "Aegis Cell",
+    "slot": "fortitude",
+    "slotName": "Fortitude",
+    "icon": "/assets/icons/cells/fortitude/AegisCell.png",
+    "variants": [
+      {
+        "name": "+1 Aegis Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "aegis",
+        "perkName": "Aegis",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Aegis Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "aegis",
+        "perkName": "Aegis",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Aegis Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "aegis",
+        "perkName": "Aegis",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "assassin_s_vigour_cell",
+    "name": "Assassin's Vigour Cell",
+    "slot": "fortitude",
+    "slotName": "Fortitude",
+    "icon": "/assets/icons/cells/fortitude/Assassin'sVigourCell.png",
+    "variants": [
+      {
+        "name": "+1 Assassin's Vigour Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "assassin_s_vigour",
+        "perkName": "Assassin's Vigour",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Assassin's Vigour Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "assassin_s_vigour",
+        "perkName": "Assassin's Vigour",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Assassin's Vigour Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "assassin_s_vigour",
+        "perkName": "Assassin's Vigour",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "bloodless_cell",
+    "name": "Bloodless Cell",
+    "slot": "fortitude",
+    "slotName": "Fortitude",
+    "icon": "/assets/icons/cells/fortitude/BloodlessCell.png",
+    "variants": [
+      {
+        "name": "+1 Bloodless Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "bloodless",
+        "perkName": "Bloodless",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Bloodless Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "bloodless",
+        "perkName": "Bloodless",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Bloodless Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "bloodless",
+        "perkName": "Bloodless",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "fireproof_cell",
+    "name": "Fireproof Cell",
+    "slot": "fortitude",
+    "slotName": "Fortitude",
+    "icon": "/assets/icons/cells/fortitude/FireproofCell.png",
+    "variants": [
+      {
+        "name": "+1 Fireproof Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "fireproof",
+        "perkName": "Fireproof",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Fireproof Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "fireproof",
+        "perkName": "Fireproof",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Fireproof Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "fireproof",
+        "perkName": "Fireproof",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "fortress_cell",
+    "name": "Fortress Cell",
+    "slot": "fortitude",
+    "slotName": "Fortitude",
+    "icon": "/assets/icons/cells/fortitude/FortressCell.png",
+    "variants": [
+      {
+        "name": "+1 Fortress Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "fortress",
+        "perkName": "Fortress",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Fortress Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "fortress",
+        "perkName": "Fortress",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Fortress Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "fortress",
+        "perkName": "Fortress",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "guardian_cell",
+    "name": "Guardian Cell",
+    "slot": "fortitude",
+    "slotName": "Fortitude",
+    "icon": "/assets/icons/cells/fortitude/GuardianCell.png",
+    "variants": [
+      {
+        "name": "+1 Guardian Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "guardian",
+        "perkName": "Guardian",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Guardian Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "guardian",
+        "perkName": "Guardian",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Guardian Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "guardian",
+        "perkName": "Guardian",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "insulated_cell",
+    "name": "Insulated Cell",
+    "slot": "fortitude",
+    "slotName": "Fortitude",
+    "icon": "/assets/icons/cells/fortitude/InsulatedCell.png",
+    "variants": [
+      {
+        "name": "+1 Insulated Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "insulated",
+        "perkName": "Insulated",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Insulated Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "insulated",
+        "perkName": "Insulated",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Insulated Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "insulated",
+        "perkName": "Insulated",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "nine_lives_cell",
+    "name": "Nine Lives Cell",
+    "slot": "fortitude",
+    "slotName": "Fortitude",
+    "icon": "/assets/icons/cells/fortitude/NineLivesCell.png",
+    "variants": [
+      {
+        "name": "+1 Nine Lives Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "nine_lives",
+        "perkName": "Nine Lives",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Nine Lives Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "nine_lives",
+        "perkName": "Nine Lives",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Nine Lives Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "nine_lives",
+        "perkName": "Nine Lives",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "parasitic_cell",
+    "name": "Parasitic Cell",
+    "slot": "fortitude",
+    "slotName": "Fortitude",
+    "icon": "/assets/icons/cells/fortitude/ParasiticCell.png",
+    "variants": [
+      {
+        "name": "+1 Parasitic Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "parasitic",
+        "perkName": "Parasitic",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Parasitic Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "parasitic",
+        "perkName": "Parasitic",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Parasitic Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "parasitic",
+        "perkName": "Parasitic",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "shellshock_resist_cell",
+    "name": "Shellshock Resist Cell",
+    "slot": "fortitude",
+    "slotName": "Fortitude",
+    "icon": "/assets/icons/cells/fortitude/ShellshockResistCell.png",
+    "variants": [
+      {
+        "name": "+1 Shellshock Resist Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "shellshock_resist",
+        "perkName": "Shellshock Resist",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Shellshock Resist Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "shellshock_resist",
+        "perkName": "Shellshock Resist",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Shellshock Resist Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "shellshock_resist",
+        "perkName": "Shellshock Resist",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "strategist_cell",
+    "name": "Strategist Cell",
+    "slot": "fortitude",
+    "slotName": "Fortitude",
+    "icon": "/assets/icons/cells/fortitude/StrategistCell.png",
+    "variants": [
+      {
+        "name": "+1 Strategist Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "strategist",
+        "perkName": "Strategist",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Strategist Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "strategist",
+        "perkName": "Strategist",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Strategist Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "strategist",
+        "perkName": "Strategist",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "stunning_vigour_cell",
+    "name": "Stunning Vigour Cell",
+    "slot": "fortitude",
+    "slotName": "Fortitude",
+    "icon": "/assets/icons/cells/fortitude/StunningVigourCell.png",
+    "variants": [
+      {
+        "name": "+1 Stunning Vigour Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "stunning_vigour",
+        "perkName": "Stunning Vigour",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Stunning Vigour Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "stunning_vigour",
+        "perkName": "Stunning Vigour",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Stunning Vigour Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "stunning_vigour",
+        "perkName": "Stunning Vigour",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "sturdy_cell",
+    "name": "Sturdy Cell",
+    "slot": "fortitude",
+    "slotName": "Fortitude",
+    "icon": "/assets/icons/cells/fortitude/SturdyCell.png",
+    "variants": [
+      {
+        "name": "+1 Sturdy Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "sturdy",
+        "perkName": "Sturdy",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Sturdy Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "sturdy",
+        "perkName": "Sturdy",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Sturdy Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "sturdy",
+        "perkName": "Sturdy",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "tough_cell",
+    "name": "Tough Cell",
+    "slot": "fortitude",
+    "slotName": "Fortitude",
+    "icon": "/assets/icons/cells/fortitude/ToughCell.png",
+    "variants": [
+      {
+        "name": "+1 Tough Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "tough",
+        "perkName": "Tough",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Tough Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "tough",
+        "perkName": "Tough",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Tough Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "tough",
+        "perkName": "Tough",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "vampiric_cell",
+    "name": "Vampiric Cell",
+    "slot": "fortitude",
+    "slotName": "Fortitude",
+    "icon": "/assets/icons/cells/fortitude/VampiricCell.png",
+    "variants": [
+      {
+        "name": "+1 Vampiric Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "vampiric",
+        "perkName": "Vampiric",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Vampiric Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "vampiric",
+        "perkName": "Vampiric",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Vampiric Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "vampiric",
+        "perkName": "Vampiric",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "warmth_cell",
+    "name": "Warmth Cell",
+    "slot": "fortitude",
+    "slotName": "Fortitude",
+    "icon": "/assets/icons/cells/fortitude/WarmthCell.png",
+    "variants": [
+      {
+        "name": "+1 Warmth Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "warmth",
+        "perkName": "Warmth",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Warmth Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "warmth",
+        "perkName": "Warmth",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Warmth Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "warmth",
+        "perkName": "Warmth",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "aetherborne_cell",
+    "name": "Aetherborne Cell",
+    "slot": "insight",
+    "slotName": "Insight",
+    "icon": "/assets/icons/cells/insight/AetherborneCell.png",
+    "variants": [
+      {
+        "name": "+1 Aetherborne Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "aetherborne",
+        "perkName": "Aetherborne",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Aetherborne Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "aetherborne",
+        "perkName": "Aetherborne",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Aetherborne Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "aetherborne",
+        "perkName": "Aetherborne",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "aetheric_attunement_cell",
+    "name": "Aetheric Attunement Cell",
+    "slot": "insight",
+    "slotName": "Insight",
+    "icon": "/assets/icons/cells/insight/AethericAttunementCell.png",
+    "variants": [
+      {
+        "name": "+1 Aetheric Attunement Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "aetheric_attunement",
+        "perkName": "Aetheric Attunement",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Aetheric Attunement Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "aetheric_attunement",
+        "perkName": "Aetheric Attunement",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Aetheric Attunement Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "aetheric_attunement",
+        "perkName": "Aetheric Attunement",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "aetheric_evasion_cell",
+    "name": "Aetheric Evasion Cell",
+    "slot": "insight",
+    "slotName": "Insight",
+    "icon": "/assets/icons/cells/insight/AethericEvasionCell.png",
+    "variants": [
+      {
+        "name": "+1 Aetheric Evasion Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "aetheric_evasion",
+        "perkName": "Aetheric Evasion",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Aetheric Evasion Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "aetheric_evasion",
+        "perkName": "Aetheric Evasion",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Aetheric Evasion Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "aetheric_evasion",
+        "perkName": "Aetheric Evasion",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "cascade_cell",
+    "name": "Cascade Cell",
+    "slot": "insight",
+    "slotName": "Insight",
+    "icon": "/assets/icons/cells/insight/CascadeCell.png",
+    "variants": [
+      {
+        "name": "+1 Cascade Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "cascade",
+        "perkName": "Cascade",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Cascade Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "cascade",
+        "perkName": "Cascade",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Cascade Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "cascade",
+        "perkName": "Cascade",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "catalyst_cell",
+    "name": "Catalyst Cell",
+    "slot": "insight",
+    "slotName": "Insight",
+    "icon": "/assets/icons/cells/insight/CatalystCell.png",
+    "variants": [
+      {
+        "name": "+1 Catalyst Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "catalyst",
+        "perkName": "Catalyst",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Catalyst Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "catalyst",
+        "perkName": "Catalyst",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Catalyst Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "catalyst",
+        "perkName": "Catalyst",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "conduit_cell",
+    "name": "Conduit Cell",
+    "slot": "insight",
+    "slotName": "Insight",
+    "icon": "/assets/icons/cells/insight/ConduitCell.png",
+    "variants": [
+      {
+        "name": "+1 Conduit Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "conduit",
+        "perkName": "Conduit",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Conduit Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "conduit",
+        "perkName": "Conduit",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Conduit Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "conduit",
+        "perkName": "Conduit",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "drop_cell",
+    "name": "Drop Cell",
+    "slot": "insight",
+    "slotName": "Insight",
+    "icon": "/assets/icons/cells/insight/DropCell.png",
+    "variants": [
+      {
+        "name": "+1 Drop Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "drop",
+        "perkName": "Drop",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Drop Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "drop",
+        "perkName": "Drop",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Drop Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "drop",
+        "perkName": "Drop",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "energized_cell",
+    "name": "Energized Cell",
+    "slot": "insight",
+    "slotName": "Insight",
+    "icon": "/assets/icons/cells/insight/EnergizedCell.png",
+    "variants": [
+      {
+        "name": "+1 Energized Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "energized",
+        "perkName": "Energized",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Energized Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "energized",
+        "perkName": "Energized",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Energized Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "energized",
+        "perkName": "Energized",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "engineer_cell",
+    "name": "Engineer Cell",
+    "slot": "insight",
+    "slotName": "Insight",
+    "icon": "/assets/icons/cells/insight/EngineerCell.png",
+    "variants": [
+      {
+        "name": "+1 Engineer Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "engineer",
+        "perkName": "Engineer",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Engineer Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "engineer",
+        "perkName": "Engineer",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Engineer Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "engineer",
+        "perkName": "Engineer",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "lucent_cell",
+    "name": "Lucent Cell",
+    "slot": "insight",
+    "slotName": "Insight",
+    "icon": "/assets/icons/cells/insight/LucentCell.png",
+    "variants": [
+      {
+        "name": "+1 Lucent Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "lucent",
+        "perkName": "Lucent",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Lucent Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "lucent",
+        "perkName": "Lucent",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Lucent Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "lucent",
+        "perkName": "Lucent",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "medic_cell",
+    "name": "Medic Cell",
+    "slot": "insight",
+    "slotName": "Insight",
+    "icon": "/assets/icons/cells/insight/MedicCell.png",
+    "variants": [
+      {
+        "name": "+1 Medic Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "medic",
+        "perkName": "Medic",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Medic Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "medic",
+        "perkName": "Medic",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Medic Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "medic",
+        "perkName": "Medic",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "mender_cell",
+    "name": "Mender Cell",
+    "slot": "insight",
+    "slotName": "Insight",
+    "icon": "/assets/icons/cells/insight/MenderCell.png",
+    "variants": [
+      {
+        "name": "+1 Mender Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "mender",
+        "perkName": "Mender",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Mender Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "mender",
+        "perkName": "Mender",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Mender Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "mender",
+        "perkName": "Mender",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "molten_cell",
+    "name": "Molten Cell",
+    "slot": "insight",
+    "slotName": "Insight",
+    "icon": "/assets/icons/cells/insight/MoltenCell.png",
+    "variants": [
+      {
+        "name": "+1 Molten Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "molten",
+        "perkName": "Molten",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Molten Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "molten",
+        "perkName": "Molten",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Molten Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "molten",
+        "perkName": "Molten",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "omnisurge_cell",
+    "name": "Omnisurge Cell",
+    "slot": "insight",
+    "slotName": "Insight",
+    "icon": "/assets/icons/cells/insight/OmnisurgeCell.png",
+    "variants": [
+      {
+        "name": "+1 Omnisurge Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "omnisurge",
+        "perkName": "Omnisurge",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Omnisurge Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "omnisurge",
+        "perkName": "Omnisurge",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Omnisurge Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "omnisurge",
+        "perkName": "Omnisurge",
+        "perkValue": 3
+      }
+    ]
+  },
+  {
+    "id": "zeal_cell",
+    "name": "Zeal Cell",
+    "slot": "insight",
+    "slotName": "Insight",
+    "icon": "/assets/icons/cells/insight/ZealCell.png",
+    "variants": [
+      {
+        "name": "+1 Zeal Cell",
+        "level": 1,
+        "rarity": "uncommon",
+        "perkId": "zeal",
+        "perkName": "Zeal",
+        "perkValue": 1
+      },
+      {
+        "name": "+2 Zeal Cell",
+        "level": 2,
+        "rarity": "rare",
+        "perkId": "zeal",
+        "perkName": "Zeal",
+        "perkValue": 2
+      },
+      {
+        "name": "+3 Zeal Cell",
+        "level": 3,
+        "rarity": "epic",
+        "perkId": "zeal",
+        "perkName": "Zeal",
+        "perkValue": 3
+      }
+    ]
+  }
+]

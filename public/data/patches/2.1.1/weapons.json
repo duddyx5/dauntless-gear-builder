@@ -1,0 +1,382 @@
+[
+  {
+    "id": "the_silver_sword",
+    "name": "The Silver Sword",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Awakened",
+    "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/silver-sword.png",
+    "description": "When meter is full, activate Special to spin rapidly. While active, deal continuous damage to nearby enemies. Reactivate to perform a powerful finisher.",
+    "damageType": "Cutting",
+    "element": "Frost",
+    "basePower": 100,
+    "maxPower": 140,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Activate Legendary to create a temporary field of ice that deals continuous damage to any enemies within it.",
+    "isLegendary": true
+  },
+  {
+    "id": "fury_of_the_mountain",
+    "name": "Fury of the Mountain",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Awakened",
+    "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/fury-of-the-mountain.png",
+    "description": "Activate Special to throw your axe. If it hits a Behemoth it will bounce off, and can be caught. Can be re-thrown up to two more times if caught. If determination meter is full when it hits, gain a level of Determination.",
+    "damageType": "Cutting",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 140,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Activate Legendary to gain {speed} stacks of SPEED, and an additional {extraSpeed} for each level of Determination. For the next {duration} seconds, your maximum stacks of SPEED are increased by {stacks}.",
+    "isLegendary": true
+  },
+  {
+    "id": "the_living_branch",
+    "name": "The Living Branch",
+    "type": "war_pike",
+    "typeName": "War_pike",
+    "behemoth": "Awakened",
+    "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/the-living-branch.webp",
+    "description": "With one or more bar of meter, activate Special to store ammo. Hold Special with a stored ammo to create an aura around you that grants all Slayers within it {critical} held CRITICAL. Duration is improved by quality of ammo used.",
+    "damageType": "Cutting",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 140,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Activate Legendary to teleport forward, evading attacks and creating an explosion of Terra damage at your arrival point, healing you for {heal}, and cleansing status effects.",
+    "isLegendary": true
+  },
+  {
+    "id": "skies_of_ostia",
+    "name": "Skies of Ostia",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Awakened",
+    "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/skies-of-ostia.webp",
+    "description": "Your Special fires two lightning balls. Fire two additional balls of lightning for each ammo spent.",
+    "damageType": "Cutting",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 140,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Activate Legendary to fire a bolt of lightning that deals damage as it passes through targets. If this hits a Behemoth, teleport forward and perform a powerful hammer attack.",
+    "isLegendary": true
+  },
+  {
+    "id": "netherlights",
+    "name": "Netherlights",
+    "type": "chain_blades",
+    "typeName": "Chain_blades",
+    "behemoth": "Awakened",
+    "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/netherlights.webp",
+    "description": "When you have at least one chain charge, activate Special to teleport past the closest Behemoth, turning around and striking it to leave an umbral rift that deals damage over time. When the rift expires, it explodes for umbral damage, increased by the total number of rifts. The final explosion does additional damage if Cruel Riftstrike dodges through a Behemoth attack.",
+    "damageType": "Cutting",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 140,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Activate Legendary to perform an umbral slash that steals health from a Behemoth, dealing damage, healing you, and instantly inflicting umbral status on a random part.",
+    "isLegendary": true
+  },
+  {
+    "id": "twin_suns",
+    "name": "Twin Suns",
+    "type": "ostian_repeaters",
+    "typeName": "Ostian_repeaters",
+    "behemoth": "Awakened",
+    "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/twin-suns.png",
+    "description": "Activate to dash through attacks, performing a spinning counter. Additionally, when meter is full, activate magnetic bombs which stick to Behemoths, and deal greater damage the more parts they hit.",
+    "damageType": "Cutting",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 140,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Activate Legendary to drop a large bomb from your airship a short distance in front of you that deals massive damage.",
+    "isLegendary": true
+  },
+  {
+    "id": "the_golden_claws",
+    "name": "The Golden Claws",
+    "type": "aether_strikers",
+    "typeName": "Aether_strikers",
+    "behemoth": "Awakened",
+    "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/the-golden-claws.webp",
+    "description": "Activate Special to fire a powerful beam of energy. Deals up to {damage}% additional damage when Tempest Form and Karma Breaker are active.",
+    "damageType": "Cutting",
+    "element": "Radiant",
+    "basePower": 100,
+    "maxPower": 140,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Activate Legendary to gain {speed} stacks of SPEED and perform a flash of Radiant energy that immediately inflicts Radiance on a nearby Behemoth.",
+    "isLegendary": true
+  },
+  {
+    "id": "the_anvil",
+    "name": "The Anvil",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Awakened",
+    "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/the-anvil.webp",
+    "description": "Activate Special to open a crack in the ground that allows Slayers to gain {might} MIGHT by walking over it. Create one pickup per ammo spent. A Slayer cannot gain this benefit more than once every {duration} seconds.",
+    "damageType": "Cutting",
+    "element": "Frost",
+    "basePower": 100,
+    "maxPower": 140,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Activate Legendary to create a wall of ice that blocks projectiles, interrupts Behemoths that pass through it, and freezes non-Frost Behemoths.",
+    "isLegendary": true
+  },
+  {
+    "id": "bane_balm",
+    "name": "Bane & Balm",
+    "type": "chain_blades",
+    "typeName": "Chain_blades",
+    "behemoth": "Awakened",
+    "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/bane-balm.webp",
+    "description": "Activate Special to push off a behemoth and into the air. Activate Heavy while in the air to slam down, spending one or more chain charges to deal damage, heal yourself, and create orbs that heal allies.",
+    "damageType": "Cutting",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 140,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Activate Legendary to revive all allies in bleedout, and place a heal over time on all allies. Can be activated while in bleedout.",
+    "isLegendary": true
+  },
+  {
+    "id": "eternal_winter",
+    "name": "Eternal Winter",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Awakened",
+    "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/eternal-winter.webp",
+    "description": "Activate Special to throw your axe. It deals a great deal of damage and bounces back. Catching it grants determination.",
+    "damageType": "Cutting",
+    "element": "Frost",
+    "basePower": 100,
+    "maxPower": 140,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Activate Legendary to perform a powerful strike. The strength of this attack is greatly increased based on your Determination Level.",
+    "isLegendary": true
+  },
+  {
+    "id": "firestorm",
+    "name": "Firestorm",
+    "type": "war_pike",
+    "typeName": "War_pike",
+    "behemoth": "Awakened",
+    "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/firestorm.webp",
+    "description": "Press to convert meter into ammo. Hold to spend ammo and perform a flying lunge attack that deals up to {damage} damage based on distance and ammo quality.",
+    "damageType": "Cutting",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 140,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "After activation, dealing wound damage over the next {duration} seconds builds up a reserve of cannon balls, which are then fired from above.",
+    "isLegendary": true
+  },
+  {
+    "id": "the_godhand",
+    "name": "The Godhand",
+    "type": "war_pike",
+    "typeName": "War_pike",
+    "behemoth": "Awakened",
+    "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/the-godhand.png",
+    "description": "With more than one bar of meter, activate Special to store ammo. Hold Special with a stored ammo to begin firing with the Godhand, dealing more damage the longer the beam is maintained. Beam duration limited by quality of your stored ammo.",
+    "damageType": "Cutting",
+    "element": "Radiant",
+    "basePower": 100,
+    "maxPower": 140,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Activate your Legendary to immediately fill your meter to full.",
+    "isLegendary": true
+  },
+  {
+    "id": "the_hunger",
+    "name": "The Hunger",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Awakened",
+    "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/the-hunger.png",
+    "description": "When meter is full, activate Special. While active, you continuously lose health, but you have lifesteal, continuously generate Valour, and umbral slashes on attacks.",
+    "damageType": "Cutting",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 140,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Activate Legendary to create an umbral explosion and teleport high into the air. Reactivate to crash down, creating another umbral explosion on impact.",
+    "isLegendary": true
+  },
+  {
+    "id": "molten_edict",
+    "name": "Molten Edict",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Awakened",
+    "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/molten-edict.png",
+    "description": "Your Special lobs balls of fire that deal increased damage and can set the ground on fire when charged with more ammo. Your Aetherslam unleashes a rolling ball of lava.",
+    "damageType": "Cutting",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 140,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Activate Legendary to coat your fists in molten earth, changing your moveset. Your punches deal large amounts of blaze buildup, and your attacks deal increased damage against Behemoths who are on fire.",
+    "isLegendary": true
+  },
+  {
+    "id": "oathkeepers",
+    "name": "Oathkeepers",
+    "type": "aether_strikers",
+    "typeName": "Aether_strikers",
+    "behemoth": "Awakened",
+    "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/oathkeepers.webp",
+    "description": "Activate Special to smash your fists together, creating a damaging pulse around you, and granting DEFENSE stacks to all nearby allies based on active mantras.",
+    "damageType": "Cutting",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 140,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Activate Legendary to gain {health} health, and grant Oathkeeper's Protection to all nearby allies for {duration} seconds. When a protected ally would take damage, instead they take no damage, and you take {damage}% of the damage they would have taken.",
+    "isLegendary": true
+  },
+  {
+    "id": "reaper_s_edge",
+    "name": "Reaper's Edge",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Awakened",
+    "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/reapers-edge.webp",
+    "description": "Activate Special to throw your axe. It deals continuous damage over time while in flight, and then returns to you. Reactivate while in flight to teleport to the Axe and perform an Umbral strike in the direction your Slayer is facing.",
+    "damageType": "Cutting",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 140,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Activate Legendary to rip a tear in the fabric of reality and enter Umbral realm. While in it, take reduced damage, and become immune to stagger. For every {damage} damage dealt during it give {might} MIGHT to friendly Slayers when it ends.",
+    "isLegendary": true
+  },
+  {
+    "id": "thundersoul",
+    "name": "Thundersoul",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Awakened",
+    "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/thundersoul.webp",
+    "description": "When meter is full, activate Special to gain {speed} stacks of SPEED and take brief defensive stance which will parry an incoming attack and counter it, entering overdrive. Reactivate during overdrive to parry again. Successful parries generate {valour} Valour.",
+    "damageType": "Cutting",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 140,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Activate Legendary to become lightning, finding the nearest Behemoth and teleporting to it with an explosive shock burst.",
+    "isLegendary": true
+  },
+  {
+    "id": "to_fro",
+    "name": "To & Fro",
+    "type": "chain_blades",
+    "typeName": "Chain_blades",
+    "behemoth": "Awakened",
+    "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/to-fro.webp",
+    "description": "Activate Special to push off a Behemoth and into the air. Activate Heavy to slam down, dealing damage based on the number of chain charges spent.",
+    "damageType": "Cutting",
+    "element": "Frost",
+    "basePower": 100,
+    "maxPower": 140,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Activate Legendary to activate an aura that grants all Slayers within it {speed} held stacks of Speed.",
+    "isLegendary": true
+  },
+  {
+    "id": "alluring_moons",
+    "name": "Alluring Moons",
+    "type": "ostian_repeaters",
+    "typeName": "Ostian_repeaters",
+    "behemoth": "Awakened",
+    "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/alluring-moons.webp",
+    "description": "Lure two random Chaox to fight at your side for up to {duration} seconds.",
+    "damageType": "Cutting",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 140,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Call an Umbral Chaox to fight at your side for up to {duration} seconds. It deals greater damage than a normal Chaox, and can use abilities of any Chaox.",
+    "isLegendary": true
+  }
+]

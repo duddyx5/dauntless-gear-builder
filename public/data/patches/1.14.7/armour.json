@@ -1,0 +1,3004 @@
+[
+  {
+    "id": "agaric_bole",
+    "name": "Agaric Bole",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Agarus",
+    "icon": "/assets/icons/armours/agarus/AgaricBole.png",
+    "description": "Torso protection forged from Agarus trophies.",
+    "strength": "Terra",
+    "weakness": "Shock",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "parasitic",
+        "name": "Parasitic",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "agaric_branches",
+    "name": "Agaric Branches",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Agarus",
+    "icon": "/assets/icons/armours/agarus/AgaricBranches.png",
+    "description": "Arms protection forged from Agarus trophies.",
+    "strength": "Terra",
+    "weakness": "Shock",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "sturdy",
+        "name": "Sturdy",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "agaric_canopy",
+    "name": "Agaric Canopy",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Agarus",
+    "icon": "/assets/icons/armours/agarus/AgaricCanopy.png",
+    "description": "Head protection forged from Agarus trophies.",
+    "strength": "Terra",
+    "weakness": "Shock",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "parasitic",
+        "name": "Parasitic",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "agaric_roots",
+    "name": "Agaric Roots",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Agarus",
+    "icon": "/assets/icons/armours/agarus/AgaricRoots.png",
+    "description": "Legs protection forged from Agarus trophies.",
+    "strength": "Terra",
+    "weakness": "Shock",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "fortress",
+        "name": "Fortress",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "spellbound_boots",
+    "name": "Spellbound Boots",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Alyra",
+    "icon": "/assets/icons/armours/alyra/SpellboundBoots.png",
+    "description": "Legs protection forged from Alyra trophies.",
+    "strength": "Radiant",
+    "weakness": "Umbral",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "swift",
+        "name": "Swift",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "spellbound_gauntlets",
+    "name": "Spellbound Gauntlets",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Alyra",
+    "icon": "/assets/icons/armours/alyra/SpellboundGauntlets.png",
+    "description": "Arms protection forged from Alyra trophies.",
+    "strength": "Radiant",
+    "weakness": "Umbral",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "invigorated",
+        "name": "Invigorated",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "spellbound_hood",
+    "name": "Spellbound Hood",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Alyra",
+    "icon": "/assets/icons/armours/alyra/SpellboundHood.png",
+    "description": "Head protection forged from Alyra trophies.",
+    "strength": "Radiant",
+    "weakness": "Umbral",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "invigorated",
+        "name": "Invigorated",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "spellbound_wings",
+    "name": "Spellbound Wings",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Alyra",
+    "icon": "/assets/icons/armours/alyra/SpellboundWings.png",
+    "description": "Torso protection forged from Alyra trophies.",
+    "strength": "Radiant",
+    "weakness": "Umbral",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "galvanized",
+        "name": "Galvanized",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "boreal_epiphany",
+    "name": "Boreal Epiphany",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Boreus",
+    "icon": "/assets/icons/armours/boreus/BorealEpiphany.png",
+    "description": "Head protection forged from Boreus trophies.",
+    "strength": "Frost",
+    "weakness": "Blaze",
+    "baseResistance": 5,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "conditioning",
+        "name": "Conditioning",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "boreal_march",
+    "name": "Boreal March",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Boreus",
+    "icon": "/assets/icons/armours/boreus/BorealMarch.png",
+    "description": "Legs protection forged from Boreus trophies.",
+    "strength": "Frost",
+    "weakness": "Blaze",
+    "baseResistance": 5,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "tenacious",
+        "name": "Tenacious",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "boreal_might",
+    "name": "Boreal Might",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Boreus",
+    "icon": "/assets/icons/armours/boreus/BorealMight.png",
+    "description": "Arms protection forged from Boreus trophies.",
+    "strength": "Frost",
+    "weakness": "Blaze",
+    "baseResistance": 5,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "tenacious",
+        "name": "Tenacious",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "boreal_resolve",
+    "name": "Boreal Resolve",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Boreus",
+    "icon": "/assets/icons/armours/boreus/BorealResolve.png",
+    "description": "Torso protection forged from Boreus trophies.",
+    "strength": "Frost",
+    "weakness": "Blaze",
+    "baseResistance": 5,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "rage",
+        "name": "Rage",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "the_skullforge",
+    "name": "The Skullforge",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Charrogg",
+    "icon": "/assets/icons/armours/charrogg/TheSkullforge.png",
+    "description": "The Skullforge is a piece of craftable Exotic armour in Dauntless. It is crafted from Firebrand Charrogg reagents.",
+    "strength": "Blaze",
+    "weakness": "Frost",
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "molten",
+        "name": "Molten",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "volcanic_aegis",
+    "name": "Volcanic Aegis",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Charrogg",
+    "icon": "/assets/icons/armours/charrogg/VolcanicAegis.png",
+    "description": "Torso protection forged from Charrogg trophies.",
+    "strength": "Blaze",
+    "weakness": "Frost",
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "aetherhunter",
+        "name": "Aetherhunter",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "volcanic_grips",
+    "name": "Volcanic Grips",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Charrogg",
+    "icon": "/assets/icons/armours/charrogg/VolcanicGrips.png",
+    "description": "Arms protection forged from Charrogg trophies.",
+    "strength": "Blaze",
+    "weakness": "Frost",
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "rage",
+        "name": "Rage",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "volcanic_helm",
+    "name": "Volcanic Helm",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Charrogg",
+    "icon": "/assets/icons/armours/charrogg/VolcanicHelm.png",
+    "description": "Head protection forged from Charrogg trophies.",
+    "strength": "Blaze",
+    "weakness": "Frost",
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "sturdy",
+        "name": "Sturdy",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "volcanic_treads",
+    "name": "Volcanic Treads",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Charrogg",
+    "icon": "/assets/icons/armours/charrogg/VolcanicTreads.png",
+    "description": "Legs protection forged from Charrogg trophies.",
+    "strength": "Blaze",
+    "weakness": "Frost",
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "tenacious",
+        "name": "Tenacious",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "chronogrips",
+    "name": "Chronogrips",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Chronovore",
+    "icon": "/assets/icons/armours/chronovore/Chronogrips.png",
+    "description": "Arms protection forged from Chronovore trophies.",
+    "strength": "Radiant",
+    "weakness": "Umbral",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "pulse",
+        "name": "Pulse",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "chronohelm",
+    "name": "Chronohelm",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Chronovore",
+    "icon": "/assets/icons/armours/chronovore/Chronohelm.png",
+    "description": "Head protection forged from Chronovore trophies.",
+    "strength": "Radiant",
+    "weakness": "Umbral",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "zeal",
+        "name": "Zeal",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "chronoplate",
+    "name": "Chronoplate",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Chronovore",
+    "icon": "/assets/icons/armours/chronovore/Chronoplate.png",
+    "description": "Torso protection forged from Chronovore trophies.",
+    "strength": "Radiant",
+    "weakness": "Umbral",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "grace",
+        "name": "Grace",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "chronotreads",
+    "name": "Chronotreads",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Chronovore",
+    "icon": "/assets/icons/armours/chronovore/Chronotreads.png",
+    "description": "Legs protection forged from Chronovore trophies.",
+    "strength": "Radiant",
+    "weakness": "Umbral",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "pulse",
+        "name": "Pulse",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "draskscale_gauntlets",
+    "name": "Draskscale Gauntlets",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Drask",
+    "icon": "/assets/icons/armours/drask/DraskscaleGauntlets.png",
+    "description": "Arms protection forged from Drask trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 5,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "sharpened",
+        "name": "Sharpened",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "draskscale_greaves",
+    "name": "Draskscale Greaves",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Drask",
+    "icon": "/assets/icons/armours/drask/DraskscaleGreaves.png",
+    "description": "Legs protection forged from Drask trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 5,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "fleet_footed",
+        "name": "Fleet Footed",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "draskscale_helmet",
+    "name": "Draskscale Helmet",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Drask",
+    "icon": "/assets/icons/armours/drask/DraskscaleHelmet.png",
+    "description": "Head protection forged from Drask trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 5,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "aetheric_attunement",
+        "name": "Aetheric Attunement",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "draskscale_plate",
+    "name": "Draskscale Plate",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Drask",
+    "icon": "/assets/icons/armours/drask/DraskscalePlate.png",
+    "description": "Torso protection forged from Drask trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 5,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "aetheric_attunement",
+        "name": "Aetheric Attunement",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "fiery_breastplate",
+    "name": "Fiery Breastplate",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Embermane",
+    "icon": "/assets/icons/armours/embermane/FieryBreastplate.png",
+    "description": "Torso protection forged from Embermane trophies.",
+    "strength": "Blaze",
+    "weakness": "Frost",
+    "baseResistance": 5,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "evasive_fury",
+        "name": "Evasive Fury",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "fiery_gauntlets",
+    "name": "Fiery Gauntlets",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Embermane",
+    "icon": "/assets/icons/armours/embermane/FieryGauntlets.png",
+    "description": "Arms protection forged from Embermane trophies.",
+    "strength": "Blaze",
+    "weakness": "Frost",
+    "baseResistance": 5,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "endurance",
+        "name": "Endurance",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "fiery_greaves",
+    "name": "Fiery Greaves",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Embermane",
+    "icon": "/assets/icons/armours/embermane/FieryGreaves.png",
+    "description": "Legs protection forged from Embermane trophies.",
+    "strength": "Blaze",
+    "weakness": "Frost",
+    "baseResistance": 5,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "evasion",
+        "name": "Evasion",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "fiery_helm",
+    "name": "Fiery Helm",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Embermane",
+    "icon": "/assets/icons/armours/embermane/FieryHelm.png",
+    "description": "Head protection forged from Embermane trophies.",
+    "strength": "Blaze",
+    "weakness": "Frost",
+    "baseResistance": 5,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "evasive_fury",
+        "name": "Evasive Fury",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "stonewood_boots",
+    "name": "Stonewood Boots",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Fenroar",
+    "icon": "/assets/icons/armours/fenroar/StonewoodBoots.png",
+    "description": "Legs protection forged from Fenroar trophies.",
+    "strength": "Terra",
+    "weakness": "Shock",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "stunning_vigour",
+        "name": "Stunning Vigour",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "stonewood_chest_plate",
+    "name": "Stonewood Chest Plate",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Fenroar",
+    "icon": "/assets/icons/armours/fenroar/StonewoodChestPlate.png",
+    "description": "Torso protection forged from Fenroar trophies.",
+    "strength": "Terra",
+    "weakness": "Shock",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "engineer",
+        "name": "Engineer",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "stonewood_gauntlets",
+    "name": "Stonewood Gauntlets",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Fenroar",
+    "icon": "/assets/icons/armours/fenroar/StonewoodGauntlets.png",
+    "description": "Arms protection forged from Fenroar trophies.",
+    "strength": "Terra",
+    "weakness": "Shock",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "rushdown",
+        "name": "Rushdown",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "stonewood_great_helm",
+    "name": "Stonewood Great Helm",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Fenroar",
+    "icon": "/assets/icons/armours/fenroar/StonewoodGreatHelm.png",
+    "description": "Head protection forged from Fenroar trophies.",
+    "strength": "Terra",
+    "weakness": "Shock",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "stunning_vigour",
+        "name": "Stunning Vigour",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "w_lf_claws",
+    "name": "Wülf Claws",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Frostwülf",
+    "icon": "/assets/icons/armours/frostwulf/WulfClaws.png",
+    "description": "Arms protection forged from Frostwülf trophies.",
+    "strength": "Frost",
+    "weakness": "Blaze",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "galvanized",
+        "name": "Galvanized",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "w_lf_mane",
+    "name": "Wülf Mane",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Frostwülf",
+    "icon": "/assets/icons/armours/frostwulf/WulfMane.png",
+    "description": "Head protection forged from Frostwülf trophies.",
+    "strength": "Frost",
+    "weakness": "Blaze",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "aegis",
+        "name": "Aegis",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "w_lf_paws",
+    "name": "Wülf Paws",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Frostwülf",
+    "icon": "/assets/icons/armours/frostwulf/WulfPaws.png",
+    "description": "Legs protection forged from Frostwülf trophies.",
+    "strength": "Frost",
+    "weakness": "Blaze",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "cascade",
+        "name": "Cascade",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "w_lf_plate",
+    "name": "Wülf Plate",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Frostwülf",
+    "icon": "/assets/icons/armours/frostwulf/WulfPlate.png",
+    "description": "Torso protection forged from Frostwülf trophies.",
+    "strength": "Frost",
+    "weakness": "Blaze",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "aegis",
+        "name": "Aegis",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "recruit_s_breastplate",
+    "name": "Recruit's Breastplate",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Unknown",
+    "icon": "/assets/icons/armours/generic/RecruitsBreastplate.png",
+    "description": "Torso protection for the novice Slayer.",
+    "strength": null,
+    "weakness": null,
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "prismatic",
+    "perks": []
+  },
+  {
+    "id": "recruit_s_gloves",
+    "name": "Recruit's Gloves",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Unknown",
+    "icon": "/assets/icons/armours/generic/RecruitsGloves.png",
+    "description": "Arms protection for the novice Slayer.",
+    "strength": null,
+    "weakness": null,
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "prismatic",
+    "perks": []
+  },
+  {
+    "id": "recruit_s_greaves",
+    "name": "Recruit's Greaves",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Unknown",
+    "icon": "/assets/icons/armours/generic/RecruitsGreaves.png",
+    "description": "Legs protection for the novice Slayer.",
+    "strength": null,
+    "weakness": null,
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "prismatic",
+    "perks": []
+  },
+  {
+    "id": "recruit_s_mask",
+    "name": "Recruit's Mask",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Unknown",
+    "icon": "/assets/icons/armours/generic/RecruitsMask.png",
+    "description": "Head protection for the novice Slayer.",
+    "strength": null,
+    "weakness": null,
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "prismatic",
+    "perks": []
+  },
+  {
+    "id": "gnasher_cap",
+    "name": "Gnasher Cap",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Gnasher",
+    "icon": "/assets/icons/armours/gnasher/GnasherCap.png",
+    "description": "Head protection forged from Gnasher trophies.",
+    "strength": null,
+    "weakness": null,
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "tenacious",
+        "name": "Tenacious",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "gnasher_cloak",
+    "name": "Gnasher Cloak",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Gnasher",
+    "icon": "/assets/icons/armours/gnasher/GnasherCloak.png",
+    "description": "Torso protection forged from Gnasher trophies.",
+    "strength": null,
+    "weakness": null,
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "tough",
+        "name": "Tough",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "gnasher_grips",
+    "name": "Gnasher Grips",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Gnasher",
+    "icon": "/assets/icons/armours/gnasher/GnasherGrips.png",
+    "description": "Arms protection forged from Gnasher trophies.",
+    "strength": null,
+    "weakness": null,
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "ragehunter",
+        "name": "Ragehunter",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "gnasher_treads",
+    "name": "Gnasher Treads",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Gnasher",
+    "icon": "/assets/icons/armours/gnasher/GnasherTreads.png",
+    "description": "Legs protection forged from Gnasher trophies.",
+    "strength": null,
+    "weakness": null,
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "tough",
+        "name": "Tough",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "hellplate_bracers",
+    "name": "Hellplate Bracers",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Hellion",
+    "icon": "/assets/icons/armours/hellion/HellplateBracers.png",
+    "description": "Arms protection forged from Hellion trophies.",
+    "strength": "Blaze",
+    "weakness": "Frost",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "molten",
+        "name": "Molten",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "hellplate_casque",
+    "name": "Hellplate Casque",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Hellion",
+    "icon": "/assets/icons/armours/hellion/HellplateCasque.png",
+    "description": "Head protection forged from Hellion trophies.",
+    "strength": "Blaze",
+    "weakness": "Frost",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "ragehunter",
+        "name": "Ragehunter",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "hellplate_cuirass",
+    "name": "Hellplate Cuirass",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Hellion",
+    "icon": "/assets/icons/armours/hellion/HellplateCuirass.png",
+    "description": "Torso protection forged from Hellion trophies.",
+    "strength": "Blaze",
+    "weakness": "Frost",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "molten",
+        "name": "Molten",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "hellplate_greaves",
+    "name": "Hellplate Greaves",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Hellion",
+    "icon": "/assets/icons/armours/hellion/HellplateGreaves.png",
+    "description": "Legs protection forged from Hellion trophies.",
+    "strength": "Blaze",
+    "weakness": "Frost",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "fortress",
+        "name": "Fortress",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "clutches_of_the_swarm",
+    "name": "Clutches of the Swarm",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Kharabak",
+    "icon": "/assets/icons/armours/kharabak/ClutchesOfTheSwarm.png",
+    "description": "Arms protection forged from Kharabak trophies.",
+    "strength": "Terra",
+    "weakness": "Shock",
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "conditioning",
+        "name": "Conditioning",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "dance_of_the_swarm",
+    "name": "Dance of the Swarm",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Kharabak",
+    "icon": "/assets/icons/armours/kharabak/DanceOfTheSwarm.png",
+    "description": "Legs protection forged from Kharabak trophies.",
+    "strength": "Terra",
+    "weakness": "Shock",
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "conditioning",
+        "name": "Conditioning",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "eye_of_the_swarm",
+    "name": "Eye of the Swarm",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Kharabak",
+    "icon": "/assets/icons/armours/kharabak/EyeOfTheSwarm.png",
+    "description": "Head protection forged from Kharabak trophies.",
+    "strength": "Terra",
+    "weakness": "Shock",
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "assassin_s_frenzy",
+        "name": "Assassin's Frenzy",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "shell_of_the_swarm",
+    "name": "Shell of the Swarm",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Kharabak",
+    "icon": "/assets/icons/armours/kharabak/ShellOfTheSwarm.png",
+    "description": "Torso protection forged from Kharabak trophies.",
+    "strength": "Terra",
+    "weakness": "Shock",
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "bladestorm",
+        "name": "Bladestorm",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "grasp_of_thorns",
+    "name": "Grasp of Thorns",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Koshai",
+    "icon": "/assets/icons/armours/koshai/GraspOfThorns.png",
+    "description": "Arms protection forged from Koshai trophies.",
+    "strength": "Terra",
+    "weakness": "Shock",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "evasive_fury",
+        "name": "Evasive Fury",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "mantle_of_thorns",
+    "name": "Mantle of Thorns",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Koshai",
+    "icon": "/assets/icons/armours/koshai/MantleOfThorns.png",
+    "description": "Torso protection forged from Koshai trophies.",
+    "strength": "Terra",
+    "weakness": "Shock",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "predator",
+        "name": "Predator",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "stride_of_thorns",
+    "name": "Stride of Thorns",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Koshai",
+    "icon": "/assets/icons/armours/koshai/StrideOfThorns.png",
+    "description": "Legs protection forged from Koshai trophies.",
+    "strength": "Terra",
+    "weakness": "Shock",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "predator",
+        "name": "Predator",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "visage_of_thorns",
+    "name": "Visage of Thorns",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Koshai",
+    "icon": "/assets/icons/armours/koshai/VisageOfThorns.png",
+    "description": "Head protection forged from Koshai trophies.",
+    "strength": "Terra",
+    "weakness": "Shock",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "agility",
+        "name": "Agility",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "krolachi_shave",
+    "name": "Krolachi Shave",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Unknown",
+    "icon": "/assets/icons/armours/krolachi/KrolachiShave.png",
+    "description": "Ready yourself for the challenges of a Krolachi Slayer.",
+    "strength": null,
+    "weakness": null,
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "prismatic",
+    "perks": []
+  },
+  {
+    "id": "krolachi_shorts",
+    "name": "Krolachi Shorts",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Unknown",
+    "icon": "/assets/icons/armours/krolachi/KrolachiShorts.png",
+    "description": "Ready yourself for the challenges of a Krolachi Slayer.",
+    "strength": null,
+    "weakness": null,
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "prismatic",
+    "perks": []
+  },
+  {
+    "id": "krolachi_tunic",
+    "name": "Krolachi Tunic",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Unknown",
+    "icon": "/assets/icons/armours/krolachi/KrolachiTunic.png",
+    "description": "Ready yourself for the challenges of a Krolachi Slayer.",
+    "strength": null,
+    "weakness": null,
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "prismatic",
+    "perks": []
+  },
+  {
+    "id": "krolachi_wraps",
+    "name": "Krolachi Wraps",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Unknown",
+    "icon": "/assets/icons/armours/krolachi/KrolachiWraps.png",
+    "description": "Ready yourself for the challenges of a Krolachi Slayer.",
+    "strength": null,
+    "weakness": null,
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "prismatic",
+    "perks": []
+  },
+  {
+    "id": "malkarion_s_grasp",
+    "name": "Malkarion's Grasp",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Malkarion",
+    "icon": "/assets/icons/armours/malkarion/MalkarionsGrasp.png",
+    "description": "Arms protection forged from Malkarion trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "predator",
+        "name": "Predator",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "malkarion_s_march",
+    "name": "Malkarion's March",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Malkarion",
+    "icon": "/assets/icons/armours/malkarion/MalkarionsMarch.png",
+    "description": "Legs protection forged from Malkarion trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "aetherhunter",
+        "name": "Aetherhunter",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "malkarion_s_sight",
+    "name": "Malkarion's Sight",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Malkarion",
+    "icon": "/assets/icons/armours/malkarion/MalkarionsSight.png",
+    "description": "Head protection forged from Malkarion trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "grace",
+        "name": "Grace",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "malkarion_s_soul",
+    "name": "Malkarion's Soul",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Malkarion",
+    "icon": "/assets/icons/armours/malkarion/MalkarionsSoul.png",
+    "description": "Torso protection forged from Malkarion trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "aetherhunter",
+        "name": "Aetherhunter",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "shocking_gaze",
+    "name": "Shocking Gaze",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Nayzaga",
+    "icon": "/assets/icons/armours/nayzaga/ShockingGaze.png",
+    "description": "Head protection forged from Nayzaga trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "medic",
+        "name": "Medic",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "shocking_grasp",
+    "name": "Shocking Grasp",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Nayzaga",
+    "icon": "/assets/icons/armours/nayzaga/ShockingGrasp.png",
+    "description": "Arms protection forged from Nayzaga trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "aetheric_attunement",
+        "name": "Aetheric Attunement",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "shocking_heart",
+    "name": "Shocking Heart",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Nayzaga",
+    "icon": "/assets/icons/armours/nayzaga/ShockingHeart.png",
+    "description": "Torso protection forged from Nayzaga trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "medic",
+        "name": "Medic",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "shocking_stride",
+    "name": "Shocking Stride",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Nayzaga",
+    "icon": "/assets/icons/armours/nayzaga/ShockingStride.png",
+    "description": "Legs protection forged from Nayzaga trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "energized",
+        "name": "Energized",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "arms_of_ice",
+    "name": "Arms of Ice",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Pangar",
+    "icon": "/assets/icons/armours/pangar/ArmsOfIce.png",
+    "description": "Arms protection forged from Pangar trophies.",
+    "strength": "Frost",
+    "weakness": "Blaze",
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "knockout_king",
+        "name": "Knockout King",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "brow_of_ice",
+    "name": "Brow of Ice",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Pangar",
+    "icon": "/assets/icons/armours/pangar/BrowOfIce.png",
+    "description": "Head protection forged from Pangar trophies.",
+    "strength": "Frost",
+    "weakness": "Blaze",
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "knockout_king",
+        "name": "Knockout King",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "core_of_ice",
+    "name": "Core of Ice",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Pangar",
+    "icon": "/assets/icons/armours/pangar/CoreOfIce.png",
+    "description": "Torso protection forged from Pangar trophies.",
+    "strength": "Frost",
+    "weakness": "Blaze",
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "fortress",
+        "name": "Fortress",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "feet_of_ice",
+    "name": "Feet of Ice",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Pangar",
+    "icon": "/assets/icons/armours/pangar/FeetOfIce.png",
+    "description": "Legs protection forged from Pangar trophies.",
+    "strength": "Frost",
+    "weakness": "Blaze",
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "overpower",
+        "name": "Overpower",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "phaelanx_s_firearms",
+    "name": "Phaelanx's Firearms",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Phaelanx",
+    "icon": "/assets/icons/armours/phaelanx/PhaelanxsFirearms.png",
+    "description": "Arms protection forged from Phaelanx trophies.",
+    "strength": "Blaze",
+    "weakness": "Frost",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "omnisurge",
+        "name": "Omnisurge",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "phaelanx_s_heatsinks",
+    "name": "Phaelanx's Heatsinks",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Phaelanx",
+    "icon": "/assets/icons/armours/phaelanx/PhaelanxsHeatsinks.png",
+    "description": "Legs protection forged from Phaelanx trophies.",
+    "strength": "Blaze",
+    "weakness": "Frost",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "fleet_footed",
+        "name": "Fleet Footed",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "phaelanx_s_spearhead",
+    "name": "Phaelanx's Spearhead",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Phaelanx",
+    "icon": "/assets/icons/armours/phaelanx/PhaelanxsSpearhead.png",
+    "description": "Head protection forged from Phaelanx trophies.",
+    "strength": "Blaze",
+    "weakness": "Frost",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "omnisurge",
+        "name": "Omnisurge",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "phaelanx_s_vanguard",
+    "name": "Phaelanx's Vanguard",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Phaelanx",
+    "icon": "/assets/icons/armours/phaelanx/PhaelanxsVanguard.png",
+    "description": "Torso protection forged from Phaelanx trophies.",
+    "strength": "Blaze",
+    "weakness": "Frost",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "parasitic",
+        "name": "Parasitic",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "quillspike_boots",
+    "name": "Quillspike Boots",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Quillshot",
+    "icon": "/assets/icons/armours/quillshot/QuillspikeBoots.png",
+    "description": "Legs protection forged from Quillshot trophies.",
+    "strength": null,
+    "weakness": null,
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "barbed",
+        "name": "Barbed",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "quillspike_grips",
+    "name": "Quillspike Grips",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Quillshot",
+    "icon": "/assets/icons/armours/quillshot/QuillspikeGrips.png",
+    "description": "Arms protection forged from Quillshot trophies.",
+    "strength": null,
+    "weakness": null,
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "barbed",
+        "name": "Barbed",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "quillspike_jacket",
+    "name": "Quillspike Jacket",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Quillshot",
+    "icon": "/assets/icons/armours/quillshot/QuillspikeJacket.png",
+    "description": "Torso protection forged from Quillshot trophies.",
+    "strength": null,
+    "weakness": null,
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "savagery",
+        "name": "Savagery",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "quillspike_mask",
+    "name": "Quillspike Mask",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Quillshot",
+    "icon": "/assets/icons/armours/quillshot/QuillspikeMask.png",
+    "description": "Head protection forged from Quillshot trophies.",
+    "strength": null,
+    "weakness": null,
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "savagery",
+        "name": "Savagery",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "light_s_crown",
+    "name": "Light's Crown",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Rezakiri",
+    "icon": "/assets/icons/armours/rezakiri/LightsCrown.png",
+    "description": "Head protection forged from Rezakiri trophies.",
+    "strength": "Radiant",
+    "weakness": "Umbral",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "conduit",
+        "name": "Conduit",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "light_s_refuge",
+    "name": "Light's Refuge",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Rezakiri",
+    "icon": "/assets/icons/armours/rezakiri/LightsRefuge.png",
+    "description": "Arms protection forged from Rezakiri trophies.",
+    "strength": "Radiant",
+    "weakness": "Umbral",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "conduit",
+        "name": "Conduit",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "light_s_virtue",
+    "name": "Light's Virtue",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Rezakiri",
+    "icon": "/assets/icons/armours/rezakiri/LightsVirtue.png",
+    "description": "Torso protection forged from Rezakiri trophies.",
+    "strength": "Radiant",
+    "weakness": "Umbral",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "cunning",
+        "name": "Cunning",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "light_s_walk",
+    "name": "Light's Walk",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Rezakiri",
+    "icon": "/assets/icons/armours/rezakiri/LightsWalk.png",
+    "description": "Legs protection forged from Rezakiri trophies.",
+    "strength": "Radiant",
+    "weakness": "Umbral",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "agility",
+        "name": "Agility",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "prismatic_grace",
+    "name": "Prismatic Grace",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Rezakiri",
+    "icon": "/assets/icons/armours/rezakiri/PrismaticGrace.png",
+    "description": "Prismatic Grace is a piece of craftable Exotic armour in Dauntless. It is crafted from Rezakiri reagents.",
+    "strength": "Radiant",
+    "weakness": "Umbral",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "medic",
+        "name": "Medic",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "guise_of_the_rift",
+    "name": "Guise of the Rift",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Riftstalker",
+    "icon": "/assets/icons/armours/riftstalker/GuiseOfTheRift.png",
+    "description": "Head protection forged from Riftstalker trophies.",
+    "strength": "Umbral",
+    "weakness": "Radiant",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "aetheric_attunement",
+        "name": "Aetheric Attunement",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "hands_of_the_rift",
+    "name": "Hands of the Rift",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Riftstalker",
+    "icon": "/assets/icons/armours/riftstalker/HandsOfTheRift.png",
+    "description": "Arms protection forged from Riftstalker trophies.",
+    "strength": "Umbral",
+    "weakness": "Radiant",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "evasion",
+        "name": "Evasion",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "mantle_of_the_rift",
+    "name": "Mantle of the Rift",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Riftstalker",
+    "icon": "/assets/icons/armours/riftstalker/MantleOfTheRift.png",
+    "description": "Torso protection forged from Riftstalker trophies.",
+    "strength": "Umbral",
+    "weakness": "Radiant",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "conduit",
+        "name": "Conduit",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "striders_of_the_rift",
+    "name": "Striders of the Rift",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Riftstalker",
+    "icon": "/assets/icons/armours/riftstalker/StridersOfTheRift.png",
+    "description": "Legs protection forged from Riftstalker trophies.",
+    "strength": "Umbral",
+    "weakness": "Radiant",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "conduit",
+        "name": "Conduit",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "bladed_boots",
+    "name": "Bladed Boots",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Sahvyt",
+    "icon": "/assets/icons/armours/sahvyt/BladedBoots.png",
+    "description": "Legs protection forged from Sahvyt trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "assassin_s_frenzy",
+        "name": "Assassin's Frenzy",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "bladed_gloves",
+    "name": "Bladed Gloves",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Sahvyt",
+    "icon": "/assets/icons/armours/sahvyt/BladedGloves.png",
+    "description": "Arms protection forged from Sahvyt trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "relentless",
+        "name": "Relentless",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "bladed_jacket",
+    "name": "Bladed Jacket",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Sahvyt",
+    "icon": "/assets/icons/armours/sahvyt/BladedJacket.png",
+    "description": "Torso protection forged from Sahvyt trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "tactician",
+        "name": "Tactician",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "bladed_mask",
+    "name": "Bladed Mask",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Sahvyt",
+    "icon": "/assets/icons/armours/sahvyt/BladedMask.png",
+    "description": "Head protection forged from Sahvyt trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "tactician",
+        "name": "Tactician",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "shrikedown_gloves",
+    "name": "Shrikedown Gloves",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Shrike",
+    "icon": "/assets/icons/armours/shrike/ShrikedownGloves.png",
+    "description": "Arms protection forged from Shrike trophies.",
+    "strength": null,
+    "weakness": null,
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "weighted_strikes",
+        "name": "Weighted Strikes",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "shrikedown_greaves",
+    "name": "Shrikedown Greaves",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Shrike",
+    "icon": "/assets/icons/armours/shrike/ShrikedownGreaves.png",
+    "description": "Legs protection forged from Shrike trophies.",
+    "strength": null,
+    "weakness": null,
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "grace",
+        "name": "Grace",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "shrikedown_helm",
+    "name": "Shrikedown Helm",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Shrike",
+    "icon": "/assets/icons/armours/shrike/ShrikedownHelm.png",
+    "description": "Head protection forged from Shrike trophies.",
+    "strength": null,
+    "weakness": null,
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "evasion",
+        "name": "Evasion",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "shrikedown_plate",
+    "name": "Shrikedown Plate",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Shrike",
+    "icon": "/assets/icons/armours/shrike/ShrikedownPlate.png",
+    "description": "Torso protection forged from Shrike trophies.",
+    "strength": null,
+    "weakness": null,
+    "baseResistance": 10,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "evasion",
+        "name": "Evasion",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "dark_embrace",
+    "name": "Dark Embrace",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Shrowd",
+    "icon": "/assets/icons/armours/shrowd/DarkEmbrace.png",
+    "description": "Arms protection forged from Shrowd trophies.",
+    "strength": "Umbral",
+    "weakness": "Radiant",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "medic",
+        "name": "Medic",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "dark_marrow",
+    "name": "Dark Marrow",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Shrowd",
+    "icon": "/assets/icons/armours/shrowd/DarkMarrow.png",
+    "description": "Torso protection forged from Shrowd trophies.",
+    "strength": "Umbral",
+    "weakness": "Radiant",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "rage",
+        "name": "Rage",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "dark_path",
+    "name": "Dark Path",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Shrowd",
+    "icon": "/assets/icons/armours/shrowd/DarkPath.png",
+    "description": "Legs protection forged from Shrowd trophies.",
+    "strength": "Umbral",
+    "weakness": "Radiant",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "nine_lives",
+        "name": "Nine Lives",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "dark_watch",
+    "name": "Dark Watch",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Shrowd",
+    "icon": "/assets/icons/armours/shrowd/DarkWatch.png",
+    "description": "Head protection forged from Shrowd trophies.",
+    "strength": "Umbral",
+    "weakness": "Radiant",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "cunning",
+        "name": "Cunning",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "tragic_echo",
+    "name": "Tragic Echo",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Shrowd",
+    "icon": "/assets/icons/armours/shrowd/TragicEcho.png",
+    "description": "Tragic Echo is a piece of craftable Exotic armour in Dauntless. It is crafted from Shrowd reagents.",
+    "strength": "Umbral",
+    "weakness": "Radiant",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "rage",
+        "name": "Rage",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "heart_of_stone",
+    "name": "Heart of Stone",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Skarn",
+    "icon": "/assets/icons/armours/skarn/HeartOfStone.png",
+    "description": "Torso protection forged from Skarn trophies.",
+    "strength": "Terra",
+    "weakness": "Shock",
+    "baseResistance": 5,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "guardian",
+        "name": "Guardian",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "might_of_stone",
+    "name": "Might of Stone",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Skarn",
+    "icon": "/assets/icons/armours/skarn/MightOfStone.png",
+    "description": "Arms protection forged from Skarn trophies.",
+    "strength": "Terra",
+    "weakness": "Shock",
+    "baseResistance": 5,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "fortress",
+        "name": "Fortress",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "pillars_of_stone",
+    "name": "Pillars of Stone",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Skarn",
+    "icon": "/assets/icons/armours/skarn/PillarsOfStone.png",
+    "description": "Legs protection forged from Skarn trophies.",
+    "strength": "Terra",
+    "weakness": "Shock",
+    "baseResistance": 5,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "guardian",
+        "name": "Guardian",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "sight_of_stone",
+    "name": "Sight of Stone",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Skarn",
+    "icon": "/assets/icons/armours/skarn/SightOfStone.png",
+    "description": "Head protection forged from Skarn trophies.",
+    "strength": "Terra",
+    "weakness": "Shock",
+    "baseResistance": 5,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "tough",
+        "name": "Tough",
+        "value": 3,
+        "baseValue": 1
+      }
+    ]
+  },
+  {
+    "id": "skraevwing_boots",
+    "name": "Skraevwing Boots",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Skraev",
+    "icon": "/assets/icons/armours/skraev/SkraevwingBoots.png",
+    "description": "Legs protection forged from Skraev trophies.",
+    "strength": "Frost",
+    "weakness": "Blaze",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "adrenaline",
+        "name": "Adrenaline",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "skraevwing_gloves",
+    "name": "Skraevwing Gloves",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Skraev",
+    "icon": "/assets/icons/armours/skraev/SkraevwingGloves.png",
+    "description": "Arms protection forged from Skraev trophies.",
+    "strength": "Frost",
+    "weakness": "Blaze",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "aetheric_evasion",
+        "name": "Aetheric Evasion",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "skraevwing_helmet",
+    "name": "Skraevwing Helmet",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Skraev",
+    "icon": "/assets/icons/armours/skraev/SkraevwingHelmet.png",
+    "description": "Head protection forged from Skraev trophies.",
+    "strength": "Frost",
+    "weakness": "Blaze",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "fleet_footed",
+        "name": "Fleet Footed",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "skraevwing_jacket",
+    "name": "Skraevwing Jacket",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Skraev",
+    "icon": "/assets/icons/armours/skraev/SkraevwingJacket.png",
+    "description": "Torso protection forged from Skraev trophies.",
+    "strength": "Frost",
+    "weakness": "Blaze",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "adrenaline",
+        "name": "Adrenaline",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "lightning_boots",
+    "name": "Lightning Boots",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Stormclaw",
+    "icon": "/assets/icons/armours/stormclaw/LightningBoots.png",
+    "description": "Legs protection forged from Stormclaw trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "aetheric_evasion",
+        "name": "Aetheric Evasion",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "lightning_gloves",
+    "name": "Lightning Gloves",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Stormclaw",
+    "icon": "/assets/icons/armours/stormclaw/LightningGloves.png",
+    "description": "Arms protection forged from Stormclaw trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "catalyst",
+        "name": "Catalyst",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "lightning_helm",
+    "name": "Lightning Helm",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Stormclaw",
+    "icon": "/assets/icons/armours/stormclaw/LightningHelm.png",
+    "description": "Head protection forged from Stormclaw trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "energized",
+        "name": "Energized",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "lightning_plate",
+    "name": "Lightning Plate",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Stormclaw",
+    "icon": "/assets/icons/armours/stormclaw/LightningPlate.png",
+    "description": "Torso protection forged from Stormclaw trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "energized",
+        "name": "Energized",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "thrax_s_embrace",
+    "name": "Thrax's Embrace",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Thrax",
+    "icon": "/assets/icons/armours/thrax/ThraxsEmbrace.png",
+    "description": "Arms protection forged from Thrax trophies.",
+    "strength": "Umbral",
+    "weakness": "Radiant",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "nine_lives",
+        "name": "Nine Lives",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "thrax_s_guile",
+    "name": "Thrax's Guile",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Thrax",
+    "icon": "/assets/icons/armours/thrax/ThraxsGuile.png",
+    "description": "Legs protection forged from Thrax trophies.",
+    "strength": "Umbral",
+    "weakness": "Radiant",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "cunning",
+        "name": "Cunning",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "thrax_s_scream",
+    "name": "Thrax's Scream",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Thrax",
+    "icon": "/assets/icons/armours/thrax/ThraxsScream.png",
+    "description": "Head protection forged from Thrax trophies.",
+    "strength": "Umbral",
+    "weakness": "Radiant",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "catalyst",
+        "name": "Catalyst",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "thrax_s_shadow",
+    "name": "Thrax's Shadow",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Thrax",
+    "icon": "/assets/icons/armours/thrax/ThraxsShadow.png",
+    "description": "Torso protection forged from Thrax trophies.",
+    "strength": "Umbral",
+    "weakness": "Radiant",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "cunning",
+        "name": "Cunning",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "thunderdeep_s_capacitor",
+    "name": "Thunderdeep's Capacitor",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Thunderdeep Drask",
+    "icon": "/assets/icons/armours/thunderdeep/ThunderdeepsCapacitor.png",
+    "description": "Head protection forged from Thunderdeep Drask trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "sharpened",
+        "name": "Sharpened",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "thunderdeep_s_dynamo",
+    "name": "Thunderdeep's Dynamo",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Thunderdeep Drask",
+    "icon": "/assets/icons/armours/thunderdeep/ThunderdeepsDynamo.png",
+    "description": "Torso protection forged from Thunderdeep Drask trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "aetheric_evasion",
+        "name": "Aetheric Evasion",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "thunderdeep_s_regulators",
+    "name": "Thunderdeep's Regulators",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Thunderdeep Drask",
+    "icon": "/assets/icons/armours/thunderdeep/ThunderdeepsRegulators.png",
+    "description": "Arms protection forged from Thunderdeep Drask trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "zeal",
+        "name": "Zeal",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "thunderdeep_s_turbines",
+    "name": "Thunderdeep's Turbines",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Thunderdeep Drask",
+    "icon": "/assets/icons/armours/thunderdeep/ThunderdeepsTurbines.png",
+    "description": "Legs protection forged from Thunderdeep Drask trophies.",
+    "strength": "Shock",
+    "weakness": "Terra",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "zeal",
+        "name": "Zeal",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "timeweave_gauntlets",
+    "name": "Timeweave Gauntlets",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Unknown",
+    "icon": "/assets/icons/armours/timeweave/TimeweaveGauntlets.png",
+    "description": "Arms protection, part of the Timeweave set.",
+    "strength": "Radiant",
+    "weakness": "Umbral",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "overpower",
+        "name": "Overpower",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "timeweave_helm",
+    "name": "Timeweave Helm",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Unknown",
+    "icon": "/assets/icons/armours/timeweave/TimeweaveHelm.png",
+    "description": "Head protection, part of the Timeweave set.",
+    "strength": "Radiant",
+    "weakness": "Umbral",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "predator",
+        "name": "Predator",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "timeweave_leggings",
+    "name": "Timeweave Leggings",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Unknown",
+    "icon": "/assets/icons/armours/timeweave/TimeweaveLeggings.png",
+    "description": "Legs protection, part of the Timeweave set.",
+    "strength": "Radiant",
+    "weakness": "Umbral",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "catalyst",
+        "name": "Catalyst",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "timeweave_robes",
+    "name": "Timeweave Robes",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Unknown",
+    "icon": "/assets/icons/armours/timeweave/TimeweaveRobes.png",
+    "description": "Torso protection, part of the Timeweave set.",
+    "strength": "Radiant",
+    "weakness": "Umbral",
+    "baseResistance": 20,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "overpower",
+        "name": "Overpower",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "torgadoro_s_apex",
+    "name": "Torgadoro's Apex",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Torgadoro",
+    "icon": "/assets/icons/armours/torgadoro/TorgadorosApex.png",
+    "description": "Head protection forged from Torgadoro trophies.",
+    "strength": "Blaze",
+    "weakness": "Frost",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "zeal",
+        "name": "Zeal",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "torgadoro_s_brawn",
+    "name": "Torgadoro's Brawn",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Torgadoro",
+    "icon": "/assets/icons/armours/torgadoro/TorgadorosBrawn.png",
+    "description": "Arms protection forged from Torgadoro trophies.",
+    "strength": "Blaze",
+    "weakness": "Frost",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "overpower",
+        "name": "Overpower",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "torgadoro_s_core",
+    "name": "Torgadoro's Core",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Torgadoro",
+    "icon": "/assets/icons/armours/torgadoro/TorgadorosCore.png",
+    "description": "Torso protection forged from Torgadoro trophies.",
+    "strength": "Blaze",
+    "weakness": "Frost",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "knockout_king",
+        "name": "Knockout King",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "torgadoro_s_gait",
+    "name": "Torgadoro's Gait",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Torgadoro",
+    "icon": "/assets/icons/armours/torgadoro/TorgadorosGait.png",
+    "description": "Legs protection forged from Torgadoro trophies.",
+    "strength": "Blaze",
+    "weakness": "Frost",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "knockout_king",
+        "name": "Knockout King",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "adversary_s_drive",
+    "name": "Adversary's Drive",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Urska",
+    "icon": "/assets/icons/armours/urska/AdversarysDrive.png",
+    "description": "Legs protection forged from Urska trophies.",
+    "strength": "Frost",
+    "weakness": "Blaze",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "guardian",
+        "name": "Guardian",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "adversary_s_guile",
+    "name": "Adversary's Guile",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Urska",
+    "icon": "/assets/icons/armours/urska/AdversarysGuile.png",
+    "description": "Head protection forged from Urska trophies.",
+    "strength": "Frost",
+    "weakness": "Blaze",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "cascade",
+        "name": "Cascade",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "adversary_s_pride",
+    "name": "Adversary's Pride",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Urska",
+    "icon": "/assets/icons/armours/urska/AdversarysPride.png",
+    "description": "Torso protection forged from Urska trophies.",
+    "strength": "Frost",
+    "weakness": "Blaze",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "alacrity",
+    "perks": [
+      {
+        "id": "cascade",
+        "name": "Cascade",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "adversary_s_wrath",
+    "name": "Adversary's Wrath",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Urska",
+    "icon": "/assets/icons/armours/urska/AdversarysWrath.png",
+    "description": "Arms protection forged from Urska trophies.",
+    "strength": "Frost",
+    "weakness": "Blaze",
+    "baseResistance": 25,
+    "maxResistance": 30,
+    "cellSocket": "finesse",
+    "perks": [
+      {
+        "id": "aetheric_evasion",
+        "name": "Aetheric Evasion",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "aegis_of_valour",
+    "name": "Aegis of Valour",
+    "slot": "torso",
+    "slotName": "Torso",
+    "behemoth": "Valomyr",
+    "icon": "/assets/icons/armours/valomyr/AegisOfValour.png",
+    "description": "Torso protection forged from Valomyr trophies.",
+    "strength": "Radiant",
+    "weakness": "Umbral",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "nine_lives",
+        "name": "Nine Lives",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "crest_of_valour",
+    "name": "Crest of Valour",
+    "slot": "head",
+    "slotName": "Head",
+    "behemoth": "Valomyr",
+    "icon": "/assets/icons/armours/valomyr/CrestOfValour.png",
+    "description": "Head protection forged from Valomyr trophies.",
+    "strength": "Radiant",
+    "weakness": "Umbral",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "brutality",
+    "perks": [
+      {
+        "id": "lucent",
+        "name": "Lucent",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "gauntlets_of_valour",
+    "name": "Gauntlets of Valour",
+    "slot": "arms",
+    "slotName": "Arms",
+    "behemoth": "Valomyr",
+    "icon": "/assets/icons/armours/valomyr/GauntletsOfValour.png",
+    "description": "Arms protection forged from Valomyr trophies.",
+    "strength": "Radiant",
+    "weakness": "Umbral",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "fortitude",
+    "perks": [
+      {
+        "id": "lucent",
+        "name": "Lucent",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  },
+  {
+    "id": "greaves_of_valour",
+    "name": "Greaves of Valour",
+    "slot": "legs",
+    "slotName": "Legs",
+    "behemoth": "Valomyr",
+    "icon": "/assets/icons/armours/valomyr/GreavesOfValour.png",
+    "description": "Legs protection forged from Valomyr trophies.",
+    "strength": "Radiant",
+    "weakness": "Umbral",
+    "baseResistance": 15,
+    "maxResistance": 30,
+    "cellSocket": "insight",
+    "perks": [
+      {
+        "id": "aetherhunter",
+        "name": "Aetherhunter",
+        "value": 3,
+        "baseValue": 2
+      }
+    ]
+  }
+]

@@ -1,0 +1,18 @@
+name: The Hunger
+description: The Hunger is a craftable Exotic weapon in Dauntless. It is crafted from Shrowd reagents.
+icon: /assets/icons/weapons/shrowd/TheHunger.png
+type: Sword
+damage: Slashing
+elemental: Umbral
+cells: [Power, Utility]
+rarity: exotic
+restrict_specials: true
+power:
+  0: 80
+  1: 120
+unique_effects:
+  - name: TheHungerEffect
+    icon: /assets/icons/parts/sword/specials/TheHunger.png
+    description: >-
+      Activate to enter Feast, taking damage over time but gaining significant lifesteal,
+      attack speed, and creating aetheric waves with each attack that deal area damage.
