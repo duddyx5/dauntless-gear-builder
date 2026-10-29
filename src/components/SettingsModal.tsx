@@ -1,6 +1,7 @@
 import React from 'react';
 import { PatchVersionInfo } from '../types/builder';
 import { ThemeMode } from '../utils/theme';
+import { isDauntlessForeverSupported } from '../utils/dauntlessForever';
 import {
   Settings,
   X,
@@ -44,10 +45,11 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   onReplayOnboarding,
 }) => {
   if (!isOpen) return null;
+  const isAwakening = currentVersionId === '2.1.1' || versions.find(v => v.id === currentVersionId)?.era === 'Awakening';
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-sm animate-fade-in">
-      <div className="bg-dauntless-card border border-dauntless-border rounded-2xl w-full max-w-xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 animate-fade-in">
+      <div className="bg-dauntless-card border border-dauntless-border rounded-2xl w-full max-w-xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden isolate transform-gpu animate-slide-up">
         {/* Header */}
         <div className="p-4 border-b border-dauntless-border flex items-center justify-between shrink-0 bg-dauntless-card">
           <div className="flex items-center gap-2.5">
@@ -70,7 +72,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
         </div>
 
         {/* Scrollable Content */}
-        <div className="p-4 sm:p-6 space-y-6 overflow-y-auto flex-1">
+        <div className="p-4 sm:p-6 space-y-6 overflow-y-auto flex-1 modal-scroll overscroll-contain touch-pan-y">
           {/* SECTION 1: INTERFACE THEME */}
           <div>
             <div className="flex items-center justify-between mb-2">
@@ -215,29 +217,43 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             </label>
 
             <div className="space-y-2">
-              {/* Power Surge Toggle in Settings */}
-              <div className="p-3.5 rounded-xl bg-gray-800/40 border border-gray-700/60 flex items-center justify-between">
-                <div>
-                  <span className="font-semibold text-sm text-white block">Power Surge (Tier 6 Max)</span>
-                  <span className="text-xs text-gray-400 block mt-0.5">
-                    Surges gear to max level with +3 innate perks and max base power.
+              {/* Power Surge Toggle in Settings (Reforged / Classic only) */}
+              {!isAwakening ? (
+                <div className="p-3.5 rounded-xl bg-gray-800/40 border border-gray-700/60 flex items-center justify-between">
+                  <div>
+                    <span className="font-semibold text-sm text-white block">Power Surge (Tier 6 Max)</span>
+                    <span className="text-xs text-gray-400 block mt-0.5">
+                      Surges gear to max level with +3 innate perks and max base power.
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={onTogglePowerSurge}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all border ${
+                      powerSurged
+                        ? 'bg-amber-500 text-black border-amber-400 shadow-md shadow-amber-500/20'
+                        : 'bg-gray-800 text-gray-400 border-gray-700 hover:border-gray-600'
+                    }`}
+                  >
+                    {powerSurged ? 'ENABLED' : 'DISABLED'}
+                  </button>
+                </div>
+              ) : (
+                <div className="p-3.5 rounded-xl bg-cyan-950/20 border border-cyan-500/30 flex items-center justify-between">
+                  <div>
+                    <span className="font-semibold text-sm text-white block">Awakening Gear Levels Active</span>
+                    <span className="text-xs text-gray-400 block mt-0.5">
+                      Power Surging is not used in Awakening. Adjust gear levels (1-20) directly on each item card.
+                    </span>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shrink-0">
+                    LEVELS 1-20
                   </span>
                 </div>
-                <button
-                  type="button"
-                  onClick={onTogglePowerSurge}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all border ${
-                    powerSurged
-                      ? 'bg-amber-500 text-black border-amber-400 shadow-md shadow-amber-500/20'
-                      : 'bg-gray-800 text-gray-400 border-gray-700 hover:border-gray-600'
-                  }`}
-                >
-                  {powerSurged ? 'ENABLED' : 'DISABLED'}
-                </button>
-              </div>
+              )}
 
-              {/* Launcher Commands Shortcut */}
-              {onOpenLauncherModal && (
+              {/* Launcher Commands Shortcut (Only for supported DF versions) */}
+              {isDauntlessForeverSupported(currentVersionId) && onOpenLauncherModal && (
                 <button
                   type="button"
                   onClick={() => {

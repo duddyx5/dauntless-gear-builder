@@ -138,6 +138,7 @@ export const App: React.FC = () => {
         // Sanitize build to make sure equipped items exist in this patch
         setBuild(prev => {
           const weaponExists = loaded.weapons.some(w => w.id === prev.weapon);
+          const secWeaponExists = prev.secondaryWeapon ? loaded.weapons.some(w => w.id === prev.secondaryWeapon) : false;
           const headExists = loaded.armour.some(a => a.id === prev.head && a.slot === 'head');
           const torsoExists = loaded.armour.some(a => a.id === prev.torso && a.slot === 'torso');
           const armsExists = loaded.armour.some(a => a.id === prev.arms && a.slot === 'arms');
@@ -149,6 +150,8 @@ export const App: React.FC = () => {
             ...prev,
             version: currentVersionId,
             weapon: weaponExists ? prev.weapon : loaded.weapons[0]?.id || null,
+            secondaryWeapon: currentVersionId === '2.1.1' ? (secWeaponExists ? prev.secondaryWeapon : loaded.weapons[1]?.id || null) : null,
+            gearLevels: prev.gearLevels || { weapon: 20, secondaryWeapon: 20, head: 20, torso: 20, arms: 20, legs: 20 },
             head: headExists ? prev.head : loaded.armour.find(a => a.slot === 'head')?.id || null,
             torso: torsoExists ? prev.torso : loaded.armour.find(a => a.slot === 'torso')?.id || null,
             arms: armsExists ? prev.arms : loaded.armour.find(a => a.slot === 'arms')?.id || null,
@@ -199,6 +202,10 @@ export const App: React.FC = () => {
       const next = { ...prev };
       if (slot === 'weapon') {
         next.weapon = id;
+        next.weaponTalents = [0, 0, 0, 0, 0];
+      } else if (slot === 'secondaryWeapon') {
+        next.secondaryWeapon = id;
+        next.secondaryWeaponTalents = [0, 0, 0, 0, 0];
       } else if (slot === 'weaponCell_0') {
         const cells = [...prev.weaponCells];
         cells[0] = id;
@@ -239,6 +246,7 @@ export const App: React.FC = () => {
     const slot = activePicker.slot;
     if (!slot) return null;
     if (slot === 'weapon') return build.weapon;
+    if (slot === 'secondaryWeapon') return build.secondaryWeapon || null;
     if (slot === 'weaponCell_0') return build.weaponCells[0] || null;
     if (slot === 'weaponCell_1') return build.weaponCells[1] || null;
     if (slot === 'head') return build.head;
@@ -254,6 +262,25 @@ export const App: React.FC = () => {
     if (slot === 'omnicell') return build.omnicell;
     return null;
   }, [activePicker.slot, build]);
+
+  const handleGearLevelChange = useCallback((slotKey: string, level: number) => {
+    setBuild(prev => ({
+      ...prev,
+      gearLevels: {
+        ...(prev.gearLevels || { weapon: 20, secondaryWeapon: 20, head: 20, torso: 20, arms: 20, legs: 20 }),
+        [slotKey]: Math.max(1, Math.min(20, level)),
+      }
+    }));
+  }, []);
+
+  const handleWeaponTalentChange = useCallback((slotKey: 'weapon' | 'secondaryWeapon', tierIndex: number, optionIndex: number) => {
+    setBuild(prev => {
+      const key = slotKey === 'weapon' ? 'weaponTalents' : 'secondaryWeaponTalents';
+      const current = [...(prev[key] || [0, 0, 0, 0, 0])];
+      current[tierIndex] = optionIndex;
+      return { ...prev, [key]: current };
+    });
+  }, []);
 
   // Share handler
   const handleShare = () => {
@@ -337,6 +364,8 @@ export const App: React.FC = () => {
                 onOpenPicker={(slot, socket) => {
                   setActivePicker({ slot, socket });
                 }}
+                onGearLevelChange={handleGearLevelChange}
+                onWeaponTalentChange={handleWeaponTalentChange}
               />
             </div>
 
@@ -345,6 +374,7 @@ export const App: React.FC = () => {
               <DesktopStatsSidebar
                 stats={buildStats}
                 weaponElement={currentWeapon?.element || 'Neutral'}
+                currentVersionId={currentVersionId}
                 onOpenLauncherModal={() => setIsLauncherModalOpen(true)}
               />
             </div>
@@ -357,6 +387,7 @@ export const App: React.FC = () => {
         <BuildSummaryDrawer
           stats={buildStats}
           weaponElement={currentWeapon?.element || 'Neutral'}
+          currentVersionId={currentVersionId}
           onOpenLauncherModal={() => setIsLauncherModalOpen(true)}
         />
       )}

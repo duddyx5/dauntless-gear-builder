@@ -37,13 +37,10 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md animate-fade-in">
-      <div className="bg-dauntless-card border border-dauntless-border rounded-3xl w-full max-w-xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden animate-slide-up">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 animate-fade-in">
+      <div className="bg-dauntless-card border border-dauntless-border rounded-3xl w-full max-w-xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden isolate transform-gpu animate-slide-up">
         {/* Hero Header */}
-        <div className="p-5 sm:p-6 bg-gradient-to-br from-cyan-950/60 via-dauntless-card to-blue-950/40 border-b border-dauntless-border shrink-0 text-center relative overflow-hidden">
-          <div className="absolute -top-10 -right-10 w-40 h-40 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
-          <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
-
+        <div className="p-5 sm:p-6 bg-gradient-to-br from-cyan-950/70 via-dauntless-card to-blue-950/50 border-b border-dauntless-border shrink-0 text-center relative overflow-hidden">
           <div className="inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-xl shadow-cyan-500/25 mb-3">
             <Sparkles className="h-7 w-7 text-white" />
           </div>
@@ -57,7 +54,7 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({
         </div>
 
         {/* Scrollable Setup Options */}
-        <div className="p-4 sm:p-6 space-y-6 overflow-y-auto flex-1">
+        <div className="p-4 sm:p-6 space-y-6 overflow-y-auto flex-1 modal-scroll overscroll-contain touch-pan-y">
           {/* STEP 1: CHOOSE THEME */}
           <div>
             <div className="flex items-center gap-2 mb-2">

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { BuildStats, CalculatedPerk } from '../types/builder';
 import { getElementStyle } from '../utils/theme';
+import { formatPerkEffect } from '../utils/calculator';
+import { isDauntlessForeverSupported } from '../utils/dauntlessForever';
 import {
   ChevronUp,
   ChevronDown,
@@ -18,12 +20,14 @@ import {
 interface BuildSummaryDrawerProps {
   stats: BuildStats;
   weaponElement: string;
+  currentVersionId?: string;
   onOpenLauncherModal?: () => void;
 }
 
 export const BuildSummaryDrawer: React.FC<BuildSummaryDrawerProps> = ({
   stats,
   weaponElement,
+  currentVersionId,
   onOpenLauncherModal,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -177,8 +181,8 @@ export const BuildSummaryDrawer: React.FC<BuildSummaryDrawerProps> = ({
                 </div>
               )}
 
-              {/* Dauntless Forever Launcher Commands Button */}
-              {onOpenLauncherModal && (
+              {/* Dauntless Forever Launcher Commands Button (Only for supported DF versions) */}
+              {onOpenLauncherModal && currentVersionId && isDauntlessForeverSupported(currentVersionId) && (
                 <button
                   type="button"
                   onClick={() => {
@@ -310,7 +314,7 @@ export const BuildSummaryDrawer: React.FC<BuildSummaryDrawerProps> = ({
                                 }`}
                               >
                                 <span className="font-bold shrink-0">+{t}:</span>
-                                <span>{desc}</span>
+                                <span>{formatPerkEffect(desc)}</span>
                               </div>
                             );
                           })}

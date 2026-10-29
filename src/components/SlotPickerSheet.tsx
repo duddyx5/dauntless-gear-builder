@@ -8,10 +8,12 @@ import {
   PatchData,
 } from '../types/builder';
 import { getElementStyle, getSocketStyle, resolveAssetUrl } from '../utils/theme';
+import { formatPerkEffect } from '../utils/calculator';
 import { Search, X, Trash2, Shield, Zap, Sparkles, Filter } from 'lucide-react';
 
 export type PickerSlotType =
   | 'weapon'
+  | 'secondaryWeapon'
   | 'weaponCell_0'
   | 'weaponCell_1'
   | 'head'
@@ -56,13 +58,14 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
   if (!isOpen || !slotType) return null;
 
   const isCellPicker = slotType.includes('Cell');
-  const isWeaponPicker = slotType === 'weapon';
+  const isWeaponPicker = slotType === 'weapon' || slotType === 'secondaryWeapon';
   const isArmourPicker = ['head', 'torso', 'arms', 'legs'].includes(slotType);
   const isLanternPicker = slotType === 'lantern';
   const isOmnicellPicker = slotType === 'omnicell';
 
   const titleMap: Record<PickerSlotType, string> = {
-    weapon: 'Select Weapon',
+    weapon: 'Select Primary Weapon',
+    secondaryWeapon: 'Select Secondary Weapon',
     weaponCell_0: 'Select Weapon Cell (Slot 1)',
     weaponCell_1: 'Select Weapon Cell (Slot 2)',
     head: 'Select Head Armour (Helmet)',
@@ -529,7 +532,7 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
 
                         {perkDef && (
                           <p className="text-xs text-gray-400 mt-1 line-clamp-2">
-                            {perkDef.tiers[String(selectedCellTier)] || perkDef.description}
+                            {formatPerkEffect(perkDef.tiers[String(selectedCellTier)] || perkDef.description)}
                           </p>
                         )}
                       </div>

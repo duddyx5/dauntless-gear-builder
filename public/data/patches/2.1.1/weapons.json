@@ -17,7 +17,195 @@
     ],
     "perks": [],
     "uniqueEffect": "Activate Legendary to create a temporary field of ice that deals continuous damage to any enemies within it.",
-    "isLegendary": true
+    "isLegendary": true,
+    "talents": [
+      {
+        "tier": 0,
+        "name": "Primary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          },
+          {
+            "index": 1,
+            "text": "Your temp DEFENSE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          },
+          {
+            "index": 3,
+            "text": "Your temp DEFENSE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          }
+        ]
+      },
+      {
+        "tier": 1,
+        "name": "Weapon Special",
+        "options": [
+          {
+            "index": 0,
+            "text": "You are not slowed during Ardent Cyclone.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Grant 200 to yourself and allies when you activate Ardent Cyclone.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "You have 2 held DEFENSE during Ardent Cyclone.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Meter drains 15% slower during Ardent Cyclone.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Damage of Ardent Cyclone is increased by 20%.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "name": "Secondary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          },
+          {
+            "index": 1,
+            "text": "Your temp last MIGHT stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          },
+          {
+            "index": 3,
+            "text": "Your temp last MIGHT stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "name": "Weapon Passive",
+        "options": [
+          {
+            "index": 0,
+            "text": "Increase the strength of Shield Generator by 10%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "While you have any amount of Shield, you have 1 held MIGHT.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "You share your Shield Generator bonus with nearby allies.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "While you have any amount of Shield, you have 1 held ENDURANCE",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Increase the strength of Shield Generator by 10%.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "name": "Weapon Active",
+        "options": [
+          {
+            "index": 0,
+            "text": "Your Frozen Shine also deals stagger damage.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Your Frozen Shine grants 200 Shield to allies within its radius on activation.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Allies with the radius of Frozen Shine have 2 held SPEED",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Increase the radius of Frozen Shine by 30%",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Increase the duration Frozen Shine by 5 seconds.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      }
+    ],
+    "specialName": "Ardent Cyclone",
+    "specialDesc": "When meter is full, activate Special to spin rapidly. While active, deal continuous damage to nearby enemies. Reactivate to perform a powerful finisher.",
+    "activeName": "Frozen Field",
+    "activeDesc": "Activate Legendary to create a temporary field of ice that deals continuous damage to any enemies within it.",
+    "passiveName": "Silver Bulwark",
+    "passiveDesc": "When you would gain Shield from any source, you gain {shield}% more Shield."
   },
   {
     "id": "fury_of_the_mountain",
@@ -37,7 +225,195 @@
     ],
     "perks": [],
     "uniqueEffect": "Activate Legendary to gain {speed} stacks of SPEED, and an additional {extraSpeed} for each level of Determination. For the next {duration} seconds, your maximum stacks of SPEED are increased by {stacks}.",
-    "isLegendary": true
+    "isLegendary": true,
+    "talents": [
+      {
+        "tier": 0,
+        "name": "Primary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 ENDURANCE",
+            "type": "stat",
+            "stat": "endurance"
+          },
+          {
+            "index": 1,
+            "text": "Your temp ENDURANCE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 ENDURANCE",
+            "type": "stat",
+            "stat": "endurance"
+          },
+          {
+            "index": 3,
+            "text": "Your temp ENDURANCE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 ENDURANCE",
+            "type": "stat",
+            "stat": "endurance"
+          }
+        ]
+      },
+      {
+        "tier": 1,
+        "name": "Weapon Special",
+        "options": [
+          {
+            "index": 0,
+            "text": "You can catch and throw Relentless Onslaught a 4th time.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Increase the damage of Relentless Onslaught by 20%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Reduce the cooldown of Relentless Onslaught by 5 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Gain 15 Determination meter when you catch Fury of the Mountain.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Gain 1 ENDURANCE when you catch Fury of the Mountain.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "name": "Secondary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 CRITICAL",
+            "type": "stat",
+            "stat": "critical"
+          },
+          {
+            "index": 1,
+            "text": "Your temp CRITICAL stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 CRITICAL",
+            "type": "stat",
+            "stat": "critical"
+          },
+          {
+            "index": 3,
+            "text": "Your temp CRITICAL stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 CRITICAL",
+            "type": "stat",
+            "stat": "critical"
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "name": "Weapon Passive",
+        "options": [
+          {
+            "index": 0,
+            "text": "Reduce the number of hits needed to activate Burning Weapon by 1.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Increase the damage of Burning Weapon by 20%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Gain 1 MIGHT when you trigger Burning Weapon.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Gain 1 SPEED when you trigger Burning Weapon.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Reduce the number of hits needed to activate Burning Weapon by 1.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "name": "Weapon Active",
+        "options": [
+          {
+            "index": 0,
+            "text": "Increase the SPEED gained by Acceleration Engine by 2.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Acceleration Engine also grants 2 SPEED to nearby allies.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Increase the duration of Acceleration Engine by 15 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Explode in a burst of 400 blaze damage when you activate Acceleration Engine.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Reduce the cooldown of Acceleration Engine by 20 seconds.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      }
+    ],
+    "specialName": "Relentless Onslaught",
+    "specialDesc": "Activate Special to throw your axe. If it hits a Behemoth it will bounce off, and can be caught. Can be re-thrown up to two more times if caught. If determination meter is full when it hits, gain a level of Determination.",
+    "activeName": "Acceleration Engine",
+    "activeDesc": "Activate Legendary to gain {speed} stacks of SPEED, and an additional {extraSpeed} for each level of Determination. For the next {duration} seconds, your maximum stacks of SPEED are increased by {stacks}.",
+    "passiveName": "Burning Weapon",
+    "passiveDesc": "Landing {attacks} attacks without being hit empowers your weapon's next attack for a short duration with additional blaze damage."
   },
   {
     "id": "the_living_branch",
@@ -57,7 +433,195 @@
     ],
     "perks": [],
     "uniqueEffect": "Activate Legendary to teleport forward, evading attacks and creating an explosion of Terra damage at your arrival point, healing you for {heal}, and cleansing status effects.",
-    "isLegendary": true
+    "isLegendary": true,
+    "talents": [
+      {
+        "tier": 0,
+        "name": "Primary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 VITALITY",
+            "type": "stat",
+            "stat": "vitality"
+          },
+          {
+            "index": 1,
+            "text": "Your temp VITALITY stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 VITALITY",
+            "type": "stat",
+            "stat": "vitality"
+          },
+          {
+            "index": 3,
+            "text": "Your temp VITALITY stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 VITALITY",
+            "type": "stat",
+            "stat": "vitality"
+          }
+        ]
+      },
+      {
+        "tier": 1,
+        "name": "Weapon Special",
+        "options": [
+          {
+            "index": 0,
+            "text": "Increase the CRITICAL granted by Wellspring by 1.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Increase the duration of Wellspring by 10 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Increase the radius of Wellspring by 50%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Wellspring also grants 1 held MIGHT to Slayers inside it.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Wellspring also grants 1 held SPEED to Slayers inside it.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "name": "Secondary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          },
+          {
+            "index": 1,
+            "text": "Your temp DEFENSE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          },
+          {
+            "index": 3,
+            "text": "Your temp DEFENSE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "name": "Weapon Passive",
+        "options": [
+          {
+            "index": 0,
+            "text": "Aether Shield now grants 50 additional shield when activated.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Aether Shield can now reach 800 maximum shield.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Aether Shield also shields nearby allies.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Aether Shield is also activated when a Behemoth part is broken.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Slayers who currently have your Aether Shield also have 1 held SPEED.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "name": "Weapon Active",
+        "options": [
+          {
+            "index": 0,
+            "text": "Reduce the cooldown of Living Bloom by 20 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Gain 2 VITALITY after you Living Bloom.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Increase the damage dealt when you leave Living Bloom by 20%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Heal yourself for an additional 400 as well as nearby allies for 400 when you leave Living Bloom.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Also deal damage at the start of your Living Bloom.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      }
+    ],
+    "specialName": "Wellspring",
+    "specialDesc": "With one or more bar of meter, activate Special to store ammo. Hold Special with a stored ammo to create an aura around you that grants all Slayers within it {critical} held CRITICAL. Duration is improved by quality of ammo used.",
+    "activeName": "Living Bloom",
+    "activeDesc": "Activate Legendary to teleport forward, evading attacks and creating an explosion of Terra damage at your arrival point, healing you for {heal}, and cleansing status effects.",
+    "passiveName": "Aether Shield",
+    "passiveDesc": "When a behemoth is wounded, gain {shield} shields. Shields from this ability can reach {maxShield} total."
   },
   {
     "id": "skies_of_ostia",
@@ -77,7 +641,195 @@
     ],
     "perks": [],
     "uniqueEffect": "Activate Legendary to fire a bolt of lightning that deals damage as it passes through targets. If this hits a Behemoth, teleport forward and perform a powerful hammer attack.",
-    "isLegendary": true
+    "isLegendary": true,
+    "talents": [
+      {
+        "tier": 0,
+        "name": "Primary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          },
+          {
+            "index": 1,
+            "text": "Your temp DEFENSE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          },
+          {
+            "index": 3,
+            "text": "Your temp DEFENSE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          }
+        ]
+      },
+      {
+        "tier": 1,
+        "name": "Weapon Special",
+        "options": [
+          {
+            "index": 0,
+            "text": "For each ball of lightning fired, fire one additional ball.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "For each ball of lightning fired, fire one additional ball.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Increase the damage of each ball of lightning by 20%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Gain one additional Ammo.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Gain one additional Ammo.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "name": "Secondary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          },
+          {
+            "index": 1,
+            "text": "Your temp MIGHT stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          },
+          {
+            "index": 3,
+            "text": "Your temp MIGHT stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "name": "Weapon Passive",
+        "options": [
+          {
+            "index": 0,
+            "text": "Increase the lifetime of Shock Turrets by 3 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Shock Turrets fire every 1.5 seconds instead of 2 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Shock Turrets explode for 250 shock damage around them when they expire.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Shock Turrets fire an additional shock bolt.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Allies near a Shock Turret have 2 held stacks of DEFENSE.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "name": "Weapon Active",
+        "options": [
+          {
+            "index": 0,
+            "text": "Reduce the cooldown of Eye of the Storm by 15 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Increase the damage of Eye of the Storm by 20%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Gain 1 stack of MIGHT when activating Eye of the Storm.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Gain 2 stacks of ENDURANCE when activating Eye of the Storm.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Reduce the cooldown of Eye of the Storm by 15 seconds.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      }
+    ],
+    "specialName": "Lightning Salvo",
+    "specialDesc": "Your Special fires two lightning balls. Fire two additional balls of lightning for each ammo spent.",
+    "activeName": "Eye of the Storm",
+    "activeDesc": "Activate Legendary to fire a bolt of lightning that deals damage as it passes through targets. If this hits a Behemoth, teleport forward and perform a powerful hammer attack.",
+    "passiveName": "Shock Turret",
+    "passiveDesc": "When you aetherslam, create a turret that fires shock bolts every {duration} seconds at the nearest target. The turret lasts longer based on ammo spent in the aetherslam."
   },
   {
     "id": "netherlights",
@@ -97,7 +849,195 @@
     ],
     "perks": [],
     "uniqueEffect": "Activate Legendary to perform an umbral slash that steals health from a Behemoth, dealing damage, healing you, and instantly inflicting umbral status on a random part.",
-    "isLegendary": true
+    "isLegendary": true,
+    "talents": [
+      {
+        "tier": 0,
+        "name": "Primary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 SPEED",
+            "type": "stat",
+            "stat": "speed"
+          },
+          {
+            "index": 1,
+            "text": "Your temp SPEED stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 SPEED",
+            "type": "stat",
+            "stat": "speed"
+          },
+          {
+            "index": 3,
+            "text": "Your temp SPEED stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 SPEED",
+            "type": "stat",
+            "stat": "speed"
+          }
+        ]
+      },
+      {
+        "tier": 1,
+        "name": "Weapon Special",
+        "options": [
+          {
+            "index": 0,
+            "text": "Increase the duration of umbral rifts by 2 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Increase the damage bonus from perfect dodging an attack with Cruel Riftstrike by 30%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Final explosion of umbral rifts deals damage as though one additional umbral rift had been placed.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "When a Behemoth has 1 or more of your umbral rifts, you have 2 held SPEED.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Increase the duration of umbral rifts by 2 seconds.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "name": "Secondary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 VITALITY",
+            "type": "stat",
+            "stat": "vitality"
+          },
+          {
+            "index": 1,
+            "text": "Your temp VITALITY stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 VITALITY",
+            "type": "stat",
+            "stat": "vitality"
+          },
+          {
+            "index": 3,
+            "text": "Your temp VITALITY stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 VITALITY",
+            "type": "stat",
+            "stat": "vitality"
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "name": "Weapon Passive",
+        "options": [
+          {
+            "index": 0,
+            "text": "Increase the damage of Shadowdodge by 50%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Increase the damage of Shadowdodge by 50%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "When you interrupt a Behemoth, gain 1 stack of VITALITY.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Shadowdodge deals 50% more damage while you are at 20% health or less.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Shadowdodge also costs 20% of your maximum health, but deals that same amount to the target.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "name": "Weapon Active",
+        "options": [
+          {
+            "index": 0,
+            "text": "Reduce the cooldown of Syphon Power by 20 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Increase the healing gained from Syphon Power by 250.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Increase the damage dealt by Syphon Power by 20%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "On activation of Syphon Power, gain 2 SPEED.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Reduce the cooldown of Syphon Power by 20 seconds.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      }
+    ],
+    "specialName": "Cruel Riftstrike",
+    "specialDesc": "When you have at least one chain charge, activate Special to teleport past the closest Behemoth, turning around and striking it to leave an umbral rift that deals damage over time. When the rift expires, it explodes for umbral damage, increased by the total number of rifts. The final explosion does additional damage if Cruel Riftstrike dodges through a Behemoth attack.",
+    "activeName": "Syphon Power",
+    "activeDesc": "Activate Legendary to perform an umbral slash that steals health from a Behemoth, dealing damage, healing you, and instantly inflicting umbral status on a random part.",
+    "passiveName": "Shadowdodge",
+    "passiveDesc": "Dodging through an attack causes an explosion of umbral energy, which can interrupt."
   },
   {
     "id": "twin_suns",
@@ -117,7 +1057,195 @@
     ],
     "perks": [],
     "uniqueEffect": "Activate Legendary to drop a large bomb from your airship a short distance in front of you that deals massive damage.",
-    "isLegendary": true
+    "isLegendary": true,
+    "talents": [
+      {
+        "tier": 0,
+        "name": "Primary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          },
+          {
+            "index": 1,
+            "text": "Your temp DEFENSE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          },
+          {
+            "index": 3,
+            "text": "Your temp DEFENSE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          }
+        ]
+      },
+      {
+        "tier": 1,
+        "name": "Weapon Special",
+        "options": [
+          {
+            "index": 0,
+            "text": "Reduce the cooldown on Mag Bombs by 20 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Increase the number of bombs loaded when you activate Mag Bombs by 4.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Gain 1 SPEED when you activate Mag Bombs.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Critical hits reduce the cooldown of Mag Bombs by 3 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Gain 2 VITALITY when you activate Mag Bombs.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "name": "Secondary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 CRITICAL",
+            "type": "stat",
+            "stat": "critical"
+          },
+          {
+            "index": 1,
+            "text": "Your temp CRITICAL stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 CRITICAL",
+            "type": "stat",
+            "stat": "critical"
+          },
+          {
+            "index": 3,
+            "text": "Your temp CRITICAL stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 CRITICAL",
+            "type": "stat",
+            "stat": "critical"
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "name": "Weapon Passive",
+        "options": [
+          {
+            "index": 0,
+            "text": "Increase the duration of CRITICAL stacks by an additional 5 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "When you land a critical hit, restore 2 HP.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Every 120 seconds, gain a stack of CRITICAL.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "When you land a critical hit, pulse 100 shock damage in a small area around you.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "When you land a critical hit, you have a 10% chance to reload one ammo instantly.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "name": "Weapon Active",
+        "options": [
+          {
+            "index": 0,
+            "text": "Gain 1 MIGHT when you drop a Broadside Bomb.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Reduce the cooldown of Broadside Bomb by 20 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Increase the radius of Broadside Bomb's explosion by 50%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Drop a second Broadside Bomb a short distance ahead of the first.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Players in the radius of a Broadside Bomb explosion gain 2 SPEED.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      }
+    ],
+    "specialName": "Lightning Dash",
+    "specialDesc": "Activate to dash through attacks, performing a spinning counter. Additionally, when meter is full, activate magnetic bombs which stick to Behemoths, and deal greater damage the more parts they hit.",
+    "activeName": "Broadside Bomb",
+    "activeDesc": "Activate Legendary to drop a large bomb from your airship a short distance in front of you that deals massive damage.",
+    "passiveName": "Critical Capacitor",
+    "passiveDesc": "Your stacks of CRITICAL last {duration} seconds longer."
   },
   {
     "id": "the_golden_claws",
@@ -137,7 +1265,195 @@
     ],
     "perks": [],
     "uniqueEffect": "Activate Legendary to gain {speed} stacks of SPEED and perform a flash of Radiant energy that immediately inflicts Radiance on a nearby Behemoth.",
-    "isLegendary": true
+    "isLegendary": true,
+    "talents": [
+      {
+        "tier": 0,
+        "name": "Primary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 ENDURANCE",
+            "type": "stat",
+            "stat": "endurance"
+          },
+          {
+            "index": 1,
+            "text": "Your temp ENDURANCE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 ENDURANCE",
+            "type": "stat",
+            "stat": "endurance"
+          },
+          {
+            "index": 3,
+            "text": "Your temp ENDURANCE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 ENDURANCE",
+            "type": "stat",
+            "stat": "endurance"
+          }
+        ]
+      },
+      {
+        "tier": 1,
+        "name": "Weapon Special",
+        "options": [
+          {
+            "index": 0,
+            "text": "Increase the damage of Adamant Bolt by 20%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Your mantra bar decays 30% slower.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Gain one Mantra after activating Adamant Bolt with three Mantras.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Increase the duration of Tempest Form by 5 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Increase the duration of Karma Breaker by 5 seconds.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "name": "Secondary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 CRITICAL",
+            "type": "stat",
+            "stat": "critical"
+          },
+          {
+            "index": 1,
+            "text": "Your temp CRITICAL stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 CRITICAL",
+            "type": "stat",
+            "stat": "critical"
+          },
+          {
+            "index": 3,
+            "text": "Your temp CRITICAL stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 CRITICAL",
+            "type": "stat",
+            "stat": "critical"
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "name": "Weapon Passive",
+        "options": [
+          {
+            "index": 0,
+            "text": "Gain 1 DEFENSE when you break a Behemoth part.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Gain 2 ENDURANCE when you break a Behemoth part.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Increase your part damage by an additional 10%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "If all parts on a Behemoth are broken, gain 5 MIGHT. This effect cannot happen more than once every 30 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Heal yourself for 250 when you break a Behemoth part.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "name": "Weapon Active",
+        "options": [
+          {
+            "index": 0,
+            "text": "When you Radiant Flash, gain 2 CRITICAL.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Reduce the cooldown of Radiant Flash by 20 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Radiant Flash also deals 400 bonus base damage on activation to the nearest behemoth, before mitigation and bonuses.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "When you Radiant Flash, gain 1 additional SPEED.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "After you Radiant Flash, your next 3 attacks deal bonus Radiant damage.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      }
+    ],
+    "specialName": "Adamant Bolt",
+    "specialDesc": "Activate Special to fire a powerful beam of energy. Deals up to {damage}% additional damage when Tempest Form and Karma Breaker are active.",
+    "activeName": "Radiant Flash",
+    "activeDesc": "Activate Legendary to gain {speed} stacks of SPEED and perform a flash of Radiant energy that immediately inflicts Radiance on a nearby Behemoth.",
+    "passiveName": "Crushing Fist",
+    "passiveDesc": "Deal {damage}% increased damage to unbroken parts."
   },
   {
     "id": "the_anvil",
@@ -157,7 +1473,195 @@
     ],
     "perks": [],
     "uniqueEffect": "Activate Legendary to create a wall of ice that blocks projectiles, interrupts Behemoths that pass through it, and freezes non-Frost Behemoths.",
-    "isLegendary": true
+    "isLegendary": true,
+    "talents": [
+      {
+        "tier": 0,
+        "name": "Primary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 VITALITY",
+            "type": "stat",
+            "stat": "vitality"
+          },
+          {
+            "index": 1,
+            "text": "Your temp VITALITY stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 VITALITY",
+            "type": "stat",
+            "stat": "vitality"
+          },
+          {
+            "index": 3,
+            "text": "Your temp VITALITY stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 VITALITY",
+            "type": "stat",
+            "stat": "vitality"
+          }
+        ]
+      },
+      {
+        "tier": 1,
+        "name": "Weapon Special",
+        "options": [
+          {
+            "index": 0,
+            "text": "Increase the MIGHT granted by Mighty Landbreaker by 1.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "You have 2 held DEFENSE while a Mighty Landbreaker crack is still open.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Increase The Anvil's maximum ammo by 1.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Mighty Landbreaker also grants Slayers who cross it 1 DEFENSE.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Might Landbreaker also grants Slayers who cross it 1 CRITICAL.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "name": "Secondary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          },
+          {
+            "index": 1,
+            "text": "Your temp MIGHT stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          },
+          {
+            "index": 3,
+            "text": "Your temp MIGHT stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "name": "Weapon Passive",
+        "options": [
+          {
+            "index": 0,
+            "text": "Increase the number of Frozen Mines you drop by 1.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Reduce the time before you can create more Frozen Mines by 5 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Increase the damage Frozen Mines deal by 20%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "While any Frozen Mines remain undetonated, you have 2 held SPEED.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Increase the number of Frozen Mines you drop by 1.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "name": "Weapon Active",
+        "options": [
+          {
+            "index": 0,
+            "text": "Reduce the cooldown of The Wall by 20 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Friendly slayers gain 2 DEFENSE if they touch The Wall.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Increase the damage The Wall does to creatures and Behemoths by 100%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Increase the lifetime of The Wall by 4 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Reduce the cooldown of The Wall by 20 seconds.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      }
+    ],
+    "specialName": "Mighty Landbreaker",
+    "specialDesc": "Activate Special to open a crack in the ground that allows Slayers to gain {might} MIGHT by walking over it. Create one pickup per ammo spent. A Slayer cannot gain this benefit more than once every {duration} seconds.",
+    "activeName": "The Wall",
+    "activeDesc": "Activate Legendary to create a wall of ice that blocks projectiles, interrupts Behemoths that pass through it, and freezes non-Frost Behemoths.",
+    "passiveName": "Frozen Mines",
+    "passiveDesc": "On dodging, create two ice mines that damage any Behemoth that touched them. Recharges every {duration} seconds."
   },
   {
     "id": "bane_balm",
@@ -177,7 +1681,195 @@
     ],
     "perks": [],
     "uniqueEffect": "Activate Legendary to revive all allies in bleedout, and place a heal over time on all allies. Can be activated while in bleedout.",
-    "isLegendary": true
+    "isLegendary": true,
+    "talents": [
+      {
+        "tier": 0,
+        "name": "Primary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 CRITICAL",
+            "type": "stat",
+            "stat": "critical"
+          },
+          {
+            "index": 1,
+            "text": "Your temp CRITICAL stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 CRITICAL",
+            "type": "stat",
+            "stat": "critical"
+          },
+          {
+            "index": 3,
+            "text": "Your temp CRITICAL stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 CRITICAL",
+            "type": "stat",
+            "stat": "critical"
+          }
+        ]
+      },
+      {
+        "tier": 1,
+        "name": "Weapon Special",
+        "options": [
+          {
+            "index": 0,
+            "text": "Insatiable Dance spawns 2 additional healing orbs.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Increases the healing of each healing orb by 20%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Healing orbs also cleanse status effects.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Retain 1 ammo after executing Insatiable Dance.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Increase the damage of Insatiable Dance by 20%.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "name": "Secondary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          },
+          {
+            "index": 1,
+            "text": "Your temp DEFENSE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          },
+          {
+            "index": 3,
+            "text": "Your temp DEFENSE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "name": "Weapon Passive",
+        "options": [
+          {
+            "index": 0,
+            "text": "Increase the percentage of damage from Poison Drip by 5%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Increase the duration of Poison Drip.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "While a behemoth has 7 instances of Poison Drip, you have 2 held MIGHT.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Critical hits apply Poison Drip twice.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Increase the percentage of damage from Poison Drip by 5%.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "name": "Weapon Active",
+        "options": [
+          {
+            "index": 0,
+            "text": "Reduce the cooldown of Bloom of Balm by 30 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Grant 2 stacks of DEFENSE to slayers affected by Bloom of Balm.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Grant 200 shields to slayers affected by Bloom of Balm.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Grant 1 stack of CRITICAL to slayers affected by Bloom of Balm.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Deal 500 Terra damage to Behemoths within the radius of Bloom of Balm.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      }
+    ],
+    "specialName": "Insatiable Dance",
+    "specialDesc": "Activate Special to push off a behemoth and into the air. Activate Heavy while in the air to slam down, spending one or more chain charges to deal damage, heal yourself, and create orbs that heal allies.",
+    "activeName": "Bloom of Balm",
+    "activeDesc": "Activate Legendary to revive all allies in bleedout, and place a heal over time on all allies. Can be activated while in bleedout.",
+    "passiveName": "Dripping Venom",
+    "passiveDesc": "When you deal damage, deal {damage}% of the damage again over {duration} seconds."
   },
   {
     "id": "eternal_winter",
@@ -197,7 +1889,195 @@
     ],
     "perks": [],
     "uniqueEffect": "Activate Legendary to perform a powerful strike. The strength of this attack is greatly increased based on your Determination Level.",
-    "isLegendary": true
+    "isLegendary": true,
+    "talents": [
+      {
+        "tier": 0,
+        "name": "Primary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 CRITICAL",
+            "type": "stat",
+            "stat": "critical"
+          },
+          {
+            "index": 1,
+            "text": "Your temp CRITICAL stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 CRITICAL",
+            "type": "stat",
+            "stat": "critical"
+          },
+          {
+            "index": 3,
+            "text": "Your temp CRITICAL stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 CRITICAL",
+            "type": "stat",
+            "stat": "critical"
+          }
+        ]
+      },
+      {
+        "tier": 1,
+        "name": "Weapon Special",
+        "options": [
+          {
+            "index": 0,
+            "text": "Gain 100 stacking shields (max 400) when you catch Grim Onslaught. These shields do not expire.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Increase the damage of Grim Onslaught by 10%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Reduce the cooldown of Grim Onslaught from 15 to 12.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Increase the Determination gained from 30 to 40 when you catch Grim Onslaught.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Perform a pulse of 500 frost damage around you when you catch Grim Onslaught.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "name": "Secondary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          },
+          {
+            "index": 1,
+            "text": "Your temp DEFENSE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          },
+          {
+            "index": 3,
+            "text": "Your temp DEFENSE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "name": "Weapon Passive",
+        "options": [
+          {
+            "index": 0,
+            "text": "Reduce the time before Frozen Brand can be applied again by 10 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Increase the damage Frozen Brand does when it expires or is destroyed by 10%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Dealing damage to the Frozen Brand also deals 75% of that damage as wound damage to the Behemoth.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Grant 2 stacks of DEFENSE to nearby slayers when Frozen Brand is destroyed.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Reduce the time before Frozen Brand can be applied again by 10 seconds.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "name": "Weapon Active",
+        "options": [
+          {
+            "index": 0,
+            "text": "Max Determination Level is increased by 1.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Increase the damage of Determined Strike by 10%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Gain 2 CRITICAL before Determined Strike hits.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Activating Determined Strike grants 50 health shields per your current Determination Level to all nearby slayers.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "In addition to Grim Onslaught, Determined Strike can also raise you to the next Determination Level.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      }
+    ],
+    "specialName": "Grim Onslaught",
+    "specialDesc": "Activate Special to throw your axe. It deals a great deal of damage and bounces back. Catching it grants determination.",
+    "activeName": "Determined Strike",
+    "activeDesc": "Activate Legendary to perform a powerful strike. The strength of this attack is greatly increased based on your Determination Level.",
+    "passiveName": "Frozen Brand",
+    "passiveDesc": "Dealing damage to a Behemoth places a freezing brand on it. After a time, the brand will detonate. Dealing enough damage to the brand detonates it early, dealing increased damage. Recharges after a short time."
   },
   {
     "id": "firestorm",
@@ -217,7 +2097,195 @@
     ],
     "perks": [],
     "uniqueEffect": "After activation, dealing wound damage over the next {duration} seconds builds up a reserve of cannon balls, which are then fired from above.",
-    "isLegendary": true
+    "isLegendary": true,
+    "talents": [
+      {
+        "tier": 0,
+        "name": "Primary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 SPEED",
+            "type": "stat",
+            "stat": "speed"
+          },
+          {
+            "index": 1,
+            "text": "Your temp SPEED stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 SPEED",
+            "type": "stat",
+            "stat": "speed"
+          },
+          {
+            "index": 3,
+            "text": "Your temp SPEED stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 SPEED",
+            "type": "stat",
+            "stat": "speed"
+          }
+        ]
+      },
+      {
+        "tier": 1,
+        "name": "Weapon Special",
+        "options": [
+          {
+            "index": 0,
+            "text": "Increase the damage of Reckless Leap by 20%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Gain 5 held and max DEFENSE and become immune to stagger while aiming and charging Reckless Leap.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Storing ammo at full meter stores up to 2 ammo.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Reckless Leap can lunge 30% further.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Gain 1 VITALITY when Reckless Leap damages a Behemoth.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "name": "Secondary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 ENDURANCE",
+            "type": "stat",
+            "stat": "endurance"
+          },
+          {
+            "index": 1,
+            "text": "Your temp ENDURANCE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 ENDURANCE",
+            "type": "stat",
+            "stat": "endurance"
+          },
+          {
+            "index": 3,
+            "text": "Your temp ENDURANCE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 ENDURANCE",
+            "type": "stat",
+            "stat": "endurance"
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "name": "Weapon Passive",
+        "options": [
+          {
+            "index": 0,
+            "text": "Increase maximum loaded Homing Missiles by 2.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Increase bonus damage per Homing Missile by 15%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Homing Missiles deal an additional 50 wound damage.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Reduce Homing Missiles cooldown by 5 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Gain 2 held and max ENDURANCE while you have 3 or more Homing Missiles loaded.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "name": "Weapon Active",
+        "options": [
+          {
+            "index": 0,
+            "text": "Reduce the cooldown of Airship Barrage by 20 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Increase the damage of Airship Barrage by 20%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Reduce the damage needed per cannon ball by 50.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "10% of your non-wound damage contributes to cannon balls.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Gain 2 SPEED when you activate Airship Barrage.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      }
+    ],
+    "specialName": "Reckless Leap",
+    "specialDesc": "Press to convert meter into ammo. Hold to spend ammo and perform a flying lunge attack that deals up to {damage} damage based on distance and ammo quality.",
+    "activeName": "Airship Barrage",
+    "activeDesc": "After activation, dealing wound damage over the next {duration} seconds builds up a reserve of cannon balls, which are then fired from above.",
+    "passiveName": "Homing Missiles",
+    "passiveDesc": "Once charged after {duration} second cooldown, your next hit locks on to the Behemoth part. Dealing damage loads homing missiles (max {missiles}) that deal {baseDamage} base damage + {damage} for each other missile in the volley. On dodge, fire all loaded missiles."
   },
   {
     "id": "the_godhand",
@@ -237,7 +2305,195 @@
     ],
     "perks": [],
     "uniqueEffect": "Activate your Legendary to immediately fill your meter to full.",
-    "isLegendary": true
+    "isLegendary": true,
+    "talents": [
+      {
+        "tier": 0,
+        "name": "Primary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          },
+          {
+            "index": 1,
+            "text": "Your temp MIGHT stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          },
+          {
+            "index": 3,
+            "text": "Your temp MIGHT stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          }
+        ]
+      },
+      {
+        "tier": 1,
+        "name": "Weapon Special",
+        "options": [
+          {
+            "index": 0,
+            "text": "Gain 1 VITALITY when you fire The Godhand.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Increase the maximum damage of Godhand beam by 20%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Gain 2 DEFENSE when you fire The Godhand.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Gain resolve, preventing you from being staggered, for 2 seconds while activating Godhand.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Gain 1 SPEED when you fire The Godhand.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "name": "Secondary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 VITALITY",
+            "type": "stat",
+            "stat": "vitality"
+          },
+          {
+            "index": 1,
+            "text": "Your temp VITALITY stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 VITALITY",
+            "type": "stat",
+            "stat": "vitality"
+          },
+          {
+            "index": 3,
+            "text": "Your temp VITALITY stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 VITALITY",
+            "type": "stat",
+            "stat": "vitality"
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "name": "Weapon Passive",
+        "options": [
+          {
+            "index": 0,
+            "text": "Sigils also deal a base of 750 radiant damage when touched by a Behemoth.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Sigils become active instantly.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "While standing in an active sigil, Slayers have 2 held MIGHT.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Active sigils can interrupt unstable attacks.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Creates a second sigil a short distance ahead of the first on activation.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "name": "Weapon Active",
+        "options": [
+          {
+            "index": 0,
+            "text": "You have resolve, preventing you from being staggered for 2 seconds after Gathering Power.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "You gain 1 MIGHT when you activate Gathering Power.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "You deal 300 base damage in an area around you when you activate Gathering Power.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "You grant 1 CRITICAL to yourself and nearby allies when you Gather Power.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "10 seconds after you activate Gathering Power, your meter is refilled to full again.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      }
+    ],
+    "specialName": "Godhand",
+    "specialDesc": "With more than one bar of meter, activate Special to store ammo. Hold Special with a stored ammo to begin firing with the Godhand, dealing more damage the longer the beam is maintained. Beam duration limited by quality of your stored ammo.",
+    "activeName": "Gathering Power",
+    "activeDesc": "Activate your Legendary to immediately fill your meter to full.",
+    "passiveName": "Runic Sigils",
+    "passiveDesc": "On activating your Legendary, place a runic sigil a short distance ahead of you that activates if a Behemoth touches it, granting {shield} Shield."
   },
   {
     "id": "the_hunger",
@@ -257,7 +2513,195 @@
     ],
     "perks": [],
     "uniqueEffect": "Activate Legendary to create an umbral explosion and teleport high into the air. Reactivate to crash down, creating another umbral explosion on impact.",
-    "isLegendary": true
+    "isLegendary": true,
+    "talents": [
+      {
+        "tier": 0,
+        "name": "Primary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 CRITICAL",
+            "type": "stat",
+            "stat": "critical"
+          },
+          {
+            "index": 1,
+            "text": "Your temp CRITICAL stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 CRITICAL",
+            "type": "stat",
+            "stat": "critical"
+          },
+          {
+            "index": 3,
+            "text": "Your temp CRITICAL stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 CRITICAL",
+            "type": "stat",
+            "stat": "critical"
+          }
+        ]
+      },
+      {
+        "tier": 1,
+        "name": "Weapon Special",
+        "options": [
+          {
+            "index": 0,
+            "text": "While in Feast, you launch two slashes of umbral energy with each attack.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Feast will not drain you below 15% health.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "During Feast, you have 2 held stacks of MIGHT.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "When you activate feast, immediately gain 6 Valour.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Extend the duration of Feast by 15%.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "name": "Secondary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 VITALITY",
+            "type": "stat",
+            "stat": "vitality"
+          },
+          {
+            "index": 1,
+            "text": "Your temp VITALITY stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 VITALITY",
+            "type": "stat",
+            "stat": "vitality"
+          },
+          {
+            "index": 3,
+            "text": "Your temp VITALITY stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 VITALITY",
+            "type": "stat",
+            "stat": "vitality"
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "name": "Weapon Passive",
+        "options": [
+          {
+            "index": 0,
+            "text": "Verge of Night now activates below 40% health.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Verge of Night remains active for 3 seconds after your health goes above the threshold.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "You gain 1 additional stack of held MIGHT during Verge of Night when you are at half the threshold amount.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "When you enter Verge of Night, if you have no Healing Flasks, gain 1.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "While Verge of Night is active, you have 4 held DEFENSE.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "name": "Weapon Active",
+        "options": [
+          {
+            "index": 0,
+            "text": "After Portal Dive, leave a lingering Umbral pool that deals damage over time where you land.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "On impact, trigger Umbral Status on any Behemoth hit.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Reduce the cooldown of Portal Dive by 40 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Increase the damage of Portal Dive by 20%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Health is reduced to 10% of your maximum when you activate Portal Dive. The lost health is restored if your impact hits a Behemoth.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      }
+    ],
+    "specialName": "Feast",
+    "specialDesc": "When meter is full, activate Special. While active, you continuously lose health, but you have lifesteal, continuously generate Valour, and umbral slashes on attacks.",
+    "activeName": "Portal Dive",
+    "activeDesc": "Activate Legendary to create an umbral explosion and teleport high into the air. Reactivate to crash down, creating another umbral explosion on impact.",
+    "passiveName": "Verge of Night",
+    "passiveDesc": "You have {might} held Might under {health}% health."
   },
   {
     "id": "molten_edict",
@@ -277,7 +2721,195 @@
     ],
     "perks": [],
     "uniqueEffect": "Activate Legendary to coat your fists in molten earth, changing your moveset. Your punches deal large amounts of blaze buildup, and your attacks deal increased damage against Behemoths who are on fire.",
-    "isLegendary": true
+    "isLegendary": true,
+    "talents": [
+      {
+        "tier": 0,
+        "name": "Primary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          },
+          {
+            "index": 1,
+            "text": "Your temp MIGHT stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          },
+          {
+            "index": 3,
+            "text": "Your temp MIGHT stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          }
+        ]
+      },
+      {
+        "tier": 1,
+        "name": "Weapon Special",
+        "options": [
+          {
+            "index": 0,
+            "text": "Fireballs leave a fire patch with 3 ammo spent instead of 4.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Shooting launches 2 fireballs, but they only deal 75% of their normal damage.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Increase Max Ammo by 1.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "While a nearby Behemoth is on fire, you and your nearby allies have 1 held MIGHT.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Shoot has a 20% chance not to spend any ammo.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "name": "Secondary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          },
+          {
+            "index": 1,
+            "text": "Your temp DEFENSE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          },
+          {
+            "index": 3,
+            "text": "Your temp DEFENSE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "name": "Weapon Passive",
+        "options": [
+          {
+            "index": 0,
+            "text": "Reduce the stamina threshold of Burning Earth 15.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Increase the base damage of Burning Earth by 50.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "While a nearby Behemoth is on fire, you have 2 held SPEED.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Fire a second cone of fire immediately after the first.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Increase the base damage of Burning Earth by 50.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "name": "Weapon Active",
+        "options": [
+          {
+            "index": 0,
+            "text": "Increase the duration of Fist of the Mountain by 5 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Gain 2 MIGHT when Fist of the Mountain expires.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Reduce the cooldown of Fist of the Mountain by 40 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Increase the amount of Blaze status buildup punches in Fist of the Mountain by 50%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Slams during Fist of the Mountain leave behind a fire patch that deals damage over time for 8 seconds.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      }
+    ],
+    "specialName": "Molten Orb",
+    "specialDesc": "Your Special lobs balls of fire that deal increased damage and can set the ground on fire when charged with more ammo. Your Aetherslam unleashes a rolling ball of lava.",
+    "activeName": "Fist of the Mountain",
+    "activeDesc": "Activate Legendary to coat your fists in molten earth, changing your moveset. Your punches deal large amounts of blaze buildup, and your attacks deal increased damage against Behemoths who are on fire.",
+    "passiveName": "Burning Earth",
+    "passiveDesc": "After spending {stamina} stamina, your next attack that hits a Behemoth launches a cone of flame."
   },
   {
     "id": "oathkeepers",
@@ -297,7 +2929,195 @@
     ],
     "perks": [],
     "uniqueEffect": "Activate Legendary to gain {health} health, and grant Oathkeeper's Protection to all nearby allies for {duration} seconds. When a protected ally would take damage, instead they take no damage, and you take {damage}% of the damage they would have taken.",
-    "isLegendary": true
+    "isLegendary": true,
+    "talents": [
+      {
+        "tier": 0,
+        "name": "Primary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          },
+          {
+            "index": 1,
+            "text": "Your temp DEFENSE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          },
+          {
+            "index": 3,
+            "text": "Your temp DEFENSE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          }
+        ]
+      },
+      {
+        "tier": 1,
+        "name": "Weapon Special",
+        "options": [
+          {
+            "index": 0,
+            "text": "Increase the damage of Titanic Bulwark by 20%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Reduce the speed your Mantra bar depletes by 30%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Increase the Defense gained by Titanic Bulwark by 1.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Increase the duration of Tempest Form by 10 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Increase the duration of Karma Breaker by 5 seconds.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "name": "Secondary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          },
+          {
+            "index": 1,
+            "text": "Your temp MIGHT stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          },
+          {
+            "index": 3,
+            "text": "Your temp MIGHT stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "name": "Weapon Passive",
+        "options": [
+          {
+            "index": 0,
+            "text": "Gain 10% more Shield from Reactive Armour.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "When you enter bleedout, immediately revive and gain 1000 Shield. This ability refreshes when a Behemoth is killed.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "You have 1 held MIGHT while you have more than 500 Shield.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "When any allies have Shield, you have 2 held CRITICAL.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Gain 10% more Shield from Reactive Armour.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "name": "Weapon Active",
+        "options": [
+          {
+            "index": 0,
+            "text": "Reduce the cooldown of Sentinel by 20 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Reduce the damage you take for allies during Sentinel to 40%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Increase the duration of Oathkeepers Protection on allies for 5 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Sentinel also grants yourself and allies 2 stacks of SPEED on activation.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Gain 1 VITALITY whenever a Behemoth part is broken.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      }
+    ],
+    "specialName": "Titanic Bulwark",
+    "specialDesc": "Activate Special to smash your fists together, creating a damaging pulse around you, and granting DEFENSE stacks to all nearby allies based on active mantras.",
+    "activeName": "Sentinel",
+    "activeDesc": "Activate Legendary to gain {health} health, and grant Oathkeeper's Protection to all nearby allies for {duration} seconds. When a protected ally would take damage, instead they take no damage, and you take {damage}% of the damage they would have taken.",
+    "passiveName": "Reactive Armour",
+    "passiveDesc": "When you take health damage, gain an equal amount of Shield."
   },
   {
     "id": "reaper_s_edge",
@@ -317,7 +3137,195 @@
     ],
     "perks": [],
     "uniqueEffect": "Activate Legendary to rip a tear in the fabric of reality and enter Umbral realm. While in it, take reduced damage, and become immune to stagger. For every {damage} damage dealt during it give {might} MIGHT to friendly Slayers when it ends.",
-    "isLegendary": true
+    "isLegendary": true,
+    "talents": [
+      {
+        "tier": 0,
+        "name": "Primary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 SPEED",
+            "type": "stat",
+            "stat": "speed"
+          },
+          {
+            "index": 1,
+            "text": "Your temp SPEED stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 SPEED",
+            "type": "stat",
+            "stat": "speed"
+          },
+          {
+            "index": 3,
+            "text": "Your temp SPEED stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 SPEED",
+            "type": "stat",
+            "stat": "speed"
+          }
+        ]
+      },
+      {
+        "tier": 1,
+        "name": "Weapon Special",
+        "options": [
+          {
+            "index": 0,
+            "text": "Gain 1 temporary VITALITY when you perform Reaper's Flight.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Gain 20 Determination meter if you do not re-activate Reaper's Flight mid-flight.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Reduce the cooldown between uses of Reaper's Flight by 5 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Gain 2.5% of the damage dealt by your reaping strike as health when you reactivate Reaper's Flight mid-flight.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Reaper's Flight performs small bursts of {damage} umbral damage while in flight.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "name": "Secondary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 VITALITY",
+            "type": "stat",
+            "stat": "vitality"
+          },
+          {
+            "index": 1,
+            "text": "Your temp VITALITY stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 VITALITY",
+            "type": "stat",
+            "stat": "vitality"
+          },
+          {
+            "index": 3,
+            "text": "Your temp VITALITY stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 VITALITY",
+            "type": "stat",
+            "stat": "vitality"
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "name": "Weapon Passive",
+        "options": [
+          {
+            "index": 0,
+            "text": "Add 50% chance to spawn a second orb whenever you spawn an orb.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Increase the bonus damage gained for each held Orb to 3%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "You only require 4 orbs to reach the double bonus threshold.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "You have 3 held SPEED when you do not have any active Orbs.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Add 50% chance to spawn a second orb whenever you spawn an orb.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "name": "Weapon Active",
+        "options": [
+          {
+            "index": 0,
+            "text": "Increase the duration of Planar Rip by 5 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Reduce the damage threshold required to grant MIGHT to other slayers by 500.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Perform a blast of energy around you for 500 Umbral damage when exiting Planar Rip.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "You have 2 held SPEED during Planar Rip.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Reduce the cooldown of Planar Rip by 20 seconds.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      }
+    ],
+    "specialName": "Reaper's Flight",
+    "specialDesc": "Activate Special to throw your axe. It deals continuous damage over time while in flight, and then returns to you. Reactivate while in flight to teleport to the Axe and perform an Umbral strike in the direction your Slayer is facing.",
+    "activeName": "Planar Rip",
+    "activeDesc": "Activate Legendary to rip a tear in the fabric of reality and enter Umbral realm. While in it, take reduced damage, and become immune to stagger. For every {damage} damage dealt during it give {might} MIGHT to friendly Slayers when it ends.",
+    "passiveName": "Umbral Corruption",
+    "passiveDesc": "Attacks have a chance to generate an umbral orb. Each orb increases the damage dealt by attacks by {damage}%. With {orbs} or more active orbs, the damage bonus per orb is doubled."
   },
   {
     "id": "thundersoul",
@@ -337,7 +3345,195 @@
     ],
     "perks": [],
     "uniqueEffect": "Activate Legendary to become lightning, finding the nearest Behemoth and teleporting to it with an explosive shock burst.",
-    "isLegendary": true
+    "isLegendary": true,
+    "talents": [
+      {
+        "tier": 0,
+        "name": "Primary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          },
+          {
+            "index": 1,
+            "text": "Your temp MIGHT stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          },
+          {
+            "index": 3,
+            "text": "Your temp MIGHT stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          }
+        ]
+      },
+      {
+        "tier": 1,
+        "name": "Weapon Special",
+        "options": [
+          {
+            "index": 0,
+            "text": "When you parry an attack, gain 1 MIGHT.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "When you parry an attack, gain 1 SPEED.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "The damage of your parry counter attack is increased by 20%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "When you parry an attack, gain 1 bonus Valour.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "When you parry an attack, heal 150 health.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "name": "Secondary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 ENDURANCE",
+            "type": "stat",
+            "stat": "endurance"
+          },
+          {
+            "index": 1,
+            "text": "Your temp ENDURANCE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 ENDURANCE",
+            "type": "stat",
+            "stat": "endurance"
+          },
+          {
+            "index": 3,
+            "text": "Your temp ENDURANCE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 ENDURANCE",
+            "type": "stat",
+            "stat": "endurance"
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "name": "Weapon Passive",
+        "options": [
+          {
+            "index": 0,
+            "text": "Increase the duration of Energetic by 1 second.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "You deal 100% more stagger on your next attack when you gain Energetic.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "You cause a 120 damage shock explosion when you gain Energetic.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Increase the duration of Energetic by 1 second.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "You gain a 20 Shield when you gain Energetic.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "name": "Weapon Active",
+        "options": [
+          {
+            "index": 0,
+            "text": "Deal an additional 300 shock damage when you impact with Thunderous Charge.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Reduce the cooldown of Thunderous Charge by 20 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Increase the damage of Thunderous Charge by 20%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Gain 2 ENDURANCE when you activate Thunderous Charge.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Gain 1 MIGHT when you activate Thunderous Charge.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      }
+    ],
+    "specialName": "Avenging Overdrive",
+    "specialDesc": "When meter is full, activate Special to gain {speed} stacks of SPEED and take brief defensive stance which will parry an incoming attack and counter it, entering overdrive. Reactivate during overdrive to parry again. Successful parries generate {valour} Valour.",
+    "activeName": "Thunderous Charge",
+    "activeDesc": "Activate Legendary to become lightning, finding the nearest Behemoth and teleporting to it with an explosive shock burst.",
+    "passiveName": "Energetic",
+    "passiveDesc": "After a perfect dodge, your next attacks generate {meter}% bonus meter."
   },
   {
     "id": "to_fro",
@@ -357,7 +3553,195 @@
     ],
     "perks": [],
     "uniqueEffect": "Activate Legendary to activate an aura that grants all Slayers within it {speed} held stacks of Speed.",
-    "isLegendary": true
+    "isLegendary": true,
+    "talents": [
+      {
+        "tier": 0,
+        "name": "Primary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 SPEED",
+            "type": "stat",
+            "stat": "speed"
+          },
+          {
+            "index": 1,
+            "text": "Your temp SPEED stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 SPEED",
+            "type": "stat",
+            "stat": "speed"
+          },
+          {
+            "index": 3,
+            "text": "Your temp SPEED stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 SPEED",
+            "type": "stat",
+            "stat": "speed"
+          }
+        ]
+      },
+      {
+        "tier": 1,
+        "name": "Weapon Special",
+        "options": [
+          {
+            "index": 0,
+            "text": "Cause a second impact in the same location of 500 damage 5 seconds after executing Reaper's Dance. Can only happen if the previous one has already detonated.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Gain 1 ENDURANCE when performing Reaper's Dance at maximum charges.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "You gain Resolve, preventing you from being staggered for 5 seconds per charge spent on Reaper's Dance.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "You retain 1 charge after Reaper's Dance.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Increase the damage of Reaper's Dance by 20%.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "name": "Secondary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 ENDURANCE",
+            "type": "stat",
+            "stat": "endurance"
+          },
+          {
+            "index": 1,
+            "text": "Your temp ENDURANCE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 ENDURANCE",
+            "type": "stat",
+            "stat": "endurance"
+          },
+          {
+            "index": 3,
+            "text": "Your temp ENDURANCE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 ENDURANCE",
+            "type": "stat",
+            "stat": "endurance"
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "name": "Weapon Passive",
+        "options": [
+          {
+            "index": 0,
+            "text": "Gain 1 additional Sprite when you use your Weapon Special.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Gain 1 additional Sprite when you use your Weapon Special.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Gain 40 Shield per Sprite consumed in attacks.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Increase the damage dealt by each Sprite by 40%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "You have a 2% chance to generate a Sprite every time you do damage.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "name": "Weapon Active",
+        "options": [
+          {
+            "index": 0,
+            "text": "While Frigid Zeal is active, your maximum SPEED is increased by 2.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Reduce the cooldown of Frigid Zeal by 20 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Increase the radius of Frigid Zeal by 30%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Heal self and all allies within Frigid Zeal's range by 350 on activation.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Frigid Zeal also grants 2 held CRITICAL to players within its range.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      }
+    ],
+    "specialName": "Reaper's Dance",
+    "specialDesc": "Activate Special to push off a Behemoth and into the air. Activate Heavy to slam down, dealing damage based on the number of chain charges spent.",
+    "activeName": "Frigid Zeal",
+    "activeDesc": "Activate Legendary to activate an aura that grants all Slayers within it {speed} held stacks of Speed.",
+    "passiveName": "Frost Sprites",
+    "passiveDesc": "On landing Reaper's Dance, spawn {spikes} frost sprites that cause your next attack to deal increased damage."
   },
   {
     "id": "alluring_moons",
@@ -377,6 +3761,194 @@
     ],
     "perks": [],
     "uniqueEffect": "Call an Umbral Chaox to fight at your side for up to {duration} seconds. It deals greater damage than a normal Chaox, and can use abilities of any Chaox.",
-    "isLegendary": true
+    "isLegendary": true,
+    "talents": [
+      {
+        "tier": 0,
+        "name": "Primary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          },
+          {
+            "index": 1,
+            "text": "Your temp MIGHT stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          },
+          {
+            "index": 3,
+            "text": "Your temp MIGHT stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 MIGHT",
+            "type": "stat",
+            "stat": "might"
+          }
+        ]
+      },
+      {
+        "tier": 1,
+        "name": "Weapon Special",
+        "options": [
+          {
+            "index": 0,
+            "text": "You lure 1 additional random Chaox.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "You have 1 held DEFENSE for each friendly Chaox nearby, to a maximum of 5.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Reduce the cooldown of Lure by 10 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "You have 2 held SPEED while at least 1 friendly Chaox present.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Reduce the cooldown of Full-Bore chamber by 5 seconds.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 2,
+        "name": "Secondary Buff",
+        "options": [
+          {
+            "index": 0,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          },
+          {
+            "index": 1,
+            "text": "Your temp DEFENSE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          },
+          {
+            "index": 3,
+            "text": "Your temp DEFENSE stacks last 10 seconds longer.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "+1 DEFENSE",
+            "type": "stat",
+            "stat": "defense"
+          }
+        ]
+      },
+      {
+        "tier": 3,
+        "name": "Weapon Passive",
+        "options": [
+          {
+            "index": 0,
+            "text": "Call of the Void unleashes two additional Umbral Orbs when struck.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Reduce the cooldown before Call of the Void appears by 10 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "An additional Call of the Void appears somewhere near the Behemoth.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Call of the Void damage is increased by 20%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "An additional Call of the Void appears somewhere near the Behemoth.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      },
+      {
+        "tier": 4,
+        "name": "Weapon Active",
+        "options": [
+          {
+            "index": 0,
+            "text": "Reduce the cooldown of Leader of the Pack by 20 seconds.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 1,
+            "text": "Increase the damage of the Umbral Chaox by 20%.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 2,
+            "text": "Leader of the Pack summons 1 random additional Chaox.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 3,
+            "text": "Leader of the Pack summons 1 random additional Chaox.",
+            "type": "custom",
+            "stat": null
+          },
+          {
+            "index": 4,
+            "text": "Leader of the Pack also causes all friendly Chaox to attack 15% faster.",
+            "type": "custom",
+            "stat": null
+          }
+        ]
+      }
+    ],
+    "specialName": "Lure",
+    "specialDesc": "Lure two random Chaox to fight at your side for up to {duration} seconds.",
+    "activeName": "Leader of the Pack",
+    "activeDesc": "Call an Umbral Chaox to fight at your side for up to {duration} seconds. It deals greater damage than a normal Chaox, and can use abilities of any Chaox.",
+    "passiveName": "Call of the Void",
+    "passiveDesc": "Occasionally spawn an orb of umbral energy nearby that can be attacked by any Slayer to send a spray of umbral blasts in a cone, damaging any Behemoth hit."
   }
 ]

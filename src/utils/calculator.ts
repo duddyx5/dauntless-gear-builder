@@ -14,6 +14,15 @@ import {
 export const DEFAULT_BUILD: BuildState = {
   version: '1.14.7',
   weapon: 'inferno_s_razor',
+  secondaryWeapon: null,
+  gearLevels: {
+    weapon: 20,
+    secondaryWeapon: 20,
+    head: 20,
+    torso: 20,
+    arms: 20,
+    legs: 20,
+  },
   weaponCells: ['overpower_cell:+3', 'ragehunter_cell:+3'],
   head: 'hellplate_casque',
   headCell: 'molten_cell:+3',
@@ -275,7 +284,18 @@ export function parseCellSpec(cellSpec: string | null, cellsList: CellItem[]): {
   };
 }
 
+export function formatPerkEffect(desc: unknown): string {
+  if (!desc) return '';
+  if (Array.isArray(desc)) {
+    return desc
+      .filter((item): item is string => typeof item === 'string' && item.trim().length > 0)
+      .join('. ');
+  }
+  return String(desc);
+}
+
 export function calculateBuildStats(build: BuildState, data: PatchData): BuildStats {
+  const isAwakening = data.version === '2.1.1';
   const isSurged = build.powerSurged;
   let totalPower = 0;
   let totalResistance = 0;
@@ -299,20 +319,65 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
     perkMap[key].sources.push({ sourceName, slot, value });
   }
 
-  // 1. Weapon
+  // 1. Primary Weapon
   const weapon = data.weapons.find(w => w.id === build.weapon);
   if (weapon) {
-    totalPower += isSurged ? weapon.maxPower : weapon.basePower;
+    if (isAwakening) {
+      const lvl = build.gearLevels?.weapon ?? 20;
+      const power = weapon.basePower + Math.round((weapon.maxPower - weapon.basePower) * ((lvl - 1) / 19));
+      totalPower += power;
+    } else {
+      totalPower += isSurged ? weapon.maxPower : weapon.basePower;
+    }
     element = weapon.element;
     if (weapon.perks) {
       weapon.perks.forEach(p => {
         const val = isSurged ? p.value : (p.baseValue ?? p.value);
-        addPerkPoint(p.id, p.name, val, weapon.name, 'Weapon');
+        addPerkPoint(p.id, p.name, val, weapon.name, 'Primary Weapon');
+      });
+    }
+
+    // Awakening Weapon Talents stats
+    if (isAwakening && weapon.talents) {
+      const chosenIndices = build.weaponTalents || [0, 0, 0, 0, 0];
+      weapon.talents.forEach((tier, tIdx) => {
+        const optIdx = chosenIndices[tIdx] ?? 0;
+        const opt = tier.options[optIdx];
+        if (opt && opt.stat) {
+          addPerkPoint(opt.stat, opt.stat.toUpperCase(), 1, weapon.name, `Talent (${tier.name})`);
+        }
       });
     }
   }
 
-  // Weapon Cells
+  // Secondary Weapon (Awakening Dual Weapons)
+  if (isAwakening && build.secondaryWeapon) {
+    const secWeapon = data.weapons.find(w => w.id === build.secondaryWeapon);
+    if (secWeapon) {
+      const lvl = build.gearLevels?.secondaryWeapon ?? 20;
+      const power = secWeapon.basePower + Math.round((secWeapon.maxPower - secWeapon.basePower) * ((lvl - 1) / 19));
+      totalPower += Math.round(power * 0.5); // Secondary buffer weapon adds auxiliary power
+      if (secWeapon.perks) {
+        secWeapon.perks.forEach(p => {
+          addPerkPoint(p.id, p.name, p.value, secWeapon.name, 'Secondary Weapon');
+        });
+      }
+
+      // Secondary Weapon Talents stats
+      if (secWeapon.talents) {
+        const chosenIndices = build.secondaryWeaponTalents || [0, 0, 0, 0, 0];
+        secWeapon.talents.forEach((tier, tIdx) => {
+          const optIdx = chosenIndices[tIdx] ?? 0;
+          const opt = tier.options[optIdx];
+          if (opt && opt.stat) {
+            addPerkPoint(opt.stat, opt.stat.toUpperCase(), 1, secWeapon.name, `Secondary Talent (${tier.name})`);
+          }
+        });
+      }
+    }
+  }
+
+  // Weapon Cells (Reforged / Classic)
   if (build.weaponCells && Array.isArray(build.weaponCells)) {
     build.weaponCells.forEach((spec, idx) => {
       const parsed = parseCellSpec(spec, data.cells);
@@ -330,7 +395,13 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
     const armour = data.armour.find(a => a.id === armourId);
 
     if (armour) {
-      totalResistance += isSurged ? armour.maxResistance : armour.baseResistance;
+      if (isAwakening) {
+        const lvl = build.gearLevels?.[s] ?? 20;
+        const res = armour.baseResistance + Math.round((armour.maxResistance - armour.baseResistance) * ((lvl - 1) / 19));
+        totalResistance += res;
+      } else {
+        totalResistance += isSurged ? armour.maxResistance : armour.baseResistance;
+      }
       if (armour.strength) strengthsSet.add(armour.strength);
       if (armour.weakness) weaknessesSet.add(armour.weakness);
 
@@ -366,7 +437,8 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
     const cappedValue = Math.min(totalValue, 6);
     const isOvercapped = totalValue > 6;
     const tiers = perkDef?.tiers || {};
-    const currentTierDesc = tiers[String(cappedValue)] || perkDef?.description || `+${cappedValue} Points`;
+    const rawTierDesc = tiers[String(cappedValue)] || perkDef?.description || `+${cappedValue} Points`;
+    const currentTierDesc = formatPerkEffect(rawTierDesc);
 
     return {
       perkId: pId,
@@ -402,7 +474,7 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
 
 export function encodeBuildToHash(build: BuildState): string {
   try {
-    const compact = {
+    const compact: Record<string, any> = {
       v: build.version,
       w: build.weapon || '',
       wc: build.weaponCells.filter(Boolean),
@@ -419,6 +491,10 @@ export function encodeBuildToHash(build: BuildState): string {
       o: build.omnicell || '',
       ps: build.powerSurged ? 1 : 0,
     };
+    if (build.secondaryWeapon) compact.w2 = build.secondaryWeapon;
+    if (build.gearLevels) compact.gl = build.gearLevels;
+    if (build.weaponTalents) compact.wt = build.weaponTalents;
+    if (build.secondaryWeaponTalents) compact.w2t = build.secondaryWeaponTalents;
     const json = JSON.stringify(compact);
     return encodeURIComponent(btoa(json));
   } catch (err) {
@@ -440,6 +516,17 @@ export function decodeBuildFromHash(hashStr: string): Partial<BuildState> | null
     return {
       version: compact.v || '1.14.7',
       weapon: compact.w || null,
+      secondaryWeapon: compact.w2 || null,
+      weaponTalents: compact.wt || [0, 0, 0, 0, 0],
+      secondaryWeaponTalents: compact.w2t || [0, 0, 0, 0, 0],
+      gearLevels: compact.gl || {
+        weapon: 20,
+        secondaryWeapon: 20,
+        head: 20,
+        torso: 20,
+        arms: 20,
+        legs: 20,
+      },
       weaponCells: compact.wc || [],
       head: compact.h || null,
       headCell: compact.hc || null,

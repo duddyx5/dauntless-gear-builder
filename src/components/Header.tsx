@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PatchVersionInfo } from '../types/builder';
 import { ThemeMode } from '../utils/theme';
+import { isDauntlessForeverSupported } from '../utils/dauntlessForever';
 import {
   Share2,
   Bookmark,
@@ -48,6 +49,7 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const currentVersion = versions.find(v => v.id === currentVersionId) || versions[0];
+  const isAwakening = currentVersion?.era === 'Awakening' || currentVersionId === '2.1.1';
 
   return (
     <>
@@ -83,20 +85,30 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Desktop Action Buttons (Visible md and above) */}
           <div className="hidden md:flex items-center gap-1.5 shrink-0">
-            {/* Power Surge Toggle */}
-            <button
-              type="button"
-              onClick={onTogglePowerSurge}
-              className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all border ${
-                powerSurged
-                  ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 shadow-sm shadow-amber-500/20'
-                  : 'bg-gray-800/80 text-gray-400 border-gray-700 hover:border-gray-600'
-              }`}
-              title="Toggle Power Surged (+3 perks & max gear level)"
-            >
-              <Zap className={`h-3.5 w-3.5 ${powerSurged ? 'text-amber-400 fill-amber-400' : 'text-gray-400'}`} />
-              <span>Surged</span>
-            </button>
+            {/* Power Surge Toggle (Reforged / Classic only, Awakening uses Gear Levels) */}
+            {!isAwakening ? (
+              <button
+                type="button"
+                onClick={onTogglePowerSurge}
+                className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all border ${
+                  powerSurged
+                    ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 shadow-sm shadow-amber-500/20'
+                    : 'bg-gray-800/80 text-gray-400 border-gray-700 hover:border-gray-600'
+                }`}
+                title="Toggle Power Surged (+3 perks & max gear level)"
+              >
+                <Zap className={`h-3.5 w-3.5 ${powerSurged ? 'text-amber-400 fill-amber-400' : 'text-gray-400'}`} />
+                <span>Surged</span>
+              </button>
+            ) : (
+              <div
+                className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30"
+                title="Awakening uses individual gear levels"
+              >
+                <Sparkles className="h-3.5 w-3.5 text-cyan-400" />
+                <span>Gear Levels</span>
+              </div>
+            )}
 
             {/* Presets / Community Builds */}
             <button
@@ -109,16 +121,18 @@ export const Header: React.FC<HeaderProps> = ({
               <span>Builds</span>
             </button>
 
-            {/* Launcher Commands */}
-            <button
-              type="button"
-              onClick={onOpenLauncherModal}
-              className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/40 shadow-sm shadow-amber-500/10 transition-all active:scale-95"
-              title="Copy Dauntless Forever Launcher Commands"
-            >
-              <Terminal className="h-3.5 w-3.5 text-amber-400" />
-              <span>Launcher</span>
-            </button>
+            {/* Launcher Commands (Only for supported DF versions) */}
+            {isDauntlessForeverSupported(currentVersionId) && (
+              <button
+                type="button"
+                onClick={onOpenLauncherModal}
+                className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/40 shadow-sm shadow-amber-500/10 transition-all active:scale-95"
+                title="Copy Dauntless Forever Launcher Commands"
+              >
+                <Terminal className="h-3.5 w-3.5 text-amber-400" />
+                <span>Launcher</span>
+              </button>
+            )}
 
             {/* Share */}
             <button
@@ -155,19 +169,21 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Mobile Action Controls (Mobile & Small Tablets < md) */}
           <div className="flex md:hidden items-center gap-1.5 shrink-0">
-            {/* Quick Surged Toggle */}
-            <button
-              type="button"
-              onClick={onTogglePowerSurge}
-              className={`p-2 rounded-xl text-xs font-semibold transition-all border ${
-                powerSurged
-                  ? 'bg-amber-500/20 text-amber-300 border-amber-500/50 shadow-sm shadow-amber-500/20'
-                  : 'bg-gray-800/80 text-gray-400 border-gray-700'
-              }`}
-              title="Toggle Power Surged"
-            >
-              <Zap className={`h-4 w-4 ${powerSurged ? 'text-amber-400 fill-amber-400' : 'text-gray-400'}`} />
-            </button>
+            {/* Quick Surged Toggle (Hidden in Awakening) */}
+            {!isAwakening && (
+              <button
+                type="button"
+                onClick={onTogglePowerSurge}
+                className={`p-2 rounded-xl text-xs font-semibold transition-all border ${
+                  powerSurged
+                    ? 'bg-amber-500/20 text-amber-300 border-amber-500/50 shadow-sm shadow-amber-500/20'
+                    : 'bg-gray-800/80 text-gray-400 border-gray-700'
+                }`}
+                title="Toggle Power Surged"
+              >
+                <Zap className={`h-4 w-4 ${powerSurged ? 'text-amber-400 fill-amber-400' : 'text-gray-400'}`} />
+              </button>
+            )}
 
             {/* Hamburger Menu Toggle Button */}
             <button
@@ -275,23 +291,25 @@ export const Header: React.FC<HeaderProps> = ({
                   </div>
                 </button>
 
-                {/* Dauntless Forever Launcher */}
-                <button
-                  type="button"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    onOpenLauncherModal();
-                  }}
-                  className="w-full flex items-center gap-3 p-3 rounded-xl text-left bg-gray-800/30 hover:bg-gray-800/70 border border-gray-700/40 text-gray-200 transition-colors"
-                >
-                  <div className="h-8 w-8 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
-                    <Terminal className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <span className="font-semibold text-sm block text-white">Launcher Commands</span>
-                    <span className="text-[11px] text-gray-400 block">Dauntless Forever item codes</span>
-                  </div>
-                </button>
+                {/* Dauntless Forever Launcher (Only for supported DF versions) */}
+                {isDauntlessForeverSupported(currentVersionId) && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      onOpenLauncherModal();
+                    }}
+                    className="w-full flex items-center gap-3 p-3 rounded-xl text-left bg-gray-800/30 hover:bg-gray-800/70 border border-gray-700/40 text-gray-200 transition-colors"
+                  >
+                    <div className="h-8 w-8 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+                      <Terminal className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <span className="font-semibold text-sm block text-white">Launcher Commands</span>
+                      <span className="text-[11px] text-gray-400 block">Dauntless Forever item codes</span>
+                    </div>
+                  </button>
+                )}
 
                 {/* Share Build */}
                 <button
@@ -311,31 +329,41 @@ export const Header: React.FC<HeaderProps> = ({
                   </div>
                 </button>
 
-                {/* Power Surge Toggle */}
-                <button
-                  type="button"
-                  onClick={() => {
-                    onTogglePowerSurge();
-                  }}
-                  className="w-full flex items-center justify-between p-3 rounded-xl text-left bg-gray-800/30 hover:bg-gray-800/70 border border-gray-700/40 text-gray-200 transition-colors"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="h-8 w-8 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
-                      <Zap className="h-4 w-4" />
+                {/* Power Surge Toggle (Only in Reforged / Classic) */}
+                {!isAwakening ? (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onTogglePowerSurge();
+                    }}
+                    className="w-full flex items-center justify-between p-3 rounded-xl text-left bg-gray-800/30 hover:bg-gray-800/70 border border-gray-700/40 text-gray-200 transition-colors"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="h-8 w-8 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+                        <Zap className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <span className="font-semibold text-sm block text-white">Power Surged</span>
+                        <span className="text-[11px] text-gray-400 block">Max Tier 6 perks</span>
+                      </div>
                     </div>
+                    <span
+                      className={`text-xs font-bold px-2 py-0.5 rounded ${
+                        powerSurged ? 'bg-amber-500 text-black' : 'bg-gray-700 text-gray-400'
+                      }`}
+                    >
+                      {powerSurged ? 'ON' : 'OFF'}
+                    </span>
+                  </button>
+                ) : (
+                  <div className="p-3 rounded-xl bg-cyan-950/30 border border-cyan-500/30 flex items-center gap-3 text-xs text-cyan-200">
+                    <Sparkles className="h-5 w-5 text-cyan-400 shrink-0" />
                     <div>
-                      <span className="font-semibold text-sm block text-white">Power Surged</span>
-                      <span className="text-[11px] text-gray-400 block">Max Tier 6 perks</span>
+                      <span className="font-bold text-white block">Awakening Gear Levels Active</span>
+                      <span className="text-[11px] text-gray-400">Levels (1-20) are adjusted per weapon & armour item.</span>
                     </div>
                   </div>
-                  <span
-                    className={`text-xs font-bold px-2 py-0.5 rounded ${
-                      powerSurged ? 'bg-amber-500 text-black' : 'bg-gray-700 text-gray-400'
-                    }`}
-                  >
-                    {powerSurged ? 'ON' : 'OFF'}
-                  </span>
-                </button>
+                )}
 
                 {/* Reset Build */}
                 <button

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { BuildStats, CalculatedPerk } from '../types/builder';
 import { getElementStyle } from '../utils/theme';
+import { formatPerkEffect } from '../utils/calculator';
+import { isDauntlessForeverSupported } from '../utils/dauntlessForever';
 import {
   Shield,
   Zap,
@@ -14,12 +16,14 @@ import {
 interface DesktopStatsSidebarProps {
   stats: BuildStats;
   weaponElement: string;
+  currentVersionId?: string;
   onOpenLauncherModal?: () => void;
 }
 
 export const DesktopStatsSidebar: React.FC<DesktopStatsSidebarProps> = ({
   stats,
   weaponElement,
+  currentVersionId,
   onOpenLauncherModal,
 }) => {
   const [expandedPerkId, setExpandedPerkId] = useState<string | null>(null);
@@ -96,8 +100,8 @@ export const DesktopStatsSidebar: React.FC<DesktopStatsSidebarProps> = ({
           </div>
         )}
 
-        {/* Quick Launch / Inject Button */}
-        {onOpenLauncherModal && (
+        {/* Quick Launch / Inject Button (Only for supported DF versions) */}
+        {onOpenLauncherModal && currentVersionId && isDauntlessForeverSupported(currentVersionId) && (
           <button
             type="button"
             onClick={onOpenLauncherModal}
@@ -259,7 +263,7 @@ export const DesktopStatsSidebar: React.FC<DesktopStatsSidebarProps> = ({
                             }`}
                           >
                             <span className="font-bold shrink-0">+{t}:</span>
-                            <span className="leading-tight">{desc}</span>
+                            <span className="leading-tight">{formatPerkEffect(desc)}</span>
                           </div>
                         );
                       })}

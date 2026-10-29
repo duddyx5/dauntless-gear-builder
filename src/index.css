@@ -137,33 +137,40 @@ html.light ::-webkit-scrollbar-thumb:hover {
 }
 
 @keyframes slideUp {
-  from { transform: translateY(16px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from { transform: translateY(14px) translateZ(0); opacity: 0; }
+  to { transform: translateY(0) translateZ(0); opacity: 1; }
 }
 
 @keyframes slideDown {
-  from { transform: translateY(-16px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from { transform: translateY(-14px) translateZ(0); opacity: 0; }
+  to { transform: translateY(0) translateZ(0); opacity: 1; }
 }
 
 @keyframes slideLeft {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
+  from { transform: translateX(100%) translateZ(0); }
+  to { transform: translateX(0) translateZ(0); }
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-slide-up {
-  animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: slideUp 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-slide-down {
-  animation: slideDown 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: slideDown 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-slide-left {
-  animation: slideLeft 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: slideLeft 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Smooth, flicker-free modal scrolling */
+.modal-scroll {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  transform: translateZ(0);
 }
 

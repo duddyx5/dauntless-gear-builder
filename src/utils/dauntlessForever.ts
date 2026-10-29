@@ -1,6 +1,12 @@
 import { BuildState, PatchData } from '../types/builder';
 import { parseCellSpec } from './calculator';
 
+export const DAUNTLESS_FOREVER_SUPPORTED_VERSIONS = ['1.6.2', '1.14.7'];
+
+export function isDauntlessForeverSupported(versionId: string): boolean {
+  return DAUNTLESS_FOREVER_SUPPORTED_VERSIONS.includes(versionId);
+}
+
 export interface DFItem {
   id: string;
   name: string;

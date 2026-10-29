@@ -10,6 +10,8 @@ export interface PatchVersionInfo {
   description: string;
   hasOmnicells: boolean;
   hasCellSockets: boolean;
+  era?: string;
+  isAwakening?: boolean;
 }
 
 export interface PerkTierData {
@@ -46,6 +48,19 @@ export interface ItemPerkRef {
   baseValue?: number;
 }
 
+export interface WeaponTalentOption {
+  index: number;
+  text: string;
+  type: string;
+  stat?: string;
+}
+
+export interface WeaponTalentTier {
+  tier: number;
+  name: string;
+  options: WeaponTalentOption[];
+}
+
 export interface WeaponItem {
   id: string;
   name: string;
@@ -62,6 +77,13 @@ export interface WeaponItem {
   perks: ItemPerkRef[];
   uniqueEffect: string | null;
   isLegendary?: boolean;
+  talents?: WeaponTalentTier[];
+  specialName?: string;
+  specialDesc?: string;
+  activeName?: string;
+  activeDesc?: string;
+  passiveName?: string;
+  passiveDesc?: string;
 }
 
 export interface ArmourItem {
@@ -113,6 +135,10 @@ export interface PatchData {
 export interface BuildState {
   version: string;
   weapon: string | null;
+  secondaryWeapon?: string | null;
+  weaponTalents?: number[];
+  secondaryWeaponTalents?: number[];
+  gearLevels?: Record<string, number>;
   weaponCells: (string | null)[];
   head: string | null;
   headCell: string | null;
