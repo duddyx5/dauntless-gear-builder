@@ -8,7 +8,7 @@ import {
 } from '../types/builder';
 import { PickerSlotType } from './SlotPickerSheet';
 import { parseCellSpec } from '../utils/calculator';
-import { getElementStyle, getSocketStyle, resolveAssetUrl } from '../utils/theme';
+import { getElementStyle, getSocketStyle, getCellCategoryIcon, resolveAssetUrl } from '../utils/theme';
 import {
   Sword,
   Shield,
@@ -224,7 +224,14 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
           onClick={() => onOpenPicker(slotType, allowedSocket)}
           className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium border border-dashed transition-all ${sockStyle.bg} ${sockStyle.text} ${sockStyle.border} hover:brightness-125`}
         >
-          <span className={`h-2 w-2 rounded-full ${sockStyle.pill}`} />
+          <img
+            src={resolveAssetUrl(getCellCategoryIcon(allowedSocket))}
+            alt={allowedSocket}
+            className="h-3.5 w-3.5 object-contain shrink-0 opacity-70 filter drop-shadow"
+            onError={(e) => {
+              (e.target as HTMLElement).style.display = 'none';
+            }}
+          />
           <span className="capitalize">Empty {allowedSocket} Socket</span>
         </button>
       );
@@ -236,7 +243,14 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
         onClick={() => onOpenPicker(slotType, allowedSocket)}
         className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium border transition-all ${sockStyle.bg} ${sockStyle.border} hover:brightness-125`}
       >
-        <span className={`h-2 w-2 rounded-full ${sockStyle.pill} shrink-0`} />
+        <img
+          src={resolveAssetUrl(getCellCategoryIcon(parsed.cell?.slot || allowedSocket))}
+          alt={allowedSocket}
+          className="h-3.5 w-3.5 object-contain shrink-0 filter drop-shadow"
+          onError={(e) => {
+            (e.target as HTMLElement).style.display = 'none';
+          }}
+        />
         <span className="font-semibold text-cyan-300 truncate">
           +{parsed.variantLevel} {parsed.perkName}
         </span>

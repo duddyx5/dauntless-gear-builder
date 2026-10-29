@@ -32,6 +32,36 @@ export function getSocketStyle(socket: string) {
   return CELL_SOCKET_COLORS[key] || CELL_SOCKET_COLORS.prismatic;
 }
 
+export function getCellCategoryIcon(socketOrSlot?: string | null): string {
+  const key = (socketOrSlot || 'prismatic').toLowerCase();
+  switch (key) {
+    case 'alacrity':
+      return '/assets/icons/perks/Alacrity.png';
+    case 'brutality':
+      return '/assets/icons/perks/Brutality.png';
+    case 'finesse':
+      return '/assets/icons/perks/Finesse.png';
+    case 'fortitude':
+      return '/assets/icons/perks/Fortitude.png';
+    case 'insight':
+      return '/assets/icons/perks/Insight.png';
+    case 'power':
+      return '/assets/icons/perks/Power.png';
+    case 'technique':
+      return '/assets/icons/perks/Technique.png';
+    case 'defence':
+    case 'defense':
+      return '/assets/icons/perks/Defence.png';
+    case 'mobility':
+      return '/assets/icons/perks/Mobility.png';
+    case 'utility':
+      return '/assets/icons/perks/Utility.png';
+    case 'prismatic':
+    default:
+      return '/assets/icons/perks/Prismatic.png';
+  }
+}
+
 export function resolveAssetUrl(url?: string | null): string {
   if (!url) return '';
   if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) {

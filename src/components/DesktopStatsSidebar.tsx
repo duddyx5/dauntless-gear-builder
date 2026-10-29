@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BuildStats, CalculatedPerk } from '../types/builder';
-import { getElementStyle } from '../utils/theme';
+import { getElementStyle, getCellCategoryIcon, resolveAssetUrl } from '../utils/theme';
 import { formatPerkEffect } from '../utils/calculator';
 import { isDauntlessForeverSupported } from '../utils/dauntlessForever';
 import {
@@ -169,7 +169,12 @@ export const DesktopStatsSidebar: React.FC<DesktopStatsSidebarProps> = ({
                       <span className={`text-sm font-bold truncate block ${isMax ? 'text-amber-300 font-display' : 'text-white font-display'}`}>
                         {perk.name}
                       </span>
-                      <span className="text-[10px] text-gray-500 uppercase font-semibold">
+                      <span className="text-[10px] text-gray-400 uppercase font-semibold flex items-center gap-1 mt-0.5">
+                        <img
+                          src={resolveAssetUrl(getCellCategoryIcon(perk.type))}
+                          alt={perk.type}
+                          className="h-3 w-3 object-contain filter drop-shadow opacity-80"
+                        />
                         {perk.type}
                       </span>
                     </div>

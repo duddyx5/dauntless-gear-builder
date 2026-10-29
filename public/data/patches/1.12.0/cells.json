@@ -4,7 +4,7 @@
     "name": "Adrenaline Cell",
     "slot": "alacrity",
     "slotName": "Alacrity",
-    "icon": "/assets/icons/cells/alacrity/AdrenalineCell.png",
+    "icon": "/assets/icons/perks/Alacrity.png",
     "variants": [
       {
         "name": "+1 Adrenaline Cell",
@@ -37,7 +37,7 @@
     "name": "Agility Cell",
     "slot": "alacrity",
     "slotName": "Alacrity",
-    "icon": "/assets/icons/cells/alacrity/AgilityCell.png",
+    "icon": "/assets/icons/perks/Alacrity.png",
     "variants": [
       {
         "name": "+1 Agility Cell",
@@ -70,7 +70,7 @@
     "name": "Assassin's Frenzy Cell",
     "slot": "alacrity",
     "slotName": "Alacrity",
-    "icon": "/assets/icons/cells/alacrity/Assassin'sFrenzyCell.png",
+    "icon": "/assets/icons/perks/Alacrity.png",
     "variants": [
       {
         "name": "+1 Assassin's Frenzy Cell",
@@ -103,7 +103,7 @@
     "name": "Conditioning Cell",
     "slot": "alacrity",
     "slotName": "Alacrity",
-    "icon": "/assets/icons/cells/alacrity/ConditioningCell.png",
+    "icon": "/assets/icons/perks/Alacrity.png",
     "variants": [
       {
         "name": "+1 Conditioning Cell",
@@ -136,7 +136,7 @@
     "name": "Endurance Cell",
     "slot": "alacrity",
     "slotName": "Alacrity",
-    "icon": "/assets/icons/cells/alacrity/EnduranceCell.png",
+    "icon": "/assets/icons/perks/Alacrity.png",
     "variants": [
       {
         "name": "+1 Endurance Cell",
@@ -169,7 +169,7 @@
     "name": "Evasion Cell",
     "slot": "alacrity",
     "slotName": "Alacrity",
-    "icon": "/assets/icons/cells/alacrity/EvasionCell.png",
+    "icon": "/assets/icons/perks/Alacrity.png",
     "variants": [
       {
         "name": "+1 Evasion Cell",
@@ -202,7 +202,7 @@
     "name": "Evasive Fury Cell",
     "slot": "alacrity",
     "slotName": "Alacrity",
-    "icon": "/assets/icons/cells/alacrity/EvasiveFuryCell.png",
+    "icon": "/assets/icons/perks/Alacrity.png",
     "variants": [
       {
         "name": "+1 Evasive Fury Cell",
@@ -235,7 +235,7 @@
     "name": "Fleet Footed Cell",
     "slot": "alacrity",
     "slotName": "Alacrity",
-    "icon": "/assets/icons/cells/alacrity/FleetFootedCell.png",
+    "icon": "/assets/icons/perks/Alacrity.png",
     "variants": [
       {
         "name": "+1 Fleet Footed Cell",
@@ -268,7 +268,7 @@
     "name": "Grace Cell",
     "slot": "alacrity",
     "slotName": "Alacrity",
-    "icon": "/assets/icons/cells/alacrity/GraceCell.png",
+    "icon": "/assets/icons/perks/Alacrity.png",
     "variants": [
       {
         "name": "+1 Grace Cell",
@@ -301,7 +301,7 @@
     "name": "Invigorated Cell",
     "slot": "alacrity",
     "slotName": "Alacrity",
-    "icon": "/assets/icons/cells/alacrity/InvigoratedCell.png",
+    "icon": "/assets/icons/perks/Alacrity.png",
     "variants": [
       {
         "name": "+1 Invigorated Cell",
@@ -334,7 +334,7 @@
     "name": "Nimble Cell",
     "slot": "alacrity",
     "slotName": "Alacrity",
-    "icon": "/assets/icons/cells/alacrity/NimbleCell.png",
+    "icon": "/assets/icons/perks/Alacrity.png",
     "variants": [
       {
         "name": "+1 Nimble Cell",
@@ -367,7 +367,7 @@
     "name": "Roll Cell",
     "slot": "alacrity",
     "slotName": "Alacrity",
-    "icon": "/assets/icons/cells/alacrity/RollCell.png",
+    "icon": "/assets/icons/perks/Alacrity.png",
     "variants": [
       {
         "name": "+1 Roll Cell",
@@ -400,7 +400,7 @@
     "name": "Sprinter Cell",
     "slot": "alacrity",
     "slotName": "Alacrity",
-    "icon": "/assets/icons/cells/alacrity/SprinterCell.png",
+    "icon": "/assets/icons/perks/Alacrity.png",
     "variants": [
       {
         "name": "+1 Sprinter Cell",
@@ -433,7 +433,7 @@
     "name": "Swift Cell",
     "slot": "alacrity",
     "slotName": "Alacrity",
-    "icon": "/assets/icons/cells/alacrity/SwiftCell.png",
+    "icon": "/assets/icons/perks/Alacrity.png",
     "variants": [
       {
         "name": "+1 Swift Cell",
@@ -466,7 +466,7 @@
     "name": "Aetherhunter Cell",
     "slot": "brutality",
     "slotName": "Brutality",
-    "icon": "/assets/icons/cells/brutality/AetherhunterCell.png",
+    "icon": "/assets/icons/perks/Brutality.png",
     "variants": [
       {
         "name": "+1 Aetherhunter Cell",
@@ -499,7 +499,7 @@
     "name": "Berserker Cell",
     "slot": "brutality",
     "slotName": "Brutality",
-    "icon": "/assets/icons/cells/brutality/BerserkerCell.png",
+    "icon": "/assets/icons/perks/Brutality.png",
     "variants": [
       {
         "name": "+1 Berserker Cell",
@@ -532,7 +532,7 @@
     "name": "Bladestorm Cell",
     "slot": "brutality",
     "slotName": "Brutality",
-    "icon": "/assets/icons/cells/brutality/BladestormCell.png",
+    "icon": "/assets/icons/perks/Brutality.png",
     "variants": [
       {
         "name": "+1 Bladestorm Cell",
@@ -565,7 +565,7 @@
     "name": "Deconstruction Cell",
     "slot": "brutality",
     "slotName": "Brutality",
-    "icon": "/assets/icons/cells/brutality/DeconstructionCell.png",
+    "icon": "/assets/icons/perks/Brutality.png",
     "variants": [
       {
         "name": "+1 Deconstruction Cell",
@@ -598,7 +598,7 @@
     "name": "Knockout King Cell",
     "slot": "brutality",
     "slotName": "Brutality",
-    "icon": "/assets/icons/cells/brutality/KnockoutKingCell.png",
+    "icon": "/assets/icons/perks/Brutality.png",
     "variants": [
       {
         "name": "+1 Knockout King Cell",
@@ -631,7 +631,7 @@
     "name": "Overpower Cell",
     "slot": "brutality",
     "slotName": "Brutality",
-    "icon": "/assets/icons/cells/brutality/OverpowerCell.png",
+    "icon": "/assets/icons/perks/Brutality.png",
     "variants": [
       {
         "name": "+1 Overpower Cell",
@@ -664,7 +664,7 @@
     "name": "Pacifier Cell",
     "slot": "brutality",
     "slotName": "Brutality",
-    "icon": "/assets/icons/cells/brutality/PacifierCell.png",
+    "icon": "/assets/icons/perks/Brutality.png",
     "variants": [
       {
         "name": "+1 Pacifier Cell",
@@ -697,7 +697,7 @@
     "name": "Rage Cell",
     "slot": "brutality",
     "slotName": "Brutality",
-    "icon": "/assets/icons/cells/brutality/RageCell.png",
+    "icon": "/assets/icons/perks/Brutality.png",
     "variants": [
       {
         "name": "+1 Rage Cell",
@@ -730,7 +730,7 @@
     "name": "Ragehunter Cell",
     "slot": "brutality",
     "slotName": "Brutality",
-    "icon": "/assets/icons/cells/brutality/RagehunterCell.png",
+    "icon": "/assets/icons/perks/Brutality.png",
     "variants": [
       {
         "name": "+1 Ragehunter Cell",
@@ -763,7 +763,7 @@
     "name": "Sharpened Cell",
     "slot": "brutality",
     "slotName": "Brutality",
-    "icon": "/assets/icons/cells/brutality/SharpenedCell.png",
+    "icon": "/assets/icons/perks/Brutality.png",
     "variants": [
       {
         "name": "+1 Sharpened Cell",
@@ -796,7 +796,7 @@
     "name": "Stop Cell",
     "slot": "brutality",
     "slotName": "Brutality",
-    "icon": "/assets/icons/cells/brutality/StopCell.png",
+    "icon": "/assets/icons/perks/Brutality.png",
     "variants": [
       {
         "name": "+1 Stop Cell",
@@ -829,7 +829,7 @@
     "name": "Tenacious Cell",
     "slot": "brutality",
     "slotName": "Brutality",
-    "icon": "/assets/icons/cells/brutality/TenaciousCell.png",
+    "icon": "/assets/icons/perks/Brutality.png",
     "variants": [
       {
         "name": "+1 Tenacious Cell",
@@ -862,7 +862,7 @@
     "name": "Weighted Strikes Cell",
     "slot": "brutality",
     "slotName": "Brutality",
-    "icon": "/assets/icons/cells/brutality/WeightedStrikesCell.png",
+    "icon": "/assets/icons/perks/Brutality.png",
     "variants": [
       {
         "name": "+1 Weighted Strikes Cell",
@@ -895,7 +895,7 @@
     "name": "Acidic Cell",
     "slot": "finesse",
     "slotName": "Finesse",
-    "icon": "/assets/icons/cells/finesse/AcidicCell.png",
+    "icon": "/assets/icons/perks/Finesse.png",
     "variants": [
       {
         "name": "+1 Acidic Cell",
@@ -928,7 +928,7 @@
     "name": "Barbed Cell",
     "slot": "finesse",
     "slotName": "Finesse",
-    "icon": "/assets/icons/cells/finesse/BarbedCell.png",
+    "icon": "/assets/icons/perks/Finesse.png",
     "variants": [
       {
         "name": "+1 Barbed Cell",
@@ -961,7 +961,7 @@
     "name": "Cunning Cell",
     "slot": "finesse",
     "slotName": "Finesse",
-    "icon": "/assets/icons/cells/finesse/CunningCell.png",
+    "icon": "/assets/icons/perks/Finesse.png",
     "variants": [
       {
         "name": "+1 Cunning Cell",
@@ -994,7 +994,7 @@
     "name": "Galvanized Cell",
     "slot": "finesse",
     "slotName": "Finesse",
-    "icon": "/assets/icons/cells/finesse/GalvanizedCell.png",
+    "icon": "/assets/icons/perks/Finesse.png",
     "variants": [
       {
         "name": "+1 Galvanized Cell",
@@ -1027,7 +1027,7 @@
     "name": "Merciless Cell",
     "slot": "finesse",
     "slotName": "Finesse",
-    "icon": "/assets/icons/cells/finesse/MercilessCell.png",
+    "icon": "/assets/icons/perks/Finesse.png",
     "variants": [
       {
         "name": "+1 Merciless Cell",
@@ -1060,7 +1060,7 @@
     "name": "Predator Cell",
     "slot": "finesse",
     "slotName": "Finesse",
-    "icon": "/assets/icons/cells/finesse/PredatorCell.png",
+    "icon": "/assets/icons/perks/Finesse.png",
     "variants": [
       {
         "name": "+1 Predator Cell",
@@ -1093,7 +1093,7 @@
     "name": "Pulse Cell",
     "slot": "finesse",
     "slotName": "Finesse",
-    "icon": "/assets/icons/cells/finesse/PulseCell.png",
+    "icon": "/assets/icons/perks/Finesse.png",
     "variants": [
       {
         "name": "+1 Pulse Cell",
@@ -1126,7 +1126,7 @@
     "name": "Relentless Cell",
     "slot": "finesse",
     "slotName": "Finesse",
-    "icon": "/assets/icons/cells/finesse/RelentlessCell.png",
+    "icon": "/assets/icons/perks/Finesse.png",
     "variants": [
       {
         "name": "+1 Relentless Cell",
@@ -1159,7 +1159,7 @@
     "name": "Rushdown Cell",
     "slot": "finesse",
     "slotName": "Finesse",
-    "icon": "/assets/icons/cells/finesse/RushdownCell.png",
+    "icon": "/assets/icons/perks/Finesse.png",
     "variants": [
       {
         "name": "+1 Rushdown Cell",
@@ -1192,7 +1192,7 @@
     "name": "Savagery Cell",
     "slot": "finesse",
     "slotName": "Finesse",
-    "icon": "/assets/icons/cells/finesse/SavageryCell.png",
+    "icon": "/assets/icons/perks/Finesse.png",
     "variants": [
       {
         "name": "+1 Savagery Cell",
@@ -1225,7 +1225,7 @@
     "name": "Tactician Cell",
     "slot": "finesse",
     "slotName": "Finesse",
-    "icon": "/assets/icons/cells/finesse/TacticianCell.png",
+    "icon": "/assets/icons/perks/Finesse.png",
     "variants": [
       {
         "name": "+1 Tactician Cell",
@@ -1258,7 +1258,7 @@
     "name": "Aegis Cell",
     "slot": "fortitude",
     "slotName": "Fortitude",
-    "icon": "/assets/icons/cells/fortitude/AegisCell.png",
+    "icon": "/assets/icons/perks/Fortitude.png",
     "variants": [
       {
         "name": "+1 Aegis Cell",
@@ -1291,7 +1291,7 @@
     "name": "Assassin's Vigour Cell",
     "slot": "fortitude",
     "slotName": "Fortitude",
-    "icon": "/assets/icons/cells/fortitude/Assassin'sVigourCell.png",
+    "icon": "/assets/icons/perks/Fortitude.png",
     "variants": [
       {
         "name": "+1 Assassin's Vigour Cell",
@@ -1324,7 +1324,7 @@
     "name": "Bloodless Cell",
     "slot": "fortitude",
     "slotName": "Fortitude",
-    "icon": "/assets/icons/cells/fortitude/BloodlessCell.png",
+    "icon": "/assets/icons/perks/Fortitude.png",
     "variants": [
       {
         "name": "+1 Bloodless Cell",
@@ -1357,7 +1357,7 @@
     "name": "Fireproof Cell",
     "slot": "fortitude",
     "slotName": "Fortitude",
-    "icon": "/assets/icons/cells/fortitude/FireproofCell.png",
+    "icon": "/assets/icons/perks/Fortitude.png",
     "variants": [
       {
         "name": "+1 Fireproof Cell",
@@ -1390,7 +1390,7 @@
     "name": "Fortress Cell",
     "slot": "fortitude",
     "slotName": "Fortitude",
-    "icon": "/assets/icons/cells/fortitude/FortressCell.png",
+    "icon": "/assets/icons/perks/Fortitude.png",
     "variants": [
       {
         "name": "+1 Fortress Cell",
@@ -1423,7 +1423,7 @@
     "name": "Guardian Cell",
     "slot": "fortitude",
     "slotName": "Fortitude",
-    "icon": "/assets/icons/cells/fortitude/GuardianCell.png",
+    "icon": "/assets/icons/perks/Fortitude.png",
     "variants": [
       {
         "name": "+1 Guardian Cell",
@@ -1456,7 +1456,7 @@
     "name": "Insulated Cell",
     "slot": "fortitude",
     "slotName": "Fortitude",
-    "icon": "/assets/icons/cells/fortitude/InsulatedCell.png",
+    "icon": "/assets/icons/perks/Fortitude.png",
     "variants": [
       {
         "name": "+1 Insulated Cell",
@@ -1489,7 +1489,7 @@
     "name": "Nine Lives Cell",
     "slot": "fortitude",
     "slotName": "Fortitude",
-    "icon": "/assets/icons/cells/fortitude/NineLivesCell.png",
+    "icon": "/assets/icons/perks/Fortitude.png",
     "variants": [
       {
         "name": "+1 Nine Lives Cell",
@@ -1522,7 +1522,7 @@
     "name": "Parasitic Cell",
     "slot": "fortitude",
     "slotName": "Fortitude",
-    "icon": "/assets/icons/cells/fortitude/ParasiticCell.png",
+    "icon": "/assets/icons/perks/Fortitude.png",
     "variants": [
       {
         "name": "+1 Parasitic Cell",
@@ -1555,7 +1555,7 @@
     "name": "Shellshock Resist Cell",
     "slot": "fortitude",
     "slotName": "Fortitude",
-    "icon": "/assets/icons/cells/fortitude/ShellshockResistCell.png",
+    "icon": "/assets/icons/perks/Fortitude.png",
     "variants": [
       {
         "name": "+1 Shellshock Resist Cell",
@@ -1588,7 +1588,7 @@
     "name": "Strategist Cell",
     "slot": "fortitude",
     "slotName": "Fortitude",
-    "icon": "/assets/icons/cells/fortitude/StrategistCell.png",
+    "icon": "/assets/icons/perks/Fortitude.png",
     "variants": [
       {
         "name": "+1 Strategist Cell",
@@ -1621,7 +1621,7 @@
     "name": "Stunning Vigour Cell",
     "slot": "fortitude",
     "slotName": "Fortitude",
-    "icon": "/assets/icons/cells/fortitude/StunningVigourCell.png",
+    "icon": "/assets/icons/perks/Fortitude.png",
     "variants": [
       {
         "name": "+1 Stunning Vigour Cell",
@@ -1654,7 +1654,7 @@
     "name": "Sturdy Cell",
     "slot": "fortitude",
     "slotName": "Fortitude",
-    "icon": "/assets/icons/cells/fortitude/SturdyCell.png",
+    "icon": "/assets/icons/perks/Fortitude.png",
     "variants": [
       {
         "name": "+1 Sturdy Cell",
@@ -1687,7 +1687,7 @@
     "name": "Tough Cell",
     "slot": "fortitude",
     "slotName": "Fortitude",
-    "icon": "/assets/icons/cells/fortitude/ToughCell.png",
+    "icon": "/assets/icons/perks/Fortitude.png",
     "variants": [
       {
         "name": "+1 Tough Cell",
@@ -1720,7 +1720,7 @@
     "name": "Vampiric Cell",
     "slot": "fortitude",
     "slotName": "Fortitude",
-    "icon": "/assets/icons/cells/fortitude/VampiricCell.png",
+    "icon": "/assets/icons/perks/Fortitude.png",
     "variants": [
       {
         "name": "+1 Vampiric Cell",
@@ -1753,7 +1753,7 @@
     "name": "Warmth Cell",
     "slot": "fortitude",
     "slotName": "Fortitude",
-    "icon": "/assets/icons/cells/fortitude/WarmthCell.png",
+    "icon": "/assets/icons/perks/Fortitude.png",
     "variants": [
       {
         "name": "+1 Warmth Cell",
@@ -1786,7 +1786,7 @@
     "name": "Aetherborne Cell",
     "slot": "insight",
     "slotName": "Insight",
-    "icon": "/assets/icons/cells/insight/AetherborneCell.png",
+    "icon": "/assets/icons/perks/Insight.png",
     "variants": [
       {
         "name": "+1 Aetherborne Cell",
@@ -1819,7 +1819,7 @@
     "name": "Aetheric Attunement Cell",
     "slot": "insight",
     "slotName": "Insight",
-    "icon": "/assets/icons/cells/insight/AethericAttunementCell.png",
+    "icon": "/assets/icons/perks/Insight.png",
     "variants": [
       {
         "name": "+1 Aetheric Attunement Cell",
@@ -1852,7 +1852,7 @@
     "name": "Aetheric Evasion Cell",
     "slot": "insight",
     "slotName": "Insight",
-    "icon": "/assets/icons/cells/insight/AethericEvasionCell.png",
+    "icon": "/assets/icons/perks/Insight.png",
     "variants": [
       {
         "name": "+1 Aetheric Evasion Cell",
@@ -1885,7 +1885,7 @@
     "name": "Cascade Cell",
     "slot": "insight",
     "slotName": "Insight",
-    "icon": "/assets/icons/cells/insight/CascadeCell.png",
+    "icon": "/assets/icons/perks/Insight.png",
     "variants": [
       {
         "name": "+1 Cascade Cell",
@@ -1918,7 +1918,7 @@
     "name": "Catalyst Cell",
     "slot": "insight",
     "slotName": "Insight",
-    "icon": "/assets/icons/cells/insight/CatalystCell.png",
+    "icon": "/assets/icons/perks/Insight.png",
     "variants": [
       {
         "name": "+1 Catalyst Cell",
@@ -1951,7 +1951,7 @@
     "name": "Conduit Cell",
     "slot": "insight",
     "slotName": "Insight",
-    "icon": "/assets/icons/cells/insight/ConduitCell.png",
+    "icon": "/assets/icons/perks/Insight.png",
     "variants": [
       {
         "name": "+1 Conduit Cell",
@@ -1984,7 +1984,7 @@
     "name": "Drop Cell",
     "slot": "insight",
     "slotName": "Insight",
-    "icon": "/assets/icons/cells/insight/DropCell.png",
+    "icon": "/assets/icons/perks/Insight.png",
     "variants": [
       {
         "name": "+1 Drop Cell",
@@ -2017,7 +2017,7 @@
     "name": "Energized Cell",
     "slot": "insight",
     "slotName": "Insight",
-    "icon": "/assets/icons/cells/insight/EnergizedCell.png",
+    "icon": "/assets/icons/perks/Insight.png",
     "variants": [
       {
         "name": "+1 Energized Cell",
@@ -2050,7 +2050,7 @@
     "name": "Engineer Cell",
     "slot": "insight",
     "slotName": "Insight",
-    "icon": "/assets/icons/cells/insight/EngineerCell.png",
+    "icon": "/assets/icons/perks/Insight.png",
     "variants": [
       {
         "name": "+1 Engineer Cell",
@@ -2083,7 +2083,7 @@
     "name": "Lucent Cell",
     "slot": "insight",
     "slotName": "Insight",
-    "icon": "/assets/icons/cells/insight/LucentCell.png",
+    "icon": "/assets/icons/perks/Insight.png",
     "variants": [
       {
         "name": "+1 Lucent Cell",
@@ -2116,7 +2116,7 @@
     "name": "Medic Cell",
     "slot": "insight",
     "slotName": "Insight",
-    "icon": "/assets/icons/cells/insight/MedicCell.png",
+    "icon": "/assets/icons/perks/Insight.png",
     "variants": [
       {
         "name": "+1 Medic Cell",
@@ -2149,7 +2149,7 @@
     "name": "Mender Cell",
     "slot": "insight",
     "slotName": "Insight",
-    "icon": "/assets/icons/cells/insight/MenderCell.png",
+    "icon": "/assets/icons/perks/Insight.png",
     "variants": [
       {
         "name": "+1 Mender Cell",
@@ -2182,7 +2182,7 @@
     "name": "Molten Cell",
     "slot": "insight",
     "slotName": "Insight",
-    "icon": "/assets/icons/cells/insight/MoltenCell.png",
+    "icon": "/assets/icons/perks/Insight.png",
     "variants": [
       {
         "name": "+1 Molten Cell",
@@ -2215,7 +2215,7 @@
     "name": "Omnisurge Cell",
     "slot": "insight",
     "slotName": "Insight",
-    "icon": "/assets/icons/cells/insight/OmnisurgeCell.png",
+    "icon": "/assets/icons/perks/Insight.png",
     "variants": [
       {
         "name": "+1 Omnisurge Cell",
@@ -2248,7 +2248,7 @@
     "name": "Zeal Cell",
     "slot": "insight",
     "slotName": "Insight",
-    "icon": "/assets/icons/cells/insight/ZealCell.png",
+    "icon": "/assets/icons/perks/Insight.png",
     "variants": [
       {
         "name": "+1 Zeal Cell",

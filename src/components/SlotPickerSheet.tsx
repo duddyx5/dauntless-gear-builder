@@ -7,7 +7,7 @@ import {
   OmnicellItem,
   PatchData,
 } from '../types/builder';
-import { getElementStyle, getSocketStyle, resolveAssetUrl } from '../utils/theme';
+import { getElementStyle, getSocketStyle, getCellCategoryIcon, resolveAssetUrl } from '../utils/theme';
 import { formatPerkEffect } from '../utils/calculator';
 import { Search, X, Trash2, Shield, Zap, Sparkles, Filter } from 'lucide-react';
 
@@ -502,20 +502,27 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 rounded-xl bg-gray-900 border border-gray-700 flex items-center justify-center p-1 shrink-0 overflow-hidden">
-                        {c.icon ? (
-                          <img
-                            src={resolveAssetUrl(c.icon)}
-                            alt={c.name}
-                            className="h-full w-full object-contain"
-                            loading="lazy"
-                            onError={(e) => {
-                              (e.target as HTMLElement).style.display = 'none';
-                            }}
-                          />
-                        ) : (
-                          <Sparkles className="h-5 w-5 text-gray-500" />
-                        )}
+                      <div className={`h-11 w-11 rounded-xl bg-gray-900 border flex items-center justify-center p-1.5 shrink-0 overflow-hidden relative shadow-inner ${sockStyle.border}`}>
+                        <img
+                          src={resolveAssetUrl(c.icon || getCellCategoryIcon(c.slot))}
+                          alt={c.name}
+                          className="h-full w-full object-contain filter drop-shadow"
+                          loading="lazy"
+                          onError={(e) => {
+                            const img = e.target as HTMLImageElement;
+                            const fallback = resolveAssetUrl(getCellCategoryIcon(c.slot));
+                            if (img.src !== fallback) {
+                              img.src = fallback;
+                            }
+                          }}
+                        />
+                        <span className={`absolute -bottom-0.5 -right-0.5 text-[9px] font-black px-1 rounded font-mono shadow-sm ${
+                          selectedCellTier === 3 ? 'bg-purple-600 text-white' :
+                          selectedCellTier === 2 ? 'bg-blue-600 text-white' :
+                          'bg-emerald-600 text-white'
+                        }`}>
+                          +{selectedCellTier}
+                        </span>
                       </div>
 
                       <div className="flex-1 min-w-0">

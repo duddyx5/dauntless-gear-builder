@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BuildStats, CalculatedPerk } from '../types/builder';
-import { getElementStyle } from '../utils/theme';
+import { getElementStyle, getCellCategoryIcon, resolveAssetUrl } from '../utils/theme';
 import { formatPerkEffect } from '../utils/calculator';
 import { isDauntlessForeverSupported } from '../utils/dauntlessForever';
 import {
@@ -222,7 +222,12 @@ export const BuildSummaryDrawer: React.FC<BuildSummaryDrawerProps> = ({
                           <span className={`text-base font-bold ${isMax ? 'text-amber-300 font-display' : 'text-white font-display'}`}>
                             {perk.name}
                           </span>
-                          <span className="text-[10px] text-gray-400 uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-gray-800 border border-gray-700">
+                          <span className="text-[10px] text-gray-400 uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-gray-800 border border-gray-700 flex items-center gap-1">
+                            <img
+                              src={resolveAssetUrl(getCellCategoryIcon(perk.type))}
+                              alt={perk.type}
+                              className="h-2.5 w-2.5 object-contain filter drop-shadow opacity-80"
+                            />
                             {perk.type}
                           </span>
                         </div>
