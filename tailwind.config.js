@@ -9,10 +9,10 @@ export default {
     extend: {
       colors: {
         dauntless: {
-          bg: '#0d1117',
-          card: '#161b22',
-          cardHover: '#1f2937',
-          border: '#30363d',
+          bg: 'rgb(var(--color-bg) / <alpha-value>)',
+          card: 'rgb(var(--color-card) / <alpha-value>)',
+          cardHover: 'rgb(var(--color-card-hover) / <alpha-value>)',
+          border: 'rgb(var(--color-border) / <alpha-value>)',
           accent: '#00d2ff',
           accentDark: '#0077b6',
           blaze: '#ff5722',

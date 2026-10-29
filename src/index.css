@@ -3,19 +3,91 @@
 @tailwind utilities;
 
 :root {
+  --color-bg: 13 17 23;
+  --color-card: 22 27 34;
+  --color-card-hover: 31 41 55;
+  --color-border: 48 54 61;
   color-scheme: dark;
+}
+
+html.dark {
+  --color-bg: 13 17 23;
+  --color-card: 22 27 34;
+  --color-card-hover: 31 41 55;
+  --color-border: 48 54 61;
+  color-scheme: dark;
+}
+
+html.light {
+  --color-bg: 243 244 246;
+  --color-card: 255 255 255;
+  --color-card-hover: 248 250 252;
+  --color-border: 226 232 240;
+  color-scheme: light;
 }
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  background-color: #0b0f17;
+  background-color: rgb(var(--color-bg));
   color: #f3f4f6;
   -webkit-tap-highlight-color: transparent;
+}
+
+html.light body {
+  background-color: #f3f4f6;
+  color: #1e293b;
 }
 
 h1, h2, h3, .font-display {
   font-family: 'Rajdhani', 'Inter', sans-serif;
   letter-spacing: 0.025em;
+}
+
+/* Light mode typography & surface adaptations */
+html.light .font-display.text-white,
+html.light h1.text-white,
+html.light h2.text-white,
+html.light h3.text-white,
+html.light h4.text-white {
+  color: #0f172a !important;
+}
+
+html.light header .text-white,
+html.light .bg-dauntless-card .text-white:not(button .text-white):not(a .text-white) {
+  color: #0f172a;
+}
+
+html.light .bg-gray-900\/80,
+html.light .bg-gray-900\/60,
+html.light .bg-gray-900\/50,
+html.light .bg-gray-900,
+html.light .bg-gray-800\/80,
+html.light .bg-gray-800\/70,
+html.light .bg-gray-800\/60,
+html.light .bg-gray-800\/40,
+html.light .bg-gray-800 {
+  background-color: #f1f5f9 !important;
+}
+
+html.light .border-gray-800,
+html.light .border-gray-700,
+html.light .border-gray-700\/60 {
+  border-color: #cbd5e1 !important;
+}
+
+html.light .text-gray-100,
+html.light .text-gray-200 {
+  color: #1e293b !important;
+}
+
+html.light .text-gray-300,
+html.light .text-gray-300\/80,
+html.light .text-gray-400 {
+  color: #475569 !important;
+}
+
+html.light .text-gray-500 {
+  color: #64748b !important;
 }
 
 /* Custom scrollbars for touch & desktop */
@@ -37,6 +109,18 @@ h1, h2, h3, .font-display {
   background: #4b5563;
 }
 
+html.light ::-webkit-scrollbar-track {
+  background: #e2e8f0;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
 /* Safe area insets for mobile iOS / Android */
 .pb-safe {
   padding-bottom: max(1rem, env(safe-area-inset-bottom));
@@ -45,3 +129,41 @@ h1, h2, h3, .font-display {
 .pt-safe {
   padding-top: max(0.5rem, env(safe-area-inset-top));
 }
+
+/* Modal & Menu Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-left {
+  animation: slideLeft 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+

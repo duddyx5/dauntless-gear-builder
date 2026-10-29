@@ -42,3 +42,39 @@ export function resolveAssetUrl(url?: string | null): string {
   return `${base}${clean}`;
 }
 
+export type ThemeMode = 'dark' | 'light';
+
+export function getStoredTheme(): ThemeMode {
+  if (typeof window === 'undefined') return 'dark';
+  const saved = localStorage.getItem('dauntless_theme');
+  if (saved === 'light' || saved === 'dark') return saved;
+  return 'dark';
+}
+
+export function setTheme(theme: ThemeMode): void {
+  if (typeof window === 'undefined') return;
+  localStorage.setItem('dauntless_theme', theme);
+  const root = document.documentElement;
+  if (theme === 'dark') {
+    root.classList.add('dark');
+    root.classList.remove('light');
+  } else {
+    root.classList.remove('dark');
+    root.classList.add('light');
+  }
+}
+
+export function toggleTheme(): ThemeMode {
+  const current = getStoredTheme();
+  const next: ThemeMode = current === 'dark' ? 'light' : 'dark';
+  setTheme(next);
+  return next;
+}
+
+export function initTheme(): ThemeMode {
+  const theme = getStoredTheme();
+  setTheme(theme);
+  return theme;
+}
+
+

@@ -16,13 +16,16 @@ import {
   encodeBuildToHash,
   decodeBuildFromHash,
 } from './utils/calculator';
-import { resolveAssetUrl } from './utils/theme';
+import { resolveAssetUrl, initTheme, setTheme, ThemeMode } from './utils/theme';
 import { Header } from './components/Header';
 import { EquipmentGrid } from './components/EquipmentGrid';
 import { SlotPickerSheet, PickerSlotType } from './components/SlotPickerSheet';
 import { BuildSummaryDrawer } from './components/BuildSummaryDrawer';
 import { DesktopStatsSidebar } from './components/DesktopStatsSidebar';
 import { PresetsModal } from './components/PresetsModal';
+import { DauntlessForeverModal } from './components/DauntlessForeverModal';
+import { SettingsModal } from './components/SettingsModal';
+import { OnboardingModal } from './components/OnboardingModal';
 import { Toast } from './components/Toast';
 import { Loader2, AlertCircle } from 'lucide-react';
 
@@ -53,6 +56,13 @@ export const App: React.FC = () => {
   }>({ slot: null });
 
   const [isPresetsOpen, setIsPresetsOpen] = useState(false);
+  const [isLauncherModalOpen, setIsLauncherModalOpen] = useState(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [currentTheme, setCurrentTheme] = useState<ThemeMode>(() => initTheme());
+  const [isOnboardingOpen, setIsOnboardingOpen] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    return !localStorage.getItem('dauntless_gear_builder_onboarded');
+  });
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const showToast = useCallback((msg: string) => {
@@ -61,6 +71,18 @@ export const App: React.FC = () => {
       setToastMessage(null);
     }, 3000);
   }, []);
+
+  const handleThemeChange = (newTheme: ThemeMode) => {
+    setCurrentTheme(newTheme);
+    setTheme(newTheme);
+    showToast(`Theme switched to ${newTheme === 'dark' ? 'Dark Mode' : 'Light Mode'}`);
+  };
+
+  const handleOnboardingComplete = () => {
+    localStorage.setItem('dauntless_gear_builder_onboarded', 'true');
+    setIsOnboardingOpen(false);
+    showToast('Welcome Slayer! Start forging your build.');
+  };
 
   // 1. Fetch manifest.json
   useEffect(() => {
@@ -275,7 +297,11 @@ export const App: React.FC = () => {
         }}
         onShare={handleShare}
         onOpenPresets={() => setIsPresetsOpen(true)}
+        onOpenLauncherModal={() => setIsLauncherModalOpen(true)}
+        onOpenSettings={() => setIsSettingsOpen(true)}
         onReset={handleReset}
+        currentTheme={currentTheme}
+        onThemeChange={handleThemeChange}
       />
 
       {/* Main Container: Single-column on mobile, Dual-column with full live sidebar on desktop & tablet */}
@@ -319,6 +345,7 @@ export const App: React.FC = () => {
               <DesktopStatsSidebar
                 stats={buildStats}
                 weaponElement={currentWeapon?.element || 'Neutral'}
+                onOpenLauncherModal={() => setIsLauncherModalOpen(true)}
               />
             </div>
           </div>
@@ -330,6 +357,7 @@ export const App: React.FC = () => {
         <BuildSummaryDrawer
           stats={buildStats}
           weaponElement={currentWeapon?.element || 'Neutral'}
+          onOpenLauncherModal={() => setIsLauncherModalOpen(true)}
         />
       )}
 
@@ -359,6 +387,50 @@ export const App: React.FC = () => {
           }
           showToast('Loaded build!');
         }}
+      />
+
+      {/* Dauntless Forever Launcher Commands Generator Modal */}
+      {patchData && (
+        <DauntlessForeverModal
+          isOpen={isLauncherModalOpen}
+          onClose={() => setIsLauncherModalOpen(false)}
+          build={build}
+          patchData={patchData}
+          onShowToast={showToast}
+        />
+      )}
+
+      {/* Site & Game Settings Modal */}
+      <SettingsModal
+        isOpen={isSettingsOpen}
+        onClose={() => setIsSettingsOpen(false)}
+        currentTheme={currentTheme}
+        onThemeChange={handleThemeChange}
+        versions={manifest?.versions || []}
+        currentVersionId={currentVersionId}
+        onVersionChange={(newVer) => {
+          setCurrentVersionId(newVer);
+          showToast(`Switched to ${manifest?.versions.find(v => v.id === newVer)?.name || newVer}`);
+        }}
+        powerSurged={build.powerSurged}
+        onTogglePowerSurge={() => {
+          setBuild(prev => ({ ...prev, powerSurged: !prev.powerSurged }));
+          showToast(build.powerSurged ? 'Power Surge disabled' : 'Power Surge enabled');
+        }}
+        onOpenLauncherModal={() => setIsLauncherModalOpen(true)}
+        onReplayOnboarding={() => setIsOnboardingOpen(true)}
+      />
+
+      {/* First-Time User Onboarding Modal */}
+      <OnboardingModal
+        isOpen={isOnboardingOpen}
+        onClose={() => setIsOnboardingOpen(false)}
+        currentTheme={currentTheme}
+        onThemeChange={handleThemeChange}
+        versions={manifest?.versions || []}
+        currentVersionId={currentVersionId}
+        onVersionChange={(newVer) => setCurrentVersionId(newVer)}
+        onComplete={handleOnboardingComplete}
       />
     </div>
   );

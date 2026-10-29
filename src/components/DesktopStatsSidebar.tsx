@@ -8,16 +8,19 @@ import {
   Sparkles,
   ChevronDown,
   ChevronUp,
+  Terminal,
 } from 'lucide-react';
 
 interface DesktopStatsSidebarProps {
   stats: BuildStats;
   weaponElement: string;
+  onOpenLauncherModal?: () => void;
 }
 
 export const DesktopStatsSidebar: React.FC<DesktopStatsSidebarProps> = ({
   stats,
   weaponElement,
+  onOpenLauncherModal,
 }) => {
   const [expandedPerkId, setExpandedPerkId] = useState<string | null>(null);
   const hasOvercapped = stats.perks.some(p => p.isOvercapped);
@@ -91,6 +94,18 @@ export const DesktopStatsSidebar: React.FC<DesktopStatsSidebarProps> = ({
               </span>
             ))}
           </div>
+        )}
+
+        {/* Quick Launch / Inject Button */}
+        {onOpenLauncherModal && (
+          <button
+            type="button"
+            onClick={onOpenLauncherModal}
+            className="w-full mt-3 py-2 px-3 rounded-xl bg-gradient-to-r from-amber-500/15 to-yellow-500/15 hover:from-amber-500/25 hover:to-yellow-500/25 border border-amber-500/35 text-amber-300 text-xs font-semibold flex items-center justify-center gap-2 transition-all shadow-sm"
+          >
+            <Terminal className="h-4 w-4 text-amber-400" />
+            <span>Copy Dauntless Forever Commands</span>
+          </button>
         )}
       </div>
 

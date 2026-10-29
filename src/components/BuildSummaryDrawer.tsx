@@ -12,16 +12,19 @@ import {
   CheckCircle2,
   X,
   Sparkles,
+  Terminal,
 } from 'lucide-react';
 
 interface BuildSummaryDrawerProps {
   stats: BuildStats;
   weaponElement: string;
+  onOpenLauncherModal?: () => void;
 }
 
 export const BuildSummaryDrawer: React.FC<BuildSummaryDrawerProps> = ({
   stats,
   weaponElement,
+  onOpenLauncherModal,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [expandedPerkId, setExpandedPerkId] = useState<string | null>(null);
@@ -172,6 +175,21 @@ export const BuildSummaryDrawer: React.FC<BuildSummaryDrawerProps> = ({
                     </span>
                   ))}
                 </div>
+              )}
+
+              {/* Dauntless Forever Launcher Commands Button */}
+              {onOpenLauncherModal && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsExpanded(false);
+                    onOpenLauncherModal();
+                  }}
+                  className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-amber-500/20 to-yellow-500/20 hover:from-amber-500/30 hover:to-yellow-500/30 border border-amber-500/40 text-amber-300 text-xs font-semibold flex items-center justify-center gap-2 transition-all shadow-sm"
+                >
+                  <Terminal className="h-4 w-4 text-amber-400" />
+                  <span>Copy Dauntless Forever Launcher Commands</span>
+                </button>
               )}
 
               {stats.perks.length === 0 ? (
