@@ -15,6 +15,7 @@ import {
   calculateBuildStats,
   encodeBuildToHash,
   decodeBuildFromHash,
+  parseCellSpec,
 } from './utils/calculator';
 import { resolveAssetUrl, initTheme, setTheme, ThemeMode } from './utils/theme';
 import { Header } from './components/Header';
@@ -193,6 +194,29 @@ export const App: React.FC = () => {
     return patchData?.weapons.find(w => w.id === build.weapon);
   }, [patchData, build.weapon]);
 
+  // Helper functions for socket matching
+  const normalizeSocket = (socket?: string | null): string => {
+    if (!socket) return '';
+    const s = socket.toLowerCase().trim();
+    if (s === 'defense') return 'defence';
+    return s;
+  };
+
+  const isCellCompatibleWithSocket = (
+    cellSpec: string | null | undefined,
+    socket: string | null | undefined,
+    cellsList?: CellItem[]
+  ): boolean => {
+    if (!cellSpec || !socket) return false;
+    const sock = normalizeSocket(socket);
+    if (sock === 'prismatic') return true;
+    if (!cellsList) return true;
+    const parsed = parseCellSpec(cellSpec, cellsList);
+    if (!parsed || !parsed.cell) return false;
+    const cellSlot = normalizeSocket(parsed.cell.slot);
+    return cellSlot === sock;
+  };
+
   // Handler for slot selection
   const handleSlotSelect = (id: string | null) => {
     const slot = activePicker.slot;
@@ -201,6 +225,26 @@ export const App: React.FC = () => {
     setBuild(prev => {
       const next = { ...prev };
       if (slot === 'weapon') {
+        const prevWeapon = patchData?.weapons.find(w => w.id === prev.weapon);
+        const newWeapon = id ? patchData?.weapons.find(w => w.id === id) : null;
+        const newCells = [...(prev.weaponCells || [null, null])];
+
+        if (!id || !newWeapon) {
+          next.weaponCells = [null, null];
+        } else {
+          for (let i = 0; i < 2; i++) {
+            const prevSock = prevWeapon?.cellSockets?.[i];
+            const newSock = newWeapon.cellSockets?.[i];
+            if (
+              !newSock ||
+              (prevSock && normalizeSocket(prevSock) !== normalizeSocket(newSock)) ||
+              !isCellCompatibleWithSocket(newCells[i], newSock, patchData?.cells)
+            ) {
+              newCells[i] = null;
+            }
+          }
+          next.weaponCells = newCells;
+        }
         next.weapon = id;
         next.weaponTalents = [0, 0, 0, 0, 0];
       } else if (slot === 'secondaryWeapon') {
@@ -215,22 +259,67 @@ export const App: React.FC = () => {
         cells[1] = id;
         next.weaponCells = cells;
       } else if (slot === 'head') {
+        const prevHead = patchData?.armour.find(a => a.id === prev.head);
+        const newHead = id ? patchData?.armour.find(a => a.id === id) : null;
+        if (
+          !id ||
+          (prevHead && newHead && normalizeSocket(prevHead.cellSocket) !== normalizeSocket(newHead.cellSocket)) ||
+          !isCellCompatibleWithSocket(next.headCell, newHead?.cellSocket, patchData?.cells)
+        ) {
+          next.headCell = null;
+        }
         next.head = id;
       } else if (slot === 'headCell') {
         next.headCell = id;
       } else if (slot === 'torso') {
+        const prevTorso = patchData?.armour.find(a => a.id === prev.torso);
+        const newTorso = id ? patchData?.armour.find(a => a.id === id) : null;
+        if (
+          !id ||
+          (prevTorso && newTorso && normalizeSocket(prevTorso.cellSocket) !== normalizeSocket(newTorso.cellSocket)) ||
+          !isCellCompatibleWithSocket(next.torsoCell, newTorso?.cellSocket, patchData?.cells)
+        ) {
+          next.torsoCell = null;
+        }
         next.torso = id;
       } else if (slot === 'torsoCell') {
         next.torsoCell = id;
       } else if (slot === 'arms') {
+        const prevArms = patchData?.armour.find(a => a.id === prev.arms);
+        const newArms = id ? patchData?.armour.find(a => a.id === id) : null;
+        if (
+          !id ||
+          (prevArms && newArms && normalizeSocket(prevArms.cellSocket) !== normalizeSocket(newArms.cellSocket)) ||
+          !isCellCompatibleWithSocket(next.armsCell, newArms?.cellSocket, patchData?.cells)
+        ) {
+          next.armsCell = null;
+        }
         next.arms = id;
       } else if (slot === 'armsCell') {
         next.armsCell = id;
       } else if (slot === 'legs') {
+        const prevLegs = patchData?.armour.find(a => a.id === prev.legs);
+        const newLegs = id ? patchData?.armour.find(a => a.id === id) : null;
+        if (
+          !id ||
+          (prevLegs && newLegs && normalizeSocket(prevLegs.cellSocket) !== normalizeSocket(newLegs.cellSocket)) ||
+          !isCellCompatibleWithSocket(next.legsCell, newLegs?.cellSocket, patchData?.cells)
+        ) {
+          next.legsCell = null;
+        }
         next.legs = id;
       } else if (slot === 'legsCell') {
         next.legsCell = id;
       } else if (slot === 'lantern') {
+        const prevLantern = patchData?.lanterns.find(l => l.id === prev.lantern);
+        const newLantern = id ? patchData?.lanterns.find(l => l.id === id) : null;
+        if (
+          !id ||
+          (prevLantern && newLantern && normalizeSocket(prevLantern.cellSocket) !== normalizeSocket(newLantern.cellSocket)) ||
+          !isCellCompatibleWithSocket(next.lanternCell, newLantern?.cellSocket, patchData?.cells)
+        ) {
+          next.lanternCell = null;
+        }
         next.lantern = id;
       } else if (slot === 'lanternCell') {
         next.lanternCell = id;
