@@ -65,3 +65,12 @@ npm run preview
 ```bash
 npm run build:data
 ```
+
+---
+
+## 📜 License & Acknowledgements
+
+- **Source Code License**: This project is free and open-source software licensed under the **[GNU Affero General Public License v3.0 (AGPL-3.0)](LICENSE)**.
+- **Acknowledgements**: Inspired by and built upon historical dataset schemas from the original [dauntless-builder](https://github.com/atomicptr/dauntless-builder) by atomicptr and community contributors.
+- **Legal Disclaimer**: *Dauntless* and all associated logos, icons, gear names, and behemoth artwork are registered trademarks and intellectual property of **Phoenix Labs**. This is an unofficial, community-created fan project and is not affiliated with or endorsed by Phoenix Labs.
+
