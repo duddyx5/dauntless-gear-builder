@@ -27,6 +27,7 @@ import {
   Send,
   Trophy,
   Clock,
+  Layers,
   ChevronUp,
   Loader2,
   Search,
@@ -63,8 +64,7 @@ export const PresetsModal: React.FC<PresetsModalProps> = ({
   const [communityBuilds, setCommunityBuilds] = useState<CommunityBuild[]>([]);
   const [votedMap, setVotedMap] = useState<Record<string, boolean>>({});
   const [showSubmitForm, setShowSubmitForm] = useState(false);
-  const [sortBy, setSortBy] = useState<'votes' | 'recent'>('votes');
-  const [userBuildsFilter, setUserBuildsFilter] = useState<'all' | 'patch' | 'my'>('all');
+  const [userBuildCategory, setUserBuildCategory] = useState<'top' | 'new' | 'all' | 'my'>('top');
   const [userBuildsSearch, setUserBuildsSearch] = useState('');
   const [isLoadingBuilds, setIsLoadingBuilds] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -88,12 +88,12 @@ export const PresetsModal: React.FC<PresetsModalProps> = ({
     }
   }, []);
 
-  // Load community builds from Supabase when modal opens or sort changes
+  // Load community builds from Supabase when modal opens
   const refreshCommunityBuilds = useCallback(async () => {
     setIsLoadingBuilds(true);
     try {
-      // Fetch all builds for the selected sorting so client-side section & search filters are instant
-      const builds = await getCommunityBuilds(undefined, sortBy);
+      // Fetch builds so client-side Top/New/All categories & search filters are instant
+      const builds = await getCommunityBuilds(undefined, 'votes', 500);
       setCommunityBuilds(builds);
 
       // Check voted status for each build
@@ -109,7 +109,7 @@ export const PresetsModal: React.FC<PresetsModalProps> = ({
     } finally {
       setIsLoadingBuilds(false);
     }
-  }, [sortBy]);
+  }, []);
 
   useEffect(() => {
     if (isOpen && activeTab === 'userBuilds') {
@@ -203,64 +203,124 @@ export const PresetsModal: React.FC<PresetsModalProps> = ({
     await refreshCommunityBuilds();
   };
 
-  // Filter user builds based on section ('all' | 'patch' | 'my') and search query (gear, cell, name, etc.)
-  const filteredCommunityBuilds = useMemo(() => {
-    return communityBuilds.filter(cb => {
-      // 1. Section filter
-      if (userBuildsFilter === 'patch' && cb.version !== currentBuild.version) {
-        return false;
-      }
-      if (userBuildsFilter === 'my' && !isBuildOwnedByThisDevice(cb)) {
-        return false;
-      }
+  // Filter user builds based on patch toggle, search query, and category ('top' | 'new' | 'all' | 'my')
+  const displayedCommunityBuilds = useMemo(() => {
+    // 1. Filter by current patch if toggled ON
+    let list = communityBuilds;
+    if (filterByCurrentVersion) {
+      list = list.filter(cb => cb.version === currentBuild.version);
+    }
 
-      // 2. Search query filter
-      if (!userBuildsSearch.trim()) return true;
+    // 2. Filter by search query (checks name, author, gear, cells, tags, etc.)
+    if (userBuildsSearch.trim()) {
       const q = userBuildsSearch.toLowerCase().trim();
+      list = list.filter(cb => {
+        if (cb.name.toLowerCase().includes(q)) return true;
+        if (cb.author.toLowerCase().includes(q)) return true;
+        if (cb.description && cb.description.toLowerCase().includes(q)) return true;
+        if (cb.tags && cb.tags.some(t => t.toLowerCase().includes(q))) return true;
+        if (cb.version.toLowerCase().includes(q)) return true;
 
-      // Check name, author, description, tags, version
-      if (cb.name.toLowerCase().includes(q)) return true;
-      if (cb.author.toLowerCase().includes(q)) return true;
-      if (cb.description && cb.description.toLowerCase().includes(q)) return true;
-      if (cb.tags && cb.tags.some(t => t.toLowerCase().includes(q))) return true;
-      if (cb.version.toLowerCase().includes(q)) return true;
+        const b = cb.build;
+        if (!b) return false;
 
-      const b = cb.build;
-      if (!b) return false;
+        const gearItems = [
+          b.weapon,
+          b.secondaryWeapon,
+          b.head,
+          b.torso,
+          b.arms,
+          b.legs,
+          b.omnicell,
+          b.lantern,
+        ];
+        if (gearItems.some(item => item && item.toLowerCase().replace(/_/g, ' ').includes(q))) {
+          return true;
+        }
 
-      // Check gear (weapon, armor, omnicell, lantern, etc.)
-      const gearItems = [
-        b.weapon,
-        b.secondaryWeapon,
-        b.head,
-        b.torso,
-        b.arms,
-        b.legs,
-        b.omnicell,
-        b.lantern,
-      ];
-      if (gearItems.some(item => item && item.toLowerCase().replace(/_/g, ' ').includes(q))) {
-        return true;
+        const cellItems = [
+          ...(b.weaponCells || []),
+          b.headCell,
+          b.torsoCell,
+          b.torsoCell2,
+          b.armsCell,
+          b.legsCell,
+          b.legsCell2,
+          b.lanternCell,
+        ];
+        if (cellItems.some(cell => cell && cell.toLowerCase().replace(/_/g, ' ').includes(q))) {
+          return true;
+        }
+
+        return false;
+      });
+    }
+
+    // 3. Category sorting and slicing
+    if (userBuildCategory === 'my') {
+      const myBuilds = list.filter(cb => isBuildOwnedByThisDevice(cb));
+      return [...myBuilds].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+    }
+
+    if (userBuildCategory === 'top') {
+      // Top 20 upvoted builds for current filter
+      const sortedByVotes = [...list].sort((a, b) => {
+        if (b.upvotes !== a.upvotes) {
+          return b.upvotes - a.upvotes;
+        }
+        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+      });
+      return sortedByVotes.slice(0, 20);
+    }
+
+    if (userBuildCategory === 'new') {
+      // Most recent 20 builds made for the filters
+      const sortedByRecent = [...list].sort((a, b) => {
+        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+      });
+      return sortedByRecent.slice(0, 20);
+    }
+
+    // 'all' category: shows all builds based on current filters
+    return [...list].sort((a, b) => {
+      if (b.upvotes !== a.upvotes) {
+        return b.upvotes - a.upvotes;
       }
-
-      // Check cells / perks equipped
-      const cellItems = [
-        ...(b.weaponCells || []),
-        b.headCell,
-        b.torsoCell,
-        b.torsoCell2,
-        b.armsCell,
-        b.legsCell,
-        b.legsCell2,
-        b.lanternCell,
-      ];
-      if (cellItems.some(cell => cell && cell.toLowerCase().replace(/_/g, ' ').includes(q))) {
-        return true;
-      }
-
-      return false;
+      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
     });
-  }, [communityBuilds, userBuildsFilter, userBuildsSearch, currentBuild.version]);
+  }, [communityBuilds, filterByCurrentVersion, userBuildsSearch, userBuildCategory, currentBuild.version]);
+
+  // Counts for Top, New, All, My builds based on active filters
+  const userBuildCounts = useMemo(() => {
+    let list = communityBuilds;
+    if (filterByCurrentVersion) {
+      list = list.filter(cb => cb.version === currentBuild.version);
+    }
+    if (userBuildsSearch.trim()) {
+      const q = userBuildsSearch.toLowerCase().trim();
+      list = list.filter(cb => {
+        if (cb.name.toLowerCase().includes(q)) return true;
+        if (cb.author.toLowerCase().includes(q)) return true;
+        if (cb.description && cb.description.toLowerCase().includes(q)) return true;
+        if (cb.tags && cb.tags.some(t => t.toLowerCase().includes(q))) return true;
+        if (cb.version.toLowerCase().includes(q)) return true;
+        const b = cb.build;
+        if (!b) return false;
+        const gearItems = [b.weapon, b.secondaryWeapon, b.head, b.torso, b.arms, b.legs, b.omnicell, b.lantern];
+        if (gearItems.some(item => item && item.toLowerCase().replace(/_/g, ' ').includes(q))) return true;
+        const cellItems = [...(b.weaponCells || []), b.headCell, b.torsoCell, b.torsoCell2, b.armsCell, b.legsCell, b.legsCell2, b.lanternCell];
+        if (cellItems.some(cell => cell && cell.toLowerCase().replace(/_/g, ' ').includes(q))) return true;
+        return false;
+      });
+    }
+
+    return {
+      top: Math.min(list.length, 20),
+      new: Math.min(list.length, 20),
+      all: list.length,
+      my: list.filter(cb => isBuildOwnedByThisDevice(cb)).length,
+    };
+  }, [communityBuilds, filterByCurrentVersion, userBuildsSearch, currentBuild.version]);
 
   // Filter community presets based on the selected patch version
   const displayedPresets = useMemo(() => {
@@ -432,77 +492,98 @@ export const PresetsModal: React.FC<PresetsModalProps> = ({
           {/* ========== TAB: User Builds (Community Submitted — Supabase) ========== */}
           {activeTab === 'userBuilds' && (
             <div className="space-y-3">
-              {/* Submit / Sort controls */}
+              {/* Submit / Category / Filter controls */}
               {!showSubmitForm && (
                 <div className="space-y-2.5">
-                  <div className="flex items-center gap-2">
+                  {/* Action & Patch Toggle Bar */}
+                  <div className="flex flex-wrap items-center justify-between gap-2">
                     <button
                       type="button"
                       onClick={() => setShowSubmitForm(true)}
-                      className="flex items-center gap-1.5 px-3 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold text-xs rounded-xl transition-all active:scale-95 shadow-md shadow-cyan-500/20"
+                      className="flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold text-xs rounded-xl transition-all active:scale-95 shadow-md shadow-cyan-500/20"
                     >
                       <Plus className="h-3.5 w-3.5" />
                       <span>Share Current Build</span>
                     </button>
-                    <div className="flex-1" />
-                    <div className="flex items-center gap-1 bg-gray-800/80 rounded-lg border border-gray-700 p-0.5">
-                      <button
-                        type="button"
-                        onClick={() => setSortBy('votes')}
-                        className={`flex items-center gap-1 px-2 py-1 rounded-md text-[10px] font-semibold transition-colors ${
-                          sortBy === 'votes' ? 'bg-cyan-500/20 text-cyan-300' : 'text-gray-500 hover:text-gray-300'
-                        }`}
-                      >
-                        <Trophy className="h-3 w-3" /> Top
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setSortBy('recent')}
-                        className={`flex items-center gap-1 px-2 py-1 rounded-md text-[10px] font-semibold transition-colors ${
-                          sortBy === 'recent' ? 'bg-cyan-500/20 text-cyan-300' : 'text-gray-500 hover:text-gray-300'
-                        }`}
-                      >
-                        <Clock className="h-3 w-3" /> New
-                      </button>
-                    </div>
+
+                    {/* Patch Version Toggle Button */}
+                    <button
+                      type="button"
+                      onClick={() => setFilterByCurrentVersion(!filterByCurrentVersion)}
+                      className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold transition-all border cursor-pointer ${
+                        filterByCurrentVersion
+                          ? 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40 shadow-sm'
+                          : 'bg-gray-800 text-gray-400 border-gray-700 hover:text-white'
+                      }`}
+                      title={filterByCurrentVersion ? `Locked to Patch ${currentBuild.version}. Click to show all patches.` : 'Showing all patches. Click to lock to current patch.'}
+                    >
+                      <Filter className="h-3.5 w-3.5 text-cyan-400" />
+                      <span>Patch {currentBuild.version} Only</span>
+                      <span className={`text-[9.5px] px-1.5 py-0.5 rounded font-bold uppercase ${
+                        filterByCurrentVersion ? 'bg-cyan-500/30 text-cyan-200' : 'bg-gray-700 text-gray-400'
+                      }`}>
+                        {filterByCurrentVersion ? 'ON' : 'OFF'}
+                      </span>
+                    </button>
                   </div>
 
-                  {/* Section Filters & Search Bar */}
-                  <div className="space-y-2 pt-1 border-t border-gray-800">
-                    {/* Section pills: All, Patch, My Builds */}
+                  {/* Category Pills: Top (20), New (20), All Builds, My Builds */}
+                  <div className="space-y-1.5 pt-1 border-t border-gray-800/80">
                     <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
                       <button
                         type="button"
-                        onClick={() => setUserBuildsFilter('all')}
-                        className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-colors shrink-0 ${
-                          userBuildsFilter === 'all'
-                            ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
-                            : 'bg-gray-800 text-gray-400 hover:text-white border border-gray-750'
+                        onClick={() => setUserBuildCategory('top')}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 cursor-pointer ${
+                          userBuildCategory === 'top'
+                            ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm'
+                            : 'bg-gray-800/80 text-gray-400 hover:text-white border border-gray-700'
                         }`}
+                        title="Top 20 upvoted builds for current filter"
                       >
-                        All Builds
+                        <Trophy className="h-3.5 w-3.5 text-amber-400" />
+                        <span>Top ({userBuildCounts.top})</span>
                       </button>
+
                       <button
                         type="button"
-                        onClick={() => setUserBuildsFilter('patch')}
-                        className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-colors shrink-0 ${
-                          userBuildsFilter === 'patch'
-                            ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
-                            : 'bg-gray-800 text-gray-400 hover:text-white border border-gray-750'
+                        onClick={() => setUserBuildCategory('new')}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 cursor-pointer ${
+                          userBuildCategory === 'new'
+                            ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-sm'
+                            : 'bg-gray-800/80 text-gray-400 hover:text-white border border-gray-700'
                         }`}
+                        title="Most recent 20 builds made for the filters"
                       >
-                        Patch {currentBuild.version}
+                        <Clock className="h-3.5 w-3.5 text-cyan-400" />
+                        <span>New ({userBuildCounts.new})</span>
                       </button>
+
                       <button
                         type="button"
-                        onClick={() => setUserBuildsFilter('my')}
-                        className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-colors shrink-0 ${
-                          userBuildsFilter === 'my'
-                            ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
-                            : 'bg-gray-800 text-gray-400 hover:text-white border border-gray-750'
+                        onClick={() => setUserBuildCategory('all')}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 cursor-pointer ${
+                          userBuildCategory === 'all'
+                            ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-sm'
+                            : 'bg-gray-800/80 text-gray-400 hover:text-white border border-gray-700'
                         }`}
+                        title="All builds matching current filters"
                       >
-                        My Builds
+                        <Layers className="h-3.5 w-3.5" />
+                        <span>All Builds ({userBuildCounts.all})</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => setUserBuildCategory('my')}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 cursor-pointer ${
+                          userBuildCategory === 'my'
+                            ? 'bg-purple-500/20 text-purple-300 border border-purple-500/40 shadow-sm'
+                            : 'bg-gray-800/80 text-gray-400 hover:text-white border border-gray-700'
+                        }`}
+                        title="Builds created from this device"
+                      >
+                        <User className="h-3.5 w-3.5 text-purple-400" />
+                        <span>My Builds ({userBuildCounts.my})</span>
                       </button>
                     </div>
 
@@ -513,17 +594,17 @@ export const PresetsModal: React.FC<PresetsModalProps> = ({
                         type="text"
                         value={userBuildsSearch}
                         onChange={e => setUserBuildsSearch(e.target.value)}
-                        placeholder="Search by name, cell (e.g. Overpower), or gear..."
-                        className="w-full pl-8 pr-8 py-1.5 bg-gray-900 border border-gray-700 rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-colors"
+                        placeholder="Search builds by name, creator, weapon, cell (e.g. Overpower), or gear..."
+                        className="w-full pl-8 pr-8 py-2 bg-gray-900 border border-gray-700 rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-colors"
                       />
                       {userBuildsSearch && (
                         <button
                           type="button"
                           onClick={() => setUserBuildsSearch('')}
-                          className="absolute right-2.5 top-2 text-gray-400 hover:text-white p-0.5"
+                          className="absolute right-2.5 top-2.5 text-gray-400 hover:text-white p-0.5 cursor-pointer"
                           title="Clear search"
                         >
-                          <X className="h-3 w-3" />
+                          <X className="h-3.5 w-3.5" />
                         </button>
                       )}
                     </div>
@@ -626,23 +707,32 @@ export const PresetsModal: React.FC<PresetsModalProps> = ({
               )}
 
               {/* Empty State */}
-              {!isLoadingBuilds && filteredCommunityBuilds.length === 0 && (
+              {!isLoadingBuilds && displayedCommunityBuilds.length === 0 && (
                 <div className="text-center py-10 text-gray-500 text-xs space-y-3">
                   <Users className="h-8 w-8 mx-auto text-gray-600" />
                   {userBuildsSearch ? (
                     <p>No builds match "{userBuildsSearch}".</p>
-                  ) : userBuildsFilter === 'my' ? (
+                  ) : userBuildCategory === 'my' ? (
                     <p>You haven't shared any builds on this device yet.</p>
-                  ) : userBuildsFilter === 'patch' ? (
-                    <p>No user builds shared yet for Patch {currentBuild.version}.</p>
+                  ) : filterByCurrentVersion ? (
+                    <div className="space-y-1.5">
+                      <p>No user builds found matching the current filters for Patch {currentBuild.version}.</p>
+                      <button
+                        type="button"
+                        onClick={() => setFilterByCurrentVersion(false)}
+                        className="text-cyan-400 hover:underline font-semibold cursor-pointer"
+                      >
+                        Show builds across all patches
+                      </button>
+                    </div>
                   ) : (
-                    <p>No user builds shared yet. Be the first to share one!</p>
+                    <p>No user builds found. Be the first to share one!</p>
                   )}
                   {userBuildsSearch && (
                     <button
                       type="button"
                       onClick={() => setUserBuildsSearch('')}
-                      className="text-cyan-400 hover:underline"
+                      className="text-cyan-400 hover:underline cursor-pointer block mx-auto"
                     >
                       Clear search filter
                     </button>
@@ -651,7 +741,7 @@ export const PresetsModal: React.FC<PresetsModalProps> = ({
               )}
 
               {/* User Builds List */}
-              {!isLoadingBuilds && filteredCommunityBuilds.map((cb) => (
+              {!isLoadingBuilds && displayedCommunityBuilds.map((cb) => (
                 <div
                   key={cb.id}
                   className="p-3.5 rounded-xl border border-gray-800 bg-gray-800/40 hover:border-gray-700 transition-all"

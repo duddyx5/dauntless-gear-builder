@@ -97,7 +97,8 @@ export function isBuildOwnedByThisDevice(build: CommunityBuild): boolean {
  */
 export async function getCommunityBuilds(
   version?: string,
-  sortBy: 'votes' | 'recent' = 'votes'
+  sortBy: 'votes' | 'recent' = 'votes',
+  limit: number = 500
 ): Promise<CommunityBuild[]> {
   let query = supabase.from('builds').select('*');
 
@@ -111,7 +112,7 @@ export async function getCommunityBuilds(
     query = query.order('created_at', { ascending: false });
   }
 
-  const { data, error } = await query.limit(100);
+  const { data, error } = await query.limit(limit);
 
   if (error) {
     console.error('Error fetching community builds:', error);
