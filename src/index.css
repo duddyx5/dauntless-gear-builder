@@ -150,9 +150,9 @@ h1, h2, h3, h4, .font-display {
   text-transform: uppercase;
 }
 
-/* Patch Switcher */
+/* Patch Switcher (Visible on desktop >= 1024px, hidden on small screens) */
 .patch-switcher {
-  display: flex;
+  display: none;
   align-items: center;
   gap: 8px;
   color: var(--muted);
@@ -160,6 +160,11 @@ h1, h2, h3, h4, .font-display {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .08em;
+}
+@media (min-width: 1024px) {
+  .patch-switcher {
+    display: flex;
+  }
 }
 .patch-switcher select, .menu-patch select {
   border: 1px solid var(--border);
@@ -178,12 +183,17 @@ h1, h2, h3, h4, .font-display {
   border-color: #3e6977;
 }
 
-/* Desktop Action Buttons */
+/* Desktop Action Buttons (Visible on desktop >= 1024px, hidden on small screens) */
 .desktop-actions {
-  display: flex;
+  display: none;
   align-items: center;
   gap: 8px;
   margin-left: auto;
+}
+@media (min-width: 1024px) {
+  .desktop-actions {
+    display: flex;
+  }
 }
 .desktop-actions button, .mobile-menu-button {
   min-height: 38px;
