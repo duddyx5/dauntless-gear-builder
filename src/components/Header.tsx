@@ -54,22 +54,22 @@ export const Header: React.FC<HeaderProps> = ({
       <header className="topbar">
         <div className="topbar-inner">
           {/* Brand Logo & Title */}
-          <a href="#" className="brand" aria-label="Dauntless Gear Builder home">
-            <span className="brand-mark">
+          <a href="#" className="brand min-w-0 shrink" aria-label="Dauntless Gear Builder home">
+            <span className="brand-mark shrink-0">
               <img
                 src={resolveAssetUrl('/assets/logo.png')}
                 alt="Logo"
                 className="w-full h-full object-contain filter drop-shadow"
               />
             </span>
-            <span className="brand-copy">
-              <strong>Dauntless</strong>
-              <small>Gear Builder</small>
+            <span className="brand-copy min-w-0">
+              <strong className="truncate block">Dauntless</strong>
+              <small className="hidden sm:block">Gear Builder</small>
             </span>
           </a>
 
           {/* Desktop Patch Switcher Dropdown */}
-          <div className="patch-switcher hidden md:flex items-center gap-2">
+          <div className="patch-switcher hidden lg:flex items-center gap-2">
             <span>Patch</span>
             <select
               value={currentVersionId}
@@ -93,8 +93,8 @@ export const Header: React.FC<HeaderProps> = ({
             </select>
           </div>
 
-          {/* Desktop Actions */}
-          <nav className="desktop-actions hidden md:flex" aria-label="Builder actions">
+          {/* Desktop Actions (Large screens >= lg) */}
+          <nav className="desktop-actions hidden lg:flex" aria-label="Builder actions">
             {/* Surged Toggle (Reforged / Classic only) */}
             {!isAwakening ? (
               <button
@@ -162,13 +162,13 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           </nav>
 
-          {/* Mobile Actions (< md viewports) */}
-          <div className="flex md:hidden items-center gap-2 ml-auto">
+          {/* Mobile & Small Screen Actions (< lg viewports) */}
+          <div className="flex lg:hidden items-center gap-2 shrink-0 ml-auto">
             {/* Persistent Share Button */}
             <button
               type="button"
               onClick={onShare}
-              className="primary-button flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold"
+              className="primary-button flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 cursor-pointer"
               title="Share Build URL"
             >
               <Share2 className="h-3.5 w-3.5" />
@@ -179,8 +179,9 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen(true)}
-              className="mobile-menu-button flex items-center justify-center"
+              className="w-10 h-10 rounded-lg bg-[#101c22] hover:bg-[#1a2d36] border border-[#21333d] hover:border-[#3e6977] text-gray-200 hover:text-white flex items-center justify-center shrink-0 transition-colors cursor-pointer shadow-sm"
               aria-label="Open builder menu"
+              title="Open Menu"
             >
               <Menu className="h-5 w-5" />
             </button>
@@ -190,7 +191,7 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Menu Drawer */}
       {isMobileMenuOpen && (
-        <div className="modal-layer md:hidden !p-0 !place-items-stretch !justify-end animate-fade-in" role="presentation" onClick={() => setIsMobileMenuOpen(false)}>
+        <div className="modal-layer lg:hidden !p-0 !place-items-stretch !justify-end animate-fade-in" role="presentation" onClick={() => setIsMobileMenuOpen(false)}>
           <aside
             className="w-[min(330px,88vw)] h-full border-l border-dauntless-border p-5 bg-[#0b171d] shadow-2xl flex flex-col animate-slide-left z-50 overflow-y-auto"
             onClick={e => e.stopPropagation()}
