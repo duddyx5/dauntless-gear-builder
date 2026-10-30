@@ -12,6 +12,7 @@ import {
 } from './types/builder';
 import {
   DEFAULT_BUILD,
+  createEmptyBuild,
   calculateBuildStats,
   encodeBuildToHash,
   decodeBuildFromHash,
@@ -144,27 +145,27 @@ export const App: React.FC = () => {
 
         // Sanitize build to make sure equipped items exist in this patch
         setBuild(prev => {
-          const weaponExists = loaded.weapons.some(w => w.id === prev.weapon);
+          const weaponExists = prev.weapon ? loaded.weapons.some(w => w.id === prev.weapon) : false;
           const secWeaponExists = prev.secondaryWeapon ? loaded.weapons.some(w => w.id === prev.secondaryWeapon) : false;
-          const headExists = loaded.armour.some(a => a.id === prev.head && a.slot === 'head');
-          const torsoExists = loaded.armour.some(a => a.id === prev.torso && a.slot === 'torso');
-          const armsExists = loaded.armour.some(a => a.id === prev.arms && a.slot === 'arms');
-          const legsExists = loaded.armour.some(a => a.id === prev.legs && a.slot === 'legs');
-          const lanternExists = loaded.lanterns.some(l => l.id === prev.lantern);
-          const omnicellExists = loaded.omnicells.some(o => o.id === prev.omnicell);
+          const headExists = prev.head ? loaded.armour.some(a => a.id === prev.head && a.slot === 'head') : false;
+          const torsoExists = prev.torso ? loaded.armour.some(a => a.id === prev.torso && a.slot === 'torso') : false;
+          const armsExists = prev.arms ? loaded.armour.some(a => a.id === prev.arms && a.slot === 'arms') : false;
+          const legsExists = prev.legs ? loaded.armour.some(a => a.id === prev.legs && a.slot === 'legs') : false;
+          const lanternExists = prev.lantern ? loaded.lanterns.some(l => l.id === prev.lantern) : false;
+          const omnicellExists = prev.omnicell ? loaded.omnicells.some(o => o.id === prev.omnicell) : false;
 
           return {
             ...prev,
             version: currentVersionId,
-            weapon: weaponExists ? prev.weapon : loaded.weapons[0]?.id || null,
-            secondaryWeapon: currentVersionId === '2.1.1' ? (secWeaponExists ? prev.secondaryWeapon : loaded.weapons[1]?.id || null) : null,
+            weapon: weaponExists ? prev.weapon : null,
+            secondaryWeapon: currentVersionId === '2.1.1' ? (secWeaponExists ? prev.secondaryWeapon : null) : null,
             gearLevels: prev.gearLevels || { weapon: 20, secondaryWeapon: 20, head: 20, torso: 20, arms: 20, legs: 20 },
-            head: headExists ? prev.head : loaded.armour.find(a => a.slot === 'head')?.id || null,
-            torso: torsoExists ? prev.torso : loaded.armour.find(a => a.slot === 'torso')?.id || null,
-            arms: armsExists ? prev.arms : loaded.armour.find(a => a.slot === 'arms')?.id || null,
-            legs: legsExists ? prev.legs : loaded.armour.find(a => a.slot === 'legs')?.id || null,
-            lantern: lanternExists ? prev.lantern : loaded.lanterns[0]?.id || null,
-            omnicell: omnicellExists ? prev.omnicell : (loaded.omnicells.length > 0 ? loaded.omnicells[0]?.id : null),
+            head: headExists ? prev.head : null,
+            torso: torsoExists ? prev.torso : null,
+            arms: armsExists ? prev.arms : null,
+            legs: legsExists ? prev.legs : null,
+            lantern: lanternExists ? prev.lantern : null,
+            omnicell: currentVersionId === '2.1.1' ? null : (omnicellExists ? prev.omnicell : null),
           };
         });
       })
@@ -420,11 +421,14 @@ export const App: React.FC = () => {
     }
   };
 
-  // Reset handler
+  // Reset handler: clear all items and cells from all slots
   const handleReset = () => {
-    if (window.confirm('Reset all equipped gear and cells to default?')) {
-      setBuild(DEFAULT_BUILD);
-      showToast('Build reset to default.');
+    if (window.confirm('Reset build and clear all equipped items and cells?')) {
+      setBuild(createEmptyBuild(currentVersionId));
+      if (typeof window !== 'undefined') {
+        window.history.replaceState(null, '', window.location.pathname);
+      }
+      showToast('Build reset: all slots and cells cleared.');
     }
   };
 

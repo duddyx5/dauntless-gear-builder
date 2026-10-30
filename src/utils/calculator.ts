@@ -11,6 +11,37 @@ import {
   OmnicellItem,
 } from '../types/builder';
 
+export const createEmptyBuild = (version: string = '1.14.7'): BuildState => ({
+  version,
+  weapon: null,
+  secondaryWeapon: null,
+  gearLevels: {
+    weapon: 20,
+    secondaryWeapon: 20,
+    head: 20,
+    torso: 20,
+    arms: 20,
+    legs: 20,
+  },
+  weaponTalents: [0, 0, 0, 0, 0, 0, 0],
+  secondaryWeaponTalents: [0, 0, 0, 0, 0, 0, 0],
+  weaponCells: [null, null],
+  head: null,
+  headCell: null,
+  torso: null,
+  torsoCell: null,
+  torsoCell2: null,
+  arms: null,
+  armsCell: null,
+  legs: null,
+  legsCell: null,
+  legsCell2: null,
+  lantern: null,
+  lanternCell: null,
+  omnicell: null,
+  powerSurged: true,
+});
+
 export const DEFAULT_BUILD: BuildState = {
   version: '1.14.7',
   weapon: 'inferno_s_razor',

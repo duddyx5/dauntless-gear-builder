@@ -184,8 +184,17 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                         <span className={`font-semibold text-sm ${isSelected ? 'text-cyan-300' : 'text-white'}`}>
                           {v.name}
                         </span>
+                        <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${
+                          v.era === 'Awakening' || v.id === '2.1.1'
+                            ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
+                            : v.era === 'Reforged'
+                            ? 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40'
+                            : 'bg-gray-800 text-gray-400 border-gray-700'
+                        }`}>
+                          {v.era || 'Classic'}
+                        </span>
                         {isSelected && (
-                          <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
+                          <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
                             Active
                           </span>
                         )}
@@ -195,10 +204,12 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
 
                     <div className="text-[11px] text-gray-400 flex items-center gap-2 mb-1.5">
                       <span>Released: {v.releaseDate}</span>
-                      {v.hasOmnicells ? (
-                        <span className="text-cyan-400 font-medium">• Omnicells Enabled</span>
+                      {v.era === 'Awakening' || v.id === '2.1.1' ? (
+                        <span className="text-amber-400 font-medium">• Awakening Era (Lantern Cores & Weapon Talents)</span>
+                      ) : v.hasOmnicells ? (
+                        <span className="text-cyan-400 font-medium">• Reforged Era (Omnicells Enabled)</span>
                       ) : (
-                        <span className="text-gray-500">• Classic Era (No Omnicells)</span>
+                        <span className="text-gray-400 font-medium">• Classic Era (No Omnicells)</span>
                       )}
                     </div>
 
