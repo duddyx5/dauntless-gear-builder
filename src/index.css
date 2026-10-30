@@ -35,17 +35,17 @@ html.dark {
 }
 
 html.light {
-  --color-bg: 243 244 246;
+  --color-bg: 248 250 252;
   --color-card: 255 255 255;
-  --color-card-hover: 248 250 252;
+  --color-card-hover: 241 245 249;
   --color-border: 226 232 240;
-  --bg: #f3f4f6;
+  --bg: #f8fafc;
   --panel: #ffffff;
   --border: #e2e8f0;
   --muted: #64748b;
   --cyan: #0284c7;
   --cyan-bright: #0369a1;
-  --amber: #d97706;
+  --amber: #b45309;
   color-scheme: light;
 }
 
@@ -62,9 +62,12 @@ body {
 }
 
 html.light body {
-  background-color: #f3f4f6;
-  background-image: none;
-  color: #1e293b;
+  background-color: #f8fafc;
+  background-image:
+    radial-gradient(circle at 10% -10%, rgba(2, 132, 199, 0.05), transparent 30rem),
+    radial-gradient(circle at 90% 15%, rgba(217, 119, 6, 0.04), transparent 32rem);
+  background-attachment: fixed;
+  color: #0f172a;
 }
 
 h1, h2, h3, h4, .font-display {
@@ -717,53 +720,472 @@ h1, h2, h3, h4, .font-display {
   font-size: 13px;
 }
 
-/* Light mode typography & surface adaptations */
-html.light .font-display.text-white,
-html.light h1.text-white,
-html.light h2.text-white,
-html.light h3.text-white,
-html.light h4.text-white,
-html.light .brand-copy strong,
+/* ==========================================================================
+   Material Design 3 Light Mode Styling & Palette Adaptations
+   ========================================================================== */
+
+/* 1. Header, Topbar & Navigation */
+html.light .topbar {
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
+}
+html.light .brand-copy strong {
+  color: #0f172a;
+}
+html.light .brand-copy small {
+  color: #64748b;
+}
+html.light .patch-switcher {
+  color: #64748b;
+}
+html.light .patch-switcher select,
+html.light .menu-patch select {
+  border-color: #cbd5e1;
+  background: #ffffff;
+  color: #0f172a;
+}
+html.light .patch-switcher select:hover,
+html.light .patch-switcher select:focus,
+html.light .menu-patch select:hover,
+html.light .menu-patch select:focus {
+  border-color: #0284c7;
+}
+html.light .desktop-actions button,
+html.light .mobile-menu-button {
+  border-color: #cbd5e1;
+  background: #ffffff;
+  color: #334155;
+}
+html.light .desktop-actions button:hover,
+html.light .mobile-menu-button:hover {
+  border-color: #94a3b8;
+  background: #f1f5f9;
+  color: #0f172a;
+}
+html.light .desktop-actions .surge-toggle.active {
+  color: #b45309;
+  border-color: #fde68a;
+  background: #fef3c7;
+}
+html.light .toggle-dot {
+  background: #cbd5e1;
+}
+html.light .active .toggle-dot,
+html.light .toggle-dot.active {
+  background: #b45309;
+  box-shadow: 0 0 6px #d97706;
+}
+
+/* 2. Page Intro & Kicker */
+html.light .kicker {
+  color: #0284c7;
+}
 html.light .page-intro h1 {
   color: #0f172a !important;
 }
+html.light .page-intro p.lead {
+  color: #475569;
+}
+html.light .completion {
+  color: #64748b;
+}
+html.light .completion b {
+  color: #0284c7;
+}
+html.light .completion > div {
+  background: #e2e8f0;
+}
+html.light .completion i {
+  background: linear-gradient(90deg, #0284c7, #38bdf8);
+}
 
-html.light header .text-white,
-html.light .bg-dauntless-card .text-white:not(button .text-white):not(a .text-white) {
+/* 3. Gear Cards (M3 Surface Container Low) */
+html.light .gear-card {
+  border-color: #e2e8f0;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
+}
+html.light .gear-card:hover {
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+html.light .gear-image-wrap {
+  border-color: #cbd5e1;
+  background: radial-gradient(circle, #ffffff, #f1f5f9 75%);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+html.light .equipped-check {
+  border-color: #ffffff;
+  color: #ffffff;
+  background: #0284c7;
+}
+html.light .gear-meta {
+  color: #64748b;
+}
+html.light .gear-copy strong {
+  color: #0f172a;
+}
+html.light .gear-subtitle {
+  color: #475569;
+}
+html.light .slot-label {
+  color: #64748b;
+}
+html.light .gear-footer {
+  border-top-color: #e2e8f0;
+  background: #f8fafc;
+  color: #475569;
+}
+html.light .gear-badges em,
+html.light .element {
+  border-color: #e2e8f0;
+  background: #f1f5f9;
+  color: #334155;
+}
+html.light .element.blaze { color: #c2410c; border-color: #fed7aa; background: #ffedd5; }
+html.light .element.frost { color: #0369a1; border-color: #bae6fd; background: #e0f2fe; }
+html.light .element.shock { color: #6d28d9; border-color: #e9d5ff; background: #f3e8ff; }
+html.light .element.terra { color: #15803d; border-color: #bbf7d0; background: #dcfce7; }
+html.light .element.radiant { color: #a16207; border-color: #fef08a; background: #fef9c3; }
+html.light .element.umbral { color: #7e22ce; border-color: #f5d0fe; background: #fae8ff; }
+html.light .element.neutral { color: #475569; border-color: #cbd5e1; background: #f1f5f9; }
+
+/* 4. Live Stats Sidebar & Summary Content */
+html.light .summary-content {
+  border-color: #e2e8f0;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+}
+html.light .summary-heading {
+  border-bottom-color: #e2e8f0;
+}
+html.light .summary-heading h2 {
+  color: #0f172a;
+}
+html.light .status-live {
+  border-color: #fde68a;
+  color: #b45309;
+  background: #fef3c7;
+}
+html.light .status-base {
+  color: #64748b;
+  border-color: #cbd5e1;
+  background: #f1f5f9;
+}
+html.light .stat-grid > div {
+  border-color: #e2e8f0;
+  background: #f8fafc;
+}
+html.light .stat-icon {
+  color: #b45309;
+  background: #fef3c7;
+  border-color: #fde68a;
+}
+html.light .stat-icon.defence {
+  color: #0284c7;
+  border-color: #bae6fd;
+  background: #e0f2fe;
+}
+html.light .stat-grid small {
+  color: #64748b;
+}
+html.light .stat-grid strong {
+  color: #0f172a;
+}
+html.light .element-row {
+  border-bottom-color: #e2e8f0;
+}
+html.light .element-row > span {
+  color: #64748b;
+}
+
+/* 5. Perk List & Meters */
+html.light .perk-heading h3 {
+  color: #0f172a;
+}
+html.light .perk-heading span.badge {
+  color: #ffffff;
+  background: #0284c7;
+}
+html.light .perk-card {
+  border-color: #e2e8f0;
+  background: #f8fafc;
+}
+html.light .perk-card.maxed {
+  border-color: #fde68a;
+  background: linear-gradient(90deg, #fffbeb, #f8fafc 65%);
+}
+html.light .perk-meter i {
+  background: #e2e8f0;
+}
+html.light .perk-meter i.filled {
+  background: #0284c7;
+  box-shadow: 0 0 4px rgba(2, 132, 199, 0.3);
+}
+html.light .maxed .perk-meter i.filled {
+  background: #b45309;
+  box-shadow: 0 0 4px rgba(217, 119, 6, 0.3);
+}
+
+/* 6. Mobile Summary Bar */
+html.light .mobile-summary-bar {
+  border-top-color: #cbd5e1;
+  color: #334155;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 -4px 20px rgba(15, 23, 42, 0.08);
+}
+html.light .mobile-summary-bar b {
+  color: #0f172a;
+}
+html.light .mobile-summary-bar small {
+  color: #64748b;
+}
+html.light .mobile-summary-bar .perk-preview {
+  color: #0284c7;
+}
+
+/* 7. Modal Layer, Picker Sheet & Search */
+html.light .modal-layer {
+  background: rgba(15, 23, 42, 0.45);
+}
+html.light .picker-sheet {
+  border-color: #cbd5e1;
+  background: #ffffff;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.16);
+}
+html.light .search-field {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+  color: #64748b;
+}
+html.light .search-field:focus-within {
+  border-color: #0284c7;
+  color: #0284c7;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12);
+}
+html.light .search-field input {
   color: #0f172a;
 }
 
-html.light .bg-gray-900\/80,
-html.light .bg-gray-900\/60,
-html.light .bg-gray-900\/50,
-html.light .bg-gray-900,
+/* 8. Systematic Dark Hex & Tailwind Class Overrides in Light Mode */
+html.light .bg-\[\#071015\],
+html.light .bg-\[\#071015\]\/95,
+html.light .bg-\[\#0b171d\],
+html.light .bg-\[\#0d191f\],
+html.light .bg-dauntless-card {
+  background-color: #ffffff !important;
+}
+
+html.light .bg-\[\#09151a\],
+html.light .bg-\[\#0a151b\],
+html.light .bg-\[\#071318\],
+html.light .bg-\[\#101c22\],
+html.light .bg-\[\#12222a\],
+html.light .bg-\[\#101e25\],
+html.light .bg-\[\#11232c\] {
+  background-color: #f8fafc !important;
+}
+
+html.light .bg-\[\#15252e\],
+html.light .bg-\[\#192b34\],
+html.light .bg-\[\#1a2d36\],
+html.light .bg-\[\#1d3039\],
+html.light .bg-gray-800,
 html.light .bg-gray-800\/80,
 html.light .bg-gray-800\/70,
 html.light .bg-gray-800\/60,
 html.light .bg-gray-800\/40,
-html.light .bg-gray-800 {
+html.light .bg-gray-900,
+html.light .bg-gray-900\/90,
+html.light .bg-gray-900\/80,
+html.light .bg-gray-900\/60,
+html.light .bg-gray-900\/50 {
   background-color: #f1f5f9 !important;
 }
 
+html.light .bg-\[\#12262e\] {
+  background-color: #e0f2fe !important;
+}
+
+html.light .border-\[\#21333d\],
+html.light .border-\[\#1d313a\],
+html.light .border-\[\#1f3744\],
+html.light .border-\[\#203640\],
+html.light .border-\[\#1b2f39\],
+html.light .border-\[\#192b34\],
+html.light .border-\[\#192b34\]\/60,
+html.light .border-\[\#2a424e\],
+html.light .border-\[\#2b444f\],
+html.light .border-\[\#20343d\],
+html.light .border-\[\#20343c\],
+html.light .border-\[\#18262d\],
+html.light .border-\[\#1d3039\],
+html.light .border-dauntless-border,
+html.light .border-dauntless-border\/60,
 html.light .border-gray-800,
 html.light .border-gray-700,
 html.light .border-gray-700\/60 {
+  border-color: #e2e8f0 !important;
+}
+
+html.light .border-\[\#3e6977\] {
   border-color: #cbd5e1 !important;
 }
 
+html.light .hover\:bg-\[\#12222a\]:hover,
+html.light .hover\:bg-\[\#15252e\]:hover,
+html.light .hover\:bg-\[\#1a2d36\]:hover,
+html.light .hover\:bg-\[\#101e25\]:hover,
+html.light .hover\:bg-\[\#101c22\]:hover,
+html.light .hover\:bg-gray-800\/80:hover,
+html.light .hover\:bg-gray-800\/70:hover,
+html.light .hover\:bg-gray-800\/60:hover,
+html.light .hover\:bg-gray-800:hover {
+  background-color: #e2e8f0 !important;
+}
+
+html.light .hover\:border-\[\#3e6977\]:hover,
+html.light .hover\:border-gray-500:hover,
+html.light .hover\:border-gray-600:hover {
+  border-color: #94a3b8 !important;
+}
+
+/* 9. Typography Adaptations */
+html.light .text-white,
 html.light .text-gray-100,
 html.light .text-gray-200 {
-  color: #1e293b !important;
+  color: #0f172a !important;
 }
 
 html.light .text-gray-300,
 html.light .text-gray-300\/80,
 html.light .text-gray-400 {
-  color: #475569 !important;
+  color: #334155 !important;
 }
 
 html.light .text-gray-500 {
   color: #64748b !important;
+}
+
+html.light .text-cyan-200,
+html.light .text-cyan-300,
+html.light .text-cyan-400 {
+  color: #0284c7 !important;
+}
+
+html.light .text-amber-200,
+html.light .text-amber-300,
+html.light .text-amber-400 {
+  color: #b45309 !important;
+}
+
+html.light .text-emerald-300,
+html.light .text-emerald-400 {
+  color: #15803d !important;
+}
+
+html.light .text-red-300,
+html.light .text-red-400 {
+  color: #dc2626 !important;
+}
+
+/* 10. Accent Containers (Cyan, Amber, Red, Emerald) */
+html.light .bg-cyan-950\/80,
+html.light .bg-cyan-950\/60,
+html.light .bg-cyan-950\/40,
+html.light .bg-cyan-950\/20,
+html.light .bg-cyan-500\/10,
+html.light .bg-cyan-500\/15,
+html.light .bg-cyan-500\/20 {
+  background-color: #e0f2fe !important;
+}
+
+html.light .border-cyan-500\/30,
+html.light .border-cyan-500\/40,
+html.light .border-cyan-500\/50,
+html.light .border-cyan-500\/70,
+html.light .border-cyan-500\/80,
+html.light .border-cyan-400\/40,
+html.light .border-cyan-400 {
+  border-color: #7dd3fc !important;
+}
+
+html.light .bg-amber-500\/10,
+html.light .bg-amber-500\/15,
+html.light .bg-amber-500\/20,
+html.light .bg-amber-950\/40 {
+  background-color: #fef3c7 !important;
+}
+
+html.light .border-amber-500\/20,
+html.light .border-amber-500\/30,
+html.light .border-amber-500\/35,
+html.light .border-amber-500\/40,
+html.light .border-amber-400 {
+  border-color: #fde68a !important;
+}
+
+html.light .bg-red-950\/30,
+html.light .bg-red-500\/10,
+html.light .bg-red-500\/20 {
+  background-color: #fee2e2 !important;
+}
+
+html.light .border-red-500\/40,
+html.light .border-red-500\/30 {
+  border-color: #fca5a5 !important;
+}
+
+html.light .bg-emerald-950\/40,
+html.light .bg-emerald-500\/10,
+html.light .bg-emerald-500\/20 {
+  background-color: #dcfce7 !important;
+}
+
+html.light .border-emerald-500\/40,
+html.light .border-emerald-400\/40 {
+  border-color: #86efac !important;
+}
+
+/* Primary Button in Light Mode */
+html.light .primary-button {
+  background: linear-gradient(135deg, #0284c7, #0369a1) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.25) !important;
+}
+html.light .primary-button:hover {
+  filter: brightness(1.08);
+  color: #ffffff !important;
+}
+
+/* Buy Me a Coffee Support Button in Light Mode */
+html.light a[href*="buymeacoffee"] {
+  background: linear-gradient(to right, #fef3c7, #fde68a) !important;
+  border-color: #fcd34d !important;
+  color: #b45309 !important;
+}
+html.light a[href*="buymeacoffee"]:hover {
+  background: #fde68a !important;
+  border-color: #f59e0b !important;
+  color: #92400e !important;
+}
+html.light a[href*="buymeacoffee"] svg {
+  color: #d97706 !important;
+}
+
+/* Selected item styling */
+html.light .bg-cyan-400.text-black,
+html.light .bg-cyan-500.text-black {
+  background-color: #0284c7 !important;
+  color: #ffffff !important;
+}
+html.light .bg-cyan-400.text-black svg,
+html.light .bg-cyan-500.text-black svg {
+  stroke: #ffffff !important;
 }
 
 /* Custom scrollbars for touch & desktop */
