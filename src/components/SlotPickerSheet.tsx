@@ -9,6 +9,7 @@ import {
 } from '../types/builder';
 import { getElementStyle, getSocketStyle, getCellCategoryIcon, resolveAssetUrl } from '../utils/theme';
 import { formatPerkEffect } from '../utils/calculator';
+import { renderFormattedCoreText } from '../utils/formatText';
 import { Search, X, Trash2, Shield, Zap, Sparkles, Check, ChevronRight } from 'lucide-react';
 
 export type PickerSlotType =
@@ -608,16 +609,31 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                       </span>
 
                       {isAwakening ? (
-                        <div className="mt-1 space-y-1 text-xs">
-                          {l.activeName && (
-                            <p className="text-[11px] text-amber-300 font-semibold">
-                              {l.activeName}: <span className="text-gray-300 font-normal">{l.activeDesc}</span>
-                            </p>
-                          )}
+                        <div className="mt-2 space-y-2 text-xs">
                           {l.description && (
-                            <p className="text-gray-400 text-[10.5px] line-clamp-2">
-                              {l.description}
-                            </p>
+                            <div className="text-gray-300 text-[11px] leading-relaxed bg-[#0b171d] p-2 rounded-lg border border-[#1b2f39]">
+                              <span className="text-[9.5px] font-bold uppercase tracking-wider text-cyan-400 block mb-0.5">
+                                Passive Effect
+                              </span>
+                              {renderFormattedCoreText(l.description, 'space-y-1')}
+                            </div>
+                          )}
+
+                          {l.activeName && (
+                            <div className="text-gray-300 text-[11px] leading-relaxed bg-[#071318] p-2 rounded-lg border border-[#1f3744]">
+                              <div className="flex items-center justify-between pb-1 mb-1 border-b border-[#1b2f39]">
+                                <span className="font-bold text-amber-300 flex items-center gap-1">
+                                  <Zap className="h-3 w-3 text-amber-400" />
+                                  {l.activeName}
+                                </span>
+                                {l.cooldown && (
+                                  <span className="text-[10px] font-mono font-bold text-cyan-300">
+                                    Cooldown: {l.cooldown}s
+                                  </span>
+                                )}
+                              </div>
+                              {renderFormattedCoreText(l.activeDesc, 'space-y-1')}
+                            </div>
                           )}
                         </div>
                       ) : (

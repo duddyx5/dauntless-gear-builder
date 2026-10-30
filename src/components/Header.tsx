@@ -14,7 +14,16 @@ import {
   Sun,
   Check,
   ChevronDown,
+  Youtube,
+  Github,
+  Coffee,
 } from 'lucide-react';
+
+const XIcon: React.FC<{ className?: string }> = ({ className = 'h-4 w-4' }) => (
+  <svg className={`fill-current ${className}`} viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 
 interface HeaderProps {
   versions: PatchVersionInfo[];
@@ -160,6 +169,51 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <RotateCcw className="h-4 w-4" />
             </button>
+
+            {/* Social / Creator Links & Support (Wide Desktop) */}
+            <div className="hidden xl:flex items-center gap-1.5 pl-2 border-l border-[#21333d]">
+              <a
+                href="https://buymeacoffee.com/duddyx5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/40 hover:border-amber-400 text-amber-300 font-bold text-[11px] transition-colors"
+                title="Support duddyx5 on Buy Me a Coffee"
+              >
+                <Coffee className="h-3.5 w-3.5 text-amber-400" />
+                <span>Support</span>
+              </a>
+
+              <a
+                href="https://www.youtube.com/@duddyx5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="icon-button hover:text-red-400 flex items-center justify-center text-gray-400"
+                title="YouTube @duddyx5"
+                aria-label="YouTube channel"
+              >
+                <Youtube className="h-4 w-4" />
+              </a>
+              <a
+                href="https://x.com/duddyx5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="icon-button hover:text-white flex items-center justify-center text-gray-400"
+                title="X @duddyx5"
+                aria-label="X profile"
+              >
+                <XIcon className="h-3.5 w-3.5" />
+              </a>
+              <a
+                href="https://github.com/duddyx5/dauntless-gear-builder"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="icon-button hover:text-cyan-300 flex items-center justify-center text-gray-400"
+                title="GitHub Repository"
+                aria-label="GitHub repository"
+              >
+                <Github className="h-4 w-4" />
+              </a>
+            </div>
           </nav>
 
           {/* Mobile & Small Screen Actions (< lg viewports) */}
@@ -362,6 +416,60 @@ export const Header: React.FC<HeaderProps> = ({
                   <span>Light</span>
                   {currentTheme === 'light' && <Check className="h-3 w-3 ml-0.5" />}
                 </button>
+              </div>
+            </div>
+
+            {/* Creator & Support Links */}
+            <div className="pt-4 mt-3 border-t border-dauntless-border">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 block mb-2">
+                Created by duddyx5
+              </span>
+
+              {/* Featured Buy Me a Coffee Support Button */}
+              <a
+                href="https://buymeacoffee.com/duddyx5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 px-3 mb-2 rounded-lg bg-gradient-to-r from-amber-500/20 to-yellow-500/10 hover:from-amber-500/30 hover:to-yellow-500/20 border border-amber-500/40 hover:border-amber-400 text-amber-300 flex items-center justify-center gap-2 text-xs font-bold transition-all shadow-sm"
+                title="Support duddyx5 on Buy Me a Coffee"
+              >
+                <Coffee className="h-4 w-4 text-amber-400" />
+                <span>Support Me (Buy Me a Coffee)</span>
+              </a>
+
+              <div className="grid grid-cols-3 gap-2">
+                <a
+                  href="https://www.youtube.com/@duddyx5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg bg-[#101c22] hover:bg-[#1a2d36] border border-[#21333d] hover:border-red-500/50 text-gray-300 hover:text-red-400 flex flex-col items-center justify-center gap-1 text-[11px] font-semibold transition-colors"
+                  title="YouTube @duddyx5"
+                >
+                  <Youtube className="h-4 w-4 text-red-400" />
+                  <span>YouTube</span>
+                </a>
+
+                <a
+                  href="https://x.com/duddyx5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg bg-[#101c22] hover:bg-[#1a2d36] border border-[#21333d] hover:border-gray-500 text-gray-300 hover:text-white flex flex-col items-center justify-center gap-1 text-[11px] font-semibold transition-colors"
+                  title="X @duddyx5"
+                >
+                  <XIcon className="h-4 w-4 text-white" />
+                  <span>X</span>
+                </a>
+
+                <a
+                  href="https://github.com/duddyx5/dauntless-gear-builder"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg bg-[#101c22] hover:bg-[#1a2d36] border border-[#21333d] hover:border-cyan-500/50 text-gray-300 hover:text-cyan-300 flex flex-col items-center justify-center gap-1 text-[11px] font-semibold transition-colors"
+                  title="GitHub Repository"
+                >
+                  <Github className="h-4 w-4 text-cyan-400" />
+                  <span>GitHub</span>
+                </a>
               </div>
             </div>
           </aside>

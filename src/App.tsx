@@ -28,7 +28,13 @@ import { DauntlessForeverModal } from './components/DauntlessForeverModal';
 import { SettingsModal } from './components/SettingsModal';
 import { OnboardingModal } from './components/OnboardingModal';
 import { Toast } from './components/Toast';
-import { Loader2, AlertCircle } from 'lucide-react';
+import { Loader2, AlertCircle, Youtube, Github, Coffee } from 'lucide-react';
+
+const XIcon: React.FC<{ className?: string }> = ({ className = 'h-4 w-4' }) => (
+  <svg className={`fill-current ${className}`} viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 
 export const App: React.FC = () => {
   const [manifest, setManifest] = useState<PatchManifest | null>(null);
@@ -519,6 +525,76 @@ export const App: React.FC = () => {
           </div>
         ) : null}
       </main>
+
+      {/* Page Footer with Social & Project Links (Visible on desktop >= lg, shifts into hamburger menu in small screen mode) */}
+      <footer className="hidden lg:block border-t border-[#1d313a] bg-[#071015]/95 py-6 px-4 sm:px-6 mt-8">
+        <div className="max-w-[1400px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+          <div className="flex items-center gap-3">
+            <div className="h-8 w-8 rounded-lg bg-[#101c22] border border-[#21333d] flex items-center justify-center p-1 overflow-hidden shrink-0">
+              <img
+                src={resolveAssetUrl('/assets/logo.png')}
+                alt="Logo"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div>
+              <span className="font-bold text-gray-200 block text-xs">
+                Dauntless Gear Builder
+              </span>
+              <span className="text-[11px] text-gray-500">
+                Created by <strong className="text-cyan-400 font-semibold">duddyx5</strong> for the Slayer community
+              </span>
+            </div>
+          </div>
+
+          {/* Social Links & Support */}
+          <div className="flex items-center gap-2">
+            <a
+              href="https://buymeacoffee.com/duddyx5"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-amber-500/20 to-yellow-500/10 hover:from-amber-500/30 hover:to-yellow-500/20 border border-amber-500/40 hover:border-amber-400 text-amber-300 hover:text-amber-200 transition-colors font-bold text-xs shadow-sm"
+              title="Support duddyx5 on Buy Me a Coffee"
+            >
+              <Coffee className="h-4 w-4 text-amber-400" />
+              <span>Support Me</span>
+            </a>
+
+            <a
+              href="https://www.youtube.com/@duddyx5"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#101c22] hover:bg-[#15252e] border border-[#21333d] hover:border-red-500/50 text-gray-300 hover:text-red-400 transition-colors font-semibold text-xs"
+              title="YouTube @duddyx5"
+            >
+              <Youtube className="h-4 w-4 text-red-400" />
+              <span>YouTube</span>
+            </a>
+
+            <a
+              href="https://x.com/duddyx5"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#101c22] hover:bg-[#15252e] border border-[#21333d] hover:border-gray-500 text-gray-300 hover:text-white transition-colors font-semibold text-xs"
+              title="X @duddyx5"
+            >
+              <XIcon className="h-3.5 w-3.5" />
+              <span>X</span>
+            </a>
+
+            <a
+              href="https://github.com/duddyx5/dauntless-gear-builder"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#101c22] hover:bg-[#15252e] border border-[#21333d] hover:border-cyan-500/50 text-gray-300 hover:text-cyan-300 transition-colors font-semibold text-xs"
+              title="GitHub Repository"
+            >
+              <Github className="h-4 w-4 text-cyan-400" />
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+      </footer>
 
       {/* Sticky Collapsible Build Summary Drawer (Active on mobile/tablet viewports, automatically hidden on desktop) */}
       {patchData && (

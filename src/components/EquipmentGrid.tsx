@@ -9,6 +9,7 @@ import {
 import { PickerSlotType } from './SlotPickerSheet';
 import { parseCellSpec } from '../utils/calculator';
 import { getElementStyle, resolveAssetUrl } from '../utils/theme';
+import { renderFormattedCoreText } from '../utils/formatText';
 import {
   Sword,
   Shield,
@@ -46,7 +47,7 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
 
   const isAwakening = patchInfo?.era === 'Awakening' || patchData.version === '2.1.1';
   const hasCellSockets = patchInfo?.hasCellSockets !== false;
-  const hasOmnicells = patchInfo?.hasOmnicells !== false;
+  const hasOmnicells = !isAwakening && patchInfo?.hasOmnicells === true && !!patchData.omnicells && patchData.omnicells.length > 0;
 
   const currentWeapon = patchData.weapons.find(w => w.id === build.weapon);
   const currentSecondaryWeapon = patchData.weapons.find(w => w.id === build.secondaryWeapon);
@@ -670,15 +671,15 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
               </span>
 
               <span className="gear-copy">
-                <span className="gear-meta">{isAwakening ? 'Core Ability' : 'Utility'}</span>
+                <span className="gear-meta">{isAwakening ? 'Lantern Core' : 'Utility'}</span>
                 <strong>
                   {currentLantern ? currentLantern.name : isAwakening ? 'Choose Lantern Core...' : 'Select Lantern...'}
                 </strong>
 
                 {currentLantern ? (
                   isAwakening ? (
-                    <span className="gear-subtitle line-clamp-2">
-                      {currentLantern.activeName ? `${currentLantern.activeName} · ${currentLantern.activeDesc || ''}` : currentLantern.description}
+                    <span className="gear-subtitle line-clamp-1">
+                      Tap to swap Lantern Core
                     </span>
                   ) : (
                     <span className="gear-subtitle line-clamp-1">
@@ -687,38 +688,68 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                   )
                 ) : (
                   <span className="gear-subtitle">
-                    {isAwakening ? 'Tap to equip Core (Discipline, Bastion, Iceborne...)' : 'Tap to pick lantern'}
+                    {isAwakening ? 'Tap to equip Lantern Core (Discipline, Bastion, Iceborne...)' : 'Tap to pick lantern'}
                   </span>
                 )}
               </span>
-              <span className="slot-label">Lantern <ChevronRight className="h-3.5 w-3.5" /></span>
+              <span className="slot-label">{isAwakening ? 'Core' : 'Lantern'} <ChevronRight className="h-3.5 w-3.5" /></span>
             </button>
           </div>
 
-          {/* Awakening Active details card */}
-          {isAwakening && currentLantern?.activeName && (
-            <div className="px-3 pb-3 pt-1">
-              <div className="p-2 rounded-lg bg-[#0a151b] border border-[#21333d] space-y-1 text-xs">
-                <div className="flex items-center justify-between">
-                  <span className="font-bold text-amber-300 text-xs flex items-center gap-1">
-                    <Zap className="h-3 w-3 text-amber-400" />
-                    {currentLantern.activeName}
-                  </span>
-                  {currentLantern.cooldown && (
-                    <span className="text-[10px] font-mono text-cyan-300">
-                      CD: {currentLantern.cooldown}s
+          {/* Awakening 2.1.1 Lantern Core Details: Passive Effect & Active Ability */}
+          {isAwakening && currentLantern && (
+            <div className="px-3 pb-3 pt-1 space-y-2">
+              {/* Core Passive Effect */}
+              {currentLantern.description && (
+                <div className="p-2.5 rounded-lg bg-[#09151a] border border-[#1d313a] text-xs">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400">
+                      Passive Effect
                     </span>
+                    <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#101f26] text-gray-400 border border-[#1d313a]">
+                      Always Active
+                    </span>
+                  </div>
+                  <div className="text-gray-300 text-xs leading-relaxed">
+                    {renderFormattedCoreText(currentLantern.description)}
+                  </div>
+                </div>
+              )}
+
+              {/* Active Ability */}
+              {currentLantern.activeName && (
+                <div className="p-2.5 rounded-lg bg-[#071318] border border-[#1f3744] text-xs space-y-2">
+                  <div className="flex items-center justify-between pb-1.5 border-b border-[#192b34]">
+                    <span className="font-bold text-amber-300 text-xs flex items-center gap-1.5">
+                      <Zap className="h-3.5 w-3.5 text-amber-400" />
+                      {currentLantern.activeName}
+                    </span>
+                    {currentLantern.cooldown && (
+                      <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-cyan-950/80 text-cyan-300 border border-cyan-500/30">
+                        Cooldown: {currentLantern.cooldown}s
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="text-gray-300 text-xs leading-relaxed">
+                    {renderFormattedCoreText(currentLantern.activeDesc || '')}
+                  </div>
+
+                  {currentLantern.secondaryEffect && (
+                    <div className="text-cyan-300/90 text-[11px] pt-1.5 border-t border-[#192b34] leading-relaxed">
+                      {currentLantern.secondaryEffect}
+                    </div>
+                  )}
+
+                  {/* Explicit Cooldown row matching user request */}
+                  {currentLantern.cooldown && (
+                    <div className="text-[11px] font-semibold text-gray-400 pt-1 border-t border-[#192b34]/60 flex items-center justify-between">
+                      <span className="text-gray-400">Cooldown:</span>
+                      <span className="text-cyan-300 font-mono font-bold">{currentLantern.cooldown}s</span>
+                    </div>
                   )}
                 </div>
-                <p className="text-gray-300 text-[11px] leading-snug">
-                  {currentLantern.activeDesc}
-                </p>
-                {currentLantern.secondaryEffect && (
-                  <p className="text-cyan-300/90 text-[10.5px] leading-snug pt-1 border-t border-[#1d313a]">
-                    {currentLantern.secondaryEffect}
-                  </p>
-                )}
-              </div>
+              )}
             </div>
           )}
 

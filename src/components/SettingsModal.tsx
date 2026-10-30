@@ -15,7 +15,16 @@ import {
   Info,
   HelpCircle,
   ExternalLink,
+  Youtube,
+  Github,
+  Coffee,
 } from 'lucide-react';
+
+const XIcon: React.FC<{ className?: string }> = ({ className = 'h-4 w-4' }) => (
+  <svg className={`fill-current ${className}`} viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 
 interface SettingsModalProps {
   isOpen: boolean;
@@ -296,6 +305,70 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                   <span className="text-cyan-400 font-medium">Reopen</span>
                 </button>
               )}
+            </div>
+          </div>
+
+          {/* SECTION 4: COMMUNITY & CREATOR LINKS */}
+          <div className="pt-2 border-t border-dauntless-border/60">
+            <span className="text-xs font-bold uppercase tracking-wider text-cyan-400 block mb-2">
+              Creator & Community Links
+            </span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <a
+                href="https://buymeacoffee.com/duddyx5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 hover:border-amber-400 text-left flex items-center justify-between text-xs text-amber-200 transition-colors group"
+                title="Support on Buy Me a Coffee"
+              >
+                <div className="flex items-center gap-2">
+                  <Coffee className="h-4 w-4 text-amber-400" />
+                  <span className="font-semibold">Support Me (Buy Me a Coffee)</span>
+                </div>
+                <ExternalLink className="h-3 w-3 text-amber-400/70 group-hover:text-amber-300" />
+              </a>
+
+              <a
+                href="https://www.youtube.com/@duddyx5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-xl bg-gray-800/40 hover:bg-gray-800/80 border border-gray-700/60 hover:border-red-500/40 text-left flex items-center justify-between text-xs text-gray-200 transition-colors group"
+                title="YouTube @duddyx5"
+              >
+                <div className="flex items-center gap-2">
+                  <Youtube className="h-4 w-4 text-red-400" />
+                  <span className="font-semibold">YouTube (@duddyx5)</span>
+                </div>
+                <ExternalLink className="h-3 w-3 text-gray-500 group-hover:text-red-400" />
+              </a>
+
+              <a
+                href="https://x.com/duddyx5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-xl bg-gray-800/40 hover:bg-gray-800/80 border border-gray-700/60 hover:border-gray-500 text-left flex items-center justify-between text-xs text-gray-200 transition-colors group"
+                title="X @duddyx5"
+              >
+                <div className="flex items-center gap-2">
+                  <XIcon className="h-3.5 w-3.5 text-white" />
+                  <span className="font-semibold">X (@duddyx5)</span>
+                </div>
+                <ExternalLink className="h-3 w-3 text-gray-500 group-hover:text-white" />
+              </a>
+
+              <a
+                href="https://github.com/duddyx5/dauntless-gear-builder"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-xl bg-gray-800/40 hover:bg-gray-800/80 border border-gray-700/60 hover:border-cyan-500/40 text-left flex items-center justify-between text-xs text-gray-200 transition-colors group"
+                title="GitHub Repository"
+              >
+                <div className="flex items-center gap-2">
+                  <Github className="h-4 w-4 text-cyan-400" />
+                  <span className="font-semibold">GitHub Repository</span>
+                </div>
+                <ExternalLink className="h-3 w-3 text-gray-500 group-hover:text-cyan-400" />
+              </a>
             </div>
           </div>
         </div>
