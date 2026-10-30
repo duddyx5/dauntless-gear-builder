@@ -194,6 +194,26 @@ export const App: React.FC = () => {
     return patchData?.weapons.find(w => w.id === build.weapon);
   }, [patchData, build.weapon]);
 
+  const isAwakening = currentVersionId === '2.1.1' || currentPatchInfo?.era === 'Awakening';
+
+  const equippedCount = useMemo(() => {
+    let count = 0;
+    if (build.weapon) count++;
+    if (isAwakening) {
+      if (build.secondaryWeapon) count++;
+    } else {
+      if (currentPatchInfo?.hasOmnicells !== false && build.omnicell) count++;
+    }
+    if (build.head) count++;
+    if (build.torso) count++;
+    if (build.arms) count++;
+    if (build.legs) count++;
+    if (build.lantern) count++;
+    return count;
+  }, [build, isAwakening, currentPatchInfo]);
+
+  const totalSlotsCount = isAwakening ? 7 : (currentPatchInfo?.hasOmnicells !== false ? 7 : 6);
+
   // Helper functions for socket matching
   const normalizeSocket = (socket?: string | null): string => {
     if (!socket) return '';
@@ -280,10 +300,13 @@ export const App: React.FC = () => {
           !isCellCompatibleWithSocket(next.torsoCell, newTorso?.cellSocket, patchData?.cells)
         ) {
           next.torsoCell = null;
+          next.torsoCell2 = null;
         }
         next.torso = id;
       } else if (slot === 'torsoCell') {
         next.torsoCell = id;
+      } else if (slot === 'torsoCell2') {
+        next.torsoCell2 = id;
       } else if (slot === 'arms') {
         const prevArms = patchData?.armour.find(a => a.id === prev.arms);
         const newArms = id ? patchData?.armour.find(a => a.id === id) : null;
@@ -306,10 +329,13 @@ export const App: React.FC = () => {
           !isCellCompatibleWithSocket(next.legsCell, newLegs?.cellSocket, patchData?.cells)
         ) {
           next.legsCell = null;
+          next.legsCell2 = null;
         }
         next.legs = id;
       } else if (slot === 'legsCell') {
         next.legsCell = id;
+      } else if (slot === 'legsCell2') {
+        next.legsCell2 = id;
       } else if (slot === 'lantern') {
         const prevLantern = patchData?.lanterns.find(l => l.id === prev.lantern);
         const newLantern = id ? patchData?.lanterns.find(l => l.id === id) : null;
@@ -342,10 +368,12 @@ export const App: React.FC = () => {
     if (slot === 'headCell') return build.headCell;
     if (slot === 'torso') return build.torso;
     if (slot === 'torsoCell') return build.torsoCell;
+    if (slot === 'torsoCell2') return build.torsoCell2 || null;
     if (slot === 'arms') return build.arms;
     if (slot === 'armsCell') return build.armsCell;
     if (slot === 'legs') return build.legs;
     if (slot === 'legsCell') return build.legsCell;
+    if (slot === 'legsCell2') return build.legsCell2 || null;
     if (slot === 'lantern') return build.lantern;
     if (slot === 'lanternCell') return build.lanternCell;
     if (slot === 'omnicell') return build.omnicell;
@@ -421,7 +449,7 @@ export const App: React.FC = () => {
       />
 
       {/* Main Container: Single-column on mobile, Dual-column with full live sidebar on desktop & tablet */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 py-4 pb-28 lg:pb-8">
+      <main className="flex-1 max-w-[1400px] w-full mx-auto px-3 sm:px-6 py-6 pb-28 lg:pb-12">
         {isLoading ? (
           <div className="flex flex-col items-center justify-center min-h-[50vh] gap-3 text-cyan-400">
             <Loader2 className="h-8 w-8 animate-spin" />
@@ -442,30 +470,51 @@ export const App: React.FC = () => {
             </button>
           </div>
         ) : patchData ? (
-          <div className="lg:grid lg:grid-cols-12 lg:gap-6 items-start">
-            {/* Left / Center Column: Equipment Slots */}
-            <div className="lg:col-span-7 xl:col-span-7 space-y-3">
-              <EquipmentGrid
-                build={build}
-                patchData={patchData}
-                patchInfo={currentPatchInfo}
-                powerSurged={build.powerSurged}
-                onOpenPicker={(slot, socket) => {
-                  setActivePicker({ slot, socket });
-                }}
-                onGearLevelChange={handleGearLevelChange}
-                onWeaponTalentChange={handleWeaponTalentChange}
-              />
+          <div>
+            {/* Page Intro Banner */}
+            <div className="page-intro">
+              <div>
+                <p className="kicker">Loadout workshop</p>
+                <h1>Forge your perfect build</h1>
+                <p className="lead">Select equipment, tune cells, and see every stat update instantly.</p>
+              </div>
+              <div className="completion hidden sm:block">
+                <span><b>{equippedCount}</b> / {totalSlotsCount} equipped</span>
+                <div><i style={{ width: `${(equippedCount / totalSlotsCount) * 100}%` }} /></div>
+              </div>
             </div>
 
-            {/* Right Column: Desktop Live Stats & Perks Sidebar (Visible on desktop & large tablets, zero UI sacrifices!) */}
-            <div className="hidden lg:block lg:col-span-5 xl:col-span-5">
-              <DesktopStatsSidebar
-                stats={buildStats}
-                weaponElement={currentWeapon?.element || 'Neutral'}
-                currentVersionId={currentVersionId}
-                onOpenLauncherModal={() => setIsLauncherModalOpen(true)}
-              />
+            <div className="lg:grid lg:grid-cols-12 lg:gap-7 items-start">
+              {/* Left / Center Column: Equipment Slots */}
+              <div className="lg:col-span-7 xl:col-span-7 space-y-3">
+                <div className="flex items-center justify-between px-1 mb-1">
+                  <h2 className="font-display font-bold text-sm uppercase tracking-wider text-gray-300">
+                    Equipment
+                  </h2>
+                  <span className="text-[11px] text-gray-400">Tap a slot to swap gear</span>
+                </div>
+                <EquipmentGrid
+                  build={build}
+                  patchData={patchData}
+                  patchInfo={currentPatchInfo}
+                  powerSurged={build.powerSurged}
+                  onOpenPicker={(slot, socket) => {
+                    setActivePicker({ slot, socket });
+                  }}
+                  onGearLevelChange={handleGearLevelChange}
+                  onWeaponTalentChange={handleWeaponTalentChange}
+                />
+              </div>
+
+              {/* Right Column: Desktop Live Stats & Perks Sidebar */}
+              <div className="hidden lg:block lg:col-span-5 xl:col-span-5">
+                <DesktopStatsSidebar
+                  stats={buildStats}
+                  weaponElement={currentWeapon?.element || 'Neutral'}
+                  currentVersionId={currentVersionId}
+                  onOpenLauncherModal={() => setIsLauncherModalOpen(true)}
+                />
+              </div>
             </div>
           </div>
         ) : null}

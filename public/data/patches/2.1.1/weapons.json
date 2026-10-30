@@ -10,14 +10,17 @@
     "damageType": "Cutting",
     "element": "Frost",
     "basePower": 100,
-    "maxPower": 140,
-    "cellSockets": [
-      "prismatic",
-      "prismatic"
-    ],
+    "maxPower": 600,
+    "cellSockets": [],
     "perks": [],
     "uniqueEffect": "Activate Legendary to create a temporary field of ice that deals continuous damage to any enemies within it.",
     "isLegendary": true,
+    "specialName": "Ardent Cyclone",
+    "specialDesc": "When meter is full, activate Special to spin rapidly. While active, deal continuous damage to nearby enemies. Reactivate to perform a powerful finisher.",
+    "activeName": "Frozen Field",
+    "activeDesc": "Activate Legendary to create a temporary field of ice that deals continuous damage to any enemies within it.",
+    "passiveName": "Silver Bulwark",
+    "passiveDesc": "When you would gain Shield from any source, you gain 10% more Shield.",
     "talents": [
       {
         "tier": 0,
@@ -199,13 +202,7 @@
           }
         ]
       }
-    ],
-    "specialName": "Ardent Cyclone",
-    "specialDesc": "When meter is full, activate Special to spin rapidly. While active, deal continuous damage to nearby enemies. Reactivate to perform a powerful finisher.",
-    "activeName": "Frozen Field",
-    "activeDesc": "Activate Legendary to create a temporary field of ice that deals continuous damage to any enemies within it.",
-    "passiveName": "Silver Bulwark",
-    "passiveDesc": "When you would gain Shield from any source, you gain {shield}% more Shield."
+    ]
   },
   {
     "id": "fury_of_the_mountain",
@@ -218,14 +215,17 @@
     "damageType": "Cutting",
     "element": "Blaze",
     "basePower": 100,
-    "maxPower": 140,
-    "cellSockets": [
-      "prismatic",
-      "prismatic"
-    ],
+    "maxPower": 600,
+    "cellSockets": [],
     "perks": [],
-    "uniqueEffect": "Activate Legendary to gain {speed} stacks of SPEED, and an additional {extraSpeed} for each level of Determination. For the next {duration} seconds, your maximum stacks of SPEED are increased by {stacks}.",
+    "uniqueEffect": "Activate Legendary to gain 2 stacks of SPEED, and an additional 2 for each level of Determination. For the next 45 seconds, your maximum stacks of SPEED are increased by 5.",
     "isLegendary": true,
+    "specialName": "Relentless Onslaught",
+    "specialDesc": "Activate Special to throw your axe. If it hits a Behemoth it will bounce off, and can be caught. Can be re-thrown up to two more times if caught. If determination meter is full when it hits, gain a level of Determination.",
+    "activeName": "Acceleration Engine",
+    "activeDesc": "Activate Legendary to gain 2 stacks of SPEED, and an additional 2 for each level of Determination. For the next 45 seconds, your maximum stacks of SPEED are increased by 5.",
+    "passiveName": "Burning Weapon",
+    "passiveDesc": "Landing 8 attacks without being hit empowers your weapon's next attack for a short duration with additional blaze damage.",
     "talents": [
       {
         "tier": 0,
@@ -407,13 +407,7 @@
           }
         ]
       }
-    ],
-    "specialName": "Relentless Onslaught",
-    "specialDesc": "Activate Special to throw your axe. If it hits a Behemoth it will bounce off, and can be caught. Can be re-thrown up to two more times if caught. If determination meter is full when it hits, gain a level of Determination.",
-    "activeName": "Acceleration Engine",
-    "activeDesc": "Activate Legendary to gain {speed} stacks of SPEED, and an additional {extraSpeed} for each level of Determination. For the next {duration} seconds, your maximum stacks of SPEED are increased by {stacks}.",
-    "passiveName": "Burning Weapon",
-    "passiveDesc": "Landing {attacks} attacks without being hit empowers your weapon's next attack for a short duration with additional blaze damage."
+    ]
   },
   {
     "id": "the_living_branch",
@@ -422,18 +416,21 @@
     "typeName": "War_pike",
     "behemoth": "Awakened",
     "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/the-living-branch.webp",
-    "description": "With one or more bar of meter, activate Special to store ammo. Hold Special with a stored ammo to create an aura around you that grants all Slayers within it {critical} held CRITICAL. Duration is improved by quality of ammo used.",
+    "description": "With one or more bar of meter, activate Special to store ammo. Hold Special with a stored ammo to create an aura around you that grants all Slayers within it 3 held CRITICAL. Duration is improved by quality of ammo used.",
     "damageType": "Cutting",
     "element": "Terra",
     "basePower": 100,
-    "maxPower": 140,
-    "cellSockets": [
-      "prismatic",
-      "prismatic"
-    ],
+    "maxPower": 600,
+    "cellSockets": [],
     "perks": [],
-    "uniqueEffect": "Activate Legendary to teleport forward, evading attacks and creating an explosion of Terra damage at your arrival point, healing you for {heal}, and cleansing status effects.",
+    "uniqueEffect": "Activate Legendary to teleport forward, evading attacks and creating an explosion of Terra damage at your arrival point, healing you for 200, and cleansing status effects.",
     "isLegendary": true,
+    "specialName": "Wellspring",
+    "specialDesc": "With one or more bar of meter, activate Special to store ammo. Hold Special with a stored ammo to create an aura around you that grants all Slayers within it 3 held CRITICAL. Duration is improved by quality of ammo used.",
+    "activeName": "Living Bloom",
+    "activeDesc": "Activate Legendary to teleport forward, evading attacks and creating an explosion of Terra damage at your arrival point, healing you for 200, and cleansing status effects.",
+    "passiveName": "Aether Shield",
+    "passiveDesc": "When a behemoth is wounded, gain 100 shields. Shields from this ability can reach 500 total.",
     "talents": [
       {
         "tier": 0,
@@ -615,13 +612,7 @@
           }
         ]
       }
-    ],
-    "specialName": "Wellspring",
-    "specialDesc": "With one or more bar of meter, activate Special to store ammo. Hold Special with a stored ammo to create an aura around you that grants all Slayers within it {critical} held CRITICAL. Duration is improved by quality of ammo used.",
-    "activeName": "Living Bloom",
-    "activeDesc": "Activate Legendary to teleport forward, evading attacks and creating an explosion of Terra damage at your arrival point, healing you for {heal}, and cleansing status effects.",
-    "passiveName": "Aether Shield",
-    "passiveDesc": "When a behemoth is wounded, gain {shield} shields. Shields from this ability can reach {maxShield} total."
+    ]
   },
   {
     "id": "skies_of_ostia",
@@ -634,14 +625,17 @@
     "damageType": "Cutting",
     "element": "Shock",
     "basePower": 100,
-    "maxPower": 140,
-    "cellSockets": [
-      "prismatic",
-      "prismatic"
-    ],
+    "maxPower": 600,
+    "cellSockets": [],
     "perks": [],
     "uniqueEffect": "Activate Legendary to fire a bolt of lightning that deals damage as it passes through targets. If this hits a Behemoth, teleport forward and perform a powerful hammer attack.",
     "isLegendary": true,
+    "specialName": "Lightning Salvo",
+    "specialDesc": "Your Special fires two lightning balls. Fire two additional balls of lightning for each ammo spent.",
+    "activeName": "Eye of the Storm",
+    "activeDesc": "Activate Legendary to fire a bolt of lightning that deals damage as it passes through targets. If this hits a Behemoth, teleport forward and perform a powerful hammer attack.",
+    "passiveName": "Shock Turret",
+    "passiveDesc": "When you aetherslam, create a turret that fires shock bolts every 2 seconds at the nearest target. The turret lasts longer based on ammo spent in the aetherslam.",
     "talents": [
       {
         "tier": 0,
@@ -823,13 +817,7 @@
           }
         ]
       }
-    ],
-    "specialName": "Lightning Salvo",
-    "specialDesc": "Your Special fires two lightning balls. Fire two additional balls of lightning for each ammo spent.",
-    "activeName": "Eye of the Storm",
-    "activeDesc": "Activate Legendary to fire a bolt of lightning that deals damage as it passes through targets. If this hits a Behemoth, teleport forward and perform a powerful hammer attack.",
-    "passiveName": "Shock Turret",
-    "passiveDesc": "When you aetherslam, create a turret that fires shock bolts every {duration} seconds at the nearest target. The turret lasts longer based on ammo spent in the aetherslam."
+    ]
   },
   {
     "id": "netherlights",
@@ -842,14 +830,17 @@
     "damageType": "Cutting",
     "element": "Umbral",
     "basePower": 100,
-    "maxPower": 140,
-    "cellSockets": [
-      "prismatic",
-      "prismatic"
-    ],
+    "maxPower": 600,
+    "cellSockets": [],
     "perks": [],
     "uniqueEffect": "Activate Legendary to perform an umbral slash that steals health from a Behemoth, dealing damage, healing you, and instantly inflicting umbral status on a random part.",
     "isLegendary": true,
+    "specialName": "Cruel Riftstrike",
+    "specialDesc": "When you have at least one chain charge, activate Special to teleport past the closest Behemoth, turning around and striking it to leave an umbral rift that deals damage over time. When the rift expires, it explodes for umbral damage, increased by the total number of rifts. The final explosion does additional damage if Cruel Riftstrike dodges through a Behemoth attack.",
+    "activeName": "Syphon Power",
+    "activeDesc": "Activate Legendary to perform an umbral slash that steals health from a Behemoth, dealing damage, healing you, and instantly inflicting umbral status on a random part.",
+    "passiveName": "Shadowdodge",
+    "passiveDesc": "Dodging through an attack causes an explosion of umbral energy, which can interrupt.",
     "talents": [
       {
         "tier": 0,
@@ -1031,13 +1022,7 @@
           }
         ]
       }
-    ],
-    "specialName": "Cruel Riftstrike",
-    "specialDesc": "When you have at least one chain charge, activate Special to teleport past the closest Behemoth, turning around and striking it to leave an umbral rift that deals damage over time. When the rift expires, it explodes for umbral damage, increased by the total number of rifts. The final explosion does additional damage if Cruel Riftstrike dodges through a Behemoth attack.",
-    "activeName": "Syphon Power",
-    "activeDesc": "Activate Legendary to perform an umbral slash that steals health from a Behemoth, dealing damage, healing you, and instantly inflicting umbral status on a random part.",
-    "passiveName": "Shadowdodge",
-    "passiveDesc": "Dodging through an attack causes an explosion of umbral energy, which can interrupt."
+    ]
   },
   {
     "id": "twin_suns",
@@ -1050,14 +1035,17 @@
     "damageType": "Cutting",
     "element": "Shock",
     "basePower": 100,
-    "maxPower": 140,
-    "cellSockets": [
-      "prismatic",
-      "prismatic"
-    ],
+    "maxPower": 600,
+    "cellSockets": [],
     "perks": [],
     "uniqueEffect": "Activate Legendary to drop a large bomb from your airship a short distance in front of you that deals massive damage.",
     "isLegendary": true,
+    "specialName": "Lightning Dash",
+    "specialDesc": "Activate to dash through attacks, performing a spinning counter. Additionally, when meter is full, activate magnetic bombs which stick to Behemoths, and deal greater damage the more parts they hit.",
+    "activeName": "Broadside Bomb",
+    "activeDesc": "Activate Legendary to drop a large bomb from your airship a short distance in front of you that deals massive damage.",
+    "passiveName": "Critical Capacitor",
+    "passiveDesc": "Your stacks of CRITICAL last 10 seconds longer.",
     "talents": [
       {
         "tier": 0,
@@ -1239,13 +1227,7 @@
           }
         ]
       }
-    ],
-    "specialName": "Lightning Dash",
-    "specialDesc": "Activate to dash through attacks, performing a spinning counter. Additionally, when meter is full, activate magnetic bombs which stick to Behemoths, and deal greater damage the more parts they hit.",
-    "activeName": "Broadside Bomb",
-    "activeDesc": "Activate Legendary to drop a large bomb from your airship a short distance in front of you that deals massive damage.",
-    "passiveName": "Critical Capacitor",
-    "passiveDesc": "Your stacks of CRITICAL last {duration} seconds longer."
+    ]
   },
   {
     "id": "the_golden_claws",
@@ -1254,18 +1236,21 @@
     "typeName": "Aether_strikers",
     "behemoth": "Awakened",
     "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/the-golden-claws.webp",
-    "description": "Activate Special to fire a powerful beam of energy. Deals up to {damage}% additional damage when Tempest Form and Karma Breaker are active.",
+    "description": "Activate Special to fire a powerful beam of energy. Deals up to 100% additional damage when Tempest Form and Karma Breaker are active.",
     "damageType": "Cutting",
     "element": "Radiant",
     "basePower": 100,
-    "maxPower": 140,
-    "cellSockets": [
-      "prismatic",
-      "prismatic"
-    ],
+    "maxPower": 600,
+    "cellSockets": [],
     "perks": [],
-    "uniqueEffect": "Activate Legendary to gain {speed} stacks of SPEED and perform a flash of Radiant energy that immediately inflicts Radiance on a nearby Behemoth.",
+    "uniqueEffect": "Activate Legendary to gain 2 stacks of SPEED and perform a flash of Radiant energy that immediately inflicts Radiance on a nearby Behemoth.",
     "isLegendary": true,
+    "specialName": "Adamant Bolt",
+    "specialDesc": "Activate Special to fire a powerful beam of energy. Deals up to 100% additional damage when Tempest Form and Karma Breaker are active.",
+    "activeName": "Radiant Flash",
+    "activeDesc": "Activate Legendary to gain 2 stacks of SPEED and perform a flash of Radiant energy that immediately inflicts Radiance on a nearby Behemoth.",
+    "passiveName": "Crushing Fist",
+    "passiveDesc": "Deal 15% increased damage to unbroken parts.",
     "talents": [
       {
         "tier": 0,
@@ -1447,13 +1432,7 @@
           }
         ]
       }
-    ],
-    "specialName": "Adamant Bolt",
-    "specialDesc": "Activate Special to fire a powerful beam of energy. Deals up to {damage}% additional damage when Tempest Form and Karma Breaker are active.",
-    "activeName": "Radiant Flash",
-    "activeDesc": "Activate Legendary to gain {speed} stacks of SPEED and perform a flash of Radiant energy that immediately inflicts Radiance on a nearby Behemoth.",
-    "passiveName": "Crushing Fist",
-    "passiveDesc": "Deal {damage}% increased damage to unbroken parts."
+    ]
   },
   {
     "id": "the_anvil",
@@ -1462,18 +1441,21 @@
     "typeName": "Hammer",
     "behemoth": "Awakened",
     "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/the-anvil.webp",
-    "description": "Activate Special to open a crack in the ground that allows Slayers to gain {might} MIGHT by walking over it. Create one pickup per ammo spent. A Slayer cannot gain this benefit more than once every {duration} seconds.",
+    "description": "Activate Special to open a crack in the ground that allows Slayers to gain 3 MIGHT by walking over it. Create one pickup per ammo spent. A Slayer cannot gain this benefit more than once every 45 seconds.",
     "damageType": "Cutting",
     "element": "Frost",
     "basePower": 100,
-    "maxPower": 140,
-    "cellSockets": [
-      "prismatic",
-      "prismatic"
-    ],
+    "maxPower": 600,
+    "cellSockets": [],
     "perks": [],
     "uniqueEffect": "Activate Legendary to create a wall of ice that blocks projectiles, interrupts Behemoths that pass through it, and freezes non-Frost Behemoths.",
     "isLegendary": true,
+    "specialName": "Mighty Landbreaker",
+    "specialDesc": "Activate Special to open a crack in the ground that allows Slayers to gain 3 MIGHT by walking over it. Create one pickup per ammo spent. A Slayer cannot gain this benefit more than once every 45 seconds.",
+    "activeName": "The Wall",
+    "activeDesc": "Activate Legendary to create a wall of ice that blocks projectiles, interrupts Behemoths that pass through it, and freezes non-Frost Behemoths.",
+    "passiveName": "Frozen Mines",
+    "passiveDesc": "On dodging, create two ice mines that damage any Behemoth that touched them. Recharges every 15 seconds.",
     "talents": [
       {
         "tier": 0,
@@ -1655,13 +1637,7 @@
           }
         ]
       }
-    ],
-    "specialName": "Mighty Landbreaker",
-    "specialDesc": "Activate Special to open a crack in the ground that allows Slayers to gain {might} MIGHT by walking over it. Create one pickup per ammo spent. A Slayer cannot gain this benefit more than once every {duration} seconds.",
-    "activeName": "The Wall",
-    "activeDesc": "Activate Legendary to create a wall of ice that blocks projectiles, interrupts Behemoths that pass through it, and freezes non-Frost Behemoths.",
-    "passiveName": "Frozen Mines",
-    "passiveDesc": "On dodging, create two ice mines that damage any Behemoth that touched them. Recharges every {duration} seconds."
+    ]
   },
   {
     "id": "bane_balm",
@@ -1674,14 +1650,17 @@
     "damageType": "Cutting",
     "element": "Terra",
     "basePower": 100,
-    "maxPower": 140,
-    "cellSockets": [
-      "prismatic",
-      "prismatic"
-    ],
+    "maxPower": 600,
+    "cellSockets": [],
     "perks": [],
     "uniqueEffect": "Activate Legendary to revive all allies in bleedout, and place a heal over time on all allies. Can be activated while in bleedout.",
     "isLegendary": true,
+    "specialName": "Insatiable Dance",
+    "specialDesc": "Activate Special to push off a behemoth and into the air. Activate Heavy while in the air to slam down, spending one or more chain charges to deal damage, heal yourself, and create orbs that heal allies.",
+    "activeName": "Bloom of Balm",
+    "activeDesc": "Activate Legendary to revive all allies in bleedout, and place a heal over time on all allies. Can be activated while in bleedout.",
+    "passiveName": "Dripping Venom",
+    "passiveDesc": "When you deal damage, deal 10% of the damage again over 5 seconds.",
     "talents": [
       {
         "tier": 0,
@@ -1863,13 +1842,7 @@
           }
         ]
       }
-    ],
-    "specialName": "Insatiable Dance",
-    "specialDesc": "Activate Special to push off a behemoth and into the air. Activate Heavy while in the air to slam down, spending one or more chain charges to deal damage, heal yourself, and create orbs that heal allies.",
-    "activeName": "Bloom of Balm",
-    "activeDesc": "Activate Legendary to revive all allies in bleedout, and place a heal over time on all allies. Can be activated while in bleedout.",
-    "passiveName": "Dripping Venom",
-    "passiveDesc": "When you deal damage, deal {damage}% of the damage again over {duration} seconds."
+    ]
   },
   {
     "id": "eternal_winter",
@@ -1882,14 +1855,17 @@
     "damageType": "Cutting",
     "element": "Frost",
     "basePower": 100,
-    "maxPower": 140,
-    "cellSockets": [
-      "prismatic",
-      "prismatic"
-    ],
+    "maxPower": 600,
+    "cellSockets": [],
     "perks": [],
     "uniqueEffect": "Activate Legendary to perform a powerful strike. The strength of this attack is greatly increased based on your Determination Level.",
     "isLegendary": true,
+    "specialName": "Grim Onslaught",
+    "specialDesc": "Activate Special to throw your axe. It deals a great deal of damage and bounces back. Catching it grants determination.",
+    "activeName": "Determined Strike",
+    "activeDesc": "Activate Legendary to perform a powerful strike. The strength of this attack is greatly increased based on your Determination Level.",
+    "passiveName": "Frozen Brand",
+    "passiveDesc": "Dealing damage to a Behemoth places a freezing brand on it. After a time, the brand will detonate. Dealing enough damage to the brand detonates it early, dealing increased damage. Recharges after a short time.",
     "talents": [
       {
         "tier": 0,
@@ -2071,13 +2047,7 @@
           }
         ]
       }
-    ],
-    "specialName": "Grim Onslaught",
-    "specialDesc": "Activate Special to throw your axe. It deals a great deal of damage and bounces back. Catching it grants determination.",
-    "activeName": "Determined Strike",
-    "activeDesc": "Activate Legendary to perform a powerful strike. The strength of this attack is greatly increased based on your Determination Level.",
-    "passiveName": "Frozen Brand",
-    "passiveDesc": "Dealing damage to a Behemoth places a freezing brand on it. After a time, the brand will detonate. Dealing enough damage to the brand detonates it early, dealing increased damage. Recharges after a short time."
+    ]
   },
   {
     "id": "firestorm",
@@ -2086,18 +2056,21 @@
     "typeName": "War_pike",
     "behemoth": "Awakened",
     "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/firestorm.webp",
-    "description": "Press to convert meter into ammo. Hold to spend ammo and perform a flying lunge attack that deals up to {damage} damage based on distance and ammo quality.",
+    "description": "Press to convert meter into ammo. Hold to spend ammo and perform a flying lunge attack that deals up to 1500 damage based on distance and ammo quality.",
     "damageType": "Cutting",
     "element": "Blaze",
     "basePower": 100,
-    "maxPower": 140,
-    "cellSockets": [
-      "prismatic",
-      "prismatic"
-    ],
+    "maxPower": 600,
+    "cellSockets": [],
     "perks": [],
-    "uniqueEffect": "After activation, dealing wound damage over the next {duration} seconds builds up a reserve of cannon balls, which are then fired from above.",
+    "uniqueEffect": "After activation, dealing wound damage over the next 30 seconds builds up a reserve of cannon balls, which are then fired from above.",
     "isLegendary": true,
+    "specialName": "Reckless Leap",
+    "specialDesc": "Press to convert meter into ammo. Hold to spend ammo and perform a flying lunge attack that deals up to 1500 damage based on distance and ammo quality.",
+    "activeName": "Airship Barrage",
+    "activeDesc": "After activation, dealing wound damage over the next 30 seconds builds up a reserve of cannon balls, which are then fired from above.",
+    "passiveName": "Homing Missiles",
+    "passiveDesc": "Once charged after 20 second cooldown, your next hit locks on to the Behemoth part. Dealing damage loads homing missiles (max 4) that deal 50 base damage + 50 for each other missile in the volley. On dodge, fire all loaded missiles.",
     "talents": [
       {
         "tier": 0,
@@ -2279,13 +2252,7 @@
           }
         ]
       }
-    ],
-    "specialName": "Reckless Leap",
-    "specialDesc": "Press to convert meter into ammo. Hold to spend ammo and perform a flying lunge attack that deals up to {damage} damage based on distance and ammo quality.",
-    "activeName": "Airship Barrage",
-    "activeDesc": "After activation, dealing wound damage over the next {duration} seconds builds up a reserve of cannon balls, which are then fired from above.",
-    "passiveName": "Homing Missiles",
-    "passiveDesc": "Once charged after {duration} second cooldown, your next hit locks on to the Behemoth part. Dealing damage loads homing missiles (max {missiles}) that deal {baseDamage} base damage + {damage} for each other missile in the volley. On dodge, fire all loaded missiles."
+    ]
   },
   {
     "id": "the_godhand",
@@ -2298,14 +2265,17 @@
     "damageType": "Cutting",
     "element": "Radiant",
     "basePower": 100,
-    "maxPower": 140,
-    "cellSockets": [
-      "prismatic",
-      "prismatic"
-    ],
+    "maxPower": 600,
+    "cellSockets": [],
     "perks": [],
     "uniqueEffect": "Activate your Legendary to immediately fill your meter to full.",
     "isLegendary": true,
+    "specialName": "Godhand",
+    "specialDesc": "With more than one bar of meter, activate Special to store ammo. Hold Special with a stored ammo to begin firing with the Godhand, dealing more damage the longer the beam is maintained. Beam duration limited by quality of your stored ammo.",
+    "activeName": "Gathering Power",
+    "activeDesc": "Activate your Legendary to immediately fill your meter to full.",
+    "passiveName": "Runic Sigils",
+    "passiveDesc": "On activating your Legendary, place a runic sigil a short distance ahead of you that activates if a Behemoth touches it, granting 250 Shield.",
     "talents": [
       {
         "tier": 0,
@@ -2487,13 +2457,7 @@
           }
         ]
       }
-    ],
-    "specialName": "Godhand",
-    "specialDesc": "With more than one bar of meter, activate Special to store ammo. Hold Special with a stored ammo to begin firing with the Godhand, dealing more damage the longer the beam is maintained. Beam duration limited by quality of your stored ammo.",
-    "activeName": "Gathering Power",
-    "activeDesc": "Activate your Legendary to immediately fill your meter to full.",
-    "passiveName": "Runic Sigils",
-    "passiveDesc": "On activating your Legendary, place a runic sigil a short distance ahead of you that activates if a Behemoth touches it, granting {shield} Shield."
+    ]
   },
   {
     "id": "the_hunger",
@@ -2506,14 +2470,17 @@
     "damageType": "Cutting",
     "element": "Umbral",
     "basePower": 100,
-    "maxPower": 140,
-    "cellSockets": [
-      "prismatic",
-      "prismatic"
-    ],
+    "maxPower": 600,
+    "cellSockets": [],
     "perks": [],
     "uniqueEffect": "Activate Legendary to create an umbral explosion and teleport high into the air. Reactivate to crash down, creating another umbral explosion on impact.",
     "isLegendary": true,
+    "specialName": "Feast",
+    "specialDesc": "When meter is full, activate Special. While active, you continuously lose health, but you have lifesteal, continuously generate Valour, and umbral slashes on attacks.",
+    "activeName": "Portal Dive",
+    "activeDesc": "Activate Legendary to create an umbral explosion and teleport high into the air. Reactivate to crash down, creating another umbral explosion on impact.",
+    "passiveName": "Verge of Night",
+    "passiveDesc": "You have 2 held Might under 20% health.",
     "talents": [
       {
         "tier": 0,
@@ -2695,13 +2662,7 @@
           }
         ]
       }
-    ],
-    "specialName": "Feast",
-    "specialDesc": "When meter is full, activate Special. While active, you continuously lose health, but you have lifesteal, continuously generate Valour, and umbral slashes on attacks.",
-    "activeName": "Portal Dive",
-    "activeDesc": "Activate Legendary to create an umbral explosion and teleport high into the air. Reactivate to crash down, creating another umbral explosion on impact.",
-    "passiveName": "Verge of Night",
-    "passiveDesc": "You have {might} held Might under {health}% health."
+    ]
   },
   {
     "id": "molten_edict",
@@ -2714,14 +2675,17 @@
     "damageType": "Cutting",
     "element": "Blaze",
     "basePower": 100,
-    "maxPower": 140,
-    "cellSockets": [
-      "prismatic",
-      "prismatic"
-    ],
+    "maxPower": 600,
+    "cellSockets": [],
     "perks": [],
     "uniqueEffect": "Activate Legendary to coat your fists in molten earth, changing your moveset. Your punches deal large amounts of blaze buildup, and your attacks deal increased damage against Behemoths who are on fire.",
     "isLegendary": true,
+    "specialName": "Molten Orb",
+    "specialDesc": "Your Special lobs balls of fire that deal increased damage and can set the ground on fire when charged with more ammo. Your Aetherslam unleashes a rolling ball of lava.",
+    "activeName": "Fist of the Mountain",
+    "activeDesc": "Activate Legendary to coat your fists in molten earth, changing your moveset. Your punches deal large amounts of blaze buildup, and your attacks deal increased damage against Behemoths who are on fire.",
+    "passiveName": "Burning Earth",
+    "passiveDesc": "After spending 75 stamina, your next attack that hits a Behemoth launches a cone of flame.",
     "talents": [
       {
         "tier": 0,
@@ -2903,13 +2867,7 @@
           }
         ]
       }
-    ],
-    "specialName": "Molten Orb",
-    "specialDesc": "Your Special lobs balls of fire that deal increased damage and can set the ground on fire when charged with more ammo. Your Aetherslam unleashes a rolling ball of lava.",
-    "activeName": "Fist of the Mountain",
-    "activeDesc": "Activate Legendary to coat your fists in molten earth, changing your moveset. Your punches deal large amounts of blaze buildup, and your attacks deal increased damage against Behemoths who are on fire.",
-    "passiveName": "Burning Earth",
-    "passiveDesc": "After spending {stamina} stamina, your next attack that hits a Behemoth launches a cone of flame."
+    ]
   },
   {
     "id": "oathkeepers",
@@ -2922,14 +2880,17 @@
     "damageType": "Cutting",
     "element": "Terra",
     "basePower": 100,
-    "maxPower": 140,
-    "cellSockets": [
-      "prismatic",
-      "prismatic"
-    ],
+    "maxPower": 600,
+    "cellSockets": [],
     "perks": [],
-    "uniqueEffect": "Activate Legendary to gain {health} health, and grant Oathkeeper's Protection to all nearby allies for {duration} seconds. When a protected ally would take damage, instead they take no damage, and you take {damage}% of the damage they would have taken.",
+    "uniqueEffect": "Activate Legendary to gain 500 health, and grant Oathkeeper's Protection to all nearby allies for 30 seconds. When a protected ally would take damage, instead they take no damage, and you take 50% of the damage they would have taken.",
     "isLegendary": true,
+    "specialName": "Titanic Bulwark",
+    "specialDesc": "Activate Special to smash your fists together, creating a damaging pulse around you, and granting DEFENSE stacks to all nearby allies based on active mantras.",
+    "activeName": "Sentinel",
+    "activeDesc": "Activate Legendary to gain 500 health, and grant Oathkeeper's Protection to all nearby allies for 30 seconds. When a protected ally would take damage, instead they take no damage, and you take 50% of the damage they would have taken.",
+    "passiveName": "Reactive Armour",
+    "passiveDesc": "When you take health damage, gain an equal amount of Shield.",
     "talents": [
       {
         "tier": 0,
@@ -3111,13 +3072,7 @@
           }
         ]
       }
-    ],
-    "specialName": "Titanic Bulwark",
-    "specialDesc": "Activate Special to smash your fists together, creating a damaging pulse around you, and granting DEFENSE stacks to all nearby allies based on active mantras.",
-    "activeName": "Sentinel",
-    "activeDesc": "Activate Legendary to gain {health} health, and grant Oathkeeper's Protection to all nearby allies for {duration} seconds. When a protected ally would take damage, instead they take no damage, and you take {damage}% of the damage they would have taken.",
-    "passiveName": "Reactive Armour",
-    "passiveDesc": "When you take health damage, gain an equal amount of Shield."
+    ]
   },
   {
     "id": "reaper_s_edge",
@@ -3130,14 +3085,17 @@
     "damageType": "Cutting",
     "element": "Umbral",
     "basePower": 100,
-    "maxPower": 140,
-    "cellSockets": [
-      "prismatic",
-      "prismatic"
-    ],
+    "maxPower": 600,
+    "cellSockets": [],
     "perks": [],
-    "uniqueEffect": "Activate Legendary to rip a tear in the fabric of reality and enter Umbral realm. While in it, take reduced damage, and become immune to stagger. For every {damage} damage dealt during it give {might} MIGHT to friendly Slayers when it ends.",
+    "uniqueEffect": "Activate Legendary to rip a tear in the fabric of reality and enter Umbral realm. While in it, take reduced damage, and become immune to stagger. For every 300 damage dealt during it give 1 MIGHT to friendly Slayers when it ends.",
     "isLegendary": true,
+    "specialName": "Reaper's Flight",
+    "specialDesc": "Activate Special to throw your axe. It deals continuous damage over time while in flight, and then returns to you. Reactivate while in flight to teleport to the Axe and perform an Umbral strike in the direction your Slayer is facing.",
+    "activeName": "Planar Rip",
+    "activeDesc": "Activate Legendary to rip a tear in the fabric of reality and enter Umbral realm. While in it, take reduced damage, and become immune to stagger. For every 300 damage dealt during it give 1 MIGHT to friendly Slayers when it ends.",
+    "passiveName": "Umbral Corruption",
+    "passiveDesc": "Attacks have a chance to generate an umbral orb. Each orb increases the damage dealt by attacks by 1.75%. With 5 or more active orbs, the damage bonus per orb is doubled.",
     "talents": [
       {
         "tier": 0,
@@ -3319,13 +3277,7 @@
           }
         ]
       }
-    ],
-    "specialName": "Reaper's Flight",
-    "specialDesc": "Activate Special to throw your axe. It deals continuous damage over time while in flight, and then returns to you. Reactivate while in flight to teleport to the Axe and perform an Umbral strike in the direction your Slayer is facing.",
-    "activeName": "Planar Rip",
-    "activeDesc": "Activate Legendary to rip a tear in the fabric of reality and enter Umbral realm. While in it, take reduced damage, and become immune to stagger. For every {damage} damage dealt during it give {might} MIGHT to friendly Slayers when it ends.",
-    "passiveName": "Umbral Corruption",
-    "passiveDesc": "Attacks have a chance to generate an umbral orb. Each orb increases the damage dealt by attacks by {damage}%. With {orbs} or more active orbs, the damage bonus per orb is doubled."
+    ]
   },
   {
     "id": "thundersoul",
@@ -3334,18 +3286,21 @@
     "typeName": "Sword",
     "behemoth": "Awakened",
     "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/thundersoul.webp",
-    "description": "When meter is full, activate Special to gain {speed} stacks of SPEED and take brief defensive stance which will parry an incoming attack and counter it, entering overdrive. Reactivate during overdrive to parry again. Successful parries generate {valour} Valour.",
+    "description": "When meter is full, activate Special to gain 2 stacks of SPEED and take brief defensive stance which will parry an incoming attack and counter it, entering overdrive. Reactivate during overdrive to parry again. Successful parries generate 1 Valour.",
     "damageType": "Cutting",
     "element": "Shock",
     "basePower": 100,
-    "maxPower": 140,
-    "cellSockets": [
-      "prismatic",
-      "prismatic"
-    ],
+    "maxPower": 600,
+    "cellSockets": [],
     "perks": [],
     "uniqueEffect": "Activate Legendary to become lightning, finding the nearest Behemoth and teleporting to it with an explosive shock burst.",
     "isLegendary": true,
+    "specialName": "Avenging Overdrive",
+    "specialDesc": "When meter is full, activate Special to gain 2 stacks of SPEED and take brief defensive stance which will parry an incoming attack and counter it, entering overdrive. Reactivate during overdrive to parry again. Successful parries generate 1 Valour.",
+    "activeName": "Thunderous Charge",
+    "activeDesc": "Activate Legendary to become lightning, finding the nearest Behemoth and teleporting to it with an explosive shock burst.",
+    "passiveName": "Energetic",
+    "passiveDesc": "After a perfect dodge, your next attacks generate 100% bonus meter.",
     "talents": [
       {
         "tier": 0,
@@ -3527,13 +3482,7 @@
           }
         ]
       }
-    ],
-    "specialName": "Avenging Overdrive",
-    "specialDesc": "When meter is full, activate Special to gain {speed} stacks of SPEED and take brief defensive stance which will parry an incoming attack and counter it, entering overdrive. Reactivate during overdrive to parry again. Successful parries generate {valour} Valour.",
-    "activeName": "Thunderous Charge",
-    "activeDesc": "Activate Legendary to become lightning, finding the nearest Behemoth and teleporting to it with an explosive shock burst.",
-    "passiveName": "Energetic",
-    "passiveDesc": "After a perfect dodge, your next attacks generate {meter}% bonus meter."
+    ]
   },
   {
     "id": "to_fro",
@@ -3546,14 +3495,17 @@
     "damageType": "Cutting",
     "element": "Frost",
     "basePower": 100,
-    "maxPower": 140,
-    "cellSockets": [
-      "prismatic",
-      "prismatic"
-    ],
+    "maxPower": 600,
+    "cellSockets": [],
     "perks": [],
-    "uniqueEffect": "Activate Legendary to activate an aura that grants all Slayers within it {speed} held stacks of Speed.",
+    "uniqueEffect": "Activate Legendary to activate an aura that grants all Slayers within it 3 held stacks of Speed.",
     "isLegendary": true,
+    "specialName": "Reaper's Dance",
+    "specialDesc": "Activate Special to push off a Behemoth and into the air. Activate Heavy to slam down, dealing damage based on the number of chain charges spent.",
+    "activeName": "Frigid Zeal",
+    "activeDesc": "Activate Legendary to activate an aura that grants all Slayers within it 3 held stacks of Speed.",
+    "passiveName": "Frost Sprites",
+    "passiveDesc": "On landing Reaper's Dance, spawn 3 frost sprites that cause your next attack to deal increased damage.",
     "talents": [
       {
         "tier": 0,
@@ -3735,13 +3687,7 @@
           }
         ]
       }
-    ],
-    "specialName": "Reaper's Dance",
-    "specialDesc": "Activate Special to push off a Behemoth and into the air. Activate Heavy to slam down, dealing damage based on the number of chain charges spent.",
-    "activeName": "Frigid Zeal",
-    "activeDesc": "Activate Legendary to activate an aura that grants all Slayers within it {speed} held stacks of Speed.",
-    "passiveName": "Frost Sprites",
-    "passiveDesc": "On landing Reaper's Dance, spawn {spikes} frost sprites that cause your next attack to deal increased damage."
+    ]
   },
   {
     "id": "alluring_moons",
@@ -3750,18 +3696,21 @@
     "typeName": "Ostian_repeaters",
     "behemoth": "Awakened",
     "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/weapons/alluring-moons.webp",
-    "description": "Lure two random Chaox to fight at your side for up to {duration} seconds.",
+    "description": "Lure two random Chaox to fight at your side for up to 90 seconds.",
     "damageType": "Cutting",
     "element": "Umbral",
     "basePower": 100,
-    "maxPower": 140,
-    "cellSockets": [
-      "prismatic",
-      "prismatic"
-    ],
+    "maxPower": 600,
+    "cellSockets": [],
     "perks": [],
-    "uniqueEffect": "Call an Umbral Chaox to fight at your side for up to {duration} seconds. It deals greater damage than a normal Chaox, and can use abilities of any Chaox.",
+    "uniqueEffect": "Call an Umbral Chaox to fight at your side for up to 300 seconds. It deals greater damage than a normal Chaox, and can use abilities of any Chaox.",
     "isLegendary": true,
+    "specialName": "Lure",
+    "specialDesc": "Lure two random Chaox to fight at your side for up to 90 seconds.",
+    "activeName": "Leader of the Pack",
+    "activeDesc": "Call an Umbral Chaox to fight at your side for up to 300 seconds. It deals greater damage than a normal Chaox, and can use abilities of any Chaox.",
+    "passiveName": "Call of the Void",
+    "passiveDesc": "Occasionally spawn an orb of umbral energy nearby that can be attacked by any Slayer to send a spray of umbral blasts in a cone, damaging any Behemoth hit.",
     "talents": [
       {
         "tier": 0,
@@ -3943,12 +3892,6 @@
           }
         ]
       }
-    ],
-    "specialName": "Lure",
-    "specialDesc": "Lure two random Chaox to fight at your side for up to {duration} seconds.",
-    "activeName": "Leader of the Pack",
-    "activeDesc": "Call an Umbral Chaox to fight at your side for up to {duration} seconds. It deals greater damage than a normal Chaox, and can use abilities of any Chaox.",
-    "passiveName": "Call of the Void",
-    "passiveDesc": "Occasionally spawn an orb of umbral energy nearby that can be attacked by any Slayer to send a spray of umbral blasts in a cone, damaging any Behemoth hit."
+    ]
   }
 ]

@@ -28,10 +28,12 @@ export const DEFAULT_BUILD: BuildState = {
   headCell: 'molten_cell:+3',
   torso: 'hellplate_cuirass',
   torsoCell: 'predator_cell:+3',
+  torsoCell2: null,
   arms: 'malkarion_s_grasp',
   armsCell: 'pulse_cell:+3',
   legs: 'thrax_s_guile',
   legsCell: 'catalyst_cell:+3',
+  legsCell2: null,
   lantern: 'drask_s_eye',
   lanternCell: 'conduit_cell:+3',
   omnicell: 'discipline',
@@ -232,6 +234,34 @@ export const PRESET_BUILDS: PresetBuildItem[] = [
   // PATCH 2.1.1 (Awakening)
   // ---------------------------------------------------------
   {
+    name: '2.1.1 Alluring Moons / Bane & Balm Build',
+    description: 'Awakening meta: Alluring Moons & Bane & Balm, Discipline Core, Inertia 7/7, Strategist 7/4, Warmth 4/4, +75 Frost / +25 Radiant defense.',
+    version: '2.1.1',
+    era: 'Awakening',
+    tags: ['Dual Weapons', 'Umbral', 'Terra', 'Awakening', 'Discipline'],
+    build: {
+      version: '2.1.1',
+      weapon: 'alluring_moons',
+      secondaryWeapon: 'bane_balm',
+      gearLevels: { weapon: 20, secondaryWeapon: 20, head: 20, torso: 20, arms: 20, legs: 20 },
+      weaponCells: [],
+      head: 'adversary_s_guile',
+      headCell: null,
+      torso: 'adversary_s_pride',
+      torsoCell: 'overpower_cell',
+      torsoCell2: 'overpower_cell',
+      arms: 'adversary_s_wrath',
+      armsCell: null,
+      legs: 'greaves_of_valour',
+      legsCell: null,
+      legsCell2: null,
+      lantern: 'discipline',
+      lanternCell: null,
+      omnicell: null,
+      powerSurged: false,
+    }
+  },
+  {
     name: '2.1.1 Awakening Bastion Nova (Silver Sword)',
     description: 'Awakening meta: legendary Silver Sword with Ardent Cyclone and Bastion Shield Nova ground slam.',
     version: '2.1.1',
@@ -252,7 +282,7 @@ export const PRESET_BUILDS: PresetBuildItem[] = [
       lantern: 'bastion',
       lanternCell: null,
       omnicell: null,
-      powerSurged: true,
+      powerSurged: false,
     }
   }
 ];
@@ -260,7 +290,7 @@ export const PRESET_BUILDS: PresetBuildItem[] = [
 export function parseCellSpec(cellSpec: string | null, cellsList: CellItem[]): { cell: CellItem | null; variantLevel: number; perkId: string; perkName: string; perkValue: number } | null {
   if (!cellSpec) return null;
   const [cellId, levelStr] = cellSpec.split(':');
-  const level = parseInt(levelStr?.replace('+', '') || '3', 10);
+  const level = levelStr ? parseInt(levelStr.replace('+', ''), 10) : 1;
   const cell = cellsList.find(c => c.id === cellId) || null;
   if (!cell) {
     const found = cellsList.find(c => c.id.includes(cellId) || c.name.toLowerCase().includes(cellId.replace(/_/g, ' ')));
@@ -268,19 +298,19 @@ export function parseCellSpec(cellSpec: string | null, cellsList: CellItem[]): {
     const variant = found.variants.find(v => v.level === level) || found.variants[found.variants.length - 1];
     return {
       cell: found,
-      variantLevel: variant ? variant.level : 3,
+      variantLevel: variant ? variant.level : 1,
       perkId: variant ? variant.perkId : found.id.replace(/_cell$/, ''),
       perkName: variant ? variant.perkName : found.name.replace(/ Cell$/, ''),
-      perkValue: variant ? variant.perkValue : 3,
+      perkValue: variant ? variant.perkValue : 1,
     };
   }
   const variant = cell.variants.find(v => v.level === level) || cell.variants[cell.variants.length - 1];
   return {
     cell,
-    variantLevel: variant ? variant.level : 3,
+    variantLevel: variant ? variant.level : 1,
     perkId: variant ? variant.perkId : cell.id.replace(/_cell$/, ''),
     perkName: variant ? variant.perkName : cell.name.replace(/ Cell$/, ''),
-    perkValue: variant ? variant.perkValue : 3,
+    perkValue: variant ? variant.perkValue : 1,
   };
 }
 
@@ -304,6 +334,13 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
   const weaknessesSet = new Set<string>();
 
   const perkMap: Record<string, { total: number; sources: PerkSource[]; name: string }> = {};
+  const talentStats: Record<string, number> = {};
+
+  function addTalentStat(stat: string, val: number) {
+    if (!stat || val <= 0) return;
+    const key = stat.toLowerCase().trim();
+    talentStats[key] = (talentStats[key] || 0) + val;
+  }
 
   function addPerkPoint(perkId: string, perkName: string, value: number, sourceName: string, slot: string) {
     if (!perkId || value <= 0) return;
@@ -323,16 +360,16 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
   const weapon = data.weapons.find(w => w.id === build.weapon);
   if (weapon) {
     if (isAwakening) {
-      const lvl = build.gearLevels?.weapon ?? 20;
+      const lvl = Math.max(build.gearLevels?.weapon ?? 20, build.secondaryWeapon ? (build.gearLevels?.secondaryWeapon ?? 20) : 0);
       const power = weapon.basePower + Math.round((weapon.maxPower - weapon.basePower) * ((lvl - 1) / 19));
-      totalPower += power;
+      totalPower = power;
     } else {
       totalPower += isSurged ? weapon.maxPower : weapon.basePower;
     }
     element = weapon.element;
     if (weapon.perks) {
       weapon.perks.forEach(p => {
-        const val = isSurged ? p.value : (p.baseValue ?? p.value);
+        const val = isAwakening ? p.value : (isSurged ? p.value : (p.baseValue ?? p.value));
         addPerkPoint(p.id, p.name, val, weapon.name, 'Primary Weapon');
       });
     }
@@ -344,7 +381,7 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
         const optIdx = chosenIndices[tIdx] ?? 0;
         const opt = tier.options[optIdx];
         if (opt && opt.stat) {
-          addPerkPoint(opt.stat, opt.stat.toUpperCase(), 1, weapon.name, `Talent (${tier.name})`);
+          addTalentStat(opt.stat, (opt as any).value ?? 1);
         }
       });
     }
@@ -354,9 +391,6 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
   if (isAwakening && build.secondaryWeapon) {
     const secWeapon = data.weapons.find(w => w.id === build.secondaryWeapon);
     if (secWeapon) {
-      const lvl = build.gearLevels?.secondaryWeapon ?? 20;
-      const power = secWeapon.basePower + Math.round((secWeapon.maxPower - secWeapon.basePower) * ((lvl - 1) / 19));
-      totalPower += Math.round(power * 0.5); // Secondary buffer weapon adds auxiliary power
       if (secWeapon.perks) {
         secWeapon.perks.forEach(p => {
           addPerkPoint(p.id, p.name, p.value, secWeapon.name, 'Secondary Weapon');
@@ -370,7 +404,7 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
           const optIdx = chosenIndices[tIdx] ?? 0;
           const opt = tier.options[optIdx];
           if (opt && opt.stat) {
-            addPerkPoint(opt.stat, opt.stat.toUpperCase(), 1, secWeapon.name, `Secondary Talent (${tier.name})`);
+            addTalentStat(opt.stat, (opt as any).value ?? 1);
           }
         });
       }
@@ -391,7 +425,13 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
   const slots: ('head' | 'torso' | 'arms' | 'legs')[] = ['head', 'torso', 'arms', 'legs'];
   for (const s of slots) {
     const armourId = build[s];
-    const cellSpec = s === 'head' ? build.headCell : s === 'torso' ? build.torsoCell : s === 'arms' ? build.armsCell : build.legsCell;
+    const cellSpecs = s === 'head'
+      ? [build.headCell]
+      : s === 'torso'
+        ? [build.torsoCell, isAwakening ? (build.torsoCell2 || null) : null]
+        : s === 'arms'
+          ? [build.armsCell]
+          : [build.legsCell, isAwakening ? (build.legsCell2 || null) : null];
     const armour = data.armour.find(a => a.id === armourId);
 
     if (armour) {
@@ -405,25 +445,40 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
       if (armour.strength) strengthsSet.add(armour.strength);
       if (armour.weakness) weaknessesSet.add(armour.weakness);
 
-      if (armour.perks) {
+      if (isAwakening && armour.stats && armour.stats.length > 0) {
+        const lvl = build.gearLevels?.[s] ?? 20;
+        const matchingStat = armour.stats
+          .filter(st => st.min_level <= lvl)
+          .reduce((prev, curr) => (prev.min_level < curr.min_level ? curr : prev), armour.stats[0]);
+        if (matchingStat && matchingStat.perks) {
+          Object.entries(matchingStat.perks).forEach(([pId, val]) => {
+            const perkDef = data.perks[pId] || Object.values(data.perks).find(p => p.id === pId);
+            addPerkPoint(pId, perkDef?.name || pId, val, armour.name, armour.slotName || s);
+          });
+        }
+      } else if (armour.perks) {
         armour.perks.forEach(p => {
-          const val = isSurged ? p.value : (p.baseValue ?? p.value);
+          const val = isAwakening ? p.value : (isSurged ? p.value : (p.baseValue ?? p.value));
           addPerkPoint(p.id, p.name, val, armour.name, armour.slotName || s);
         });
       }
     }
 
-    if (cellSpec) {
-      const parsed = parseCellSpec(cellSpec, data.cells);
-      if (parsed) {
-        addPerkPoint(parsed.perkId, parsed.perkName, parsed.perkValue, parsed.cell?.name || cellSpec, `${s.charAt(0).toUpperCase() + s.slice(1)} Cell`);
+    cellSpecs.forEach((cellSpec, cIdx) => {
+      if (cellSpec) {
+        const parsed = parseCellSpec(cellSpec, data.cells);
+        if (parsed) {
+          const slotLabel = isAwakening && (s === 'torso' || s === 'legs')
+            ? `${s.charAt(0).toUpperCase() + s.slice(1)} Cell ${cIdx + 1}`
+            : `${s.charAt(0).toUpperCase() + s.slice(1)} Cell`;
+          addPerkPoint(parsed.perkId, parsed.perkName, parsed.perkValue, parsed.cell?.name || cellSpec, slotLabel);
+        }
       }
-    }
+    });
   }
 
-  // 3. Lantern
-  const lantern = data.lanterns.find(l => l.id === build.lantern);
-  if (build.lanternCell) {
+  // 3. Lantern (Only has cell socket in Reforged / Classic; in Awakening 2.1.1 lanterns do not have cell sockets)
+  if (!isAwakening && build.lanternCell) {
     const parsed = parseCellSpec(build.lanternCell, data.cells);
     if (parsed) {
       addPerkPoint(parsed.perkId, parsed.perkName, parsed.perkValue, parsed.cell?.name || build.lanternCell, 'Lantern Cell');
@@ -434,10 +489,14 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
   const calculatedPerks: CalculatedPerk[] = Object.entries(perkMap).map(([pId, entry]) => {
     const perkDef = data.perks[pId] || Object.values(data.perks).find(p => p.id === pId || p.name.toLowerCase() === entry.name.toLowerCase());
     const totalValue = entry.total;
-    const cappedValue = Math.min(totalValue, 6);
-    const isOvercapped = totalValue > 6;
+    const threshold = (perkDef as any)?.threshold ?? 6;
+    const isActive = isAwakening ? totalValue >= threshold : true;
+    const cappedValue = isAwakening ? totalValue : Math.min(totalValue, 6);
+    const isOvercapped = !isAwakening && totalValue > 6;
     const tiers = perkDef?.tiers || {};
-    const rawTierDesc = tiers[String(cappedValue)] || perkDef?.description || `+${cappedValue} Points`;
+    const rawTierDesc = isAwakening
+      ? (perkDef?.description || (typeof tiers === 'object' ? Object.values(tiers)[0] : '') || '')
+      : (tiers[String(cappedValue)] || perkDef?.description || `+${cappedValue} Points`);
     const currentTierDesc = formatPerkEffect(rawTierDesc);
 
     return {
@@ -446,6 +505,8 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
       totalValue,
       cappedValue,
       isOvercapped,
+      threshold,
+      isActive,
       type: perkDef?.type || 'General',
       icon: perkDef?.icon || `/assets/icons/perks/${entry.name.replace(/\s+/g, '')}.png`,
       description: perkDef?.description || '',
@@ -456,11 +517,51 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
   });
 
   calculatedPerks.sort((a, b) => {
+    if (isAwakening) {
+      const aAct = a.isActive ? 1 : 0;
+      const bAct = b.isActive ? 1 : 0;
+      if (bAct !== aAct) return bAct - aAct;
+      return b.totalValue - a.totalValue;
+    }
     if (b.cappedValue !== a.cappedValue) {
       return b.cappedValue - a.cappedValue;
     }
     return b.totalValue - a.totalValue;
   });
+
+  const elementalResistances: { element: string; value: number }[] = [];
+  if (isAwakening) {
+    const oppositesMap: Record<string, string> = {
+      blaze: 'frost',
+      frost: 'blaze',
+      shock: 'terra',
+      terra: 'shock',
+      radiant: 'umbral',
+      umbral: 'radiant',
+    };
+    const elementTotals: Record<string, number> = {};
+    for (const s of slots) {
+      const armourId = build[s];
+      const armour = data.armour.find(a => a.id === armourId);
+      if (armour && armour.strength) {
+        const el = armour.strength.toLowerCase();
+        const opp = oppositesMap[el];
+        elementTotals[el] = (elementTotals[el] || 0) + 25;
+        if (opp) {
+          elementTotals[opp] = (elementTotals[opp] || 0) - 25;
+        }
+      }
+    }
+    Object.entries(elementTotals).forEach(([el, val]) => {
+      if (val > 0) {
+        elementalResistances.push({
+          element: el.charAt(0).toUpperCase() + el.slice(1),
+          value: val,
+        });
+      }
+    });
+    elementalResistances.sort((a, b) => b.value - a.value);
+  }
 
   return {
     totalPower,
@@ -469,6 +570,8 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
     strengths: Array.from(strengthsSet),
     weaknesses: Array.from(weaknessesSet),
     perks: calculatedPerks,
+    elementalResistances,
+    talentStats,
   };
 }
 
@@ -495,6 +598,8 @@ export function encodeBuildToHash(build: BuildState): string {
     if (build.gearLevels) compact.gl = build.gearLevels;
     if (build.weaponTalents) compact.wt = build.weaponTalents;
     if (build.secondaryWeaponTalents) compact.w2t = build.secondaryWeaponTalents;
+    if (build.torsoCell2) compact.tc2 = build.torsoCell2;
+    if (build.legsCell2) compact.lc2 = build.legsCell2;
     const json = JSON.stringify(compact);
     return encodeURIComponent(btoa(json));
   } catch (err) {
@@ -532,10 +637,12 @@ export function decodeBuildFromHash(hashStr: string): Partial<BuildState> | null
       headCell: compact.hc || null,
       torso: compact.t || null,
       torsoCell: compact.tc || null,
+      torsoCell2: compact.tc2 || null,
       arms: compact.a || null,
       armsCell: compact.ac || null,
       legs: compact.l || null,
       legsCell: compact.lc || null,
+      legsCell2: compact.lc2 || null,
       lantern: compact.lt || null,
       lanternCell: compact.ltc || null,
       omnicell: compact.o || null,

@@ -1,56 +1,74 @@
 [
   {
     "id": "bastion",
-    "name": "Bastion",
+    "name": "Bastion Core",
     "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/lantern-cores/bastion.png",
     "description": "Increase all Shields applied to you by 15%. Upon dealing damage, chance to grant yourself 25 Shields for 25s (maximum 500 Shields).",
-    "cellSocket": "prismatic",
-    "holdAbility": "Consume your Shields and deal 200% of the amount consumed to nearby enemies.",
-    "instantAbility": "Increase all Shields applied to you by 15%. Upon dealing damage, chance to grant yourself 25 Shields for 25s (maximum 500 Shields)."
+    "holdAbility": "Increase all Shields applied to you by 15%. Upon dealing damage, chance to grant yourself 25 Shields for 25s (maximum 500 Shields).",
+    "instantAbility": "Shield Nova: Consume your Shields and deal 200% of the amount consumed to nearby enemies.",
+    "activeName": "Shield Nova",
+    "activeDesc": "Consume your Shields and deal 200% of the amount consumed to nearby enemies.",
+    "cooldown": 20,
+    "cellSocket": null
   },
   {
     "id": "iceborne",
-    "name": "Iceborne",
+    "name": "Iceborne Core",
     "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/lantern-cores/iceborne.png",
     "description": "Gain 1 held stack of VITALITY and  DEFENSE. +1% Lifesteal and +1 held stacks of DEFENSE for every 150 missing health. When taking damage, reduce Ice Lance cooldown by 5s (once every 5s).",
-    "cellSocket": "prismatic",
-    "holdAbility": "750 (double damage at full health). Gain Stagger Protection and +10% Lifesteal for 8s.",
-    "instantAbility": "Gain 1 held stack of VITALITY and  DEFENSE. +1% Lifesteal and +1 held stacks of DEFENSE for every 150 missing health. When taking damage, reduce Ice Lance cooldown by 5s (once every 5s)."
+    "holdAbility": "Gain 1 held stack of VITALITY and  DEFENSE. +1% Lifesteal and +1 held stacks of DEFENSE for every 150 missing health. When taking damage, reduce Ice Lance cooldown by 5s (once every 5s).",
+    "instantAbility": "Ice Lance: 750 (double damage at full health). Gain Stagger Protection and +10% Lifesteal for 8s.",
+    "activeName": "Ice Lance",
+    "activeDesc": "750 (double damage at full health). Gain Stagger Protection and +10% Lifesteal for 8s.",
+    "cooldown": 60,
+    "cellSocket": null
   },
   {
     "id": "tempest",
-    "name": "Tempest",
+    "name": "Tempest Core",
     "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/lantern-cores/tempest.png",
     "description": "Gain a stack of SPEED when you dodge through an attack.",
-    "cellSocket": "prismatic",
-    "holdAbility": "450 shock damage. +3% damage to unbroken parts for every stack of SPEED. Prioritizes unbroken parts. Consumes 1 stack of positive SPEED. Requires at least 1 positive stack of SPEED to perform.",
-    "instantAbility": "Gain a stack of SPEED when you dodge through an attack."
+    "holdAbility": "Gain a stack of SPEED when you dodge through an attack.",
+    "instantAbility": "Storm Dash: 450 shock damage. +3% damage to unbroken parts for every stack of SPEED. Prioritizes unbroken parts. Consumes 1 stack of positive SPEED. Requires at least 1 positive stack of SPEED to perform.",
+    "activeName": "Storm Dash",
+    "activeDesc": "450 shock damage. +3% damage to unbroken parts for every stack of SPEED. Prioritizes unbroken parts. Consumes 1 stack of positive SPEED. Requires at least 1 positive stack of SPEED to perform.",
+    "cooldown": 6,
+    "cellSocket": null
   },
   {
     "id": "revenant",
-    "name": "Revenant",
+    "name": "Revenant Core",
     "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/lantern-cores/revenant.png",
     "description": "Prevents all healing for 15s. When Revenant State ends, recover 115 Health over 10s for each Void Orb you collected, and revert the held and increased maximum stacks of MIGHT gained.",
-    "cellSocket": "prismatic",
-    "holdAbility": "Enter Revenant State, create a Void Orb, and sacrifice up to 500 Health. For every 100 Health lost, create a Tendril that deals 700 umbral damage and spawns a Void Orb on impact.\n\n**Void Orb**: Touch to gain 1 held stack of MIGHT, increase maximum stacks of MIGHT by 1, and increase Revenant State duration by 1s.",
-    "instantAbility": "Prevents all healing for 15s. When Revenant State ends, recover 115 Health over 10s for each Void Orb you collected, and revert the held and increased maximum stacks of MIGHT gained."
+    "holdAbility": "Prevents all healing for 15s. When Revenant State ends, recover 115 Health over 10s for each Void Orb you collected, and revert the held and increased maximum stacks of MIGHT gained.",
+    "instantAbility": "Umbral Pact: Enter Revenant State, create a Void Orb, and sacrifice up to 500 Health. For every 100 Health lost, create a Tendril that deals 700 umbral damage and spawns a Void Orb on impact.\n\n**Void Orb**: Touch to gain 1 held stack of MIGHT, increase maximum stacks of MIGHT by 1, and increase Revenant State duration by 1s.",
+    "activeName": "Umbral Pact",
+    "activeDesc": "Enter Revenant State, create a Void Orb, and sacrifice up to 500 Health. For every 100 Health lost, create a Tendril that deals 700 umbral damage and spawns a Void Orb on impact.\n\n**Void Orb**: Touch to gain 1 held stack of MIGHT, increase maximum stacks of MIGHT by 1, and increase Revenant State duration by 1s.",
+    "cooldown": 10,
+    "cellSocket": null
   },
   {
     "id": "artificer",
-    "name": "Artificer",
+    "name": "Artificer Core",
     "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/lantern-cores/artificer.png",
     "description": "Increase the amount of Health and Shields granted by Artificer Aura by 1 for every 150 health you have when activated.",
-    "cellSocket": "prismatic",
-    "holdAbility": "1. **Slayer**: Remove negative status effects and grant Artificer for 15s\n2. **Ground**: Create a wall that blocks hostile projectiles and grants Artificer Aura to nearby Slayers for 15\n3. **Behemoth**: Mark a part to take +15% damage for 15s.\n4. **Downed Slayer**: Revive and grant Artificer Aura for15s (once every 90s).\n\n**Artificer Aura**: Restore 10 health/second. At full health, grants 10 Shields/second that last for 25s (maximum 400 Shields)",
-    "instantAbility": "Increase the amount of Health and Shields granted by Artificer Aura by 1 for every 150 health you have when activated."
+    "holdAbility": "Increase the amount of Health and Shields granted by Artificer Aura by 1 for every 150 health you have when activated.",
+    "instantAbility": "Command: 1. **Slayer**: Remove negative status effects and grant Artificer for 15s\n2. **Ground**: Create a wall that blocks hostile projectiles and grants Artificer Aura to nearby Slayers for 15\n3. **Behemoth**: Mark a part to take +15% damage for 15s.\n4. **Downed Slayer**: Revive and grant Artificer Aura for15s (once every 90s).\n\n**Artificer Aura**: Restore 10 health/second. At full health, grants 10 Shields/second that last for 25s (maximum 400 Shields)",
+    "activeName": "Command",
+    "activeDesc": "1. **Slayer**: Remove negative status effects and grant Artificer for 15s\n2. **Ground**: Create a wall that blocks hostile projectiles and grants Artificer Aura to nearby Slayers for 15\n3. **Behemoth**: Mark a part to take +15% damage for 15s.\n4. **Downed Slayer**: Revive and grant Artificer Aura for15s (once every 90s).\n\n**Artificer Aura**: Restore 10 health/second. At full health, grants 10 Shields/second that last for 25s (maximum 400 Shields)",
+    "cooldown": 20,
+    "cellSocket": null
   },
   {
     "id": "discipline",
-    "name": "Discipline",
+    "name": "Discipline Core",
     "icon": "https://cdn.jsdelivr.net/gh/atomicptr/cdn@master/phalanx/icons/lantern-cores/discipline.png",
     "description": "Gain 1 held stack of CRITICAL, -50% Healing\n\n**Disciplined State**: Enter upon gaining 4 Inner Fire. Gain 5 held stacks of CRITICAL and +100 for 40s. Lose all Inner Fire.",
-    "cellSocket": "prismatic",
-    "holdAbility": "200 blaze damage. Parry incoming attacks.\n\n**Inner Fire**: When parrying, deal +300% damage and gain 1 Inner Fire.",
-    "instantAbility": "Gain 1 held stack of CRITICAL, -50% Healing\n\n**Disciplined State**: Enter upon gaining 4 Inner Fire. Gain 5 held stacks of CRITICAL and +100 for 40s. Lose all Inner Fire."
+    "holdAbility": "Gain 1 held stack of CRITICAL, -50% Healing\n\n**Disciplined State**: Enter upon gaining 4 Inner Fire. Gain 5 held stacks of CRITICAL and +100 for 40s. Lose all Inner Fire.",
+    "instantAbility": "Flame Fist: 200 blaze damage. Parry incoming attacks.\n\n**Inner Fire**: When parrying, deal +300% damage and gain 1 Inner Fire.",
+    "activeName": "Flame Fist",
+    "activeDesc": "200 blaze damage. Parry incoming attacks.\n\n**Inner Fire**: When parrying, deal +300% damage and gain 1 Inner Fire.",
+    "cooldown": 17,
+    "cellSocket": null
   }
 ]

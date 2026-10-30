@@ -9,7 +9,7 @@ import {
 } from '../types/builder';
 import { getElementStyle, getSocketStyle, getCellCategoryIcon, resolveAssetUrl } from '../utils/theme';
 import { formatPerkEffect } from '../utils/calculator';
-import { Search, X, Trash2, Shield, Zap, Sparkles, Filter } from 'lucide-react';
+import { Search, X, Trash2, Shield, Zap, Sparkles, Check, ChevronRight } from 'lucide-react';
 
 export type PickerSlotType =
   | 'weapon'
@@ -20,10 +20,12 @@ export type PickerSlotType =
   | 'headCell'
   | 'torso'
   | 'torsoCell'
+  | 'torsoCell2'
   | 'arms'
   | 'armsCell'
   | 'legs'
   | 'legsCell'
+  | 'legsCell2'
   | 'lantern'
   | 'lanternCell'
   | 'omnicell';
@@ -35,7 +37,6 @@ interface SlotPickerSheetProps {
   patchData: PatchData;
   currentSelectedId: string | null;
   onSelect: (id: string | null) => void;
-  // If picking a cell, the allowed socket type (e.g. 'brutality')
   allowedSocket?: string | null;
   powerSurged: boolean;
 }
@@ -62,6 +63,7 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
   const isArmourPicker = ['head', 'torso', 'arms', 'legs'].includes(slotType);
   const isLanternPicker = slotType === 'lantern';
   const isOmnicellPicker = slotType === 'omnicell';
+  const isAwakening = patchData.version === '2.1.1';
 
   const titleMap: Record<PickerSlotType, string> = {
     weapon: 'Select Primary Weapon',
@@ -71,17 +73,18 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
     head: 'Select Head Armour (Helmet)',
     headCell: 'Select Head Cell',
     torso: 'Select Torso Armour (Chest)',
-    torsoCell: 'Select Torso Cell',
+    torsoCell: isAwakening ? 'Select Torso Cell (Slot 1)' : 'Select Torso Cell',
+    torsoCell2: 'Select Torso Cell (Slot 2)',
     arms: 'Select Arms Armour (Gauntlets)',
     armsCell: 'Select Arms Cell',
     legs: 'Select Legs Armour (Greaves)',
-    legsCell: 'Select Legs Cell',
-    lantern: 'Select Lantern',
+    legsCell: isAwakening ? 'Select Legs Cell (Slot 1)' : 'Select Legs Cell',
+    legsCell2: 'Select Legs Cell (Slot 2)',
+    lantern: isAwakening ? 'Select Lantern Core' : 'Select Lantern',
     lanternCell: 'Select Lantern Cell',
     omnicell: 'Select Omnicell',
   };
 
-  // Elements filter list
   const elements = ['All', 'Blaze', 'Frost', 'Shock', 'Terra', 'Radiant', 'Umbral', 'Neutral'];
   const weaponTypes = ['All', 'Sword', 'Axe', 'Hammer', 'Chain Blades', 'War Pike', 'Strikers', 'Repeaters'];
 
@@ -105,7 +108,7 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
   // Filtered Armour
   const filteredArmour = useMemo(() => {
     if (!isArmourPicker) return [];
-    const targetSlot = slotType; // 'head' | 'torso' | 'arms' | 'legs'
+    const targetSlot = slotType;
     return patchData.armour.filter(a => {
       if (a.slot !== targetSlot) return false;
       const matchSearch =
@@ -126,7 +129,6 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
       const matchSearch =
         c.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         c.variants.some(v => v.perkName.toLowerCase().includes(searchTerm.toLowerCase()));
-      // If allowedSocket is specified and not prismatic, prioritize/filter matching sockets
       const matchSocket =
         !allowedSocket ||
         allowedSocket.toLowerCase() === 'prismatic' ||
@@ -142,7 +144,9 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
     if (!isLanternPicker) return [];
     return patchData.lanterns.filter(l =>
       l.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      l.holdAbility.toLowerCase().includes(searchTerm.toLowerCase())
+      (l.holdAbility && l.holdAbility.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (l.description && l.description.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (l.activeName && l.activeName.toLowerCase().includes(searchTerm.toLowerCase()))
     );
   }, [patchData.lanterns, isLanternPicker, searchTerm]);
 
@@ -151,34 +155,32 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
     if (!isOmnicellPicker) return [];
     return patchData.omnicells.filter(o =>
       o.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      o.active.toLowerCase().includes(searchTerm.toLowerCase()) ||
       o.passive.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }, [patchData.omnicells, isOmnicellPicker, searchTerm]);
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col justify-end sm:justify-center items-center bg-black/75 backdrop-blur-sm animate-fade-in p-0 sm:p-4">
-      {/* Backdrop tap to close */}
-      <div className="absolute inset-0" onClick={onClose} />
-
-      {/* Sheet Container */}
-      <div
-        className="relative z-10 bg-dauntless-card border border-dauntless-border rounded-t-3xl sm:rounded-2xl w-full max-w-2xl max-h-[85vh] sm:max-h-[80vh] flex flex-col shadow-2xl overflow-hidden"
+    <div
+      className="modal-layer !p-0 sm:!p-6 !place-items-end sm:!place-items-center animate-fade-in"
+      role="presentation"
+      onClick={onClose}
+    >
+      <section
+        className="picker-sheet w-full max-w-2xl max-h-[90dvh] sm:max-h-[82vh]"
+        role="dialog"
+        aria-modal="true"
+        aria-label={titleMap[slotType]}
         onClick={e => e.stopPropagation()}
       >
-        {/* Mobile Pull Handle Indicator */}
-        <div className="w-12 h-1.5 bg-gray-700 rounded-full mx-auto mt-2.5 mb-1 sm:hidden" />
+        {/* Mobile Drag Handle */}
+        <div className="w-10 h-1 rounded-full bg-[#36505b] mx-auto mt-2.5 mb-1 sm:hidden" />
 
         {/* Header */}
-        <div className="p-4 border-b border-dauntless-border flex items-center justify-between gap-2 shrink-0">
+        <header className="summary-heading !border-b !border-[#21333d]">
           <div>
-            <h3 className="font-display font-bold text-lg text-white tracking-wide">
-              {titleMap[slotType]}
-            </h3>
-            {allowedSocket && allowedSocket.toLowerCase() !== 'prismatic' && (
-              <span className="text-xs font-semibold capitalize px-2 py-0.5 rounded bg-gray-800 text-cyan-300 border border-gray-700">
-                Socket: {allowedSocket}
-              </span>
-            )}
+            <p className="kicker">Equipment library</p>
+            <h2>{titleMap[slotType]}</h2>
           </div>
 
           <div className="flex items-center gap-2">
@@ -189,8 +191,8 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                   onSelect(null);
                   onClose();
                 }}
-                className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium text-red-400 bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 transition-colors"
-                title="Unequip"
+                className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-bold text-red-400 bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 transition-colors cursor-pointer"
+                title="Unequip item"
               >
                 <Trash2 className="h-3.5 w-3.5" />
                 <span>Unequip</span>
@@ -199,37 +201,37 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
             <button
               type="button"
               onClick={onClose}
-              className="p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 transition-colors"
+              className="icon-button text-gray-400 hover:text-white"
+              aria-label="Close picker"
             >
               <X className="h-5 w-5" />
             </button>
           </div>
-        </div>
+        </header>
 
-        {/* Search Bar + Filters */}
-        <div className="p-3 bg-gray-900/60 border-b border-dauntless-border space-y-2.5 shrink-0">
-          <div className="relative">
-            <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-500" />
+        {/* Search Bar + Filter Controls */}
+        <div className="p-3 bg-[#0a151b] border-b border-[#21333d] space-y-2 shrink-0">
+          <label className="search-field !m-0">
+            <Search className="h-4 w-4 text-gray-500 shrink-0" />
             <input
               type="text"
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
               placeholder="Search by name, behemoth, perk..."
-              className="w-full pl-9 pr-8 py-2 bg-gray-800 border border-gray-700 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-colors"
               autoFocus={false}
             />
             {searchTerm && (
               <button
                 type="button"
                 onClick={() => setSearchTerm('')}
-                className="absolute right-2.5 top-2.5 text-gray-400 hover:text-white"
+                className="text-gray-400 hover:text-white text-xs px-1"
               >
                 ✕
               </button>
             )}
-          </div>
+          </label>
 
-          {/* Weapons Type Filter */}
+          {/* Weapon Type Filters */}
           {isWeaponPicker && (
             <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs no-scrollbar">
               {weaponTypes.map(t => (
@@ -237,10 +239,10 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                   key={t}
                   type="button"
                   onClick={() => setSelectedWeaponType(t)}
-                  className={`px-2.5 py-1 rounded-lg shrink-0 font-medium transition-colors ${
+                  className={`px-2.5 py-1 rounded-md shrink-0 font-bold transition-colors cursor-pointer ${
                     selectedWeaponType === t
-                      ? 'bg-cyan-500 text-black font-semibold'
-                      : 'bg-gray-800 text-gray-400 hover:text-white'
+                      ? 'bg-cyan-500 text-black'
+                      : 'bg-[#101e25] text-gray-400 hover:text-white border border-[#20343d]'
                   }`}
                 >
                   {t}
@@ -249,7 +251,7 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
             </div>
           )}
 
-          {/* Element Filter for Weapons & Armour */}
+          {/* Element Filters */}
           {(isWeaponPicker || isArmourPicker) && (
             <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs no-scrollbar">
               {elements.map(el => {
@@ -259,10 +261,10 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                     key={el}
                     type="button"
                     onClick={() => setSelectedElement(el)}
-                    className={`px-2.5 py-1 rounded-lg shrink-0 font-medium transition-all ${
+                    className={`px-2.5 py-1 rounded-md shrink-0 font-bold transition-all cursor-pointer ${
                       isSelected
-                        ? 'bg-gray-700 text-white font-bold ring-1 ring-cyan-400'
-                        : 'bg-gray-800/80 text-gray-400 hover:text-white'
+                        ? 'bg-[#1a3440] text-cyan-300 border border-cyan-400'
+                        : 'bg-[#101e25] text-gray-400 hover:text-white border border-[#20343d]'
                     }`}
                   >
                     {el}
@@ -272,20 +274,20 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
             </div>
           )}
 
-          {/* Cell Tier Selector */}
-          {isCellPicker && (
-            <div className="flex items-center justify-between text-xs">
-              <span className="text-gray-400 font-medium">Cell Tier:</span>
-              <div className="flex items-center gap-1">
+          {/* Cell Tier Selector (Reforged / Classic only) */}
+          {isCellPicker && !isAwakening && (
+            <div className="flex items-center justify-between text-xs px-1">
+              <span className="text-gray-400 font-bold uppercase text-[10px] tracking-wider">Cell Tier:</span>
+              <div className="flex items-center gap-1.5">
                 {[1, 2, 3].map(lvl => (
                   <button
                     key={lvl}
                     type="button"
                     onClick={() => setSelectedCellTier(lvl)}
-                    className={`px-3 py-1 rounded-lg font-bold transition-colors ${
+                    className={`px-3 py-1 rounded-md font-bold transition-colors cursor-pointer ${
                       selectedCellTier === lvl
                         ? 'bg-cyan-500 text-black'
-                        : 'bg-gray-800 text-gray-400 hover:text-white'
+                        : 'bg-[#101e25] text-gray-400 hover:text-white border border-[#20343d]'
                     }`}
                   >
                     +{lvl}
@@ -296,387 +298,422 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
           )}
         </div>
 
-        {/* Scrollable Item List */}
-        <div className="p-3 overflow-y-auto space-y-2 flex-1 divide-y divide-gray-800/40">
-          {/* 1. Weapons List */}
+        {/* Scrollable Results List */}
+        <div className="p-3 overflow-y-auto space-y-2 flex-1 modal-scroll">
+          {/* Weapons */}
           {isWeaponPicker && (
             filteredWeapons.length === 0 ? (
               <div className="text-center py-10 text-gray-500 text-sm">No weapons found matching filters.</div>
             ) : (
               filteredWeapons.map(w => {
                 const isEquipped = currentSelectedId === w.id;
-                const elemStyle = getElementStyle(w.element);
                 return (
-                  <div
+                  <button
                     key={w.id}
+                    type="button"
                     onClick={() => {
                       onSelect(w.id);
                       onClose();
                     }}
-                    className={`p-3 rounded-xl cursor-pointer transition-all border ${
+                    className={`w-full p-2.5 rounded-xl border text-left flex items-start gap-3 transition-all cursor-pointer ${
                       isEquipped
-                        ? 'bg-cyan-950/40 border-cyan-500 shadow-md shadow-cyan-500/10'
-                        : 'bg-gray-800/30 border-gray-800 hover:border-gray-700 hover:bg-gray-800/70'
+                        ? 'bg-[#12262e] border-cyan-400 shadow-md shadow-cyan-500/10'
+                        : 'bg-[#101e25] border-[#203640] hover:border-[#3e6977] hover:bg-[#12222a]'
                     }`}
                   >
-                    <div className="flex items-start gap-3">
-                      <div className="h-12 w-12 rounded-xl bg-gray-900 border border-gray-700 flex items-center justify-center p-1 shrink-0 overflow-hidden">
-                        {w.icon ? (
-                          <img
-                            src={resolveAssetUrl(w.icon)}
-                            alt={w.name}
-                            className="h-full w-full object-contain"
-                            loading="lazy"
-                            onError={(e) => {
-                              // fallback if icon missing
-                              (e.target as HTMLElement).style.display = 'none';
-                            }}
-                          />
-                        ) : (
-                          <Zap className="h-6 w-6 text-gray-600" />
-                        )}
-                      </div>
+                    <span className="w-12 h-12 rounded-lg bg-[#09151a] border border-[#21333d] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                      {w.icon ? (
+                        <img
+                          src={resolveAssetUrl(w.icon)}
+                          alt={w.name}
+                          className="w-full h-full object-contain"
+                          onError={(e) => {
+                            (e.target as HTMLElement).style.display = 'none';
+                          }}
+                        />
+                      ) : (
+                        <Zap className="h-5 w-5 text-gray-600" />
+                      )}
+                    </span>
 
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-1">
-                          <h4 className="font-semibold text-sm text-white truncate">
-                            {w.name}
-                          </h4>
-                          <span className={`text-[10px] font-bold uppercase px-1.5 py-0.5 rounded border ${elemStyle.bg} ${elemStyle.text} ${elemStyle.border}`}>
-                            {w.element}
-                          </span>
-                        </div>
+                    <span className="flex-1 min-w-0">
+                      <span className="flex items-center justify-between gap-1">
+                        <strong className="font-display font-bold text-base text-white truncate">
+                          {w.name}
+                        </strong>
+                        <span className={`text-[9px] font-bold uppercase px-1.5 py-0.5 rounded border ${getElementStyle(w.element).bg} ${getElementStyle(w.element).text} ${getElementStyle(w.element).border}`}>
+                          {w.element}
+                        </span>
+                      </span>
 
-                        <div className="text-xs text-gray-400 flex items-center gap-2 mt-0.5">
-                          <span>{w.typeName}</span>
-                          <span>•</span>
-                          <span>{w.behemoth}</span>
-                          <span>•</span>
-                          <span className="text-amber-400 font-semibold">
-                            {powerSurged ? w.maxPower : w.basePower} Power
-                          </span>
-                        </div>
+                      <span className="text-[11px] text-gray-400 flex items-center gap-1.5 mt-0.5">
+                        <span>{w.typeName}</span>
+                        <span>•</span>
+                        <span>{w.behemoth}</span>
+                        <span>•</span>
+                        <span className="text-amber-400 font-semibold font-mono">
+                          {powerSurged ? w.maxPower : w.basePower} Power
+                        </span>
+                      </span>
 
-                        {/* Perks & Sockets */}
-                        <div className="flex flex-wrap items-center gap-1.5 mt-2">
-                          {w.perks.map(p => (
-                            <span
-                              key={p.id}
-                              className="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-800 text-cyan-300 border border-gray-700"
-                            >
-                              +{powerSurged ? p.value : (p.baseValue ?? p.value)} {p.name}
-                            </span>
-                          ))}
-                          {w.cellSockets.map((s, idx) => {
-                            const sockStyle = getSocketStyle(s);
-                            return (
-                              <span
-                                key={idx}
-                                className={`text-[10px] font-bold uppercase px-1.5 py-0.5 rounded border ${sockStyle.bg} ${sockStyle.text} ${sockStyle.border}`}
-                              >
-                                {s}
-                              </span>
-                            );
-                          })}
-                        </div>
+                      {/* Perks & Sockets */}
+                      <span className="flex flex-wrap items-center gap-1.5 mt-1.5">
+                        {w.perks.map(p => (
+                          <em key={p.id} className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-[#0a151b] text-cyan-300 border border-[#21333d] not-italic">
+                            +{powerSurged ? p.value : (p.baseValue ?? p.value)} {p.name}
+                          </em>
+                        ))}
+                        {w.cellSockets.map((s, idx) => (
+                          <em key={idx} className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-[#0a151b] text-gray-300 border border-[#21333d] not-italic">
+                            {s}
+                          </em>
+                        ))}
+                      </span>
 
-                        {/* Unique Effect */}
-                        {w.uniqueEffect && (
-                          <p className="text-[11px] text-gray-300/80 mt-1.5 bg-gray-900/50 p-2 rounded-lg border border-gray-800/80 italic leading-snug">
-                            {w.uniqueEffect}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  </div>
+                      {w.uniqueEffect && (
+                        <p className="text-[10.5px] text-gray-300 mt-1 italic line-clamp-2">
+                          {w.uniqueEffect}
+                        </p>
+                      )}
+                    </span>
+
+                    <span className="self-center shrink-0">
+                      {isEquipped ? (
+                        <span className="w-5 h-5 rounded-full bg-cyan-400 text-black flex items-center justify-center">
+                          <Check className="h-3 w-3 stroke-[3]" />
+                        </span>
+                      ) : (
+                        <ChevronRight className="h-4 w-4 text-gray-500" />
+                      )}
+                    </span>
+                  </button>
                 );
               })
             )
           )}
 
-          {/* 2. Armour List */}
+          {/* Armour */}
           {isArmourPicker && (
             filteredArmour.length === 0 ? (
               <div className="text-center py-10 text-gray-500 text-sm">No armour found matching filters.</div>
             ) : (
               filteredArmour.map(a => {
                 const isEquipped = currentSelectedId === a.id;
-                const sockStyle = getSocketStyle(a.cellSocket);
                 return (
-                  <div
+                  <button
                     key={a.id}
+                    type="button"
                     onClick={() => {
                       onSelect(a.id);
                       onClose();
                     }}
-                    className={`p-3 rounded-xl cursor-pointer transition-all border ${
+                    className={`w-full p-2.5 rounded-xl border text-left flex items-start gap-3 transition-all cursor-pointer ${
                       isEquipped
-                        ? 'bg-cyan-950/40 border-cyan-500 shadow-md shadow-cyan-500/10'
-                        : 'bg-gray-800/30 border-gray-800 hover:border-gray-700 hover:bg-gray-800/70'
+                        ? 'bg-[#12262e] border-cyan-400 shadow-md shadow-cyan-500/10'
+                        : 'bg-[#101e25] border-[#203640] hover:border-[#3e6977] hover:bg-[#12222a]'
                     }`}
                   >
-                    <div className="flex items-start gap-3">
-                      <div className="h-12 w-12 rounded-xl bg-gray-900 border border-gray-700 flex items-center justify-center p-1 shrink-0 overflow-hidden">
-                        {a.icon ? (
-                          <img
-                            src={resolveAssetUrl(a.icon)}
-                            alt={a.name}
-                            className="h-full w-full object-contain"
-                            loading="lazy"
-                            onError={(e) => {
-                              (e.target as HTMLElement).style.display = 'none';
-                            }}
-                          />
-                        ) : (
-                          <Shield className="h-6 w-6 text-gray-600" />
-                        )}
-                      </div>
+                    <span className="w-12 h-12 rounded-lg bg-[#09151a] border border-[#21333d] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                      {a.icon ? (
+                        <img
+                          src={resolveAssetUrl(a.icon)}
+                          alt={a.name}
+                          className="w-full h-full object-contain"
+                          onError={(e) => {
+                            (e.target as HTMLElement).style.display = 'none';
+                          }}
+                        />
+                      ) : (
+                        <Shield className="h-5 w-5 text-gray-600" />
+                      )}
+                    </span>
 
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-1">
-                          <h4 className="font-semibold text-sm text-white truncate">
-                            {a.name}
-                          </h4>
-                          <span className="text-xs text-gray-400 font-medium">
-                            {powerSurged ? a.maxResistance : a.baseResistance} Res
-                          </span>
-                        </div>
+                    <span className="flex-1 min-w-0">
+                      <span className="flex items-center justify-between gap-1">
+                        <strong className="font-display font-bold text-base text-white truncate">
+                          {a.name}
+                        </strong>
+                        <span className="text-xs text-gray-400 font-mono font-semibold">
+                          {powerSurged ? a.maxResistance : a.baseResistance} Res
+                        </span>
+                      </span>
 
-                        <div className="text-xs text-gray-400 flex items-center gap-2 mt-0.5">
-                          <span>{a.behemoth}</span>
-                          {a.strength && (
-                            <span className="text-emerald-400">+{a.strength}</span>
-                          )}
-                          {a.weakness && (
-                            <span className="text-red-400">-{a.weakness}</span>
-                          )}
-                        </div>
+                      <span className="text-[11px] text-gray-400 flex items-center gap-1.5 mt-0.5">
+                        <span>{a.behemoth}</span>
+                        {a.strength && <span className="text-emerald-400 font-semibold">+{a.strength}</span>}
+                        {a.weakness && <span className="text-red-400 font-semibold">-{a.weakness}</span>}
+                      </span>
 
-                        <div className="flex flex-wrap items-center gap-1.5 mt-2">
-                          {a.perks.map(p => (
-                            <span
-                              key={p.id}
-                              className="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-800 text-cyan-300 border border-gray-700"
-                            >
-                              +{powerSurged ? p.value : (p.baseValue ?? p.value)} {p.name}
-                            </span>
-                          ))}
-                          <span
-                            className={`text-[10px] font-bold uppercase px-1.5 py-0.5 rounded border ${sockStyle.bg} ${sockStyle.text} ${sockStyle.border}`}
-                          >
-                            {a.cellSocket}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                      <span className="flex flex-wrap items-center gap-1.5 mt-1.5">
+                        {a.perks.map(p => (
+                          <em key={p.id} className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-[#0a151b] text-cyan-300 border border-[#21333d] not-italic">
+                            +{isAwakening ? p.value : (powerSurged ? p.value : (p.baseValue ?? p.value))} {p.name}
+                          </em>
+                        ))}
+                        <em className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-[#0a151b] text-gray-300 border border-[#21333d] not-italic">
+                          {isAwakening && a.cellSockets && a.cellSockets.length > 1 ? 'Sockets (2)' : a.cellSocket}
+                        </em>
+                      </span>
+                    </span>
+
+                    <span className="self-center shrink-0">
+                      {isEquipped ? (
+                        <span className="w-5 h-5 rounded-full bg-cyan-400 text-black flex items-center justify-center">
+                          <Check className="h-3 w-3 stroke-[3]" />
+                        </span>
+                      ) : (
+                        <ChevronRight className="h-4 w-4 text-gray-500" />
+                      )}
+                    </span>
+                  </button>
                 );
               })
             )
           )}
 
-          {/* 3. Cells List */}
+          {/* Cells */}
           {isCellPicker && (
             filteredCells.length === 0 ? (
               <div className="text-center py-10 text-gray-500 text-sm">No cells found.</div>
             ) : (
               filteredCells.map(c => {
-                const targetSpec = `${c.id}:+${selectedCellTier}`;
-                const isEquipped = currentSelectedId === targetSpec;
-                const sockStyle = getSocketStyle(c.slot);
-                const variant = c.variants.find(v => v.level === selectedCellTier) || c.variants[0];
+                const targetSpec = isAwakening ? c.id : `${c.id}:+${selectedCellTier}`;
+                const isEquipped = currentSelectedId === targetSpec || (isAwakening && currentSelectedId?.startsWith(c.id));
+                const variant = isAwakening
+                  ? c.variants[0]
+                  : (c.variants.find(v => v.level === selectedCellTier) || c.variants[0]);
                 const perkName = variant?.perkName || c.name.replace(/ Cell$/i, '');
                 const perkDef = patchData.perks[variant?.perkId || ''];
 
                 return (
-                  <div
+                  <button
                     key={c.id}
+                    type="button"
                     onClick={() => {
                       onSelect(targetSpec);
                       onClose();
                     }}
-                    className={`p-3 rounded-xl cursor-pointer transition-all border ${
+                    className={`w-full p-2.5 rounded-xl border text-left flex items-start gap-3 transition-all cursor-pointer ${
                       isEquipped
-                        ? 'bg-cyan-950/40 border-cyan-500 shadow-md shadow-cyan-500/10'
-                        : 'bg-gray-800/30 border-gray-800 hover:border-gray-700 hover:bg-gray-800/70'
+                        ? 'bg-[#12262e] border-cyan-400 shadow-md shadow-cyan-500/10'
+                        : 'bg-[#101e25] border-[#203640] hover:border-[#3e6977] hover:bg-[#12222a]'
                     }`}
                   >
-                    <div className="flex items-center gap-3">
-                      <div className={`h-11 w-11 rounded-xl bg-gray-900 border flex items-center justify-center p-1.5 shrink-0 overflow-hidden relative shadow-inner ${sockStyle.border}`}>
-                        <img
-                          src={resolveAssetUrl(c.icon || getCellCategoryIcon(c.slot))}
-                          alt={c.name}
-                          className="h-full w-full object-contain filter drop-shadow"
-                          loading="lazy"
-                          onError={(e) => {
-                            const img = e.target as HTMLImageElement;
-                            const fallback = resolveAssetUrl(getCellCategoryIcon(c.slot));
-                            if (img.src !== fallback) {
-                              img.src = fallback;
-                            } else if (!img.src.endsWith('.svg')) {
-                              img.src = fallback.replace(/\.png$/i, '.svg');
-                            }
-                          }}
-                        />
-                        <span className={`absolute -bottom-0.5 -right-0.5 text-[9px] font-black px-1 rounded font-mono shadow-sm ${
+                    <span className="w-11 h-11 rounded-lg bg-[#09151a] border border-[#21333d] flex items-center justify-center p-1.5 shrink-0 overflow-hidden relative">
+                      <img
+                        src={resolveAssetUrl(c.icon || getCellCategoryIcon(c.slot))}
+                        alt={c.name}
+                        className="w-full h-full object-contain filter drop-shadow"
+                        onError={(e) => {
+                          const img = e.target as HTMLImageElement;
+                          const fallback = resolveAssetUrl(getCellCategoryIcon(c.slot));
+                          if (img.src !== fallback) {
+                            img.src = fallback;
+                          }
+                        }}
+                      />
+                      {!isAwakening && (
+                        <span className={`absolute -bottom-0.5 -right-0.5 text-[8.5px] font-black px-1 rounded font-mono ${
                           selectedCellTier === 3 ? 'bg-purple-600 text-white' :
                           selectedCellTier === 2 ? 'bg-blue-600 text-white' :
                           'bg-emerald-600 text-white'
                         }`}>
                           +{selectedCellTier}
                         </span>
-                      </div>
+                      )}
+                    </span>
 
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-1">
-                          <h4 className="font-semibold text-sm text-white truncate">
-                            +{selectedCellTier} {perkName} Cell
-                          </h4>
-                          <span
-                            className={`text-[10px] font-bold uppercase px-1.5 py-0.5 rounded border ${sockStyle.bg} ${sockStyle.text} ${sockStyle.border}`}
-                          >
-                            {c.slot}
-                          </span>
-                        </div>
+                    <span className="flex-1 min-w-0">
+                      <span className="flex items-center justify-between gap-1">
+                        <strong className="font-display font-bold text-base text-white truncate">
+                          {isAwakening ? `${perkName} Cell` : `+${selectedCellTier} ${perkName} Cell`}
+                        </strong>
+                        <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-[#0a151b] text-gray-300 border border-[#21333d]">
+                          {c.slot}
+                        </span>
+                      </span>
 
-                        {perkDef && (
-                          <p className="text-xs text-gray-400 mt-1 line-clamp-2">
-                            {formatPerkEffect(perkDef.tiers[String(selectedCellTier)] || perkDef.description)}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  </div>
+                      {perkDef && (
+                        <p className="text-[11px] text-gray-400 mt-1 line-clamp-2">
+                          {formatPerkEffect(
+                            isAwakening
+                              ? (perkDef.description || Object.values(perkDef.tiers || {})[0] || '')
+                              : (perkDef.tiers[String(selectedCellTier)] || perkDef.description)
+                          )}
+                        </p>
+                      )}
+                    </span>
+
+                    <span className="self-center shrink-0">
+                      {isEquipped ? (
+                        <span className="w-5 h-5 rounded-full bg-cyan-400 text-black flex items-center justify-center">
+                          <Check className="h-3 w-3 stroke-[3]" />
+                        </span>
+                      ) : (
+                        <ChevronRight className="h-4 w-4 text-gray-500" />
+                      )}
+                    </span>
+                  </button>
                 );
               })
             )
           )}
 
-          {/* 4. Lanterns List */}
+          {/* Lanterns */}
           {isLanternPicker && (
             filteredLanterns.length === 0 ? (
               <div className="text-center py-10 text-gray-500 text-sm">No lanterns found.</div>
             ) : (
               filteredLanterns.map(l => {
                 const isEquipped = currentSelectedId === l.id;
-                const sockStyle = getSocketStyle(l.cellSocket);
                 return (
-                  <div
+                  <button
                     key={l.id}
+                    type="button"
                     onClick={() => {
                       onSelect(l.id);
                       onClose();
                     }}
-                    className={`p-3 rounded-xl cursor-pointer transition-all border ${
+                    className={`w-full p-2.5 rounded-xl border text-left flex items-start gap-3 transition-all cursor-pointer ${
                       isEquipped
-                        ? 'bg-cyan-950/40 border-cyan-500 shadow-md shadow-cyan-500/10'
-                        : 'bg-gray-800/30 border-gray-800 hover:border-gray-700 hover:bg-gray-800/70'
+                        ? 'bg-[#12262e] border-cyan-400 shadow-md shadow-cyan-500/10'
+                        : 'bg-[#101e25] border-[#203640] hover:border-[#3e6977] hover:bg-[#12222a]'
                     }`}
                   >
-                    <div className="flex items-start gap-3">
-                      <div className="h-12 w-12 rounded-xl bg-gray-900 border border-gray-700 flex items-center justify-center p-1 shrink-0 overflow-hidden">
-                        {l.icon ? (
-                          <img
-                            src={resolveAssetUrl(l.icon)}
-                            alt={l.name}
-                            className="h-full w-full object-contain"
-                            loading="lazy"
-                            onError={(e) => {
-                              (e.target as HTMLElement).style.display = 'none';
-                            }}
-                          />
-                        ) : (
-                          <Sparkles className="h-6 w-6 text-yellow-400" />
-                        )}
-                      </div>
+                    <span className="w-12 h-12 rounded-lg bg-[#09151a] border border-[#21333d] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                      {l.icon ? (
+                        <img
+                          src={resolveAssetUrl(l.icon)}
+                          alt={l.name}
+                          className="w-full h-full object-contain"
+                          onError={(e) => {
+                            (e.target as HTMLElement).style.display = 'none';
+                          }}
+                        />
+                      ) : (
+                        <Sparkles className="h-5 w-5 text-yellow-400" />
+                      )}
+                    </span>
 
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-1">
-                          <h4 className="font-semibold text-sm text-white truncate">
-                            {l.name}
-                          </h4>
-                          <span
-                            className={`text-[10px] font-bold uppercase px-1.5 py-0.5 rounded border ${sockStyle.bg} ${sockStyle.text} ${sockStyle.border}`}
-                          >
-                            {l.cellSocket}
+                    <span className="flex-1 min-w-0">
+                      <span className="flex items-center justify-between gap-1">
+                        <strong className="font-display font-bold text-base text-white truncate">
+                          {l.name}
+                        </strong>
+                        {isAwakening && l.cooldown && (
+                          <span className="text-[10px] font-mono text-cyan-300">
+                            CD: {l.cooldown}s
                           </span>
-                        </div>
+                        )}
+                      </span>
 
-                        <p className="text-xs text-gray-300 mt-1 leading-snug">
+                      {isAwakening ? (
+                        <div className="mt-1 space-y-1 text-xs">
+                          {l.activeName && (
+                            <p className="text-[11px] text-amber-300 font-semibold">
+                              {l.activeName}: <span className="text-gray-300 font-normal">{l.activeDesc}</span>
+                            </p>
+                          )}
+                          {l.description && (
+                            <p className="text-gray-400 text-[10.5px] line-clamp-2">
+                              {l.description}
+                            </p>
+                          )}
+                        </div>
+                      ) : (
+                        <p className="text-[11px] text-gray-300 mt-1 line-clamp-2">
                           {l.holdAbility}
                         </p>
-                      </div>
-                    </div>
-                  </div>
+                      )}
+                    </span>
+
+                    <span className="self-center shrink-0">
+                      {isEquipped ? (
+                        <span className="w-5 h-5 rounded-full bg-cyan-400 text-black flex items-center justify-center">
+                          <Check className="h-3 w-3 stroke-[3]" />
+                        </span>
+                      ) : (
+                        <ChevronRight className="h-4 w-4 text-gray-500" />
+                      )}
+                    </span>
+                  </button>
                 );
               })
             )
           )}
 
-          {/* 5. Omnicells List */}
+          {/* Omnicells */}
           {isOmnicellPicker && (
             filteredOmnicells.length === 0 ? (
-              <div className="text-center py-10 text-gray-500 text-sm">No omnicells found for this patch.</div>
+              <div className="text-center py-10 text-gray-500 text-sm">No omnicells found.</div>
             ) : (
               filteredOmnicells.map(o => {
                 const isEquipped = currentSelectedId === o.id;
                 return (
-                  <div
+                  <button
                     key={o.id}
+                    type="button"
                     onClick={() => {
                       onSelect(o.id);
                       onClose();
                     }}
-                    className={`p-3 rounded-xl cursor-pointer transition-all border ${
+                    className={`w-full p-2.5 rounded-xl border text-left flex items-start gap-3 transition-all cursor-pointer ${
                       isEquipped
-                        ? 'bg-cyan-950/40 border-cyan-500 shadow-md shadow-cyan-500/10'
-                        : 'bg-gray-800/30 border-gray-800 hover:border-gray-700 hover:bg-gray-800/70'
+                        ? 'bg-[#12262e] border-cyan-400 shadow-md shadow-cyan-500/10'
+                        : 'bg-[#101e25] border-[#203640] hover:border-[#3e6977] hover:bg-[#12222a]'
                     }`}
                   >
-                    <div className="flex items-start gap-3">
-                      <div className="h-12 w-12 rounded-xl bg-gray-900 border border-gray-700 flex items-center justify-center p-1 shrink-0 overflow-hidden">
-                        {o.icon ? (
-                          <img
-                            src={resolveAssetUrl(o.icon)}
-                            alt={o.name}
-                            className="h-full w-full object-contain"
-                            loading="lazy"
-                            onError={(e) => {
-                              (e.target as HTMLElement).style.display = 'none';
-                            }}
-                          />
-                        ) : (
-                          <Zap className="h-6 w-6 text-purple-400" />
+                    <span className="w-12 h-12 rounded-lg bg-[#09151a] border border-[#21333d] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                      {o.icon ? (
+                        <img
+                          src={resolveAssetUrl(o.icon)}
+                          alt={o.name}
+                          className="w-full h-full object-contain"
+                          onError={(e) => {
+                            (e.target as HTMLElement).style.display = 'none';
+                          }}
+                        />
+                      ) : (
+                        <Zap className="h-5 w-5 text-purple-400" />
+                      )}
+                    </span>
+
+                    <span className="flex-1 min-w-0">
+                      <span className="flex items-center justify-between gap-1">
+                        <strong className="font-display font-bold text-base text-white truncate">
+                          {o.name}
+                        </strong>
+                        {o.cooldown > 0 && (
+                          <span className="text-[10px] font-mono text-gray-400">
+                            {o.cooldown}s CD
+                          </span>
                         )}
-                      </div>
+                      </span>
 
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-1">
-                          <h4 className="font-semibold text-sm text-white truncate">
-                            {o.name}
-                          </h4>
-                          {o.cooldown > 0 && (
-                            <span className="text-[10px] font-bold text-gray-400">
-                              {o.cooldown}s CD
-                            </span>
-                          )}
-                        </div>
+                      <p className="text-[11px] text-gray-300 mt-1 line-clamp-2">
+                        <b className="text-cyan-400">Active:</b> {o.active}
+                      </p>
+                      <p className="text-[10.5px] text-gray-400 mt-0.5 line-clamp-1">
+                        <b className="text-purple-400">Passive:</b> {o.passive}
+                      </p>
+                    </span>
 
-                        <p className="text-xs text-gray-300 mt-1 line-clamp-2">
-                          <span className="text-cyan-400 font-semibold">Active:</span> {o.active}
-                        </p>
-                        <p className="text-xs text-gray-400 mt-0.5 line-clamp-2">
-                          <span className="text-amber-400 font-semibold">Passive:</span> {o.passive}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                    <span className="self-center shrink-0">
+                      {isEquipped ? (
+                        <span className="w-5 h-5 rounded-full bg-cyan-400 text-black flex items-center justify-center">
+                          <Check className="h-3 w-3 stroke-[3]" />
+                        </span>
+                      ) : (
+                        <ChevronRight className="h-4 w-4 text-gray-500" />
+                      )}
+                    </span>
+                  </button>
                 );
               })
             )
           )}
         </div>
-      </div>
+      </section>
     </div>
   );
 };

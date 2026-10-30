@@ -183,8 +183,10 @@ export function generateDFCommands(
     ...(build.weaponCells || []),
     build.headCell,
     build.torsoCell,
+    build.torsoCell2,
     build.armsCell,
     build.legsCell,
+    build.legsCell2,
     build.lanternCell,
   ].filter(Boolean) as string[];
 

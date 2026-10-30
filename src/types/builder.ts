@@ -20,6 +20,7 @@ export interface PerkTierData {
   type: string;
   description: string;
   icon: string;
+  threshold?: number;
   tiers: Record<string, string>;
 }
 
@@ -38,6 +39,7 @@ export interface CellItem {
   slot: string; // brutality, finesse, fortitude, alacrity, insight, etc.
   slotName: string;
   icon: string;
+  threshold?: number;
   variants: CellVariant[];
 }
 
@@ -99,7 +101,12 @@ export interface ArmourItem {
   baseResistance: number;
   maxResistance: number;
   cellSocket: string;
+  cellSockets?: string[];
   perks: ItemPerkRef[];
+  stats?: {
+    min_level: number;
+    perks: Record<string, number>;
+  }[];
 }
 
 export interface LanternItem {
@@ -107,9 +114,13 @@ export interface LanternItem {
   name: string;
   icon: string;
   description: string;
-  cellSocket: string;
-  holdAbility: string;
-  instantAbility: string;
+  cellSocket?: string | null;
+  holdAbility?: string;
+  instantAbility?: string;
+  activeName?: string;
+  activeDesc?: string;
+  secondaryEffect?: string;
+  cooldown?: number;
 }
 
 export interface OmnicellItem {
@@ -144,10 +155,12 @@ export interface BuildState {
   headCell: string | null;
   torso: string | null;
   torsoCell: string | null;
+  torsoCell2?: string | null;
   arms: string | null;
   armsCell: string | null;
   legs: string | null;
   legsCell: string | null;
+  legsCell2?: string | null;
   lantern: string | null;
   lanternCell: string | null;
   omnicell: string | null;
@@ -166,6 +179,8 @@ export interface CalculatedPerk {
   totalValue: number;
   cappedValue: number;
   isOvercapped: boolean;
+  threshold?: number;
+  isActive?: boolean;
   type: string;
   icon: string;
   description: string;
@@ -181,4 +196,6 @@ export interface BuildStats {
   weaknesses: string[];
   strengths: string[];
   perks: CalculatedPerk[];
+  elementalResistances?: { element: string; value: number }[];
+  talentStats?: Record<string, number>;
 }

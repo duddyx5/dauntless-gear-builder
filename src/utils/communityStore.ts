@@ -49,6 +49,46 @@ function saveVotedCache(ids: Set<string>): void {
   } catch {}
 }
 
+// ---------- Device-specific build ownership (localStorage + voter ID) ----------
+
+const MY_BUILDS_KEY = 'dauntless_my_created_build_ids';
+
+export function getMyCreatedBuildIds(): string[] {
+  try {
+    const raw = localStorage.getItem(MY_BUILDS_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch {
+    return [];
+  }
+}
+
+export function addMyCreatedBuildId(id: string): void {
+  try {
+    const list = getMyCreatedBuildIds();
+    if (!list.includes(id)) {
+      list.push(id);
+      localStorage.setItem(MY_BUILDS_KEY, JSON.stringify(list));
+    }
+  } catch {}
+}
+
+export function removeMyCreatedBuildId(id: string): void {
+  try {
+    const list = getMyCreatedBuildIds().filter(x => x !== id);
+    localStorage.setItem(MY_BUILDS_KEY, JSON.stringify(list));
+  } catch {}
+}
+
+export function isBuildOwnedByThisDevice(build: CommunityBuild): boolean {
+  const myIds = getMyCreatedBuildIds();
+  if (myIds.includes(build.id)) return true;
+  const voterId = getVoterId();
+  if ((build.build as any)?._creatorId && (build.build as any)._creatorId === voterId) {
+    return true;
+  }
+  return false;
+}
+
 // ---------- Public API ----------
 
 /**
@@ -91,6 +131,12 @@ export async function submitCommunityBuild(entry: {
   tags: string[];
   build: BuildState;
 }): Promise<CommunityBuild | null> {
+  const voterId = getVoterId();
+  const buildWithCreator = {
+    ...entry.build,
+    _creatorId: voterId,
+  };
+
   const { data, error } = await supabase
     .from('builds')
     .insert([
@@ -100,7 +146,7 @@ export async function submitCommunityBuild(entry: {
         author: entry.author || 'Anonymous Slayer',
         description: entry.description,
         tags: entry.tags,
-        build_state: entry.build,
+        build_state: buildWithCreator,
         upvotes: 0,
       },
     ])
@@ -112,7 +158,9 @@ export async function submitCommunityBuild(entry: {
     return null;
   }
 
-  return rowToCommunityBuild(data);
+  const created = rowToCommunityBuild(data);
+  addMyCreatedBuildId(created.id);
+  return created;
 }
 
 /**
@@ -203,11 +251,14 @@ export async function getTop20(version: string): Promise<CommunityBuild[]> {
 }
 
 /**
- * Delete a community build by ID.
+ * Delete a community build by ID (only if owned by this device).
  */
-export async function deleteCommunityBuild(buildId: string): Promise<void> {
+export async function deleteCommunityBuild(buildId: string): Promise<boolean> {
   const { error } = await supabase.from('builds').delete().eq('id', buildId);
   if (error) {
     console.error('Error deleting build:', error);
+    return false;
   }
+  removeMyCreatedBuildId(buildId);
+  return true;
 }

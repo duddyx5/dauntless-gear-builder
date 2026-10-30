@@ -1,6 +1,6 @@
 import React from 'react';
 import { PatchVersionInfo } from '../types/builder';
-import { ThemeMode } from '../utils/theme';
+import { ThemeMode, resolveAssetUrl } from '../utils/theme';
 import {
   Sparkles,
   Moon,
@@ -41,8 +41,12 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({
       <div className="bg-dauntless-card border border-dauntless-border rounded-3xl w-full max-w-xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden isolate transform-gpu animate-slide-up">
         {/* Hero Header */}
         <div className="p-5 sm:p-6 bg-gradient-to-br from-cyan-950/70 via-dauntless-card to-blue-950/50 border-b border-dauntless-border shrink-0 text-center relative overflow-hidden">
-          <div className="inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-xl shadow-cyan-500/25 mb-3">
-            <Sparkles className="h-7 w-7 text-white" />
+          <div className="inline-flex items-center justify-center h-16 w-16 rounded-2xl bg-gray-900/90 border border-cyan-500/40 p-2 shadow-xl shadow-cyan-500/25 mb-3 overflow-hidden">
+            <img
+              src={resolveAssetUrl('/assets/logo.png')}
+              alt="Dauntless Gear Builder"
+              className="h-full w-full object-contain filter drop-shadow"
+            />
           </div>
 
           <h2 className="font-display font-bold text-2xl sm:text-3xl text-white tracking-wide uppercase">

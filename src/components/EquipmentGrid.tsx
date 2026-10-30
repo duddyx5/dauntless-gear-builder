@@ -8,7 +8,7 @@ import {
 } from '../types/builder';
 import { PickerSlotType } from './SlotPickerSheet';
 import { parseCellSpec } from '../utils/calculator';
-import { getElementStyle, getSocketStyle, getCellCategoryIcon, resolveAssetUrl } from '../utils/theme';
+import { getElementStyle, resolveAssetUrl } from '../utils/theme';
 import {
   Sword,
   Shield,
@@ -73,13 +73,34 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
     return a.baseResistance + Math.round((a.maxResistance - a.baseResistance) * ((lvl - 1) / 19));
   };
 
+  const getArmourPerks = (a: ArmourItem, slotKey: string) => {
+    if (isAwakening && a.stats && a.stats.length > 0) {
+      const lvl = build.gearLevels?.[slotKey] ?? 20;
+      const match = a.stats
+        .filter(st => st.min_level <= lvl)
+        .reduce((prev, curr) => (prev.min_level < curr.min_level ? curr : prev), a.stats[0]);
+      if (match && match.perks) {
+        return Object.entries(match.perks).map(([pId, val]) => ({
+          id: pId,
+          name: patchData.perks[pId]?.name || pId.charAt(0).toUpperCase() + pId.slice(1).replace(/_/g, ' '),
+          value: val,
+        }));
+      }
+    }
+    return a.perks.map(p => ({
+      id: p.id,
+      name: p.name,
+      value: isAwakening ? p.value : (powerSurged ? p.value : (p.baseValue ?? p.value)),
+    }));
+  };
+
   const renderGearLevelControl = (slotKey: string) => {
     if (!isAwakening || !onGearLevelChange) return null;
     const currentLevel = build.gearLevels?.[slotKey] ?? 20;
 
     return (
       <div
-        className="flex items-center gap-1.5 bg-gray-900/90 border border-gray-700/80 rounded-lg px-2 py-0.5 text-xs shrink-0 select-none"
+        className="flex items-center gap-1.5 bg-[#0a151b] border border-[#21333d] rounded-lg px-2 py-0.5 text-xs shrink-0 select-none"
         onClick={e => e.stopPropagation()}
       >
         <span className="text-[10px] font-bold text-gray-400 uppercase">Lv</span>
@@ -87,7 +108,7 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
           type="button"
           disabled={currentLevel <= 1}
           onClick={() => onGearLevelChange(slotKey, currentLevel - 1)}
-          className="w-5 h-5 rounded bg-gray-800 hover:bg-gray-700 disabled:opacity-30 disabled:hover:bg-gray-800 text-white font-bold flex items-center justify-center transition-colors text-xs"
+          className="w-5 h-5 rounded bg-[#101c22] hover:bg-[#1a2d36] disabled:opacity-30 text-white font-bold flex items-center justify-center transition-colors text-xs"
           title="Decrease Gear Level"
         >
           -
@@ -99,7 +120,7 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
           type="button"
           disabled={currentLevel >= 20}
           onClick={() => onGearLevelChange(slotKey, currentLevel + 1)}
-          className="w-5 h-5 rounded bg-gray-800 hover:bg-gray-700 disabled:opacity-30 disabled:hover:bg-gray-800 text-white font-bold flex items-center justify-center transition-colors text-xs"
+          className="w-5 h-5 rounded bg-[#101c22] hover:bg-[#1a2d36] disabled:opacity-30 text-white font-bold flex items-center justify-center transition-colors text-xs"
           title="Increase Gear Level"
         >
           +
@@ -119,13 +140,13 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
       : (build.secondaryWeaponTalents || [0, 0, 0, 0, 0]);
 
     return (
-      <div className="mt-3 pt-3 border-t border-gray-800/80 space-y-2">
+      <div className="mt-3 pt-3 border-t border-[#1d313a] space-y-2">
         <div className="flex items-center justify-between">
-          <span className="text-[11px] font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1">
             <Sparkles className="h-3 w-3" />
             Weapon Talents
           </span>
-          <span className="text-[10px] text-gray-400">5 Tiers Configurable</span>
+          <span className="text-[9px] text-gray-500 uppercase tracking-wide">5 Tiers Configurable</span>
         </div>
 
         <div className="space-y-1.5">
@@ -141,13 +162,13 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                     e.stopPropagation();
                     setOpenTalentMenu(isMenuOpen ? null : { slotKey, tierIndex: tIdx });
                   }}
-                  className="flex items-center justify-between p-2 rounded-xl bg-gray-900/60 hover:bg-gray-800/70 border border-gray-700/60 cursor-pointer transition-colors text-xs gap-2"
+                  className="flex items-center justify-between p-2 rounded-lg bg-[#0a151b] hover:bg-[#101e25] border border-[#21333d] cursor-pointer transition-colors text-xs gap-2"
                 >
                   <div className="min-w-0 flex-1">
-                    <span className="text-[10px] uppercase font-bold text-gray-500 block">
+                    <span className="text-[9px] uppercase font-bold text-gray-500 block">
                       Tier {tIdx + 1}: {tier.name}
                     </span>
-                    <span className="font-medium text-cyan-200 block truncate">
+                    <span className="font-medium text-cyan-200 block truncate text-[11px]">
                       {selectedOpt?.text || 'Select Talent'}
                     </span>
                   </div>
@@ -157,10 +178,10 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                 {/* Options Dropdown Menu */}
                 {isMenuOpen && (
                   <div
-                    className="absolute left-0 right-0 top-full mt-1 z-30 bg-gray-900 border border-cyan-500/50 rounded-xl p-1.5 shadow-2xl space-y-1 animate-fade-in"
+                    className="absolute left-0 right-0 top-full mt-1 z-30 bg-[#0d191f] border border-cyan-500/50 rounded-xl p-1.5 shadow-2xl space-y-1 animate-fade-in"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <div className="flex items-center justify-between px-2 py-1 border-b border-gray-800">
+                    <div className="flex items-center justify-between px-2 py-1 border-b border-[#21333d]">
                       <span className="text-[10px] font-bold uppercase text-gray-400">
                         Choose {tier.name}
                       </span>
@@ -189,10 +210,10 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                             className={`w-full text-left p-2 rounded-lg text-xs transition-all flex items-start justify-between gap-2 ${
                               isSelected
                                 ? 'bg-cyan-500/20 text-cyan-200 border border-cyan-500/40 font-semibold'
-                                : 'hover:bg-gray-800 text-gray-300'
+                                : 'hover:bg-[#15252e] text-gray-300'
                             }`}
                           >
-                            <span className="leading-tight flex-1">{opt.text}</span>
+                            <span className="leading-tight flex-1 text-[11px]">{opt.text}</span>
                             {isSelected && <Check className="h-3.5 w-3.5 text-cyan-400 shrink-0 mt-0.5" />}
                           </button>
                         );
@@ -215,29 +236,16 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
     slotType: PickerSlotType
   ) => {
     const parsed = parseCellSpec(cellSpec, patchData.cells);
-    const sockStyle = getSocketStyle(allowedSocket);
 
     if (!parsed) {
       return (
         <button
           type="button"
           onClick={() => onOpenPicker(slotType, allowedSocket)}
-          className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium border border-dashed transition-all ${sockStyle.bg} ${sockStyle.text} ${sockStyle.border} hover:brightness-125`}
+          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold border border-dashed border-[#2a424e] bg-[#091419]/70 text-gray-400 hover:border-cyan-500/50 hover:text-cyan-300 transition-all cursor-pointer"
         >
-          <img
-            src={resolveAssetUrl(getCellCategoryIcon(allowedSocket))}
-            alt={allowedSocket}
-            className="h-3.5 w-3.5 object-contain shrink-0 opacity-70 filter drop-shadow"
-            onError={(e) => {
-              const img = e.target as HTMLImageElement;
-              if (!img.src.endsWith('.svg')) {
-                img.src = img.src.replace(/\.png$/i, '.svg');
-              } else {
-                img.style.display = 'none';
-              }
-            }}
-          />
-          <span className="capitalize">Empty {allowedSocket} Socket</span>
+          <span className="w-2 h-2 border border-gray-500/80 bg-gray-700/80 rotate-45 inline-block shrink-0" />
+          <span className="capitalize text-[10.5px]">Empty {allowedSocket} Socket</span>
         </button>
       );
     }
@@ -246,26 +254,14 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
       <button
         type="button"
         onClick={() => onOpenPicker(slotType, allowedSocket)}
-        className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium border transition-all ${sockStyle.bg} ${sockStyle.border} hover:brightness-125`}
+        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold border border-[#2a424e] bg-[#101e25] hover:border-cyan-400 text-cyan-200 transition-all cursor-pointer"
       >
-        <img
-          src={resolveAssetUrl(getCellCategoryIcon(parsed.cell?.slot || allowedSocket))}
-          alt={allowedSocket}
-          className="h-3.5 w-3.5 object-contain shrink-0 filter drop-shadow"
-          onError={(e) => {
-            const img = e.target as HTMLImageElement;
-            if (!img.src.endsWith('.svg')) {
-              img.src = img.src.replace(/\.png$/i, '.svg');
-            } else {
-              img.style.display = 'none';
-            }
-          }}
-        />
-        <span className="font-semibold text-cyan-300 truncate">
-          +{parsed.variantLevel} {parsed.perkName}
+        <span className="cell-gem" />
+        <span className="font-semibold text-cyan-300 truncate text-[11px]">
+          {isAwakening ? `${parsed.perkName} Cell` : `+${parsed.variantLevel} ${parsed.perkName}`}
         </span>
-        <span className="text-[10px] text-gray-400 uppercase hidden sm:inline">
-          ({allowedSocket})
+        <span className="text-[9.5px] text-gray-400 uppercase hidden sm:inline">
+          · {allowedSocket}
         </span>
       </button>
     );
@@ -287,58 +283,58 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {/* Primary Weapon */}
-            <div className="bg-dauntless-card border border-dauntless-border hover:border-gray-600 rounded-2xl p-3.5 flex flex-col justify-between transition-all shadow-lg">
+            <article className="gear-card p-3 flex flex-col justify-between">
               <div>
-                <div className="flex items-start justify-between gap-2 mb-2">
-                  <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
-                    Primary Weapon
-                  </span>
+                <div className="flex items-center justify-between gap-2 mb-1 px-1">
+                  <span className="kicker !mb-0">Primary Weapon</span>
                   {renderGearLevelControl('weapon')}
                 </div>
 
-                <div
+                <button
+                  type="button"
                   onClick={() => onOpenPicker('weapon')}
-                  className="flex items-start gap-3 cursor-pointer group"
+                  className="gear-main"
                 >
-                  <div className="h-14 w-14 rounded-xl bg-gray-900 border border-gray-700 group-hover:border-cyan-400 flex items-center justify-center p-1 shrink-0 overflow-hidden shadow-inner transition-colors">
+                  <span className="gear-image-wrap">
                     {currentWeapon?.icon ? (
                       <img
                         src={resolveAssetUrl(currentWeapon.icon)}
                         alt={currentWeapon.name}
-                        className="h-full w-full object-contain"
+                        className="gear-image"
                         onError={(e) => {
                           (e.target as HTMLElement).style.display = 'none';
                         }}
                       />
                     ) : (
-                      <Sword className="h-7 w-7 text-gray-500 group-hover:text-cyan-400 transition-colors" />
+                      <Sword className="h-6 w-6 text-gray-500 -rotate-45" />
                     )}
-                  </div>
-
-                  <div className="flex-1 min-w-0">
-                    <span className="text-xs text-gray-400 font-medium block">
-                      {currentWeapon?.typeName || 'Weapon'}
-                    </span>
-                    <h3 className="font-display font-bold text-base text-white group-hover:text-cyan-300 transition-colors truncate">
-                      {currentWeapon ? currentWeapon.name : 'Choose Primary Weapon...'}
-                    </h3>
-
                     {currentWeapon && (
-                      <div className="flex flex-wrap items-center gap-1.5 mt-1 text-xs">
-                        <span className={`text-[10px] font-bold uppercase px-1.5 py-0.5 rounded border ${getElementStyle(currentWeapon.element).bg} ${getElementStyle(currentWeapon.element).text} ${getElementStyle(currentWeapon.element).border}`}>
-                          {currentWeapon.element}
-                        </span>
-                        <span className="text-amber-400 font-semibold font-mono">
-                          {getWeaponPower(currentWeapon, 'weapon')} Power
-                        </span>
-                      </div>
+                      <span className="equipped-check">
+                        <Check className="h-3 w-3 stroke-[3]" />
+                      </span>
                     )}
-                  </div>
-                </div>
+                  </span>
+
+                  <span className="gear-copy">
+                    <span className="gear-meta">{currentWeapon?.typeName || 'Primary Weapon'}</span>
+                    <strong>{currentWeapon ? currentWeapon.name : 'Choose Primary Weapon...'}</strong>
+                    {currentWeapon && (
+                      <span className="gear-badges">
+                        <em className={`element ${currentWeapon.element.toLowerCase()}`}>
+                          {currentWeapon.element}
+                        </em>
+                        <em>
+                          <Zap className="h-3 w-3 text-amber-400" /> {getWeaponPower(currentWeapon, 'weapon')} power
+                        </em>
+                      </span>
+                    )}
+                  </span>
+                  <span className="slot-label">Primary <ChevronRight className="h-3.5 w-3.5" /></span>
+                </button>
 
                 {/* Abilities */}
                 {currentWeapon && (
-                  <div className="mt-2.5 pt-2 border-t border-gray-800/80 space-y-1 text-xs">
+                  <div className="mt-2.5 pt-2 border-t border-[#1d313a] space-y-1 text-xs">
                     {currentWeapon.specialName && (
                       <p className="text-[11px] text-gray-300 leading-snug">
                         <strong className="text-cyan-300">Special: </strong>
@@ -372,65 +368,63 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                 {/* Talents Builder */}
                 {renderWeaponTalentsSection(currentWeapon, 'weapon')}
               </div>
-            </div>
+            </article>
 
             {/* Secondary Weapon */}
-            <div className="bg-dauntless-card border border-dauntless-border hover:border-gray-600 rounded-2xl p-3.5 flex flex-col justify-between transition-all shadow-lg">
+            <article className="gear-card p-3 flex flex-col justify-between">
               <div>
-                <div className="flex items-start justify-between gap-2 mb-2">
-                  <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30">
-                    Secondary Weapon
-                  </span>
+                <div className="flex items-center justify-between gap-2 mb-1 px-1">
+                  <span className="kicker !mb-0 !text-blue-400">Secondary Weapon</span>
                   {renderGearLevelControl('secondaryWeapon')}
                 </div>
 
-                <div
+                <button
+                  type="button"
                   onClick={() => onOpenPicker('secondaryWeapon')}
-                  className="flex items-start gap-3 cursor-pointer group"
+                  className="gear-main"
                 >
-                  <div className="h-14 w-14 rounded-xl bg-gray-900 border border-gray-700 group-hover:border-blue-400 flex items-center justify-center p-1 shrink-0 overflow-hidden shadow-inner transition-colors">
+                  <span className="gear-image-wrap">
                     {currentSecondaryWeapon?.icon ? (
                       <img
                         src={resolveAssetUrl(currentSecondaryWeapon.icon)}
                         alt={currentSecondaryWeapon.name}
-                        className="h-full w-full object-contain"
+                        className="gear-image"
                         onError={(e) => {
                           (e.target as HTMLElement).style.display = 'none';
                         }}
                       />
                     ) : (
-                      <Sword className="h-7 w-7 text-gray-500 group-hover:text-blue-400 transition-colors" />
+                      <Sword className="h-6 w-6 text-gray-500 -rotate-45" />
                     )}
-                  </div>
-
-                  <div className="flex-1 min-w-0">
-                    <span className="text-xs text-gray-400 font-medium block">
-                      {currentSecondaryWeapon?.typeName || 'Auxiliary Weapon'}
-                    </span>
-                    <h3 className="font-display font-bold text-base text-white group-hover:text-blue-300 transition-colors truncate">
-                      {currentSecondaryWeapon ? currentSecondaryWeapon.name : 'Choose Secondary Weapon...'}
-                    </h3>
-
-                    {currentSecondaryWeapon ? (
-                      <div className="flex flex-wrap items-center gap-1.5 mt-1 text-xs">
-                        <span className={`text-[10px] font-bold uppercase px-1.5 py-0.5 rounded border ${getElementStyle(currentSecondaryWeapon.element).bg} ${getElementStyle(currentSecondaryWeapon.element).text} ${getElementStyle(currentSecondaryWeapon.element).border}`}>
-                          {currentSecondaryWeapon.element}
-                        </span>
-                        <span className="text-amber-400 font-semibold font-mono">
-                          {getWeaponPower(currentSecondaryWeapon, 'secondaryWeapon')} Power
-                        </span>
-                      </div>
-                    ) : (
-                      <span className="text-[11px] text-gray-500 flex items-center gap-0.5 mt-1">
-                        Tap to equip weapon swap <ChevronRight className="h-3 w-3" />
+                    {currentSecondaryWeapon && (
+                      <span className="equipped-check">
+                        <Check className="h-3 w-3 stroke-[3]" />
                       </span>
                     )}
-                  </div>
-                </div>
+                  </span>
+
+                  <span className="gear-copy">
+                    <span className="gear-meta">{currentSecondaryWeapon?.typeName || 'Auxiliary Weapon'}</span>
+                    <strong>{currentSecondaryWeapon ? currentSecondaryWeapon.name : 'Choose Secondary Weapon...'}</strong>
+                    {currentSecondaryWeapon ? (
+                      <span className="gear-badges">
+                        <em className={`element ${currentSecondaryWeapon.element.toLowerCase()}`}>
+                          {currentSecondaryWeapon.element}
+                        </em>
+                        <em>
+                          <Zap className="h-3 w-3 text-amber-400" /> {getWeaponPower(currentSecondaryWeapon, 'secondaryWeapon')} power
+                        </em>
+                      </span>
+                    ) : (
+                      <span className="gear-subtitle">Tap to equip swap weapon</span>
+                    )}
+                  </span>
+                  <span className="slot-label">Secondary <ChevronRight className="h-3.5 w-3.5" /></span>
+                </button>
 
                 {/* Abilities */}
                 {currentSecondaryWeapon && (
-                  <div className="mt-2.5 pt-2 border-t border-gray-800/80 space-y-1 text-xs">
+                  <div className="mt-2.5 pt-2 border-t border-[#1d313a] space-y-1 text-xs">
                     {currentSecondaryWeapon.specialName && (
                       <p className="text-[11px] text-gray-300 leading-snug">
                         <strong className="text-cyan-300">Special: </strong>
@@ -464,77 +458,66 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                 {/* Talents Builder */}
                 {renderWeaponTalentsSection(currentSecondaryWeapon, 'secondaryWeapon')}
               </div>
-            </div>
+            </article>
           </div>
         </div>
       ) : (
         /* Reforged / Classic Single Weapon Layout */
-        <div className="bg-dauntless-card border border-dauntless-border hover:border-gray-600 rounded-2xl p-3.5 transition-all shadow-lg">
-          <div className="flex items-start justify-between gap-3">
-            {/* Main Weapon Click Area */}
-            <div
-              onClick={() => onOpenPicker('weapon')}
-              className="flex items-start gap-3 flex-1 min-w-0 cursor-pointer group"
-            >
-              <div className="h-14 w-14 rounded-xl bg-gray-900 border border-gray-700 group-hover:border-cyan-400 flex items-center justify-center p-1 shrink-0 overflow-hidden shadow-inner transition-colors">
-                {currentWeapon?.icon ? (
-                  <img
-                    src={resolveAssetUrl(currentWeapon.icon)}
-                    alt={currentWeapon.name}
-                    className="h-full w-full object-contain"
-                    onError={(e) => {
-                      (e.target as HTMLElement).style.display = 'none';
-                    }}
-                  />
-                ) : (
-                  <Sword className="h-7 w-7 text-gray-500 group-hover:text-cyan-400 transition-colors" />
-                )}
-              </div>
+        <article className="gear-card weapon-card">
+          <button
+            type="button"
+            onClick={() => onOpenPicker('weapon')}
+            className="gear-main"
+          >
+            <span className="gear-image-wrap">
+              {currentWeapon?.icon ? (
+                <img
+                  src={resolveAssetUrl(currentWeapon.icon)}
+                  alt={currentWeapon.name}
+                  className="gear-image"
+                  onError={(e) => {
+                    (e.target as HTMLElement).style.display = 'none';
+                  }}
+                />
+              ) : (
+                <Sword className="h-7 w-7 text-gray-500 -rotate-45" />
+              )}
+              {currentWeapon && (
+                <span className="equipped-check">
+                  <Check className="h-3 w-3 stroke-[3]" />
+                </span>
+              )}
+            </span>
 
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-1.5 text-xs text-gray-400 font-medium">
-                  <span className="uppercase tracking-wider font-bold text-gray-500">Weapon</span>
-                  {currentWeapon && (
-                    <>
-                      <span>•</span>
-                      <span>{currentWeapon.typeName}</span>
-                    </>
-                  )}
-                </div>
-
-                <h3 className="font-display font-bold text-base sm:text-lg text-white group-hover:text-cyan-300 transition-colors truncate">
-                  {currentWeapon ? currentWeapon.name : 'Choose a Weapon...'}
-                </h3>
-
-                {currentWeapon ? (
-                  <div className="flex flex-wrap items-center gap-2 mt-1 text-xs">
-                    <span className={`text-[10px] font-bold uppercase px-1.5 py-0.5 rounded border ${getElementStyle(currentWeapon.element).bg} ${getElementStyle(currentWeapon.element).text} ${getElementStyle(currentWeapon.element).border}`}>
-                      {currentWeapon.element}
-                    </span>
-                    <span className="text-amber-400 font-semibold font-mono">
-                      {powerSurged ? currentWeapon.maxPower : currentWeapon.basePower} Power
-                    </span>
-                    {currentWeapon.perks.map(p => (
-                      <span
-                        key={p.id}
-                        className="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-800 text-cyan-300 border border-gray-700"
-                      >
-                        +{powerSurged ? p.value : (p.baseValue ?? p.value)} {p.name}
-                      </span>
-                    ))}
-                  </div>
-                ) : (
-                  <span className="text-xs text-gray-500 flex items-center gap-1 mt-0.5">
-                    Tap to browse swords, axes, hammers, chainblades... <ChevronRight className="h-3 w-3" />
-                  </span>
-                )}
-              </div>
-            </div>
-          </div>
+            <span className="gear-copy">
+              <span className="gear-meta">
+                {currentWeapon ? `Weapon · ${currentWeapon.typeName}` : 'Primary Weapon'}
+              </span>
+              <strong>{currentWeapon ? currentWeapon.name : 'Choose a Weapon...'}</strong>
+              {currentWeapon ? (
+                <span className="gear-badges">
+                  <em className={`element ${currentWeapon.element.toLowerCase()}`}>
+                    {currentWeapon.element}
+                  </em>
+                  <em>
+                    <Zap className="h-3 w-3 text-amber-400" /> {powerSurged ? currentWeapon.maxPower : currentWeapon.basePower} power
+                  </em>
+                  {currentWeapon.perks.map(p => (
+                    <em key={p.id}>
+                      +{powerSurged ? p.value : (p.baseValue ?? p.value)} {p.name}
+                    </em>
+                  ))}
+                </span>
+              ) : (
+                <span className="gear-subtitle">Tap to browse swords, axes, hammers, chainblades...</span>
+              )}
+            </span>
+            <span className="slot-label">Weapon <ChevronRight className="h-3.5 w-3.5" /></span>
+          </button>
 
           {/* Unique Effect Preview */}
           {currentWeapon?.uniqueEffect && (
-            <div className="mt-2.5 pt-2 border-t border-gray-800/80 text-xs text-gray-300/90 italic leading-snug flex items-start gap-1.5">
+            <div className="px-4 py-2 border-t border-[#1d313a] text-xs text-gray-300/90 italic leading-snug flex items-start gap-1.5">
               <Sparkles className="h-3.5 w-3.5 text-cyan-400 shrink-0 mt-0.5" />
               <span>{currentWeapon.uniqueEffect}</span>
             </div>
@@ -542,194 +525,271 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
 
           {/* Weapon Cell Sockets */}
           {hasCellSockets && currentWeapon && currentWeapon.cellSockets && currentWeapon.cellSockets.length > 0 && (
-            <div className="mt-3 pt-2.5 border-t border-gray-800/80 flex flex-wrap items-center gap-2">
-              <span className="text-[11px] text-gray-400 font-medium">Sockets:</span>
-              {renderCellButton(build.weaponCells[0] || null, currentWeapon.cellSockets[0] || 'prismatic', 'weaponCell_0')}
-              {currentWeapon.cellSockets[1] &&
-                renderCellButton(build.weaponCells[1] || null, currentWeapon.cellSockets[1], 'weaponCell_1')}
+            <div className="gear-footer">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-[10px] text-gray-400 font-bold uppercase">Sockets:</span>
+                {renderCellButton(build.weaponCells[0] || null, currentWeapon.cellSockets[0] || 'prismatic', 'weaponCell_0')}
+                {currentWeapon.cellSockets[1] &&
+                  renderCellButton(build.weaponCells[1] || null, currentWeapon.cellSockets[1], 'weaponCell_1')}
+              </div>
+              <span className="hidden sm:inline text-[11px] text-gray-400">
+                {currentWeapon.perks.map(p => `+${powerSurged ? p.value : (p.baseValue ?? p.value)} ${p.name}`).join(', ')}
+              </span>
             </div>
           )}
-        </div>
+        </article>
       )}
 
       {/* 2. ARMOUR PIECES (Head, Torso, Arms, Legs) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {[
-          { slot: 'head' as const, label: 'Head Armour', icon: Shield, item: currentHead, cellSpec: build.headCell, cellSlot: 'headCell' as const },
-          { slot: 'torso' as const, label: 'Torso Armour', icon: Shield, item: currentTorso, cellSpec: build.torsoCell, cellSlot: 'torsoCell' as const },
-          { slot: 'arms' as const, label: 'Arms Armour', icon: Shield, item: currentArms, cellSpec: build.armsCell, cellSlot: 'armsCell' as const },
-          { slot: 'legs' as const, label: 'Legs Armour', icon: Shield, item: currentLegs, cellSpec: build.legsCell, cellSlot: 'legsCell' as const },
-        ].map(({ slot, label, icon: Icon, item, cellSpec, cellSlot }) => (
-          <div
+          { slot: 'head' as const, label: 'Head', eyebrow: 'Head Armour', icon: Shield, item: currentHead, cellSpec: build.headCell, cellSlot: 'headCell' as const },
+          { slot: 'torso' as const, label: 'Torso', eyebrow: 'Torso Armour', icon: Shield, item: currentTorso, cellSpec: build.torsoCell, cellSlot: 'torsoCell' as const },
+          { slot: 'arms' as const, label: 'Arms', eyebrow: 'Arms Armour', icon: Shield, item: currentArms, cellSpec: build.armsCell, cellSlot: 'armsCell' as const },
+          { slot: 'legs' as const, label: 'Legs', eyebrow: 'Legs Armour', icon: Shield, item: currentLegs, cellSpec: build.legsCell, cellSlot: 'legsCell' as const },
+        ].map(({ slot, label, eyebrow, icon: Icon, item, cellSpec, cellSlot }) => (
+          <article
             key={slot}
-            className="bg-dauntless-card border border-dauntless-border hover:border-gray-600 rounded-2xl p-3 flex flex-col justify-between transition-all shadow-md"
+            className="gear-card flex flex-col justify-between"
           >
             <div>
-              <div className="flex items-center justify-between mb-1.5">
-                <span className="text-[10px] uppercase font-bold tracking-wider text-gray-500">
-                  {label}
-                </span>
+              <div className="flex items-center justify-between gap-2 p-2 px-3 pb-0">
+                <span className="gear-meta !mb-0">{eyebrow}</span>
                 {renderGearLevelControl(slot)}
               </div>
 
-              <div
+              <button
+                type="button"
                 onClick={() => onOpenPicker(slot)}
-                className="flex items-start gap-3 cursor-pointer group"
+                className="gear-main"
               >
-                <div className="h-12 w-12 rounded-xl bg-gray-900 border border-gray-700 group-hover:border-cyan-400 flex items-center justify-center p-1 shrink-0 overflow-hidden shadow-inner transition-colors">
+                <span className="gear-image-wrap">
                   {item?.icon ? (
                     <img
                       src={resolveAssetUrl(item.icon)}
                       alt={item.name}
-                      className="h-full w-full object-contain"
+                      className="gear-image"
                       onError={(e) => {
                         (e.target as HTMLElement).style.display = 'none';
                       }}
                     />
                   ) : (
-                    <Icon className="h-5 w-5 text-gray-500 group-hover:text-cyan-400" />
+                    <Icon className="h-5 w-5 text-gray-500 -rotate-45" />
                   )}
-                </div>
-
-                <div className="flex-1 min-w-0">
-                  <h4 className="font-semibold text-sm text-white group-hover:text-cyan-300 transition-colors truncate">
-                    {item ? item.name : `Select ${label}...`}
-                  </h4>
-
-                  {item ? (
-                    <div className="flex flex-wrap items-center gap-1.5 mt-1 text-xs text-gray-400">
-                      <span className="text-gray-300 font-medium font-mono">
-                        {getArmourRes(item, slot)} Res
-                      </span>
-                      {item.strength && <span className="text-emerald-400">+{item.strength}</span>}
-                      {item.weakness && <span className="text-red-400">-{item.weakness}</span>}
-                      {item.perks.map(p => (
-                        <span
-                          key={p.id}
-                          className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-gray-800 text-cyan-300 border border-gray-700 truncate"
-                        >
-                          +{powerSurged ? p.value : (p.baseValue ?? p.value)} {p.name}
-                        </span>
-                      ))}
-                    </div>
-                  ) : (
-                    <span className="text-[11px] text-gray-500 flex items-center gap-0.5 mt-0.5">
-                      Tap to pick <ChevronRight className="h-3 w-3" />
+                  {item && (
+                    <span className="equipped-check">
+                      <Check className="h-3 w-3 stroke-[3]" />
                     </span>
                   )}
-                </div>
-              </div>
+                </span>
+
+                <span className="gear-copy">
+                  <span className="gear-meta">{item?.behemoth ? `${item.behemoth} Armour` : label}</span>
+                  <strong>{item ? item.name : `Select ${label}...`}</strong>
+
+                  {item ? (
+                    <span className="gear-badges">
+                      <em>
+                        <Shield className="h-3 w-3 text-cyan-400" /> {getArmourRes(item, slot)} res
+                      </em>
+                      {item.strength && (
+                        <em className={`element ${item.strength.toLowerCase()}`}>
+                          +{item.strength}
+                        </em>
+                      )}
+                      {getArmourPerks(item, slot).map(p => (
+                        <em key={p.id}>
+                          +{p.value} {p.name}
+                        </em>
+                      ))}
+                    </span>
+                  ) : (
+                    <span className="gear-subtitle">Tap to pick armour piece</span>
+                  )}
+                </span>
+                <span className="slot-label">{label} <ChevronRight className="h-3.5 w-3.5" /></span>
+              </button>
             </div>
 
-            {/* Cell Socket Button (Hidden in Awakening) */}
+            {/* Cell Socket Button(s) in Footer */}
             {hasCellSockets && item && (
-              <div className="mt-2.5 pt-2 border-t border-gray-800/80 flex items-center justify-between">
-                <span className="text-[10px] font-semibold text-gray-500 uppercase">Socket</span>
-                {renderCellButton(cellSpec, item.cellSocket || 'prismatic', cellSlot)}
+              <div className="gear-footer">
+                <div className="flex flex-wrap items-center gap-1.5">
+                  {renderCellButton(cellSpec, item.cellSocket || 'prismatic', cellSlot)}
+                  {isAwakening && slot === 'torso' &&
+                    renderCellButton(build.torsoCell2 || null, 'prismatic', 'torsoCell2')}
+                  {isAwakening && slot === 'legs' &&
+                    renderCellButton(build.legsCell2 || null, 'prismatic', 'legsCell2')}
+                </div>
+                <span className="text-[10px] text-gray-400 truncate max-w-[140px] hidden sm:inline">
+                  {getArmourPerks(item, slot).map(p => `+${p.value} ${p.name}`).join(', ')}
+                </span>
               </div>
             )}
-          </div>
+          </article>
         ))}
       </div>
 
       {/* 3. LANTERN & OMNICELL */}
-      <div className={`grid grid-cols-1 ${hasOmnicells ? 'sm:grid-cols-2' : ''} gap-2.5`}>
-        {/* Lantern */}
-        <div className="bg-dauntless-card border border-dauntless-border hover:border-gray-600 rounded-2xl p-3 flex flex-col justify-between transition-all shadow-md">
-          <div
-            onClick={() => onOpenPicker('lantern')}
-            className="flex items-start gap-3 cursor-pointer group"
-          >
-            <div className="h-12 w-12 rounded-xl bg-gray-900 border border-gray-700 group-hover:border-cyan-400 flex items-center justify-center p-1 shrink-0 overflow-hidden transition-colors">
-              {currentLantern?.icon ? (
-                <img
-                  src={resolveAssetUrl(currentLantern.icon)}
-                  alt={currentLantern.name}
-                  className="h-full w-full object-contain"
-                  onError={(e) => {
-                    (e.target as HTMLElement).style.display = 'none';
-                  }}
-                />
-              ) : (
-                <Sparkles className="h-5 w-5 text-yellow-400" />
-              )}
-            </div>
-
-            <div className="flex-1 min-w-0">
-              <span className="text-[10px] uppercase font-bold tracking-wider text-gray-500">
-                Lantern
-              </span>
-              <h4 className="font-semibold text-sm text-white group-hover:text-cyan-300 transition-colors truncate">
-                {currentLantern ? currentLantern.name : 'Select Lantern...'}
-              </h4>
-
-              {currentLantern ? (
-                <p className="text-[11px] text-gray-300/80 mt-1 line-clamp-2">
-                  {currentLantern.holdAbility}
-                </p>
-              ) : (
-                <span className="text-[11px] text-gray-500 flex items-center gap-0.5 mt-0.5">
-                  Tap to pick lantern <ChevronRight className="h-3 w-3" />
+      <div className={`grid grid-cols-1 ${hasOmnicells ? 'sm:grid-cols-2' : ''} gap-3`}>
+        {/* Lantern / Lantern Core */}
+        <article className="gear-card flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between gap-2 p-2 px-3 pb-0">
+              <span className="gear-meta !mb-0">{isAwakening ? 'Lantern Core' : 'Lantern'}</span>
+              {isAwakening && (
+                <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-cyan-950/60 text-cyan-300 border border-cyan-500/30 uppercase">
+                  Core
                 </span>
               )}
             </div>
-          </div>
 
-          {hasCellSockets && currentLantern && (
-            <div className="mt-2.5 pt-2 border-t border-gray-800/80 flex items-center justify-between">
-              <span className="text-[10px] font-semibold text-gray-500 uppercase">Socket</span>
-              {renderCellButton(build.lanternCell, currentLantern.cellSocket || 'prismatic', 'lanternCell')}
-            </div>
-          )}
-        </div>
-
-        {/* Omnicell (Visible for Reforged / patches with Omnicells, hidden in Awakening) */}
-        {hasOmnicells && (
-          <div className="bg-dauntless-card border border-dauntless-border hover:border-gray-600 rounded-2xl p-3 flex flex-col justify-between transition-all shadow-md">
-            <div
-              onClick={() => onOpenPicker('omnicell')}
-              className="flex items-start gap-3 cursor-pointer group"
+            <button
+              type="button"
+              onClick={() => onOpenPicker('lantern')}
+              className="gear-main"
             >
-              <div className="h-12 w-12 rounded-xl bg-gray-900 border border-gray-700 group-hover:border-cyan-400 flex items-center justify-center p-1 shrink-0 overflow-hidden transition-colors">
-                {currentOmnicell?.icon ? (
+              <span className="gear-image-wrap">
+                {currentLantern?.icon ? (
                   <img
-                    src={resolveAssetUrl(currentOmnicell.icon)}
-                    alt={currentOmnicell.name}
-                    className="h-full w-full object-contain"
+                    src={resolveAssetUrl(currentLantern.icon)}
+                    alt={currentLantern.name}
+                    className="gear-image"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = 'none';
                     }}
                   />
                 ) : (
-                  <Zap className="h-5 w-5 text-purple-400" />
+                  <Sparkles className="h-5 w-5 text-yellow-400 -rotate-45" />
                 )}
-              </div>
-
-              <div className="flex-1 min-w-0">
-                <span className="text-[10px] uppercase font-bold tracking-wider text-gray-500">
-                  Omnicell
-                </span>
-                <h4 className="font-semibold text-sm text-white group-hover:text-cyan-300 transition-colors truncate">
-                  {currentOmnicell ? currentOmnicell.name : 'Select Omnicell...'}
-                </h4>
-
-                {currentOmnicell ? (
-                  <div className="mt-1 space-y-0.5 text-[11px]">
-                    <p className="text-cyan-300/90 line-clamp-1">
-                      <span className="font-bold">Active:</span> {currentOmnicell.active}
-                    </p>
-                    <p className="text-gray-400 line-clamp-1">
-                      <span className="font-bold">Passive:</span> {currentOmnicell.passive}
-                    </p>
-                  </div>
-                ) : (
-                  <span className="text-[11px] text-gray-500 flex items-center gap-0.5 mt-0.5">
-                    Tap to pick (Discipline, Iceborne, Bastion...) <ChevronRight className="h-3 w-3" />
+                {currentLantern && (
+                  <span className="equipped-check">
+                    <Check className="h-3 w-3 stroke-[3]" />
                   </span>
+                )}
+              </span>
+
+              <span className="gear-copy">
+                <span className="gear-meta">{isAwakening ? 'Core Ability' : 'Utility'}</span>
+                <strong>
+                  {currentLantern ? currentLantern.name : isAwakening ? 'Choose Lantern Core...' : 'Select Lantern...'}
+                </strong>
+
+                {currentLantern ? (
+                  isAwakening ? (
+                    <span className="gear-subtitle line-clamp-2">
+                      {currentLantern.activeName ? `${currentLantern.activeName} · ${currentLantern.activeDesc || ''}` : currentLantern.description}
+                    </span>
+                  ) : (
+                    <span className="gear-subtitle line-clamp-1">
+                      {currentLantern.holdAbility}
+                    </span>
+                  )
+                ) : (
+                  <span className="gear-subtitle">
+                    {isAwakening ? 'Tap to equip Core (Discipline, Bastion, Iceborne...)' : 'Tap to pick lantern'}
+                  </span>
+                )}
+              </span>
+              <span className="slot-label">Lantern <ChevronRight className="h-3.5 w-3.5" /></span>
+            </button>
+          </div>
+
+          {/* Awakening Active details card */}
+          {isAwakening && currentLantern?.activeName && (
+            <div className="px-3 pb-3 pt-1">
+              <div className="p-2 rounded-lg bg-[#0a151b] border border-[#21333d] space-y-1 text-xs">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-amber-300 text-xs flex items-center gap-1">
+                    <Zap className="h-3 w-3 text-amber-400" />
+                    {currentLantern.activeName}
+                  </span>
+                  {currentLantern.cooldown && (
+                    <span className="text-[10px] font-mono text-cyan-300">
+                      CD: {currentLantern.cooldown}s
+                    </span>
+                  )}
+                </div>
+                <p className="text-gray-300 text-[11px] leading-snug">
+                  {currentLantern.activeDesc}
+                </p>
+                {currentLantern.secondaryEffect && (
+                  <p className="text-cyan-300/90 text-[10.5px] leading-snug pt-1 border-t border-[#1d313a]">
+                    {currentLantern.secondaryEffect}
+                  </p>
                 )}
               </div>
             </div>
-          </div>
+          )}
+
+          {/* Cell socket for lantern (ONLY in Reforged / Classic) */}
+          {hasCellSockets && currentLantern && !isAwakening && (
+            <div className="gear-footer">
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] text-gray-400 font-bold uppercase">Socket:</span>
+                {renderCellButton(build.lanternCell, currentLantern.cellSocket || 'prismatic', 'lanternCell')}
+              </div>
+            </div>
+          )}
+        </article>
+
+        {/* Omnicell (Visible for Reforged / patches with Omnicells, hidden in Awakening) */}
+        {hasOmnicells && (
+          <article className="gear-card flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between gap-2 p-2 px-3 pb-0">
+                <span className="gear-meta !mb-0">Combat Style</span>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => onOpenPicker('omnicell')}
+                className="gear-main"
+              >
+                <span className="gear-image-wrap">
+                  {currentOmnicell?.icon ? (
+                    <img
+                      src={resolveAssetUrl(currentOmnicell.icon)}
+                      alt={currentOmnicell.name}
+                      className="gear-image"
+                      onError={(e) => {
+                        (e.target as HTMLElement).style.display = 'none';
+                      }}
+                    />
+                  ) : (
+                    <Zap className="h-5 w-5 text-purple-400 -rotate-45" />
+                  )}
+                  {currentOmnicell && (
+                    <span className="equipped-check">
+                      <Check className="h-3 w-3 stroke-[3]" />
+                    </span>
+                  )}
+                </span>
+
+                <span className="gear-copy">
+                  <span className="gear-meta">Omnicell</span>
+                  <strong>{currentOmnicell ? currentOmnicell.name : 'Select Omnicell...'}</strong>
+
+                  {currentOmnicell ? (
+                    <span className="gear-subtitle line-clamp-2">
+                      <b className="text-cyan-300">Active:</b> {currentOmnicell.active}
+                    </span>
+                  ) : (
+                    <span className="gear-subtitle">Tap to pick (Discipline, Iceborne, Bastion...)</span>
+                  )}
+                </span>
+                <span className="slot-label">Omnicell <ChevronRight className="h-3.5 w-3.5" /></span>
+              </button>
+            </div>
+
+            {currentOmnicell && (
+              <div className="gear-footer">
+                <span className="text-[10px] text-gray-300 truncate">
+                  <b className="text-purple-300">Passive:</b> {currentOmnicell.passive}
+                </span>
+              </div>
+            )}
+          </article>
         )}
       </div>
     </div>
