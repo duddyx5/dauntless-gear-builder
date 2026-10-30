@@ -14,6 +14,7 @@ import {
 export const createEmptyBuild = (version: string = '1.14.7'): BuildState => ({
   version,
   weapon: null,
+  bondedWeapon: null,
   secondaryWeapon: null,
   gearLevels: {
     weapon: 20,
@@ -45,6 +46,7 @@ export const createEmptyBuild = (version: string = '1.14.7'): BuildState => ({
 export const DEFAULT_BUILD: BuildState = {
   version: '1.14.7',
   weapon: 'inferno_s_razor',
+  bondedWeapon: null,
   secondaryWeapon: null,
   gearLevels: {
     weapon: 20,
@@ -169,6 +171,7 @@ export const PRESET_BUILDS: PresetBuildItem[] = [
     build: {
       version: '1.12.0',
       weapon: 'the_conductor',
+      bondedWeapon: 'sahvyt_s_javelin',
       weaponCells: ['savagery_cell:+3', 'relentless_cell:+3'],
       head: 'bladed_mask',
       headCell: 'pulse_cell:+3',
@@ -405,6 +408,17 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
       });
     }
 
+    // Legendary Weapon Bonding (Available in all versions except Awakening 2.1.1)
+    if (!isAwakening && weapon.isLegendary && build.bondedWeapon) {
+      const bondedWeapon = data.weapons.find(w => w.id === build.bondedWeapon);
+      if (bondedWeapon && bondedWeapon.perks) {
+        bondedWeapon.perks.forEach(p => {
+          const val = isSurged ? p.value : (p.baseValue ?? p.value);
+          addPerkPoint(p.id, p.name, val, `${bondedWeapon.name} (Bond)`, 'Bonded Weapon');
+        });
+      }
+    }
+
     // Awakening Weapon Talents stats
     if (isAwakening && weapon.talents) {
       const chosenIndices = build.weaponTalents || [0, 0, 0, 0, 0];
@@ -625,6 +639,7 @@ export function encodeBuildToHash(build: BuildState): string {
       o: build.omnicell || '',
       ps: build.powerSurged ? 1 : 0,
     };
+    if (build.bondedWeapon) compact.bw = build.bondedWeapon;
     if (build.secondaryWeapon) compact.w2 = build.secondaryWeapon;
     if (build.gearLevels) compact.gl = build.gearLevels;
     if (build.weaponTalents) compact.wt = build.weaponTalents;
@@ -652,6 +667,7 @@ export function decodeBuildFromHash(hashStr: string): Partial<BuildState> | null
     return {
       version: compact.v || '1.14.7',
       weapon: compact.w || null,
+      bondedWeapon: compact.bw || null,
       secondaryWeapon: compact.w2 || null,
       weaponTalents: compact.wt || [0, 0, 0, 0, 0],
       secondaryWeaponTalents: compact.w2t || [0, 0, 0, 0, 0],

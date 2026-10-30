@@ -274,6 +274,20 @@ export const App: React.FC = () => {
         }
         next.weapon = id;
         next.weaponTalents = [0, 0, 0, 0, 0];
+        if (!newWeapon?.isLegendary || !prev.bondedWeapon) {
+          next.bondedWeapon = null;
+        } else {
+          const bonded = patchData?.weapons.find(w => w.id === prev.bondedWeapon);
+          if (
+            !bonded ||
+            bonded.type.toLowerCase() !== newWeapon.type.toLowerCase() ||
+            bonded.element.toLowerCase() !== (newWeapon.bondElement || newWeapon.element).toLowerCase()
+          ) {
+            next.bondedWeapon = null;
+          }
+        }
+      } else if (slot === 'bondedWeapon') {
+        next.bondedWeapon = id;
       } else if (slot === 'secondaryWeapon') {
         next.secondaryWeapon = id;
         next.secondaryWeaponTalents = [0, 0, 0, 0, 0];
@@ -368,6 +382,7 @@ export const App: React.FC = () => {
     const slot = activePicker.slot;
     if (!slot) return null;
     if (slot === 'weapon') return build.weapon;
+    if (slot === 'bondedWeapon') return build.bondedWeapon || null;
     if (slot === 'secondaryWeapon') return build.secondaryWeapon || null;
     if (slot === 'weaponCell_0') return build.weaponCells[0] || null;
     if (slot === 'weaponCell_1') return build.weaponCells[1] || null;
@@ -511,6 +526,9 @@ export const App: React.FC = () => {
                   onOpenPicker={(slot, socket) => {
                     setActivePicker({ slot, socket });
                   }}
+                  onUnbondWeapon={() => {
+                    setBuild(prev => ({ ...prev, bondedWeapon: null }));
+                  }}
                   onGearLevelChange={handleGearLevelChange}
                   onWeaponTalentChange={handleWeaponTalentChange}
                 />
@@ -621,6 +639,7 @@ export const App: React.FC = () => {
           onSelect={handleSlotSelect}
           allowedSocket={activePicker.socket}
           powerSurged={build.powerSurged}
+          equippedWeapon={currentWeapon}
         />
       )}
 

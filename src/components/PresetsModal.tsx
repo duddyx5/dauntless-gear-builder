@@ -226,6 +226,7 @@ export const PresetsModal: React.FC<PresetsModalProps> = ({
 
         const gearItems = [
           b.weapon,
+          b.bondedWeapon,
           b.secondaryWeapon,
           b.head,
           b.torso,
@@ -306,7 +307,7 @@ export const PresetsModal: React.FC<PresetsModalProps> = ({
         if (cb.version.toLowerCase().includes(q)) return true;
         const b = cb.build;
         if (!b) return false;
-        const gearItems = [b.weapon, b.secondaryWeapon, b.head, b.torso, b.arms, b.legs, b.omnicell, b.lantern];
+        const gearItems = [b.weapon, b.bondedWeapon, b.secondaryWeapon, b.head, b.torso, b.arms, b.legs, b.omnicell, b.lantern];
         if (gearItems.some(item => item && item.toLowerCase().replace(/_/g, ' ').includes(q))) return true;
         const cellItems = [...(b.weaponCells || []), b.headCell, b.torsoCell, b.torsoCell2, b.armsCell, b.legsCell, b.legsCell2, b.lanternCell];
         if (cellItems.some(cell => cell && cell.toLowerCase().replace(/_/g, ' ').includes(q))) return true;

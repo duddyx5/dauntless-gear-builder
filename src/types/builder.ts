@@ -79,6 +79,7 @@ export interface WeaponItem {
   perks: ItemPerkRef[];
   uniqueEffect: string | null;
   isLegendary?: boolean;
+  bondElement?: string | null;
   talents?: WeaponTalentTier[];
   specialName?: string;
   specialDesc?: string;
@@ -146,6 +147,7 @@ export interface PatchData {
 export interface BuildState {
   version: string;
   weapon: string | null;
+  bondedWeapon?: string | null;
   secondaryWeapon?: string | null;
   weaponTalents?: number[];
   secondaryWeaponTalents?: number[];

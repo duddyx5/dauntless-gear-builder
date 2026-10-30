@@ -106,9 +106,12 @@ function compileYamlPatch(patchId, baseDir) {
     const doc = yaml.load(fs.readFileSync(f, 'utf8'));
     if (!doc || !doc.name) continue;
     const type = (doc.type || 'Head').toLowerCase();
+    const behemothDir = path.basename(path.dirname(f));
+    const behemoth = doc.behemoth || (behemothDir.charAt(0).toUpperCase() + behemothDir.slice(1));
     const desc = interpolate(doc.description, {
       typeAlt: doc.type,
-      behemoth: doc.behemoth
+      type: doc.type,
+      behemoth
     });
 
     let cellSocket = 'prismatic';
@@ -120,14 +123,36 @@ function compileYamlPatch(patchId, baseDir) {
 
     const perks = [];
     if (Array.isArray(doc.perks)) {
-      const psPerk = doc.perks.find(p => p.powerSurged) || doc.perks[0];
-      if (psPerk) {
+      const perkGroups = {};
+      for (const p of doc.perks) {
+        if (!p.name) continue;
+        if (!perkGroups[p.name]) perkGroups[p.name] = [];
+        perkGroups[p.name].push(p);
+      }
+      for (const [pName, group] of Object.entries(perkGroups)) {
+        const psPerk = group.find(p => p.powerSurged === true || p.from === 1 || p.to === 1) || group[group.length - 1];
+        const basePerk = group.find(p => p.powerSurged === false || p.from === 0 || p.to === 0) || group[0];
         perks.push({
-          id: slugify(psPerk.name),
-          name: psPerk.name,
-          value: psPerk.value,
-          baseValue: (doc.perks.find(p => !p.powerSurged) || psPerk).value
+          id: slugify(pName),
+          name: pName,
+          value: psPerk ? psPerk.value : 3,
+          baseValue: basePerk ? basePerk.value : (psPerk ? psPerk.value : 1)
         });
+      }
+    }
+
+    let baseResistance = 20;
+    let maxResistance = 30;
+    if (doc.resistance) {
+      if (typeof doc.resistance.base === 'number') {
+        baseResistance = doc.resistance.base;
+      } else if (typeof doc.resistance[0] === 'number') {
+        baseResistance = doc.resistance[0];
+      }
+      if (typeof doc.resistance.powerSurged === 'number') {
+        maxResistance = doc.resistance.powerSurged;
+      } else if (typeof doc.resistance[1] === 'number') {
+        maxResistance = doc.resistance[1];
       }
     }
 
@@ -136,13 +161,13 @@ function compileYamlPatch(patchId, baseDir) {
       name: doc.name,
       slot: type,
       slotName: doc.type || 'Head',
-      behemoth: doc.behemoth || 'Unknown',
+      behemoth,
       icon: doc.icon || '',
       description: desc,
       strength: doc.strength || null,
       weakness: doc.weakness || null,
-      baseResistance: (doc.resistance && doc.resistance.base) || 20,
-      maxResistance: (doc.resistance && doc.resistance.powerSurged) || 30,
+      baseResistance,
+      maxResistance,
       cellSocket,
       perks
     });
@@ -155,9 +180,11 @@ function compileYamlPatch(patchId, baseDir) {
     const doc = yaml.load(fs.readFileSync(f, 'utf8'));
     if (!doc || !doc.name) continue;
     const type = (doc.type || 'Sword').toLowerCase();
+    const behemothDir = path.basename(path.dirname(f));
+    const behemoth = doc.behemoth || (behemothDir.charAt(0).toUpperCase() + behemothDir.slice(1));
     const desc = interpolate(doc.description, {
       type: doc.type,
-      behemoth: doc.behemoth
+      behemoth
     });
 
     const cellSockets = [];
@@ -169,39 +196,65 @@ function compileYamlPatch(patchId, baseDir) {
 
     const perks = [];
     if (Array.isArray(doc.perks)) {
-      const psPerk = doc.perks.find(p => p.powerSurged) || doc.perks[0];
-      if (psPerk) {
+      const perkGroups = {};
+      for (const p of doc.perks) {
+        if (!p.name) continue;
+        if (!perkGroups[p.name]) perkGroups[p.name] = [];
+        perkGroups[p.name].push(p);
+      }
+      for (const [pName, group] of Object.entries(perkGroups)) {
+        const psPerk = group.find(p => p.powerSurged === true || p.from === 1 || p.to === 1) || group[group.length - 1];
+        const basePerk = group.find(p => p.powerSurged === false || p.from === 0 || p.to === 0) || group[0];
         perks.push({
-          id: slugify(psPerk.name),
-          name: psPerk.name,
-          value: psPerk.value,
-          baseValue: (doc.perks.find(p => !p.powerSurged) || psPerk).value
+          id: slugify(pName),
+          name: pName,
+          value: psPerk ? psPerk.value : 3,
+          baseValue: basePerk ? basePerk.value : (psPerk ? psPerk.value : 1)
         });
       }
     }
 
     let uniqueEffect = null;
     if (Array.isArray(doc.unique_effects) && doc.unique_effects.length > 0) {
-      const ue = doc.unique_effects.find(u => u.powerSurged) || doc.unique_effects[0];
+      const ue = doc.unique_effects.find(u => u.powerSurged === true || u.from === 1 || u.to === 1) || doc.unique_effects[doc.unique_effects.length - 1];
       uniqueEffect = interpolate(ue.description, ue.values);
     }
+
+    let basePower = 80;
+    let maxPower = 120;
+    if (doc.power) {
+      if (typeof doc.power.base === 'number') {
+        basePower = doc.power.base;
+      } else if (typeof doc.power[0] === 'number') {
+        basePower = doc.power[0];
+      }
+      if (typeof doc.power.powerSurged === 'number') {
+        maxPower = doc.power.powerSurged;
+      } else if (typeof doc.power[1] === 'number') {
+        maxPower = doc.power[1];
+      }
+    }
+
+    const isLegendary = !!doc.bond || ['Malkarion', 'Torgadoro', 'Thrax', 'Agarus', 'Urska', 'Chronovore'].includes(behemoth);
+    const bondElement = (doc.bond && doc.bond.elemental) || (isLegendary ? (doc.elemental || 'Neutral') : null);
 
     weaponsList.push({
       id: slugify(doc.name),
       name: doc.name,
       type,
       typeName: doc.type || 'Sword',
-      behemoth: doc.behemoth || 'Unknown',
+      behemoth,
       icon: doc.icon || '',
       description: desc,
       damageType: doc.damage || 'Cutting',
       element: doc.elemental || 'Neutral',
-      basePower: (doc.power && doc.power.base) || 80,
-      maxPower: (doc.power && doc.power.powerSurged) || 120,
+      basePower,
+      maxPower,
       cellSockets,
       perks,
       uniqueEffect,
-      isLegendary: ['Malkarion', 'Torgadoro', 'Thrax', 'Agarus', 'Urska', 'Chronovore'].includes(doc.behemoth)
+      isLegendary,
+      bondElement
     });
   }
 

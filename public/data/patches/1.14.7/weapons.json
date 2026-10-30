@@ -17,7 +17,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.\n",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Terra"
   },
   {
     "id": "death_blossoms",
@@ -37,7 +38,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.\n",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Terra"
   },
   {
     "id": "malignant_scourge",
@@ -57,7 +59,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.\n",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Terra"
   },
   {
     "id": "parasitic_curse",
@@ -77,7 +80,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.\n",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Terra"
   },
   {
     "id": "poisonous_thorn",
@@ -97,7 +101,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.\n",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Terra"
   },
   {
     "id": "tainted_needles",
@@ -117,7 +122,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.\n",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Terra"
   },
   {
     "id": "unsteady_ground",
@@ -137,7 +143,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.\n",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Terra"
   },
   {
     "id": "glyph_weaver_axe",
@@ -163,8 +170,9 @@
         "baseValue": 2
       }
     ],
-    "uniqueEffect": "On lantern use, spawn a glyph based on your active glyph type that charges after three seconds. Once charged, the glyph will activate when a Behemoth makes contact.\n \n Red Glyph: Deals 1500 radiant damage in a radius.\n Blue Glyph: Grants 150 stacking shields that expire after 25s to slayers in a large radius (max 600 shields).\n Jump to change the active glyph type. Glyphs expire after 10s.",
-    "isLegendary": false
+    "uniqueEffect": "On lantern use, spawn a glyph based on your active glyph type that charges after three seconds. Once charged, the glyph will activate when a Behemoth makes contact.{{NL}} {{NL}} Red Glyph: Deals 1500 radiant damage in a radius.{{NL}} Blue Glyph: Grants 150 stacking shields that expire after 25s to slayers in a large radius (max 600 shields).{{NL}} Jump to change the active glyph type. Glyphs expire after 10s.",
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "glyph_weaver_blades",
@@ -190,8 +198,9 @@
         "baseValue": 2
       }
     ],
-    "uniqueEffect": "On lantern use, spawn a glyph based on your active glyph type that charges after three seconds. Once charged, the glyph will activate when a Behemoth makes contact.\n \n Red Glyph: Deals 1500 radiant damage in a radius.\n Blue Glyph: Grants 150 stacking shields that expire after 25s to slayers in a large radius (max 600 shields).\n Jump to change the active glyph type. Glyphs expire after 10s.",
-    "isLegendary": false
+    "uniqueEffect": "On lantern use, spawn a glyph based on your active glyph type that charges after three seconds. Once charged, the glyph will activate when a Behemoth makes contact.{{NL}} {{NL}} Red Glyph: Deals 1500 radiant damage in a radius.{{NL}} Blue Glyph: Grants 150 stacking shields that expire after 25s to slayers in a large radius (max 600 shields).{{NL}} Jump to change the active glyph type. Glyphs expire after 10s.",
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "glyph_weaver_claws",
@@ -217,8 +226,9 @@
         "baseValue": 2
       }
     ],
-    "uniqueEffect": "On lantern use, spawn a glyph based on your active glyph type that charges after three seconds. Once charged, the glyph will activate when a Behemoth makes contact.\n \n Red Glyph: Deals 1500 radiant damage in a radius.\n Blue Glyph: Grants 150 stacking shields that expire after 25s to slayers in a large radius (max 600 shields).\n Jump to change the active glyph type. Glyphs expire after 10s.",
-    "isLegendary": false
+    "uniqueEffect": "On lantern use, spawn a glyph based on your active glyph type that charges after three seconds. Once charged, the glyph will activate when a Behemoth makes contact.{{NL}} {{NL}} Red Glyph: Deals 1500 radiant damage in a radius.{{NL}} Blue Glyph: Grants 150 stacking shields that expire after 25s to slayers in a large radius (max 600 shields).{{NL}} Jump to change the active glyph type. Glyphs expire after 10s.",
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "glyph_weaver_edge",
@@ -244,8 +254,9 @@
         "baseValue": 2
       }
     ],
-    "uniqueEffect": "On lantern use, spawn a glyph based on your active glyph type that charges after three seconds. Once charged, the glyph will activate when a Behemoth makes contact.\n \n Red Glyph: Deals 1500 radiant damage in a radius.\n Blue Glyph: Grants 150 stacking shields that expire after 25s to slayers in a large radius (max 600 shields).\n Jump to change the active glyph type. Glyphs expire after 10s.",
-    "isLegendary": false
+    "uniqueEffect": "On lantern use, spawn a glyph based on your active glyph type that charges after three seconds. Once charged, the glyph will activate when a Behemoth makes contact.{{NL}} {{NL}} Red Glyph: Deals 1500 radiant damage in a radius.{{NL}} Blue Glyph: Grants 150 stacking shields that expire after 25s to slayers in a large radius (max 600 shields).{{NL}} Jump to change the active glyph type. Glyphs expire after 10s.",
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "glyph_weaver_maul",
@@ -271,8 +282,9 @@
         "baseValue": 2
       }
     ],
-    "uniqueEffect": "On lantern use, spawn a glyph based on your active glyph type that charges after three seconds. Once charged, the glyph will activate when a Behemoth makes contact.\n \n Red Glyph: Deals 1500 radiant damage in a radius.\n Blue Glyph: Grants 150 stacking shields that expire after 25s to slayers in a large radius (max 600 shields).\n Jump to change the active glyph type. Glyphs expire after 10s.",
-    "isLegendary": false
+    "uniqueEffect": "On lantern use, spawn a glyph based on your active glyph type that charges after three seconds. Once charged, the glyph will activate when a Behemoth makes contact.{{NL}} {{NL}} Red Glyph: Deals 1500 radiant damage in a radius.{{NL}} Blue Glyph: Grants 150 stacking shields that expire after 25s to slayers in a large radius (max 600 shields).{{NL}} Jump to change the active glyph type. Glyphs expire after 10s.",
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "glyph_weaver_pistols",
@@ -298,8 +310,9 @@
         "baseValue": 2
       }
     ],
-    "uniqueEffect": "On lantern use, spawn a glyph based on your active glyph type that charges after three seconds. Once charged, the glyph will activate when a Behemoth makes contact.\n \n Red Glyph: Deals 1500 radiant damage in a radius.\n Blue Glyph: Grants 150 stacking shields that expire after 25s to slayers in a large radius (max 600 shields).\n Jump to change the active glyph type. Glyphs expire after 10s.",
-    "isLegendary": false
+    "uniqueEffect": "On lantern use, spawn a glyph based on your active glyph type that charges after three seconds. Once charged, the glyph will activate when a Behemoth makes contact.{{NL}} {{NL}} Red Glyph: Deals 1500 radiant damage in a radius.{{NL}} Blue Glyph: Grants 150 stacking shields that expire after 25s to slayers in a large radius (max 600 shields).{{NL}} Jump to change the active glyph type. Glyphs expire after 10s.",
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "glyph_weaver_spear",
@@ -325,8 +338,9 @@
         "baseValue": 2
       }
     ],
-    "uniqueEffect": "On lantern use, spawn a glyph based on your active glyph type that charges after three seconds. Once charged, the glyph will activate when a Behemoth makes contact.\n \n Red Glyph: Deals 1500 radiant damage in a radius.\n Blue Glyph: Grants 150 stacking shields that expire after 25s to slayers in a large radius (max 600 shields).\n Jump to change the active glyph type. Glyphs expire after 10s.",
-    "isLegendary": false
+    "uniqueEffect": "On lantern use, spawn a glyph based on your active glyph type that charges after three seconds. Once charged, the glyph will activate when a Behemoth makes contact.{{NL}} {{NL}} Red Glyph: Deals 1500 radiant damage in a radius.{{NL}} Blue Glyph: Grants 150 stacking shields that expire after 25s to slayers in a large radius (max 600 shields).{{NL}} Jump to change the active glyph type. Glyphs expire after 10s.",
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "brawlers_of_boreus",
@@ -353,7 +367,8 @@
       }
     ],
     "uniqueEffect": "After Surging, continually generate Frost Sprites for 6 seconds that grant your next attack +60 damage and minor frost damage (Max 4 Sprites)",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "brutality_of_boreus",
@@ -380,7 +395,8 @@
       }
     ],
     "uniqueEffect": "After spending ammo, generate generate 2 Frost Sprites that grant your next attack +60 damage and minor frost damage (Max 4 Sprites)",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "destiny_of_boreus",
@@ -407,7 +423,8 @@
       }
     ],
     "uniqueEffect": "After spending ammo, generate generate 3 Frost Sprites that grant your next attack +60 damage and minor frost damage (Max 4 Sprites)",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "onus_of_boreus",
@@ -434,7 +451,8 @@
       }
     ],
     "uniqueEffect": "Using your special continually generates Frost Sprites that grant your next attack +60 damage and minor frost damage (Max 4 Sprites)",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "revolution_of_boreus",
@@ -461,7 +479,8 @@
       }
     ],
     "uniqueEffect": "Storing or spending ammo continually generates Frost Sprites for 6 seconds that grant your next attack +60 damage and minor frost damage (Max 4 Sprites)",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "turmoil_of_boreus",
@@ -488,7 +507,8 @@
       }
     ],
     "uniqueEffect": "After each charge attack level, generate 2 Frost Sprites that grant your next attack +60 damage and minor frost damage (Max 4 Sprites)",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "voice_of_boreus",
@@ -515,7 +535,8 @@
       }
     ],
     "uniqueEffect": "The last 4 shots in your magazine generates Frost Sprites that grant your next attack +60 damage and minor frost damage (Max 4 Sprites)",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "charred_blades",
@@ -542,7 +563,8 @@
       }
     ],
     "uniqueEffect": "After spending 150 stamina, next attack emits a cone of flame that deals +200 blaze damage to each unique target within the cone",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "charred_cleaver",
@@ -569,7 +591,8 @@
       }
     ],
     "uniqueEffect": "After spending 100 stamina, next attack emits a cone of flame that deals +200 blaze damage to each unique target within the cone",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "charred_crusher",
@@ -596,7 +619,8 @@
       }
     ],
     "uniqueEffect": "After spending 50 stamina, next attack emits a cone of flame that deals +200 blaze damage to each unique target within the cone",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "charred_hands",
@@ -623,7 +647,8 @@
       }
     ],
     "uniqueEffect": "After spending 75 stamina, next attack emits a cone of flame that deals +200 blaze damage to each unique target within the cone",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "charred_pistols",
@@ -650,7 +675,8 @@
       }
     ],
     "uniqueEffect": "After spending 50 stamina, next attack emits a cone of flame that deals +200 blaze damage to each unique target within the cone",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "charred_saber",
@@ -677,7 +703,8 @@
       }
     ],
     "uniqueEffect": "After spending 75 stamina, next attack emits a cone of flame that deals +200 blaze damage to each unique target within the cone",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "charred_spear",
@@ -704,7 +731,8 @@
       }
     ],
     "uniqueEffect": "After spending 75 stamina, next attack emits a cone of flame that deals +200 blaze damage to each unique target within the cone",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "molten_edict",
@@ -731,7 +759,8 @@
       }
     ],
     "uniqueEffect": "Replaces all hammer blasts with unique fireball abilities that deal blaze damage.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "chaos_entropy",
@@ -751,7 +780,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Rewind to your position 3 seconds prior to activation. Restores health and stamina lost\nin that time, and removes debuffs. Become invulnerable and gain increased move speed for 6 seconds. Usable\nwhile downed. Resets on Behemoth kill or after 90 seconds.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Radiant"
   },
   {
     "id": "edge_of_tomorrow",
@@ -771,7 +801,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Rewind to your position 3 seconds prior to activation. Restores health and stamina lost\nin that time, and removes debuffs. Become invulnerable and gain increased move speed for 6 seconds. Usable\nwhile downed. Resets on Behemoth kill or after 90 seconds.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Radiant"
   },
   {
     "id": "existential_crisis",
@@ -791,7 +822,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Rewind to your position 3 seconds prior to activation. Restores health and stamina lost\nin that time, and removes debuffs. Become invulnerable and gain increased move speed for 6 seconds. Usable\nwhile downed. Resets on Behemoth kill or after 90 seconds.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Radiant"
   },
   {
     "id": "history_s_burden",
@@ -811,7 +843,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Rewind to your position 3 seconds prior to activation. Restores health and stamina lost\nin that time, and removes debuffs. Become invulnerable and gain increased move speed for 6 seconds. Usable\nwhile downed. Resets on Behemoth kill or after 90 seconds.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Radiant"
   },
   {
     "id": "millennium_s_end",
@@ -831,7 +864,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Rewind to your position 3 seconds prior to activation. Restores health and stamina lost\nin that time, and removes debuffs. Become invulnerable and gain increased move speed for 6 seconds. Usable\nwhile downed. Resets on Behemoth kill or after 90 seconds.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Radiant"
   },
   {
     "id": "temporal_mechanics",
@@ -851,7 +885,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Rewind to your position 3 seconds prior to activation. Restores health and stamina lost\nin that time, and removes debuffs. Become invulnerable and gain increased move speed for 6 seconds. Usable\nwhile downed. Resets on Behemoth kill or after 90 seconds.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Radiant"
   },
   {
     "id": "the_weeping_hours",
@@ -871,7 +906,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Rewind to your position 3 seconds prior to activation. Restores health and stamina lost\nin that time, and removes debuffs. Become invulnerable and gain increased move speed for 6 seconds. Usable\nwhile downed. Resets on Behemoth kill or after 90 seconds.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Radiant"
   },
   {
     "id": "thundering_blade",
@@ -898,7 +934,8 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Tails",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "thundering_bolts",
@@ -925,7 +962,8 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Heads",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "thundering_cutters",
@@ -952,7 +990,8 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Tails",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "thundering_guns",
@@ -979,7 +1018,8 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Heads",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "thundering_maul",
@@ -1006,7 +1046,8 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Heads",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "thundering_scythe",
@@ -1033,7 +1074,8 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Heads",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "thundering_spear",
@@ -1060,7 +1102,8 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Tails",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "ember_blades",
@@ -1087,7 +1130,8 @@
       }
     ],
     "uniqueEffect": "The 9th hit in quick succession deals +250 bonus part damage.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "ember_cutlass",
@@ -1114,7 +1158,8 @@
       }
     ],
     "uniqueEffect": "The 6th hit in a row deals +250% part damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "ember_fists",
@@ -1141,7 +1186,8 @@
       }
     ],
     "uniqueEffect": "The 4th hit in a row deals +150% stagger damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "ember_maul",
@@ -1168,7 +1214,8 @@
       }
     ],
     "uniqueEffect": "The 4th hit in a row deals +150% stagger damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "ember_pike",
@@ -1195,7 +1242,8 @@
       }
     ],
     "uniqueEffect": "The 7th hit in a row deals +300 wound damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "ember_scythe",
@@ -1222,7 +1270,8 @@
       }
     ],
     "uniqueEffect": "The 3rd hit in quick succession deals +250 bonus part damage.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "ember_shots",
@@ -1249,14 +1298,15 @@
       }
     ],
     "uniqueEffect": "The 6th hit in a row deals +250% part damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "silver_sword",
     "name": "Silver Sword",
     "type": "sword",
     "typeName": "Sword",
-    "behemoth": "Unknown",
+    "behemoth": "Event",
     "icon": "/assets/icons/weapons/event/SilverSword.png",
     "description": "The sword once used by Silver Nikola, Queen Linnea's ancestor.",
     "damageType": "Slashing",
@@ -1273,17 +1323,24 @@
         "name": "Guardian",
         "value": 3,
         "baseValue": 1
+      },
+      {
+        "id": "galvanized",
+        "name": "Galvanized",
+        "value": 3,
+        "baseValue": 3
       }
     ],
-    "uniqueEffect": "+50% Shield\n +30% Healing\n +300 Max Health",
-    "isLegendary": false
+    "uniqueEffect": "+50% Shield{{NL}} +30% Healing{{NL}} +300 Max Health",
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "the_golden_claws",
     "name": "The Golden Claws",
     "type": "aether strikers",
     "typeName": "Aether Strikers",
-    "behemoth": "Unknown",
+    "behemoth": "Event",
     "icon": "/assets/icons/weapons/event/TheGoldenClaws.png",
     "description": "A treasured pair of pugilist weapons once thought lost to time.",
     "damageType": "Blunt",
@@ -1300,10 +1357,17 @@
         "name": "Bladestorm",
         "value": 3,
         "baseValue": 1
+      },
+      {
+        "id": "nimble",
+        "name": "Nimble",
+        "value": 3,
+        "baseValue": 3
       }
     ],
     "uniqueEffect": "+30% Part Damage -200 max health",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "fenroar_s_blade",
@@ -1330,7 +1394,8 @@
       }
     ],
     "uniqueEffect": "On jumping, create a platform of stone in the air ahead of you that lasts for up to 3 seconds. Up to 2 jumps in a row can be performed before ability must be recharged. Activating Lantern refreshes the 2 jumps. Shortly after forming, the platform falls, dealing 250 Terra damage, and interrupting behemoths.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "fenroar_s_branch",
@@ -1357,7 +1422,8 @@
       }
     ],
     "uniqueEffect": "On jumping, create a platform of stone in the air ahead of you that lasts for up to 3 seconds. Up to 2 jumps in a row can be performed before ability must be recharged. Activating Lantern refreshes the 2 jumps. Shortly after forming, the platform falls, dealing 250 Terra damage, and interrupting behemoths.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "fenroar_s_roots",
@@ -1384,7 +1450,8 @@
       }
     ],
     "uniqueEffect": "On jumping, create a platform of stone in the air ahead of you that lasts for up to 3 seconds. Up to 2 jumps in a row can be performed before ability must be recharged. Activating Lantern refreshes the 2 jumps. Shortly after forming, the platform falls, dealing 250 Terra damage, and interrupting behemoths.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "fenroar_s_spine",
@@ -1411,7 +1478,8 @@
       }
     ],
     "uniqueEffect": "On jumping, create a platform of stone in the air ahead of you that lasts for up to 3 seconds. Up to 2 jumps in a row can be performed before ability must be recharged. Activating Lantern refreshes the 2 jumps. Shortly after forming, the platform falls, dealing 250 Terra damage, and interrupting behemoths.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "fenroar_s_thistles",
@@ -1438,7 +1506,8 @@
       }
     ],
     "uniqueEffect": "On jumping, create a platform of stone in the air ahead of you that lasts for up to 3 seconds. Up to 2 jumps in a row can be performed before ability must be recharged. Activating Lantern refreshes the 2 jumps. Shortly after forming, the platform falls, dealing 250 Terra damage, and interrupting behemoths.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "fenroar_s_thorns",
@@ -1465,7 +1534,8 @@
       }
     ],
     "uniqueEffect": "On jumping, create a platform of stone in the air ahead of you that lasts for up to 3 seconds. Up to 2 jumps in a row can be performed before ability must be recharged. Activating Lantern refreshes the 2 jumps. Shortly after forming, the platform falls, dealing 250 Terra damage, and interrupting behemoths.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "fenroar_s_trunk",
@@ -1492,16 +1562,17 @@
       }
     ],
     "uniqueEffect": "On jumping, create a platform of stone in the air ahead of you that lasts for up to 3 seconds. Up to 2 jumps in a row can be performed before ability must be recharged. Activating Lantern refreshes the 2 jumps. Shortly after forming, the platform falls, dealing 250 Terra damage, and interrupting behemoths.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "frostw_lf_s_bite",
-    "name": "Frostw\u00fclf's Bite",
+    "name": "Frostwülf's Bite",
     "type": "sword",
     "typeName": "Sword",
-    "behemoth": "Frostw\u00fclf",
+    "behemoth": "Frostwülf",
     "icon": "/assets/icons/weapons/frostwulf/FrostwulfsBite.png",
-    "description": "A Slayer's Sword forged with Frostw\u00fclf trophies.",
+    "description": "A Slayer's Sword forged with Frostwülf trophies.",
     "damageType": "Slashing",
     "element": "Frost",
     "basePower": 60,
@@ -1519,16 +1590,17 @@
       }
     ],
     "uniqueEffect": "After using your Lantern ability, create a geyser that frequently deals 70 frost damage. Any Slayer moving through the geyser for the first time is granted a stackable 125 health shield that lasts for 25 seconds (max 600 shields).",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "frostw_lf_s_chillers",
-    "name": "Frostw\u00fclf's Chillers",
+    "name": "Frostwülf's Chillers",
     "type": "repeater",
     "typeName": "Repeater",
-    "behemoth": "Frostw\u00fclf",
+    "behemoth": "Frostwülf",
     "icon": "/assets/icons/weapons/frostwulf/FrostwulfsChillers.png",
-    "description": "A Slayer's Repeater forged with Frostw\u00fclf trophies.",
+    "description": "A Slayer's Repeater forged with Frostwülf trophies.",
     "damageType": "Slashing",
     "element": "Frost",
     "basePower": 60,
@@ -1546,16 +1618,17 @@
       }
     ],
     "uniqueEffect": "After using your Lantern ability, create a geyser that frequently deals 70 frost damage. Any Slayer moving through the geyser for the first time is granted a stackable 125 health shield that lasts for 25 seconds (max 600 shields).",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "frostw_lf_s_chomp",
-    "name": "Frostw\u00fclf's Chomp",
+    "name": "Frostwülf's Chomp",
     "type": "axe",
     "typeName": "Axe",
-    "behemoth": "Frostw\u00fclf",
+    "behemoth": "Frostwülf",
     "icon": "/assets/icons/weapons/frostwulf/FrostwulfsChomp.png",
-    "description": "A Slayer's Axe forged with Frostw\u00fclf trophies.",
+    "description": "A Slayer's Axe forged with Frostwülf trophies.",
     "damageType": "Slashing",
     "element": "Frost",
     "basePower": 60,
@@ -1573,16 +1646,17 @@
       }
     ],
     "uniqueEffect": "After using your Lantern ability, create a geyser that frequently deals 70 frost damage. Any Slayer moving through the geyser for the first time is granted a stackable 125 health shield that lasts for 25 seconds (max 600 shields).",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "frostw_lf_s_rip",
-    "name": "Frostw\u00fclf's Rip",
+    "name": "Frostwülf's Rip",
     "type": "war pike",
     "typeName": "War Pike",
-    "behemoth": "Frostw\u00fclf",
+    "behemoth": "Frostwülf",
     "icon": "/assets/icons/weapons/frostwulf/FrostwulfsRip.png",
-    "description": "A Slayer's War Pike forged with Frostw\u00fclf trophies.",
+    "description": "A Slayer's War Pike forged with Frostwülf trophies.",
     "damageType": "Piercing",
     "element": "Frost",
     "basePower": 60,
@@ -1600,16 +1674,17 @@
       }
     ],
     "uniqueEffect": "After using your Lantern ability, create a geyser that frequently deals 70 frost damage. Any Slayer moving through the geyser for the first time is granted a stackable 125 health shield that lasts for 25 seconds (max 600 shields).",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "frostw_lf_s_skinners",
-    "name": "Frostw\u00fclf's Skinners",
+    "name": "Frostwülf's Skinners",
     "type": "chain blades",
     "typeName": "Chain Blades",
-    "behemoth": "Frostw\u00fclf",
+    "behemoth": "Frostwülf",
     "icon": "/assets/icons/weapons/frostwulf/FrostwulfsSkinners.png",
-    "description": "A Slayer's Chain Blades forged with Frostw\u00fclf trophies.",
+    "description": "A Slayer's Chain Blades forged with Frostwülf trophies.",
     "damageType": "Slashing",
     "element": "Frost",
     "basePower": 60,
@@ -1627,16 +1702,17 @@
       }
     ],
     "uniqueEffect": "After using your Lantern ability, create a geyser that frequently deals 70 frost damage. Any Slayer moving through the geyser for the first time is granted a stackable 125 health shield that lasts for 25 seconds (max 600 shields).",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "frostw_lf_s_slam",
-    "name": "Frostw\u00fclf's Slam",
+    "name": "Frostwülf's Slam",
     "type": "hammer",
     "typeName": "Hammer",
-    "behemoth": "Frostw\u00fclf",
+    "behemoth": "Frostwülf",
     "icon": "/assets/icons/weapons/frostwulf/FrostwulfsSlam.png",
-    "description": "A Slayer's Hammer forged with Frostw\u00fclf trophies.",
+    "description": "A Slayer's Hammer forged with Frostwülf trophies.",
     "damageType": "Blunt",
     "element": "Frost",
     "basePower": 60,
@@ -1654,16 +1730,17 @@
       }
     ],
     "uniqueEffect": "After using your Lantern ability, create a geyser that frequently deals 70 frost damage. Any Slayer moving through the geyser for the first time is granted a stackable 125 health shield that lasts for 25 seconds (max 600 shields).",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "frostw_lf_s_tacklers",
-    "name": "Frostw\u00fclf's Tacklers",
+    "name": "Frostwülf's Tacklers",
     "type": "aether strikers",
     "typeName": "Aether Strikers",
-    "behemoth": "Frostw\u00fclf",
+    "behemoth": "Frostwülf",
     "icon": "/assets/icons/weapons/frostwulf/FrostwulfsTacklers.png",
-    "description": "A Slayer's Aether Strikers forged with Frostw\u00fclf trophies.",
+    "description": "A Slayer's Aether Strikers forged with Frostwülf trophies.",
     "damageType": "Blunt",
     "element": "Frost",
     "basePower": 60,
@@ -1681,14 +1758,15 @@
       }
     ],
     "uniqueEffect": "After using your Lantern ability, create a geyser that frequently deals 70 frost damage. Any Slayer moving through the geyser for the first time is granted a stackable 125 health shield that lasts for 25 seconds (max 600 shields).",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "recruit_s_axe",
     "name": "Recruit's Axe",
     "type": "axe",
     "typeName": "Axe",
-    "behemoth": "Unknown",
+    "behemoth": "Generic",
     "icon": "/assets/icons/weapons/generic/RecruitsAxe.png",
     "description": "A Slayer Recruit's axe.",
     "damageType": "Slashing",
@@ -1698,14 +1776,15 @@
     "cellSockets": [],
     "perks": [],
     "uniqueEffect": null,
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "recruit_s_chain_blades",
     "name": "Recruit's Chain Blades",
     "type": "chain blades",
     "typeName": "Chain Blades",
-    "behemoth": "Unknown",
+    "behemoth": "Generic",
     "icon": "/assets/icons/weapons/generic/RecruitsChainBlades.png",
     "description": "A Slayer Recruit's chain blades.",
     "damageType": "Slashing",
@@ -1715,14 +1794,15 @@
     "cellSockets": [],
     "perks": [],
     "uniqueEffect": null,
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "recruit_s_hammer",
     "name": "Recruit's Hammer",
     "type": "hammer",
     "typeName": "Hammer",
-    "behemoth": "Unknown",
+    "behemoth": "Generic",
     "icon": "/assets/icons/weapons/generic/RecruitsHammer.png",
     "description": "A Slayer Recruit's hammer.",
     "damageType": "Blunt",
@@ -1732,14 +1812,15 @@
     "cellSockets": [],
     "perks": [],
     "uniqueEffect": null,
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "recruit_s_repeaters",
     "name": "Recruit's Repeaters",
     "type": "repeater",
     "typeName": "Repeater",
-    "behemoth": "Unknown",
+    "behemoth": "Generic",
     "icon": "/assets/icons/weapons/generic/RecruitsRepeaters.png",
     "description": "A set of Slayer's Repeaters designed for the novice.",
     "damageType": "Slashing",
@@ -1749,14 +1830,15 @@
     "cellSockets": [],
     "perks": [],
     "uniqueEffect": null,
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "recruit_s_strikers",
     "name": "Recruit's Strikers",
     "type": "aether strikers",
     "typeName": "Aether Strikers",
-    "behemoth": "Unknown",
+    "behemoth": "Generic",
     "icon": "/assets/icons/weapons/generic/RecruitsStrikers.png",
     "description": "A simple pair of aether strikers for slaying Behemoths.",
     "damageType": "Blunt",
@@ -1766,14 +1848,15 @@
     "cellSockets": [],
     "perks": [],
     "uniqueEffect": null,
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "recruit_s_sword",
     "name": "Recruit's Sword",
     "type": "sword",
     "typeName": "Sword",
-    "behemoth": "Unknown",
+    "behemoth": "Generic",
     "icon": "/assets/icons/weapons/generic/RecruitsSword.png",
     "description": "A Simple blade for slaying behemoths.",
     "damageType": "Slashing",
@@ -1783,14 +1866,15 @@
     "cellSockets": [],
     "perks": [],
     "uniqueEffect": null,
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "recruit_s_war_pike",
     "name": "Recruit's War Pike",
     "type": "war pike",
     "typeName": "War Pike",
-    "behemoth": "Unknown",
+    "behemoth": "Generic",
     "icon": "/assets/icons/weapons/generic/RecruitsWarPike.png",
     "description": "A Slayer Recruit's war pike.",
     "damageType": "Piercing",
@@ -1800,14 +1884,15 @@
     "cellSockets": [],
     "perks": [],
     "uniqueEffect": null,
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "the_twin_suns",
     "name": "The Twin Suns",
     "type": "repeater",
     "typeName": "Repeater",
-    "behemoth": "Unknown",
+    "behemoth": "Generic",
     "icon": "/assets/icons/weapons/generic/TheTwinSuns.png",
     "description": "Exotic Repeaters.",
     "damageType": "Slashing",
@@ -1826,15 +1911,16 @@
         "baseValue": 2
       }
     ],
-    "uniqueEffect": "While Empowered, gain +40% critical strike chance instead of bonus damage.",
-    "isLegendary": false
+    "uniqueEffect": "After a critical strike, reduce the cooldown of Mag Bomb mode by 3 seconds.",
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "training_sword",
     "name": "Training Sword",
     "type": "sword",
     "typeName": "Sword",
-    "behemoth": "Unknown",
+    "behemoth": "Generic",
     "icon": "/assets/icons/weapons/generic/TrainingSword.png",
     "description": "A dull and tarnished training blade.",
     "damageType": "Slashing",
@@ -1844,7 +1930,8 @@
     "cellSockets": [],
     "perks": [],
     "uniqueEffect": null,
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "raging_bite",
@@ -1871,7 +1958,8 @@
       }
     ],
     "uniqueEffect": "Periodically enter a rage, dealing +15% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "raging_blade",
@@ -1898,7 +1986,8 @@
       }
     ],
     "uniqueEffect": "Periodically enter a rage, dealing +15% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "raging_crash",
@@ -1925,7 +2014,8 @@
       }
     ],
     "uniqueEffect": "Periodically enter a rage, dealing +15% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "raging_cruelty",
@@ -1952,7 +2042,8 @@
       }
     ],
     "uniqueEffect": "Periodically enter a rage, dealing +15% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "raging_fists",
@@ -1979,7 +2070,8 @@
       }
     ],
     "uniqueEffect": "Periodically enter a rage, dealing +15% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "raging_repeaters",
@@ -2006,7 +2098,8 @@
       }
     ],
     "uniqueEffect": "Periodically enter a rage, dealing +15% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "raging_teeth",
@@ -2033,7 +2126,8 @@
       }
     ],
     "uniqueEffect": "Periodically enter a rage, dealing +15% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "inferno_s_arrow",
@@ -2060,7 +2154,8 @@
       }
     ],
     "uniqueEffect": "The 15th hit in a row deals +200 damage and major blaze damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "inferno_s_burden",
@@ -2087,7 +2182,8 @@
       }
     ],
     "uniqueEffect": "The 5th hit in a row deals +225 damage and major blaze damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "inferno_s_decree",
@@ -2114,7 +2210,8 @@
       }
     ],
     "uniqueEffect": "The 5th hit in a row deals +225 damage and major blaze damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "inferno_s_fangs",
@@ -2141,7 +2238,8 @@
       }
     ],
     "uniqueEffect": "The 15th hit in a row deals +225 damage and major blaze damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "inferno_s_flames",
@@ -2168,7 +2266,8 @@
       }
     ],
     "uniqueEffect": "The 8th hit in a row deals +225 damage and major blaze damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "inferno_s_razor",
@@ -2195,7 +2294,8 @@
       }
     ],
     "uniqueEffect": "The 8th hit in a row deals +225 damage and major blaze damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "inferno_s_roar",
@@ -2222,7 +2322,8 @@
       }
     ],
     "uniqueEffect": "The 10th hit in a row deals +225 damage and major blaze damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "kharabak_s_claw",
@@ -2249,7 +2350,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 75 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "kharabak_s_jaw",
@@ -2276,7 +2378,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 75 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "kharabak_s_lights",
@@ -2303,7 +2406,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 75 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "kharabak_s_pincers",
@@ -2330,7 +2434,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 75 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "kharabak_s_spur",
@@ -2357,7 +2462,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 75 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "kharabak_s_sting",
@@ -2384,7 +2490,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 75 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "kharabak_s_wings",
@@ -2411,7 +2518,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 75 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "sovereign_s_decrees",
@@ -2438,7 +2546,8 @@
       }
     ],
     "uniqueEffect": "After not dealing damage for 4 seconds, your next 5 attacks deal +50% damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "sovereign_s_grudge",
@@ -2465,7 +2574,8 @@
       }
     ],
     "uniqueEffect": "After not dealing damage for 4 seconds, your next 2 attacks deal +50% damage.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "sovereign_s_lash",
@@ -2492,7 +2602,8 @@
       }
     ],
     "uniqueEffect": "After not dealing damage for 4 seconds, your next 6 attacks deal +50% damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "sovereign_s_sceptres",
@@ -2519,7 +2630,8 @@
       }
     ],
     "uniqueEffect": "After not dealing damage for 4 seconds, your next 5 attacks deal +50% damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "sovereign_s_sorrow",
@@ -2546,7 +2658,8 @@
       }
     ],
     "uniqueEffect": "After not dealing damage for 4 seconds, your next 5 attacks deal +50% damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "sovereign_s_torment",
@@ -2573,7 +2686,8 @@
       }
     ],
     "uniqueEffect": "After not dealing damage for 4 seconds, your next 4 attacks deal +50% damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "sovereign_s_wrath",
@@ -2600,7 +2714,8 @@
       }
     ],
     "uniqueEffect": "After not dealing damage for 4 seconds, your next 2 attacks deal +50% damage.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "cyclonic_fury",
@@ -2620,7 +2735,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Teleport to a Behemoth, dealing Shock damage. Usable once, but resets on Behemoth kill.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Shock"
   },
   {
     "id": "dynamic_deadlights",
@@ -2640,7 +2756,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Teleport to a Behemoth, dealing Shock damage. Usable once, but resets on Behemoth kill.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Shock"
   },
   {
     "id": "electric_cruelties",
@@ -2660,7 +2777,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Teleport to a Behemoth, dealing Shock damage. Usable once, but resets on Behemoth kill.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Shock"
   },
   {
     "id": "galvanic_impact",
@@ -2680,7 +2798,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Teleport to a Behemoth, dealing Shock damage. Usable once, but resets on Behemoth kill.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Shock"
   },
   {
     "id": "mistral_currents",
@@ -2700,7 +2819,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Teleport to a Behemoth, dealing Shock damage. Usable once, but resets on Behemoth kill.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Shock"
   },
   {
     "id": "terminal_voltage",
@@ -2720,7 +2840,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Teleport to a Behemoth, dealing Shock damage. Usable once, but resets on Behemoth kill.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Shock"
   },
   {
     "id": "the_conductor",
@@ -2740,7 +2861,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Teleport to a Behemoth, dealing Shock damage. Usable once, but resets on Behemoth kill.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Shock"
   },
   {
     "id": "nayzaga_s_charge",
@@ -2767,7 +2889,8 @@
       }
     ],
     "uniqueEffect": "After a Behemoth is staggered, heal for 300",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "nayzaga_s_fang",
@@ -2794,7 +2917,8 @@
       }
     ],
     "uniqueEffect": "+5% lifesteal vs wounded parts",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "nayzaga_s_razor",
@@ -2821,7 +2945,8 @@
       }
     ],
     "uniqueEffect": "When Behemoth part is broken, heal for 200",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "nayzaga_s_reach",
@@ -2848,7 +2973,8 @@
       }
     ],
     "uniqueEffect": "When Behemoth part is broken, heal for 200",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "nayzaga_s_scythe",
@@ -2875,7 +3001,8 @@
       }
     ],
     "uniqueEffect": "After landing perfectly charged attacks, heal for 100",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "nayzaga_s_shockers",
@@ -2902,7 +3029,8 @@
       }
     ],
     "uniqueEffect": "After a Behemoth is staggered, heal for 300",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "nayzaga_s_spikes",
@@ -2929,7 +3057,8 @@
       }
     ],
     "uniqueEffect": "When you fire the last shot in your magazine, heal for 25",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "pangar_s_call",
@@ -2956,7 +3085,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack places a frost brand that deals 2500 frost damage after 30 seconds. Slayers\ncan destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "pangar_s_claws",
@@ -2983,7 +3113,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack places a frost brand that deals 2500 frost damage after 30 seconds. Slayers\ncan destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "pangar_s_grace",
@@ -3010,7 +3141,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack places a frost brand that deals 2500 frost damage after 30 seconds. Slayers\ncan destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "pangar_s_nightmares",
@@ -3037,7 +3169,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack places a frost brand that deals 2500 frost damage after 30 seconds. Slayers\ncan destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "pangar_s_punishers",
@@ -3064,7 +3197,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack places a frost brand that deals 2500 frost damage after 30 seconds. Slayers\ncan destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "pangar_s_rampage",
@@ -3091,7 +3225,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack places a frost brand that deals 2500 frost damage after 30 seconds. Slayers\ncan destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "pangar_s_tooth",
@@ -3118,7 +3253,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack places a frost brand that deals 2500 frost damage after 30 seconds. Slayers\ncan destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "call_of_the_firebird",
@@ -3145,7 +3281,8 @@
       }
     ],
     "uniqueEffect": "Attack a Behemoth part to lock onto it and load a homing missile. Missile deals 175 damage and increases the\ndamage of every other missile in the volley by 175. Deal damage to load up to a maximum of 3 additional missiles.\nDodging fires all loaded missiles on the locked-on part. 45 second cooldown.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "eyes_of_the_firebird",
@@ -3172,7 +3309,8 @@
       }
     ],
     "uniqueEffect": "Attack a Behemoth part to lock onto it and load a homing missile. Missile deals 175 damage and increases the\ndamage of every other missile in the volley by 175. Deal damage to load up to a maximum of 3 additional missiles.\nDodging fires all loaded missiles on the locked-on part. 45 second cooldown.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "fate_of_the_firebird",
@@ -3199,7 +3337,8 @@
       }
     ],
     "uniqueEffect": "Attack a Behemoth part to lock onto it and load a homing missile. Missile deals 175 damage and increases the\ndamage of every other missile in the volley by 175. Deal damage to load up to a maximum of 3 additional missiles.\nDodging fires all loaded missiles on the locked-on part. 45 second cooldown.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "fists_of_the_firebird",
@@ -3226,7 +3365,8 @@
       }
     ],
     "uniqueEffect": "Attack a Behemoth part to lock onto it and load a homing missile. Missile deals 175 damage and increases the\ndamage of every other missile in the volley by 175. Deal damage to load up to a maximum of 3 additional missiles.\nDodging fires all loaded missiles on the locked-on part. 45 second cooldown.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "rage_of_the_firebird",
@@ -3253,7 +3393,8 @@
       }
     ],
     "uniqueEffect": "Attack a Behemoth part to lock onto it and load a homing missile. Missile deals 175 damage and increases the\ndamage of every other missile in the volley by 175. Deal damage to load up to a maximum of 3 additional missiles.\nDodging fires all loaded missiles on the locked-on part. 45 second cooldown.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "shriek_of_the_firebird",
@@ -3280,7 +3421,8 @@
       }
     ],
     "uniqueEffect": "Attack a Behemoth part to lock onto it and load a homing missile. Missile deals 175 damage and increases the\ndamage of every other missile in the volley by 175. Deal damage to load up to a maximum of 3 additional missiles.\nDodging fires all loaded missiles on the locked-on part. 45 second cooldown.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "talons_of_the_firebird",
@@ -3307,7 +3449,8 @@
       }
     ],
     "uniqueEffect": "Attack a Behemoth part to lock onto it and load a homing missile. Missile deals 175 damage and increases the\ndamage of every other missile in the volley by 175. Deal damage to load up to a maximum of 3 additional missiles.\nDodging fires all loaded missiles on the locked-on part. 45 second cooldown.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "quillshot_s_bonehooks",
@@ -3334,7 +3477,8 @@
       }
     ],
     "uniqueEffect": null,
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "quillshot_s_fury",
@@ -3361,7 +3505,8 @@
       }
     ],
     "uniqueEffect": null,
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "quillshot_s_javelin",
@@ -3388,7 +3533,8 @@
       }
     ],
     "uniqueEffect": null,
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "quillshot_s_roar",
@@ -3415,7 +3561,8 @@
       }
     ],
     "uniqueEffect": null,
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "quillshot_s_shredders",
@@ -3442,7 +3589,8 @@
       }
     ],
     "uniqueEffect": null,
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "quillshot_s_stingers",
@@ -3469,7 +3617,8 @@
       }
     ],
     "uniqueEffect": null,
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "quillshot_s_tusk",
@@ -3496,7 +3645,8 @@
       }
     ],
     "uniqueEffect": null,
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "break_of_dawn",
@@ -3523,7 +3673,8 @@
       }
     ],
     "uniqueEffect": "12% chance for attacks to hit twice.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "call_of_dawn",
@@ -3550,7 +3701,8 @@
       }
     ],
     "uniqueEffect": "12% chance for attacks to hit twice.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "dawnstars",
@@ -3577,7 +3729,8 @@
       }
     ],
     "uniqueEffect": "12% chance for attacks to hit twice.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "edge_of_dawn",
@@ -3604,7 +3757,8 @@
       }
     ],
     "uniqueEffect": "12% chance for attacks to hit twice.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "fangs_of_dawn",
@@ -3631,7 +3785,8 @@
       }
     ],
     "uniqueEffect": "12% chance for attacks to hit twice.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "hands_of_dawn",
@@ -3658,7 +3813,8 @@
       }
     ],
     "uniqueEffect": "12% chance for attacks to hit twice.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "spire_of_dawn",
@@ -3685,7 +3841,8 @@
       }
     ],
     "uniqueEffect": "12% chance for attacks to hit twice.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "the_godhand",
@@ -3712,7 +3869,8 @@
       }
     ],
     "uniqueEffect": "Channel a beam that deals increasing damage, up to 200%, while it continues to hit a target.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "stalker_s_cries",
@@ -3739,7 +3897,8 @@
       }
     ],
     "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 2.25% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "stalker_s_mercy",
@@ -3766,7 +3925,8 @@
       }
     ],
     "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 2.25% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "stalker_s_price",
@@ -3793,7 +3953,8 @@
       }
     ],
     "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 2.25% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "stalker_s_scorn",
@@ -3820,7 +3981,8 @@
       }
     ],
     "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 2.25% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "stalker_s_spike",
@@ -3847,7 +4009,8 @@
       }
     ],
     "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 2.25% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "stalker_s_strike",
@@ -3874,7 +4037,8 @@
       }
     ],
     "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 2.25% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "stalker_s_trap",
@@ -3901,7 +4065,8 @@
       }
     ],
     "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 2.25% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "sahvyt_s_avengers",
@@ -3928,7 +4093,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next weapon swing/shot unleashes a boomerang projectile that frequently deals 325 shock damage to any target hit. Dodging through an attack reduces charge cooldown.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "sahvyt_s_cleaver",
@@ -3955,7 +4121,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next weapon swing/shot unleashes a boomerang projectile that frequently deals 325 shock damage to any target hit. Dodging through an attack reduces charge cooldown.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "sahvyt_s_cutlass",
@@ -3982,7 +4149,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next weapon swing/shot unleashes a boomerang projectile that frequently deals 325 shock damage to any target hit. Dodging through an attack reduces charge cooldown.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "sahvyt_s_grapplers",
@@ -4009,7 +4177,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next weapon swing/shot unleashes a boomerang projectile that frequently deals 325 shock damage to any target hit. Dodging through an attack reduces charge cooldown.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "sahvyt_s_javelin",
@@ -4036,7 +4205,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next weapon swing/shot unleashes a boomerang projectile that frequently deals 325 shock damage to any target hit. Dodging through an attack reduces charge cooldown.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "sahvyt_s_maul",
@@ -4063,7 +4233,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next weapon swing/shot unleashes a boomerang projectile that frequently deals 325 shock damage to any target hit. Dodging through an attack reduces charge cooldown.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "sahvyt_s_pincers",
@@ -4090,7 +4261,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next weapon swing/shot unleashes a boomerang projectile that frequently deals 325 shock damage to any target hit. Dodging through an attack reduces charge cooldown.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "cry_of_the_shrike",
@@ -4117,7 +4289,8 @@
       }
     ],
     "uniqueEffect": "After dodging, your next attack deals +100 bonus damage and part damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "eyes_of_the_shrike",
@@ -4144,7 +4317,8 @@
       }
     ],
     "uniqueEffect": "After dodging, your next attack deals +100 bonus damage and part damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "fall_of_the_shrike",
@@ -4171,7 +4345,8 @@
       }
     ],
     "uniqueEffect": "After dodging, your next attack deals +100 bonus damage and part damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "fists_of_the_shrike",
@@ -4198,7 +4373,8 @@
       }
     ],
     "uniqueEffect": "After dodging, your next attack deals +100 bonus damage and part damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "flight_of_the_shrike",
@@ -4225,7 +4401,8 @@
       }
     ],
     "uniqueEffect": "After dodging, your next attack deals +100 bonus damage and part damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "scream_of_the_shrike",
@@ -4252,7 +4429,8 @@
       }
     ],
     "uniqueEffect": "After dodging, your next attack deals +100 bonus damage and part damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "song_of_the_shrike",
@@ -4279,7 +4457,8 @@
       }
     ],
     "uniqueEffect": "After dodging, your next attack deals +100 bonus damage and part damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "eyes_of_night",
@@ -4306,7 +4485,8 @@
       }
     ],
     "uniqueEffect": "When under 20% health, deal +50% damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "fall_of_night",
@@ -4333,7 +4513,8 @@
       }
     ],
     "uniqueEffect": "When under 20% health, deal +50% damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "furies_of_the_night",
@@ -4360,7 +4541,8 @@
       }
     ],
     "uniqueEffect": "When under 20% health, deal +50% damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "gyre_of_night",
@@ -4387,7 +4569,8 @@
       }
     ],
     "uniqueEffect": "When under 20% health, deal +50% damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "hands_of_night",
@@ -4414,7 +4597,8 @@
       }
     ],
     "uniqueEffect": "When under 20% health, deal +50% damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "reaper_of_night",
@@ -4441,7 +4625,8 @@
       }
     ],
     "uniqueEffect": "When under 20% health, deal +50% damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "the_hunger",
@@ -4468,7 +4653,8 @@
       }
     ],
     "uniqueEffect": "Activate to enter Feast, taking damage over time but gaining significant lifesteal, attack speed, and creating aetheric waves with each attack that deal area damage.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "verge_of_night",
@@ -4495,7 +4681,8 @@
       }
     ],
     "uniqueEffect": "When under 20% health, deal +50% damage",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "skarn_s_calamities",
@@ -4522,7 +4709,8 @@
       }
     ],
     "uniqueEffect": "After using your lantern ability, grant a stackable 250 health shield that lasts for 25 seconds (max 600 shields).",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "skarn_s_judgment",
@@ -4549,7 +4737,8 @@
       }
     ],
     "uniqueEffect": "After using your lantern ability, grant a stackable 250 health shield that lasts for 25 seconds (max 600 shields).",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "skarn_s_malice",
@@ -4576,7 +4765,8 @@
       }
     ],
     "uniqueEffect": "After using your lantern ability, grant a stackable 250 health shield that lasts for 25 seconds (max 600 shields).",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "skarn_s_rancor",
@@ -4603,7 +4793,8 @@
       }
     ],
     "uniqueEffect": "After using your lantern ability, grant a stackable 250 health shield that lasts for 25 seconds (max 600 shields).",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "skarn_s_smashers",
@@ -4630,7 +4821,8 @@
       }
     ],
     "uniqueEffect": "After using your lantern ability, grant a stackable 250 health shield that lasts for 25 seconds (max 600 shields).",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "skarn_s_spite",
@@ -4657,7 +4849,8 @@
       }
     ],
     "uniqueEffect": "After using your lantern ability, grant a stackable 250 health shield that lasts for 25 seconds (max 600 shields).",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "skarn_s_vengeance",
@@ -4684,7 +4877,8 @@
       }
     ],
     "uniqueEffect": "After using your lantern ability, grant a stackable 250 health shield that lasts for 25 seconds (max 600 shields).",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "winter_blasts",
@@ -4711,7 +4905,8 @@
       }
     ],
     "uniqueEffect": "After dodging, drop 3 Ice Mines around you on a 30 second cooldown that deal 300 damage.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "winter_gale",
@@ -4738,7 +4933,8 @@
       }
     ],
     "uniqueEffect": "After dodging, drop 3 Ice Mines around you on a 30 second cooldown that deal 300 damage.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "winter_ice",
@@ -4765,7 +4961,8 @@
       }
     ],
     "uniqueEffect": "After dodging, drop 3 Ice Mines around you on a 30 second cooldown that deal 300 damage.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "winter_squall",
@@ -4792,7 +4989,8 @@
       }
     ],
     "uniqueEffect": "After dodging, drop 3 Ice Mines around you on a 30 second cooldown that deal 300 damage.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "winter_vortex",
@@ -4819,7 +5017,8 @@
       }
     ],
     "uniqueEffect": "After dodging, drop 3 Ice Mines around you on a 30 second cooldown that deal 300 damage.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "winter_winds",
@@ -4846,7 +5045,8 @@
       }
     ],
     "uniqueEffect": "After dodging, drop 3 Ice Mines around you on a 30 second cooldown that deal 300 damage.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "winter_wolves",
@@ -4873,7 +5073,8 @@
       }
     ],
     "uniqueEffect": "After dodging, drop 3 Ice Mines around you on a 30 second cooldown that deal 300 damage.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "storm_blades",
@@ -4900,7 +5101,8 @@
       }
     ],
     "uniqueEffect": "After dodging through an attack, your attacks gain 100% bonus meter for +3 seconds",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "storm_breakers",
@@ -4927,7 +5129,8 @@
       }
     ],
     "uniqueEffect": "After dodging though an attack, extend Mantra timeout by 3 seconds",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "storm_cutter",
@@ -4954,7 +5157,8 @@
       }
     ],
     "uniqueEffect": "After dodging through an attack, your attacks gain 100% bonus meter for +5 seconds",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "storm_hammer",
@@ -4981,7 +5185,8 @@
       }
     ],
     "uniqueEffect": "After dodging through an attack, reload 3 aethercharged ammo",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "storm_pike",
@@ -5008,7 +5213,8 @@
       }
     ],
     "uniqueEffect": "After dodging through an attack, your attacks gain 100% bonus meter for +4 seconds",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "storm_shooters",
@@ -5035,7 +5241,8 @@
       }
     ],
     "uniqueEffect": "On dodging through a Behemoth attack, Empowered Reload.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "storm_sword",
@@ -5062,7 +5269,8 @@
       }
     ],
     "uniqueEffect": "After dodging through an attack, your attacks gain 100% bonus meter for +4 seconds",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "eldritch_torments",
@@ -5082,7 +5290,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Deal umbral damage to nearby enemies and teleport high into the sky. Then choose a spot to slam down on to, dealing additional umbral damage. Usable once, but resets on Behemoth kill.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Umbral"
   },
   {
     "id": "fractured_realities",
@@ -5102,7 +5311,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Deal umbral damage to nearby enemies and teleport high into the sky. Then choose a spot to slam down on to, dealing additional umbral damage. Usable once, but resets on Behemoth kill.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Umbral"
   },
   {
     "id": "mindsplitter",
@@ -5122,7 +5332,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Deal umbral damage to nearby enemies and teleport high into the sky. Then choose a spot to slam down on to, dealing additional umbral damage. Usable once, but resets on Behemoth kill.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Umbral"
   },
   {
     "id": "night_terrors",
@@ -5142,7 +5353,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Deal umbral damage to nearby enemies and teleport high into the sky. Then choose a spot to slam down on to, dealing additional umbral damage. Usable once, but resets on Behemoth kill.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Umbral"
   },
   {
     "id": "sanity_check",
@@ -5162,7 +5374,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Deal umbral damage to nearby enemies and teleport high into the sky. Then choose a spot to slam down on to, dealing additional umbral damage. Usable once, but resets on Behemoth kill.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Umbral"
   },
   {
     "id": "the_apocalypse_needle",
@@ -5182,7 +5395,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Deal umbral damage to nearby enemies and teleport high into the sky. Then choose a spot to slam down on to, dealing additional umbral damage. Usable once, but resets on Behemoth kill.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Umbral"
   },
   {
     "id": "voidbane",
@@ -5202,7 +5416,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Deal umbral damage to nearby enemies and teleport high into the sky. Then choose a spot to slam down on to, dealing additional umbral damage. Usable once, but resets on Behemoth kill.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Umbral"
   },
   {
     "id": "breakdown_voltage",
@@ -5229,7 +5444,8 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Heads",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "circuit_breakers",
@@ -5256,7 +5472,8 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Tails",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "inverse_polarity",
@@ -5283,7 +5500,8 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Tails",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "solid_state",
@@ -5310,7 +5528,8 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Heads",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "surge_projectors",
@@ -5337,7 +5556,8 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Heads",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "the_governor",
@@ -5364,7 +5584,8 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Tails",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "throwing_sparks",
@@ -5391,7 +5612,8 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Heads",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "incinerator_s_song",
@@ -5411,7 +5633,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Enter a rage, gaining new attacks for 15 seconds. Deals +25% damage when the target is below\n50% health. Usable once, but resets on Behemoth kill.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Blaze"
   },
   {
     "id": "magma_quake",
@@ -5431,7 +5654,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Enter a rage, gaining new attacks for 15 seconds. Deals +25% damage when the target is below\n50% health. Usable once, but resets on Behemoth kill.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Blaze"
   },
   {
     "id": "pyroclastic_envoy",
@@ -5451,7 +5675,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Enter a rage, gaining new attacks for 15 seconds. Deals +25% damage when the target is below\n50% health. Usable once, but resets on Behemoth kill.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Blaze"
   },
   {
     "id": "scorching_agonies",
@@ -5471,7 +5696,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Enter a rage, gaining new attacks for 15 seconds. Deals +25% damage when the target is below\n50% health. Usable once, but resets on Behemoth kill.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Blaze"
   },
   {
     "id": "tectonic_faults",
@@ -5491,7 +5717,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Enter a rage, gaining new attacks for 15 seconds. Deals +25% damage when the target is below\n50% health. Usable once, but resets on Behemoth kill.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Blaze"
   },
   {
     "id": "the_cauterizer",
@@ -5511,7 +5738,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Enter a rage, gaining new attacks for 15 seconds. Deals +25% damage when the target is below\n50% health. Usable once, but resets on Behemoth kill.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Blaze"
   },
   {
     "id": "volcanic_eruptions",
@@ -5531,7 +5759,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Enter a rage, gaining new attacks for 15 seconds. Deals +25% damage when the target is below\n50% health. Usable once, but resets on Behemoth kill.",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Blaze"
   },
   {
     "id": "blizzard_s_teeth",
@@ -5551,7 +5780,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Create a Frost Shield that blocks hostile projectiles for 6 seconds. Damages and chills\nBehemoths that contact it (can interrupt).",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Frost"
   },
   {
     "id": "bomb_cyclone",
@@ -5571,7 +5801,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Create a Frost Shield that blocks hostile projectiles for 6 seconds. Damages and chills\nBehemoths that contact it (can interrupt).",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Frost"
   },
   {
     "id": "cold_hell",
@@ -5591,7 +5822,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Create a Frost Shield that blocks hostile projectiles for 6 seconds. Damages and chills\nBehemoths that contact it (can interrupt).",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Frost"
   },
   {
     "id": "cryo_cannons",
@@ -5611,7 +5843,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Create a Frost Shield that blocks hostile projectiles for 6 seconds. Damages and chills\nBehemoths that contact it (can interrupt).",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Frost"
   },
   {
     "id": "hypothermica",
@@ -5631,7 +5864,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Create a Frost Shield that blocks hostile projectiles for 6 seconds. Damages and chills\nBehemoths that contact it (can interrupt).",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Frost"
   },
   {
     "id": "ice_breakers",
@@ -5651,7 +5885,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Create a Frost Shield that blocks hostile projectiles for 6 seconds. Damages and chills\nBehemoths that contact it (can interrupt).",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Frost"
   },
   {
     "id": "permanent_frost",
@@ -5671,7 +5906,8 @@
     ],
     "perks": [],
     "uniqueEffect": "Legendary Ability: Create a Frost Shield that blocks hostile projectiles for 6 seconds. Damages and chills\nBehemoths that contact it (can interrupt).",
-    "isLegendary": true
+    "isLegendary": true,
+    "bondElement": "Frost"
   },
   {
     "id": "valomyr_s_burden",
@@ -5698,7 +5934,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack will deal 700 bonus radiant damage. Charge rate increases with current health.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "valomyr_s_decree",
@@ -5725,7 +5962,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack will deal 700 bonus radiant damage. Charge rate increases with current health.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "valomyr_s_hope",
@@ -5752,7 +5990,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack will deal 700 bonus radiant damage. Charge rate increases with current health.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "valomyr_s_instincts",
@@ -5779,7 +6018,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack will deal 700 bonus radiant damage. Charge rate increases with current health.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "valomyr_s_regard",
@@ -5806,7 +6046,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack will deal 700 bonus radiant damage. Charge rate increases with current health.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "valomyr_s_revenge",
@@ -5833,7 +6074,8 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack will deal 700 bonus radiant damage. Charge rate increases with current health.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   },
   {
     "id": "valomyr_s_visions",
@@ -5860,6 +6102,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack will deal 700 bonus radiant damage. Charge rate increases with current health.",
-    "isLegendary": false
+    "isLegendary": false,
+    "bondElement": null
   }
 ]

@@ -19,6 +19,8 @@ import {
   ChevronDown,
   Check,
   Layers,
+  Link2,
+  Plus,
 } from 'lucide-react';
 
 interface EquipmentGridProps {
@@ -27,6 +29,7 @@ interface EquipmentGridProps {
   patchInfo?: PatchVersionInfo;
   powerSurged: boolean;
   onOpenPicker: (slot: PickerSlotType, socket?: string | null) => void;
+  onUnbondWeapon?: () => void;
   onGearLevelChange?: (slot: string, level: number) => void;
   onWeaponTalentChange?: (slotKey: 'weapon' | 'secondaryWeapon', tierIndex: number, optionIndex: number) => void;
 }
@@ -37,6 +40,7 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
   patchInfo,
   powerSurged,
   onOpenPicker,
+  onUnbondWeapon,
   onGearLevelChange,
   onWeaponTalentChange,
 }) => {
@@ -51,6 +55,9 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
 
   const currentWeapon = patchData.weapons.find(w => w.id === build.weapon);
   const currentSecondaryWeapon = patchData.weapons.find(w => w.id === build.secondaryWeapon);
+  const bondedWeapon = !isAwakening && currentWeapon?.isLegendary && build.bondedWeapon
+    ? patchData.weapons.find(w => w.id === build.bondedWeapon)
+    : null;
   const currentHead = patchData.armour.find(a => a.id === build.head);
   const currentTorso = patchData.armour.find(a => a.id === build.torso);
   const currentArms = patchData.armour.find(a => a.id === build.arms);
@@ -508,6 +515,11 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                       +{powerSurged ? p.value : (p.baseValue ?? p.value)} {p.name}
                     </em>
                   ))}
+                  {currentWeapon.isLegendary && bondedWeapon && bondedWeapon.perks.map(p => (
+                    <em key={p.id} className="border-amber-500/40 text-amber-300">
+                      +{powerSurged ? p.value : (p.baseValue ?? p.value)} {p.name} (Bond)
+                    </em>
+                  ))}
                 </span>
               ) : (
                 <span className="gear-subtitle">Tap to browse swords, axes, hammers, chainblades...</span>
@@ -518,9 +530,96 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
 
           {/* Unique Effect Preview */}
           {currentWeapon?.uniqueEffect && (
-            <div className="px-4 py-2 border-t border-[#1d313a] text-xs text-gray-300/90 italic leading-snug flex items-start gap-1.5">
+            <div className="px-4 py-2 border-t border-[#1d313a] text-xs text-cyan-200/90 italic leading-snug flex items-start gap-1.5">
               <Sparkles className="h-3.5 w-3.5 text-cyan-400 shrink-0 mt-0.5" />
               <span>{currentWeapon.uniqueEffect}</span>
+            </div>
+          )}
+
+          {/* Legendary Weapon Bond (Every version except Awakening 2.1.1) */}
+          {!isAwakening && currentWeapon?.isLegendary && (
+            <div className="px-3 sm:px-4 py-2.5 border-t border-[#1d313a] bg-gradient-to-r from-[#0a151b] via-[#0e1d24] to-[#12242c]">
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+                  <Link2 className="h-3.5 w-3.5" />
+                  Legendary Bond ({currentWeapon.bondElement || currentWeapon.element} {currentWeapon.typeName})
+                </span>
+                {bondedWeapon && onUnbondWeapon && (
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onUnbondWeapon();
+                    }}
+                    className="text-[10px] text-gray-400 hover:text-red-400 font-bold transition-colors cursor-pointer px-1.5 py-0.5 rounded hover:bg-red-500/10"
+                    title="Remove bonded weapon"
+                  >
+                    Unbond
+                  </button>
+                )}
+              </div>
+
+              {bondedWeapon ? (
+                <div
+                  onClick={() => onOpenPicker('bondedWeapon')}
+                  className="p-2 sm:p-2.5 rounded-xl bg-[#071116] border border-amber-500/40 hover:border-amber-400 transition-all cursor-pointer flex items-center gap-2.5 group shadow-sm hover:shadow-amber-500/10"
+                >
+                  <span className="w-9 h-9 rounded-lg bg-[#0e1c23] border border-amber-500/30 flex items-center justify-center shrink-0 overflow-hidden p-0.5">
+                    {bondedWeapon.icon ? (
+                      <img
+                        src={resolveAssetUrl(bondedWeapon.icon)}
+                        alt={bondedWeapon.name}
+                        className="w-full h-full object-contain"
+                        onError={(e) => {
+                          (e.target as HTMLElement).style.display = 'none';
+                        }}
+                      />
+                    ) : (
+                      <Sword className="h-4 w-4 text-amber-400" />
+                    )}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-1">
+                      <span className="font-bold text-xs text-white truncate group-hover:text-amber-300 transition-colors">
+                        {bondedWeapon.name}
+                      </span>
+                      <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40 shrink-0">
+                        Bonded
+                      </span>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-1.5 mt-0.5 text-[10.5px]">
+                      {bondedWeapon.perks.map(p => (
+                        <span key={p.id} className="text-cyan-300 font-semibold">
+                          +{powerSurged ? p.value : (p.baseValue ?? p.value)} {p.name}
+                        </span>
+                      ))}
+                      {bondedWeapon.uniqueEffect && (
+                        <span className="text-gray-400 italic truncate max-w-[200px] sm:max-w-xs block">
+                          • {bondedWeapon.uniqueEffect}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <ChevronRight className="h-4 w-4 text-gray-400 group-hover:text-amber-300 transition-colors shrink-0" />
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => onOpenPicker('bondedWeapon')}
+                  className="w-full py-2 px-3 rounded-xl border border-dashed border-amber-500/40 hover:border-amber-400 bg-amber-500/5 hover:bg-amber-500/10 text-amber-300 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+                >
+                  <Plus className="h-3.5 w-3.5" />
+                  <span>Bond a {currentWeapon.bondElement || currentWeapon.element} Weapon (Inherits Perk & Unique Effect)</span>
+                </button>
+              )}
+            </div>
+          )}
+
+          {/* Bonded Weapon Unique Effect Preview */}
+          {bondedWeapon?.uniqueEffect && (
+            <div className="px-4 py-2 border-t border-[#1d313a] text-xs text-amber-200/90 italic leading-snug flex items-start gap-1.5 bg-[#081217]">
+              <Sparkles className="h-3.5 w-3.5 text-amber-400 shrink-0 mt-0.5" />
+              <span><strong>Bond Effect:</strong> {bondedWeapon.uniqueEffect}</span>
             </div>
           )}
 
@@ -534,7 +633,9 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                   renderCellButton(build.weaponCells[1] || null, currentWeapon.cellSockets[1], 'weaponCell_1')}
               </div>
               <span className="hidden sm:inline text-[11px] text-gray-400">
-                {currentWeapon.perks.map(p => `+${powerSurged ? p.value : (p.baseValue ?? p.value)} ${p.name}`).join(', ')}
+                {currentWeapon.isLegendary && bondedWeapon
+                  ? bondedWeapon.perks.map(p => `+${powerSurged ? p.value : (p.baseValue ?? p.value)} ${p.name} (Bond)`).join(', ')
+                  : currentWeapon.perks.map(p => `+${powerSurged ? p.value : (p.baseValue ?? p.value)} ${p.name}`).join(', ')}
               </span>
             </div>
           )}

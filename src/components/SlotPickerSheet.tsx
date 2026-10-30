@@ -10,10 +10,11 @@ import {
 import { getElementStyle, getSocketStyle, getCellCategoryIcon, resolveAssetUrl } from '../utils/theme';
 import { formatPerkEffect } from '../utils/calculator';
 import { renderFormattedCoreText } from '../utils/formatText';
-import { Search, X, Trash2, Shield, Zap, Sparkles, Check, ChevronRight } from 'lucide-react';
+import { Search, X, Trash2, Shield, Zap, Sparkles, Check, ChevronRight, Link2 } from 'lucide-react';
 
 export type PickerSlotType =
   | 'weapon'
+  | 'bondedWeapon'
   | 'secondaryWeapon'
   | 'weaponCell_0'
   | 'weaponCell_1'
@@ -40,6 +41,7 @@ interface SlotPickerSheetProps {
   onSelect: (id: string | null) => void;
   allowedSocket?: string | null;
   powerSurged: boolean;
+  equippedWeapon?: WeaponItem | null;
 }
 
 export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
@@ -51,6 +53,7 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
   onSelect,
   allowedSocket,
   powerSurged,
+  equippedWeapon,
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedElement, setSelectedElement] = useState<string>('All');
@@ -61,6 +64,7 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
 
   const isCellPicker = slotType.includes('Cell');
   const isWeaponPicker = slotType === 'weapon' || slotType === 'secondaryWeapon';
+  const isBondedWeaponPicker = slotType === 'bondedWeapon';
   const isArmourPicker = ['head', 'torso', 'arms', 'legs'].includes(slotType);
   const isLanternPicker = slotType === 'lantern';
   const isOmnicellPicker = slotType === 'omnicell';
@@ -68,6 +72,7 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
 
   const titleMap: Record<PickerSlotType, string> = {
     weapon: 'Select Primary Weapon',
+    bondedWeapon: equippedWeapon ? `Select Bonded Weapon (${equippedWeapon.element} ${equippedWeapon.typeName})` : 'Select Bonded Weapon',
     secondaryWeapon: 'Select Secondary Weapon',
     weaponCell_0: 'Select Weapon Cell (Slot 1)',
     weaponCell_1: 'Select Weapon Cell (Slot 2)',
@@ -105,6 +110,30 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
       return matchSearch && matchElem && matchType;
     });
   }, [patchData.weapons, isWeaponPicker, searchTerm, selectedElement, selectedWeaponType]);
+
+  // Filtered Bonded Weapons (Non-legendary weapons matching equipped legendary weapon type & element)
+  const filteredBondedWeapons = useMemo(() => {
+    if (!isBondedWeaponPicker || !equippedWeapon) return [];
+    const targetType = equippedWeapon.type.toLowerCase();
+    const targetElement = (equippedWeapon.bondElement || equippedWeapon.element).toLowerCase();
+
+    return patchData.weapons.filter(w => {
+      if (w.isLegendary) return false;
+      if (w.id === equippedWeapon.id) return false;
+      if (w.type.toLowerCase() !== targetType) return false;
+      if (w.element.toLowerCase() !== targetElement) return false;
+
+      if (searchTerm.trim()) {
+        const q = searchTerm.toLowerCase();
+        const matchName = w.name.toLowerCase().includes(q);
+        const matchBehemoth = w.behemoth.toLowerCase().includes(q);
+        const matchPerk = w.perks.some(p => p.name.toLowerCase().includes(q));
+        const matchUE = w.uniqueEffect?.toLowerCase().includes(q);
+        return matchName || matchBehemoth || matchPerk || matchUE;
+      }
+      return true;
+    });
+  }, [patchData.weapons, isBondedWeaponPicker, equippedWeapon, searchTerm]);
 
   // Filtered Armour
   const filteredArmour = useMemo(() => {
@@ -193,10 +222,10 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                   onClose();
                 }}
                 className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-bold text-red-400 bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 transition-colors cursor-pointer"
-                title="Unequip item"
+                title={isBondedWeaponPicker ? "Unbond weapon" : "Unequip item"}
               >
                 <Trash2 className="h-3.5 w-3.5" />
-                <span>Unequip</span>
+                <span>{isBondedWeaponPicker ? "Unbond" : "Unequip"}</span>
               </button>
             )}
             <button
@@ -231,6 +260,17 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
               </button>
             )}
           </label>
+
+          {/* Legendary Weapon Bonding Banner */}
+          {isBondedWeaponPicker && equippedWeapon && (
+            <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-amber-500/10 border border-amber-500/30 text-xs text-amber-200">
+              <Link2 className="h-4 w-4 text-amber-400 shrink-0" />
+              <div>
+                <span className="font-bold text-amber-300">Bonding with {equippedWeapon.name}:</span>{' '}
+                <span>Showing non-legendary {equippedWeapon.bondElement || equippedWeapon.element} {equippedWeapon.typeName}s</span>
+              </div>
+            </div>
+          )}
 
           {/* Weapon Type Filters */}
           {isWeaponPicker && (
@@ -381,6 +421,95 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                     <span className="self-center shrink-0">
                       {isEquipped ? (
                         <span className="w-5 h-5 rounded-full bg-cyan-400 text-black flex items-center justify-center">
+                          <Check className="h-3 w-3 stroke-[3]" />
+                        </span>
+                      ) : (
+                        <ChevronRight className="h-4 w-4 text-gray-500" />
+                      )}
+                    </span>
+                  </button>
+                );
+              })
+            )
+          )}
+
+          {/* Bonded Weapons */}
+          {isBondedWeaponPicker && (
+            filteredBondedWeapons.length === 0 ? (
+              <div className="text-center py-10 text-gray-500 text-sm">
+                No bondable {equippedWeapon ? `${equippedWeapon.bondElement || equippedWeapon.element} ${equippedWeapon.typeName}s` : 'weapons'} found.
+              </div>
+            ) : (
+              filteredBondedWeapons.map(w => {
+                const isEquipped = currentSelectedId === w.id;
+                return (
+                  <button
+                    key={w.id}
+                    type="button"
+                    onClick={() => {
+                      onSelect(w.id);
+                      onClose();
+                    }}
+                    className={`w-full p-2.5 rounded-xl border text-left flex items-start gap-3 transition-all cursor-pointer ${
+                      isEquipped
+                        ? 'bg-[#12262e] border-amber-400 shadow-md shadow-amber-500/10'
+                        : 'bg-[#101e25] border-[#203640] hover:border-amber-500/40 hover:bg-[#12222a]'
+                    }`}
+                  >
+                    <span className="w-12 h-12 rounded-lg bg-[#09151a] border border-[#21333d] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                      {w.icon ? (
+                        <img
+                          src={resolveAssetUrl(w.icon)}
+                          alt={w.name}
+                          className="w-full h-full object-contain"
+                          onError={(e) => {
+                            (e.target as HTMLElement).style.display = 'none';
+                          }}
+                        />
+                      ) : (
+                        <Zap className="h-5 w-5 text-gray-600" />
+                      )}
+                    </span>
+
+                    <span className="flex-1 min-w-0">
+                      <span className="flex items-center justify-between gap-1">
+                        <strong className="font-display font-bold text-base text-white truncate">
+                          {w.name}
+                        </strong>
+                        <span className={`text-[9px] font-bold uppercase px-1.5 py-0.5 rounded border ${getElementStyle(w.element).bg} ${getElementStyle(w.element).text} ${getElementStyle(w.element).border}`}>
+                          {w.element}
+                        </span>
+                      </span>
+
+                      <span className="text-[11px] text-gray-400 flex items-center gap-1.5 mt-0.5">
+                        <span>{w.typeName}</span>
+                        <span>•</span>
+                        <span>{w.behemoth}</span>
+                      </span>
+
+                      {/* Inherited Perks */}
+                      <span className="flex flex-wrap items-center gap-1.5 mt-1.5">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400">
+                          Grants Perk:
+                        </span>
+                        {w.perks.map(p => (
+                          <em key={p.id} className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-[#0a151b] text-cyan-300 border border-[#21333d] not-italic">
+                            +{powerSurged ? p.value : (p.baseValue ?? p.value)} {p.name}
+                          </em>
+                        ))}
+                      </span>
+
+                      {w.uniqueEffect && (
+                        <p className="text-[10.5px] text-amber-200/90 mt-1.5 italic line-clamp-2 flex items-start gap-1">
+                          <Sparkles className="h-3 w-3 text-amber-400 shrink-0 mt-0.5" />
+                          <span>Grants Effect: {w.uniqueEffect}</span>
+                        </p>
+                      )}
+                    </span>
+
+                    <span className="self-center shrink-0">
+                      {isEquipped ? (
+                        <span className="w-5 h-5 rounded-full bg-amber-400 text-black flex items-center justify-center">
                           <Check className="h-3 w-3 stroke-[3]" />
                         </span>
                       ) : (
