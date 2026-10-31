@@ -56,7 +56,9 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const currentVersion = versions.find(v => v.id === currentVersionId) || versions[0];
+  const isClassic = currentVersion?.era === 'Classic' || currentVersionId === '1.4.4';
   const isAwakening = currentVersion?.era === 'Awakening' || currentVersionId === '2.1.1';
+  const hasPowerSurge = currentVersion?.hasPowerSurge !== false && !isClassic && !isAwakening;
 
   return (
     <>
@@ -95,7 +97,8 @@ export const Header: React.FC<HeaderProps> = ({
                 <>
                   <option value="1.14.7">1.14.7 · Reforged</option>
                   <option value="1.12.0">1.12.0 · Reforged</option>
-                  <option value="1.6.2">1.6.2 · Classic</option>
+                  <option value="1.6.2">1.6.2 · Reforged</option>
+                  <option value="1.4.4">1.4.4 · Classic</option>
                   <option value="2.1.1">2.1.1 · Awakening</option>
                 </>
               )}
@@ -104,8 +107,8 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Desktop Actions (Large screens >= lg) */}
           <nav className="desktop-actions hidden lg:flex" aria-label="Builder actions">
-            {/* Surged Toggle (Reforged / Classic only) */}
-            {!isAwakening ? (
+            {/* Surged Toggle / Classic +15 / Awakening Levels */}
+            {hasPowerSurge ? (
               <button
                 type="button"
                 onClick={onTogglePowerSurge}
@@ -116,6 +119,14 @@ export const Header: React.FC<HeaderProps> = ({
                 <span>Surged</span>
                 <span className="toggle-dot" />
               </button>
+            ) : isClassic ? (
+              <div
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-950/40 text-amber-300 border border-amber-500/30"
+                title="Classic Patch 1.4.4 uses legacy +15 gear upgrades (550 power / 550 res)"
+              >
+                <Zap className="h-3.5 w-3.5 text-amber-400" />
+                <span>+15 Stats</span>
+              </div>
             ) : (
               <div
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-cyan-950/40 text-cyan-300 border border-cyan-500/30"
@@ -297,8 +308,8 @@ export const Header: React.FC<HeaderProps> = ({
 
             {/* Menu Actions */}
             <div className="space-y-1 flex-1">
-              {/* Power Surge Toggle (Reforged/Classic) */}
-              {!isAwakening ? (
+              {/* Power Surge Toggle / Classic Legacy / Awakening Levels */}
+              {hasPowerSurge ? (
                 <button
                   type="button"
                   onClick={onTogglePowerSurge}
@@ -314,6 +325,11 @@ export const Header: React.FC<HeaderProps> = ({
                     {powerSurged ? 'On' : 'Off'}
                   </span>
                 </button>
+              ) : isClassic ? (
+                <div className="py-2.5 px-2 border-b border-[#1d3039] text-xs text-amber-300 flex items-center gap-2">
+                  <Zap className="h-4 w-4 text-amber-400 shrink-0" />
+                  <span>Classic Legacy +15 Upgrades Active</span>
+                </div>
               ) : (
                 <div className="py-2.5 px-2 border-b border-[#1d3039] text-xs text-cyan-300 flex items-center gap-2">
                   <Sparkles className="h-4 w-4 text-cyan-400 shrink-0" />

@@ -1,0 +1,3929 @@
+[
+  {
+    "id": "agents_of_decay",
+    "name": "Agents of Decay",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Agarus",
+    "icon": "/assets/icons/weapons/agarus/AgentsOfDecay.png",
+    "description": "A Slayer's aether strikers forged with Agarus trophies.",
+    "damageType": "Blunt",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.\n",
+    "isLegendary": true,
+    "bondElement": "Terra"
+  },
+  {
+    "id": "death_blossoms",
+    "name": "Death Blossoms",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Agarus",
+    "icon": "/assets/icons/weapons/agarus/DeathBlossoms.png",
+    "description": "A Slayer's aether strikers forged with Agarus trophies.",
+    "damageType": "Slashing",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.\n",
+    "isLegendary": true,
+    "bondElement": "Terra"
+  },
+  {
+    "id": "malignant_scourge",
+    "name": "Malignant Scourge",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Agarus",
+    "icon": "/assets/icons/weapons/agarus/MalignantScourge.png",
+    "description": "A Slayer's aether strikers forged with Agarus trophies.",
+    "damageType": "Slashing",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.\n",
+    "isLegendary": true,
+    "bondElement": "Terra"
+  },
+  {
+    "id": "parasitic_curse",
+    "name": "Parasitic Curse",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Agarus",
+    "icon": "/assets/icons/weapons/agarus/ParasiticCurse.png",
+    "description": "A Slayer's aether strikers forged with Agarus trophies.",
+    "damageType": "Slashing",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.\n",
+    "isLegendary": true,
+    "bondElement": "Terra"
+  },
+  {
+    "id": "poisonous_thorn",
+    "name": "Poisonous Thorn",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Agarus",
+    "icon": "/assets/icons/weapons/agarus/PoisonousThorn.png",
+    "description": "A Slayer's aether strikers forged with Agarus trophies.",
+    "damageType": "Slashing",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.\n",
+    "isLegendary": true,
+    "bondElement": "Terra"
+  },
+  {
+    "id": "unsteady_ground",
+    "name": "Unsteady Ground",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Agarus",
+    "icon": "/assets/icons/weapons/agarus/UnsteadyGround.png",
+    "description": "A Slayer's aether strikers forged with Agarus trophies.",
+    "damageType": "Blunt",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.\n",
+    "isLegendary": true,
+    "bondElement": "Terra"
+  },
+  {
+    "id": "brawlers_of_boreus",
+    "name": "Brawlers of Boreus",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Boreus",
+    "icon": "/assets/icons/weapons/boreus/BrawlersOfBoreus.png",
+    "description": "A Slayer's aether strikers forged with Boreus trophies.",
+    "damageType": "Blunt",
+    "element": "Frost",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "conditioning",
+        "name": "Conditioning",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "After Surging, generate 2 Frost Sprites that grant your next attack +60 damage and minor frost damage (Max 4 Sprites)",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "brutality_of_boreus",
+    "name": "Brutality of Boreus",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Boreus",
+    "icon": "/assets/icons/weapons/boreus/BrutalityOfBoreus.png",
+    "description": "A Slayer's hammer forged with Boreus trophies.",
+    "damageType": "Blunt",
+    "element": "Frost",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "conditioning",
+        "name": "Conditioning",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Using Ammo generates a Frost Sprite that cause your next attack to deal 60 bonus damage and minor frost damage. Max 4 Sprites. ",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "destiny_of_boreus",
+    "name": "Destiny of Boreus",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Boreus",
+    "icon": "/assets/icons/weapons/boreus/DestinyOfBoreus.png",
+    "description": "A Slayer's chain blades forged with Boreus trophies.",
+    "damageType": "Slashing",
+    "element": "Frost",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "conditioning",
+        "name": "Conditioning",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Using Pips generates 3 Frost Sprites that cause your next attack to deal 60 bonus damage and minor frost damage each. Max 4 Sprites.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "onus_of_boreus",
+    "name": "Onus of Boreus",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Boreus",
+    "icon": "/assets/icons/weapons/boreus/OnusOfBoreus.png",
+    "description": "A Slayer's sword forged with Boreus trophies.",
+    "damageType": "Slashing",
+    "element": "Frost",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "conditioning",
+        "name": "Conditioning",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Using a Special continually generates Frost Sprites that cause your next attack to deal 60 bonus damage and minor frost damage. Max 4 Sprites.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "revolution_of_boreus",
+    "name": "Revolution of Boreus",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Boreus",
+    "icon": "/assets/icons/weapons/boreus/RevolutionOfBoreus.png",
+    "description": "A Slayer's war pike forged with Boreus trophies.",
+    "damageType": "Piercing",
+    "element": "Frost",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "conditioning",
+        "name": "Conditioning",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Using Ammo generates Frost Sprites (base on ammo quality) that cause your next attack to deal 60 bonus damage and minor frost damage. Max 4 Sprites.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "turmoil_of_boreus",
+    "name": "Turmoil of Boreus",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Boreus",
+    "icon": "/assets/icons/weapons/boreus/TurmoilOfBoreus.png",
+    "description": "A Slayer's axe forged with Boreus trophies.",
+    "damageType": "Slashing",
+    "element": "Frost",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "conditioning",
+        "name": "Conditioning",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Charge Attacks generate Frost Sprites that cause your next attack to deal 60 bonus damage and minor frost damage. Max 4 Sprites.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "charred_blades",
+    "name": "Charred Blades",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Charrogg",
+    "icon": "/assets/icons/weapons/charrogg/CharredBlades.png",
+    "description": "A Slayer's chain blades forged with Charrogg trophies.",
+    "damageType": "Slashing",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "aetherhunter",
+        "name": "Aetherhunter",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "After spending 200 stamina, next attack emits a cone of flame that deals +150 blaze damage to each\nunique targets within the cone.\n",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "charred_cleaver",
+    "name": "Charred Cleaver",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Charrogg",
+    "icon": "/assets/icons/weapons/charrogg/CharredCleaver.png",
+    "description": "A Slayer's axe forged with Charrogg trophies.",
+    "damageType": "Cutting",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "aetherhunter",
+        "name": "Aetherhunter",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "After spending 150 stamina, next attack emits a cone of flame that deals +200 blaze damage to each\nunique targets within the cone.\n",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "charred_crusher",
+    "name": "Charred Crusher",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Charrogg",
+    "icon": "/assets/icons/weapons/charrogg/CharredCrusher.png",
+    "description": "A Slayer's hammer forged with Charrogg trophies.",
+    "damageType": "Blunt",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "aetherhunter",
+        "name": "Aetherhunter",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "After spending 150 stamina, next attack emits a cone of flame that deals +150 blaze damage to each\nunique targets within the cone.\n",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "charred_hands",
+    "name": "Charred Hands",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Charrogg",
+    "icon": "/assets/icons/weapons/charrogg/CharredHands.png",
+    "description": "A Slayer's aether strikers forged with Charrogg trophies.",
+    "damageType": "Blunt",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "aetherhunter",
+        "name": "Aetherhunter",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "After spending 150 stamina, next attack emits a cone of flame that deals +150 blaze damage to each\nunique targets within the cone.\n",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "charred_saber",
+    "name": "Charred Saber",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Charrogg",
+    "icon": "/assets/icons/weapons/charrogg/CharredSaber.png",
+    "description": "A Slayer's sword forged with Charrogg trophies.",
+    "damageType": "Cutting",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "aetherhunter",
+        "name": "Aetherhunter",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "After spending 200 stamina, next attack emits a cone of flame that deals +150 blaze damage to each\nunique targets within the cone.\n",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "charred_spear",
+    "name": "Charred Spear",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Charrogg",
+    "icon": "/assets/icons/weapons/charrogg/CharredSpear.png",
+    "description": "A Slayer's war pike forged with Charrogg trophies.",
+    "damageType": "Piercing",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "aetherhunter",
+        "name": "Aetherhunter",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "After spending 175 stamina, next attack emits a cone of flame that deals +150 blaze damage to each\nunique targets within the cone.\n",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "molten_edict",
+    "name": "Molten Edict",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Charrogg",
+    "icon": "/assets/icons/weapons/charrogg/MoltenEdict.png",
+    "description": "The Molten Edict is a craftable Exotic weapon in Dauntless. It is crafted from Firebrand Charrogg reagents.",
+    "damageType": "Blunt",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "defence"
+    ],
+    "perks": [],
+    "uniqueEffect": "Replaces all hammer blasts with unique fireball abilities that deal blaze damage.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "thundering_blade",
+    "name": "Thundering Blade",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Drask",
+    "icon": "/assets/icons/weapons/drask/ThunderingBlade.png",
+    "description": "A Slayer's sword forged with Drask trophies.",
+    "damageType": "Slashing",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "aetheric_attunement",
+        "name": "Aetheric Attunement",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "30% damage vs Behemoth Tails",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "thundering_bolts",
+    "name": "Thundering Bolts",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Drask",
+    "icon": "/assets/icons/weapons/drask/ThunderingBolts.png",
+    "description": "A Slayer's aether strikers forged with Drask trophies.",
+    "damageType": "Blunt",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "power"
+    ],
+    "perks": [
+      {
+        "id": "aetheric_attunement",
+        "name": "Aetheric Attunement",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "30% damage vs Behemoth Heads",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "thundering_cutters",
+    "name": "Thundering Cutters",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Drask",
+    "icon": "/assets/icons/weapons/drask/ThunderingCutters.png",
+    "description": "A Slayer's chain blades forged with Drask trophies.",
+    "damageType": "Slashing",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "power"
+    ],
+    "perks": [
+      {
+        "id": "aetheric_attunement",
+        "name": "Aetheric Attunement",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "30% damage vs Behemoth Tails",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "thundering_maul",
+    "name": "Thundering Maul",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Drask",
+    "icon": "/assets/icons/weapons/drask/ThunderingMaul.png",
+    "description": "A Slayer's hammer forged with Drask trophies.",
+    "damageType": "Blunt",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "aetheric_attunement",
+        "name": "Aetheric Attunement",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "30% damage vs Behemoth Heads",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "thundering_scythe",
+    "name": "Thundering Scythe",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Drask",
+    "icon": "/assets/icons/weapons/drask/ThunderingScythe.png",
+    "description": "A Slayer's axe forged with Drask trophies.",
+    "damageType": "Slashing",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "aetheric_attunement",
+        "name": "Aetheric Attunement",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "30% damage vs Behemoth Heads",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "thundering_spear",
+    "name": "Thundering Spear",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Drask",
+    "icon": "/assets/icons/weapons/drask/ThunderingSpear.png",
+    "description": "A Slayer's war pike forged with Drask trophies.",
+    "damageType": "Piercing",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "power"
+    ],
+    "perks": [
+      {
+        "id": "aetheric_attunement",
+        "name": "Aetheric Attunement",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "30% damage vs Behemoth Tails",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "ember_blades",
+    "name": "Ember Blades",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Embermane",
+    "icon": "/assets/icons/weapons/embermane/EmberBlades.png",
+    "description": "A Slayer's chain blades forged with Embermane trophies.",
+    "damageType": "Slashing",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "evasive_fury",
+        "name": "Evasive Fury",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "The ninth hit in quick succession deals 250 bonus part damage.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "ember_cutlass",
+    "name": "Ember Cutlass",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Embermane",
+    "icon": "/assets/icons/weapons/embermane/EmberCutlass.png",
+    "description": "A Slayer's sword forged with Embermane trophies.",
+    "damageType": "Slashing",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "evasive_fury",
+        "name": "Evasive Fury",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "The sixth hit in a row deals +250% part damage",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "ember_fists",
+    "name": "Ember Fists",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Embermane",
+    "icon": "/assets/icons/weapons/embermane/EmberFists.png",
+    "description": "A Slayer's aether strikers forged with Embermane trophies.",
+    "damageType": "Blunt",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "evasive_fury",
+        "name": "Evasive Fury",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "The fourth hit in a row deals +150% stagger damage",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "ember_maul",
+    "name": "Ember Maul",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Embermane",
+    "icon": "/assets/icons/weapons/embermane/EmberMaul.png",
+    "description": "A Slayer's hammer forged with Embermane trophies.",
+    "damageType": "Blunt",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "evasive_fury",
+        "name": "Evasive Fury",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "The fourth hit in a row deals +150% stagger damage",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "ember_pike",
+    "name": "Ember Pike",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Embermane",
+    "icon": "/assets/icons/weapons/embermane/EmberPike.png",
+    "description": "A Slayer's war pike forged with Embermane trophies.",
+    "damageType": "Piercing",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "evasive_fury",
+        "name": "Evasive Fury",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "The sixth hit in a row deals +300 wound damage",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "ember_scythe",
+    "name": "Ember Scythe",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Embermane",
+    "icon": "/assets/icons/weapons/embermane/EmberScythe.png",
+    "description": "A Slayer's axe forged with Embermane trophies.",
+    "damageType": "Slashing",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "evasive_fury",
+        "name": "Evasive Fury",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "The third hit in quick succession deals 250 bonus part damage.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "recruit_s_axe",
+    "name": "Recruit's Axe",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Generic",
+    "icon": "/assets/icons/weapons/generic/RecruitsAxe.png",
+    "description": "A Slayer Recruit's axe.",
+    "damageType": "Slashing",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [],
+    "perks": [],
+    "uniqueEffect": null,
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "recruit_s_chain_blades",
+    "name": "Recruit's Chain Blades",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Generic",
+    "icon": "/assets/icons/weapons/generic/RecruitsChainBlades.png",
+    "description": "A Slayer Recruit's chain blades.",
+    "damageType": "Slashing",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [],
+    "perks": [],
+    "uniqueEffect": null,
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "recruit_s_hammer",
+    "name": "Recruit's Hammer",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Generic",
+    "icon": "/assets/icons/weapons/generic/RecruitsHammer.png",
+    "description": "A Slayer Recruit's hammer.",
+    "damageType": "Blunt",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [],
+    "perks": [],
+    "uniqueEffect": null,
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "recruit_s_strikers",
+    "name": "Recruit's Strikers",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Generic",
+    "icon": "/assets/icons/weapons/generic/RecruitsStrikers.png",
+    "description": "A simple pair of aether strikers for slaying Behemoths.",
+    "damageType": "Blunt",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [],
+    "perks": [],
+    "uniqueEffect": null,
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "recruit_s_sword",
+    "name": "Recruit's Sword",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Generic",
+    "icon": "/assets/icons/weapons/generic/RecruitsSword.png",
+    "description": "A Simple blade for slaying behemoths.",
+    "damageType": "Slashing",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [],
+    "perks": [],
+    "uniqueEffect": null,
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "recruit_s_war_pike",
+    "name": "Recruit's War Pike",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Generic",
+    "icon": "/assets/icons/weapons/generic/RecruitsWarPike.png",
+    "description": "A Slayer Recruit's war pike.",
+    "damageType": "Piercing",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [],
+    "perks": [],
+    "uniqueEffect": null,
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "repeater",
+    "name": "Repeater",
+    "type": "repeater",
+    "typeName": "Repeater",
+    "behemoth": "Generic",
+    "icon": "/assets/icons/weapons/generic/Repeater.png",
+    "description": "An Ostian Repeater.",
+    "damageType": "Slashing",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "mobility"
+    ],
+    "perks": [],
+    "uniqueEffect": null,
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "the_twin_suns",
+    "name": "The Twin Suns",
+    "type": "repeater",
+    "typeName": "Repeater",
+    "behemoth": "Generic",
+    "icon": "/assets/icons/weapons/generic/TheTwinSuns.png",
+    "description": "Exotic Repeaters.",
+    "damageType": "Slashing",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "mobility"
+    ],
+    "perks": [],
+    "uniqueEffect": "After a critical strike, reduce the cooldown of Mag Bomb mode by 3 seconds.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "training_sword",
+    "name": "Training Sword",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Generic",
+    "icon": "/assets/icons/weapons/generic/TrainingSword.png",
+    "description": "A dull and tarnished training blade.",
+    "damageType": "Slashing",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [],
+    "perks": [],
+    "uniqueEffect": null,
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "raging_bite",
+    "name": "Raging Bite",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Gnasher",
+    "icon": "/assets/icons/weapons/gnasher/RagingBite.png",
+    "description": "A Slayer's axe forged with Gnasher trophies.",
+    "damageType": "Slashing",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "ragehunter",
+        "name": "Ragehunter",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Periodically enter a rage, dealing +10% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.\n",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "raging_blade",
+    "name": "Raging Blade",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Gnasher",
+    "icon": "/assets/icons/weapons/gnasher/RagingBlade.png",
+    "description": "A Slayer's sword forged with Gnasher trophies.",
+    "damageType": "Slashing",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "utility",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "ragehunter",
+        "name": "Ragehunter",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Periodically enter a rage, dealing +10% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.\n",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "raging_crash",
+    "name": "Raging Crash",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Gnasher",
+    "icon": "/assets/icons/weapons/gnasher/RagingCrash.png",
+    "description": "A Slayer's hammer forged with Gnasher trophies.",
+    "damageType": "Blunt",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "ragehunter",
+        "name": "Ragehunter",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Periodically enter a rage, dealing +10% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.\n",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "raging_cruelty",
+    "name": "Raging Cruelty",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Gnasher",
+    "icon": "/assets/icons/weapons/gnasher/RagingCruelty.png",
+    "description": "A Slayer's war pike forged with Gnasher trophies.",
+    "damageType": "Piercing",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "ragehunter",
+        "name": "Ragehunter",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Periodically enter a rage, dealing +10% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.\n",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "raging_fists",
+    "name": "Raging Fists",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Gnasher",
+    "icon": "/assets/icons/weapons/gnasher/RagingFists.png",
+    "description": "A Slayer's aether strikers forged with Gnasher trophies.",
+    "damageType": "Blunt",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "ragehunter",
+        "name": "Ragehunter",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Periodically enter a rage, dealing +10% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.\n",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "raging_teeth",
+    "name": "Raging Teeth",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Gnasher",
+    "icon": "/assets/icons/weapons/gnasher/RagingTeeth.png",
+    "description": "A Slayer's chain blades forged with Gnasher trophies.",
+    "damageType": "Slashing",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "ragehunter",
+        "name": "Ragehunter",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Periodically enter a rage, dealing +10% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.\n",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "inferno_s_arrow",
+    "name": "Inferno's Arrow",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Hellion",
+    "icon": "/assets/icons/weapons/hellion/InfernosArrow.png",
+    "description": "A Slayer's war pike forged with Hellion trophies.",
+    "damageType": "Piercing",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "power"
+    ],
+    "perks": [
+      {
+        "id": "overpower",
+        "name": "Overpower",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "The eighth hit in quick succession deals 225 bonus damage and major blaze damage",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "inferno_s_burden",
+    "name": "Inferno's Burden",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Hellion",
+    "icon": "/assets/icons/weapons/hellion/InfernosBurden.png",
+    "description": "A Slayer's hammer forged with Hellion trophies.",
+    "damageType": "Blunt",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "power"
+    ],
+    "perks": [
+      {
+        "id": "overpower",
+        "name": "Overpower",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "The fifth hit in quick succession deals 225 bonus damage and major blaze damage",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "inferno_s_decree",
+    "name": "Inferno's Decree",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Hellion",
+    "icon": "/assets/icons/weapons/hellion/InfernosDecree.png",
+    "description": "A Slayer's axe forged with Hellion trophies.",
+    "damageType": "Cutting",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "power"
+    ],
+    "perks": [
+      {
+        "id": "overpower",
+        "name": "Overpower",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "The fifth hit in quick succession deals 225 bonus damage and major blaze damage",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "inferno_s_fangs",
+    "name": "Inferno's Fangs",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Hellion",
+    "icon": "/assets/icons/weapons/hellion/InfernosFangs.png",
+    "description": "A Slayer's chain blades forged with Hellion trophies.",
+    "damageType": "Slashing",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "power"
+    ],
+    "perks": [
+      {
+        "id": "overpower",
+        "name": "Overpower",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "The eleventh hit in quick succession deals 225 bonus damage and major blaze damage",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "inferno_s_flames",
+    "name": "Inferno's Flames",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Hellion",
+    "icon": "/assets/icons/weapons/hellion/InfernosFlames.png",
+    "description": "A Slayer's aether strikers forged with Hellion trophies.",
+    "damageType": "Blunt",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "power"
+    ],
+    "perks": [
+      {
+        "id": "overpower",
+        "name": "Overpower",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "The eighth hit in quick succession deals 225 bonus damage and major blaze damage",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "inferno_s_razor",
+    "name": "Inferno's Razor",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Hellion",
+    "icon": "/assets/icons/weapons/hellion/InfernosRazor.png",
+    "description": "A Slayer's sword forged with Hellion trophies.",
+    "damageType": "Cutting",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "power"
+    ],
+    "perks": [
+      {
+        "id": "overpower",
+        "name": "Overpower",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "The eighth hit in quick succession deals 225 bonus damage and major blaze damage",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "kharabak_s_claw",
+    "name": "Kharabak's Claw",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Kharabak",
+    "icon": "/assets/icons/weapons/kharabak/KharabaksClaw.png",
+    "description": "A Slayer's axe forged with Kharabak trophies.",
+    "damageType": "Slashing",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "technique"
+    ],
+    "perks": [
+      {
+        "id": "deconstruction",
+        "name": "Deconstruction",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 25 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.\n",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "kharabak_s_jaw",
+    "name": "Kharabak's Jaw",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Kharabak",
+    "icon": "/assets/icons/weapons/kharabak/KharabaksJaw.png",
+    "description": "A Slayer's hammer forged with Kharabak trophies.",
+    "damageType": "Blunt",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "technique"
+    ],
+    "perks": [
+      {
+        "id": "deconstruction",
+        "name": "Deconstruction",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 25 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.\n",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "kharabak_s_pincers",
+    "name": "Kharabak's Pincers",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Kharabak",
+    "icon": "/assets/icons/weapons/kharabak/KharabaksPincers.png",
+    "description": "A Slayer's aether strikers forged with Kharabak trophies.",
+    "damageType": "Blunt",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "bladestorm",
+        "name": "Bladestorm",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 25 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.\n",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "kharabak_s_spur",
+    "name": "Kharabak's Spur",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Kharabak",
+    "icon": "/assets/icons/weapons/kharabak/KharabaksSpur.png",
+    "description": "A Slayer's sword forged with Kharabak trophies.",
+    "damageType": "Slashing",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "bladestorm",
+        "name": "Bladestorm",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 25 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.\n",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "kharabak_s_sting",
+    "name": "Kharabak's Sting",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Kharabak",
+    "icon": "/assets/icons/weapons/kharabak/KharabaksSting.png",
+    "description": "A Slayer's war pike forged with Kharabak trophies.",
+    "damageType": "Piercing",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "bladestorm",
+        "name": "Bladestorm",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 25 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.\n",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "kharabak_s_wings",
+    "name": "Kharabak's Wings",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Kharabak",
+    "icon": "/assets/icons/weapons/kharabak/KharabaksWings.png",
+    "description": "A Slayer's chain blades forged with Kharabak trophies.",
+    "damageType": "Slashing",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "bladestorm",
+        "name": "Bladestorm",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 25 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.\n",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "sovereign_s_grudge",
+    "name": "Sovereign's Grudge",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Koshai",
+    "icon": "/assets/icons/weapons/koshai/SovereignsGrudge.png",
+    "description": "A Slayer's hammer forged with Koshai trophies.",
+    "damageType": "Blunt",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "sharpened",
+        "name": "Sharpened",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "After not dealing damage for 4 seconds, the next 2 attacks deal 50% increased damage.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "sovereign_s_lash",
+    "name": "Sovereign's Lash",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Koshai",
+    "icon": "/assets/icons/weapons/koshai/SovereignsLash.png",
+    "description": "A Slayer's chain blades forged with Koshai trophies.",
+    "damageType": "Slashing",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "sharpened",
+        "name": "Sharpened",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "After not dealing damage for 4 seconds, the next 6 attacks deal 50% increased damage.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "sovereign_s_sceptres",
+    "name": "Sovereign's Sceptres",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Koshai",
+    "icon": "/assets/icons/weapons/koshai/SovereignsSceptres.png",
+    "description": "A Slayer's axe forged with Koshai trophies.",
+    "damageType": "Blunt",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "sharpened",
+        "name": "Sharpened",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "After not dealing damage for 4 seconds, the next 5 attacks deal 50% increased damage.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "sovereign_s_sorrow",
+    "name": "Sovereign's Sorrow",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Koshai",
+    "icon": "/assets/icons/weapons/koshai/SovereignsSorrow.png",
+    "description": "A Slayer's war pike forged with Koshai trophies.",
+    "damageType": "Piercing",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "sharpened",
+        "name": "Sharpened",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "After not dealing damage for 4 seconds, the next 5 attacks deal 50% increased damage.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "sovereign_s_torment",
+    "name": "Sovereign's Torment",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Koshai",
+    "icon": "/assets/icons/weapons/koshai/SovereignsTorment.png",
+    "description": "A Slayer's sword forged with Koshai trophies.",
+    "damageType": "Slashing",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "sharpened",
+        "name": "Sharpened",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "After not dealing damage for 4 seconds, the next 4 attacks deal 50% increased damage.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "sovereign_s_wrath",
+    "name": "Sovereign's Wrath",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Koshai",
+    "icon": "/assets/icons/weapons/koshai/SovereignsWrath.png",
+    "description": "A Slayer's axe forged with Koshai trophies.",
+    "damageType": "Slashing",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "sharpened",
+        "name": "Sharpened",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "After not dealing damage for 4 seconds, the next 2 attacks deal 50% increased damage.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "cyclonic_fury",
+    "name": "Cyclonic Fury",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Malkarion",
+    "icon": "/assets/icons/weapons/malkarion/CyclonicFury.png",
+    "description": "A Slayer's sword forged with Malkarion trophies.",
+    "damageType": "Slashing",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Teleport to a Behemoth, dealing Shock damage. Usable once, but resets on Behemoth kill.",
+    "isLegendary": true,
+    "bondElement": "Shock"
+  },
+  {
+    "id": "electric_cruelties",
+    "name": "Electric Cruelties",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Malkarion",
+    "icon": "/assets/icons/weapons/malkarion/ElectricCruelties.png",
+    "description": "A Slayer's chain blades forged with Malkarion trophies.",
+    "damageType": "Slashing",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Teleport to a Behemoth, dealing Shock damage. Usable once, but resets on Behemoth kill.",
+    "isLegendary": true,
+    "bondElement": "Shock"
+  },
+  {
+    "id": "galvanic_impact",
+    "name": "Galvanic Impact",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Malkarion",
+    "icon": "/assets/icons/weapons/malkarion/GalvanicImpact.png",
+    "description": "A Slayer's hammer forged with Malkarion trophies.",
+    "damageType": "Blunt",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Teleport to a Behemoth, dealing Shock damage. Usable once, but resets on Behemoth kill.",
+    "isLegendary": true,
+    "bondElement": "Shock"
+  },
+  {
+    "id": "mistral_currents",
+    "name": "Mistral Currents",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Malkarion",
+    "icon": "/assets/icons/weapons/malkarion/MistralCurrents.png",
+    "description": "A Slayer's aether strikers forged with Malkarion trophies.",
+    "damageType": "Blunt",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Teleport to a Behemoth, dealing Shock damage. Usable once, but resets on Behemoth kill.",
+    "isLegendary": true,
+    "bondElement": "Shock"
+  },
+  {
+    "id": "terminal_voltage",
+    "name": "Terminal Voltage",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Malkarion",
+    "icon": "/assets/icons/weapons/malkarion/TerminalVoltage.png",
+    "description": "A Slayer's axe forged with Malkarion trophies.",
+    "damageType": "Slashing",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Teleport to a Behemoth, dealing Shock damage. Usable once, but resets on Behemoth kill.",
+    "isLegendary": true,
+    "bondElement": "Shock"
+  },
+  {
+    "id": "the_conductor",
+    "name": "The Conductor",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Malkarion",
+    "icon": "/assets/icons/weapons/malkarion/TheConductor.png",
+    "description": "A Slayer's war pike forged with Malkarion trophies.",
+    "damageType": "Piercing",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Teleport to a Behemoth, dealing Shock damage. Usable once, but resets on Behemoth kill.",
+    "isLegendary": true,
+    "bondElement": "Shock"
+  },
+  {
+    "id": "nayzaga_s_charge",
+    "name": "Nayzaga's Charge",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Nayzaga",
+    "icon": "/assets/icons/weapons/nayzaga/NayzagasCharge.png",
+    "description": "A Slayer's hammer forged with Nayzaga trophies.",
+    "damageType": "Blunt",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "savagery",
+        "name": "Savagery",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Heal for 300 whenever a Behemoth is staggered.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "nayzaga_s_fang",
+    "name": "Nayzaga's Fang",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Nayzaga",
+    "icon": "/assets/icons/weapons/nayzaga/NayzagasFang.png",
+    "description": "A Slayer's war pike forged with Nayzaga trophies.",
+    "damageType": "Piercing",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "barbed",
+        "name": "Barbed",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "+5% lifesteal vs wounded parts",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "nayzaga_s_razor",
+    "name": "Nayzaga's Razor",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Nayzaga",
+    "icon": "/assets/icons/weapons/nayzaga/NayzagasRazor.png",
+    "description": "A Slayer's sword forged with Nayzaga trophies.",
+    "damageType": "Slashing",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "utility",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "barbed",
+        "name": "Barbed",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "+5% lifesteal vs broken parts",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "nayzaga_s_reach",
+    "name": "Nayzaga's Reach",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Nayzaga",
+    "icon": "/assets/icons/weapons/nayzaga/NayzagasReach.png",
+    "description": "A Slayer's chain blades forged with Nayzaga trophies.",
+    "damageType": "Slashing",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "barbed",
+        "name": "Barbed",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "+5% lifesteal vs broken parts",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "nayzaga_s_scythe",
+    "name": "Nayzaga's Scythe",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Nayzaga",
+    "icon": "/assets/icons/weapons/nayzaga/NayzagasScythe.png",
+    "description": "A Slayer's axe forged with Nayzaga trophies.",
+    "damageType": "Slashing",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "savagery",
+        "name": "Savagery",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Heal 100 on perfectly charged vertical attacks",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "nayzaga_s_shockers",
+    "name": "Nayzaga's Shockers",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Nayzaga",
+    "icon": "/assets/icons/weapons/nayzaga/NayzagasShockers.png",
+    "description": "A Slayer's aether strikers forged with Nayzaga trophies.",
+    "damageType": "Blunt",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "savagery",
+        "name": "Savagery",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Heal for 300 whenever a Behemoth is staggered.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "pangar_s_call",
+    "name": "Pangar's Call",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Pangar",
+    "icon": "/assets/icons/weapons/pangar/PangarsCall.png",
+    "description": "A Slayer's sword forged with Pangar trophies.",
+    "damageType": "Slashing",
+    "element": "Frost",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "knockout_king",
+        "name": "Knockout King",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": null,
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "pangar_s_claws",
+    "name": "Pangar's Claws",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Pangar",
+    "icon": "/assets/icons/weapons/pangar/PangarsClaws.png",
+    "description": "A Slayer's chain blades forged with Pangar trophies.",
+    "damageType": "Slashing",
+    "element": "Frost",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "weighted_strikes",
+        "name": "Weighted Strikes",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": null,
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "pangar_s_grace",
+    "name": "Pangar's Grace",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Pangar",
+    "icon": "/assets/icons/weapons/pangar/PangarsGrace.png",
+    "description": "A Slayer's axe forged with Pangar trophies.",
+    "damageType": "Slashing",
+    "element": "Frost",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "knockout_king",
+        "name": "Knockout King",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": null,
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "pangar_s_punishers",
+    "name": "Pangar's Punishers",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Pangar",
+    "icon": "/assets/icons/weapons/pangar/PangarsPunishers.png",
+    "description": "A Slayer's aether strikers forged with Pangar trophies.",
+    "damageType": "Blunt",
+    "element": "Frost",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "knockout_king",
+        "name": "Knockout King",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": null,
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "pangar_s_rampage",
+    "name": "Pangar's Rampage",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Pangar",
+    "icon": "/assets/icons/weapons/pangar/PangarsRampage.png",
+    "description": "A Slayer's hammer forged with Pangar trophies.",
+    "damageType": "Blunt",
+    "element": "Frost",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "knockout_king",
+        "name": "Knockout King",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": null,
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "pangar_s_tooth",
+    "name": "Pangar's Tooth",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Pangar",
+    "icon": "/assets/icons/weapons/pangar/PangarsTooth.png",
+    "description": "A Slayer's war pike forged with Pangar trophies.",
+    "damageType": "Piercing",
+    "element": "Frost",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "weighted_strikes",
+        "name": "Weighted Strikes",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": null,
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "quillshot_s_bonehooks",
+    "name": "Quillshot's Bonehooks",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Quillshot",
+    "icon": "/assets/icons/weapons/quillshot/QuillshotsBonehooks.png",
+    "description": "A Slayer's chain blades forged with Quillshot trophies.",
+    "damageType": "Slashing",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "acidic",
+        "name": "Acidic",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": null,
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "quillshot_s_fury",
+    "name": "Quillshot's Fury",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Quillshot",
+    "icon": "/assets/icons/weapons/quillshot/QuillshotsFury.png",
+    "description": "A Slayer's axe forged with Quillshot trophies.",
+    "damageType": "Slashing",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "acidic",
+        "name": "Acidic",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": null,
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "quillshot_s_javelin",
+    "name": "Quillshot's Javelin",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Quillshot",
+    "icon": "/assets/icons/weapons/quillshot/QuillshotsJavelin.png",
+    "description": "A Slayer's war pike forged with Quillshot trophies.",
+    "damageType": "Piercing",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "acidic",
+        "name": "Acidic",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": null,
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "quillshot_s_roar",
+    "name": "Quillshot's Roar",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Quillshot",
+    "icon": "/assets/icons/weapons/quillshot/QuillshotsRoar.png",
+    "description": "A Slayer's hammer forged with Quillshot trophies.",
+    "damageType": "Blunt",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "acidic",
+        "name": "Acidic",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": null,
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "quillshot_s_shredders",
+    "name": "Quillshot's Shredders",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Quillshot",
+    "icon": "/assets/icons/weapons/quillshot/QuillshotsShredders.png",
+    "description": "A Slayer's aether strikers forged with Quillshot trophies.",
+    "damageType": "Blunt",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "acidic",
+        "name": "Acidic",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": null,
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "quillshot_s_tusk",
+    "name": "Quillshot's Tusk",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Quillshot",
+    "icon": "/assets/icons/weapons/quillshot/QuillshotsTusk.png",
+    "description": "A Slayer's sword forged with Quillshot trophies.",
+    "damageType": "Slashing",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "acidic",
+        "name": "Acidic",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": null,
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "break_of_dawn",
+    "name": "Break of Dawn",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Rezakiri",
+    "icon": "/assets/icons/weapons/rezakiri/BreakOfDawn.png",
+    "description": "A Slayer's hammer forged with Rezakiri trophies.",
+    "damageType": "Blunt",
+    "element": "Radiant",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "cunning",
+        "name": "Cunning",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "10% chance for attacks to Hit twice.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "call_of_dawn",
+    "name": "Call of Dawn",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Rezakiri",
+    "icon": "/assets/icons/weapons/rezakiri/CallOfDawn.png",
+    "description": "A Slayer's sword forged with Rezakiri trophies.",
+    "damageType": "Slashing",
+    "element": "Radiant",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "cunning",
+        "name": "Cunning",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "10% chance for attacks to Hit twice.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "edge_of_dawn",
+    "name": "Edge of Dawn",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Rezakiri",
+    "icon": "/assets/icons/weapons/rezakiri/EdgeOfDawn.png",
+    "description": "A Slayer's axe forged with Rezakiri trophies.",
+    "damageType": "Slashing",
+    "element": "Radiant",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "cunning",
+        "name": "Cunning",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "10% chance for attacks to Hit twice.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "fangs_of_dawn",
+    "name": "Fangs of Dawn",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Rezakiri",
+    "icon": "/assets/icons/weapons/rezakiri/FangsOfDawn.png",
+    "description": "A Slayer's chain blades forged with Rezakiri trophies.",
+    "damageType": "Slashing",
+    "element": "Radiant",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "power"
+    ],
+    "perks": [
+      {
+        "id": "cunning",
+        "name": "Cunning",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "10% chance for attacks to Hit twice.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "hands_of_dawn",
+    "name": "Hands of Dawn",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Rezakiri",
+    "icon": "/assets/icons/weapons/rezakiri/HandsOfDawn.png",
+    "description": "A Slayer's aether strikers forged with Rezakiri trophies.",
+    "damageType": "Blunt",
+    "element": "Radiant",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "power"
+    ],
+    "perks": [
+      {
+        "id": "cunning",
+        "name": "Cunning",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "10% chance for attacks to Hit twice.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "spire_of_dawn",
+    "name": "Spire of Dawn",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Rezakiri",
+    "icon": "/assets/icons/weapons/rezakiri/SpireOfDawn.png",
+    "description": "A Slayer's war pike forged with Rezakiri trophies.",
+    "damageType": "Piercing",
+    "element": "Radiant",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "power"
+    ],
+    "perks": [
+      {
+        "id": "cunning",
+        "name": "Cunning",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "10% chance for attacks to Hit twice.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "the_godhand",
+    "name": "The Godhand",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Rezakiri",
+    "icon": "/assets/icons/weapons/rezakiri/TheGodhand.png",
+    "description": "The Godhand is a craftable Exotic weapon in Dauntless. It is crafted from Rezakiri reagents.",
+    "damageType": "Piercing",
+    "element": "Radiant",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "power"
+    ],
+    "perks": [],
+    "uniqueEffect": "Channel a beam that deals increasing damage, up to 200%, while it continues to hit a target.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "stalker_s_mercy",
+    "name": "Stalker's Mercy",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Riftstalker",
+    "icon": "/assets/icons/weapons/riftstalker/StalkersMercy.png",
+    "description": "A Slayer's axe forged with Riftstalker trophies.",
+    "damageType": "Slashing",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "wild_frenzy",
+        "name": "Wild Frenzy",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 2.25% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "stalker_s_price",
+    "name": "Stalker's Price",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Riftstalker",
+    "icon": "/assets/icons/weapons/riftstalker/StalkersPrice.png",
+    "description": "A Slayer's hammer forged with Riftstalker trophies.",
+    "damageType": "Blunt",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "wild_frenzy",
+        "name": "Wild Frenzy",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 2.25% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "stalker_s_scorn",
+    "name": "Stalker's Scorn",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Riftstalker",
+    "icon": "/assets/icons/weapons/riftstalker/StalkersScorn.png",
+    "description": "A Slayer's aether strikers forged with Riftstalker trophies.",
+    "damageType": "Blunt",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "wild_frenzy",
+        "name": "Wild Frenzy",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 2.25% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "stalker_s_spike",
+    "name": "Stalker's Spike",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Riftstalker",
+    "icon": "/assets/icons/weapons/riftstalker/StalkersSpike.png",
+    "description": "A Slayer's war pike forged with Riftstalker trophies.",
+    "damageType": "Piercing",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "wild_frenzy",
+        "name": "Wild Frenzy",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 2.25% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "stalker_s_strike",
+    "name": "Stalker's Strike",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Riftstalker",
+    "icon": "/assets/icons/weapons/riftstalker/StalkersStrike.png",
+    "description": "A Slayer's sword forged with Riftstalker trophies.",
+    "damageType": "Slashing",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "wild_frenzy",
+        "name": "Wild Frenzy",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 2.25% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "stalker_s_trap",
+    "name": "Stalker's Trap",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Riftstalker",
+    "icon": "/assets/icons/weapons/riftstalker/StalkersTrap.png",
+    "description": "A Slayer's chain blades forged with Riftstalker trophies.",
+    "damageType": "Slashing",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "wild_frenzy",
+        "name": "Wild Frenzy",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 2.25% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "cry_of_the_shrike",
+    "name": "Cry of the Shrike",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Shrike",
+    "icon": "/assets/icons/weapons/shrike/CryOfTheShrike.png",
+    "description": "A Slayer's sword forged with Shrike trophies.",
+    "damageType": "Slashing",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "mobility",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "conditioning",
+        "name": "Conditioning",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "After dodging, your next attack deals +100 bonus damage and part damage",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "fall_of_the_shrike",
+    "name": "Fall of the Shrike",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Shrike",
+    "icon": "/assets/icons/weapons/shrike/FallOfTheShrike.png",
+    "description": "A Slayer's hammer forged with Shrike trophies.",
+    "damageType": "Blunt",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "conditioning",
+        "name": "Conditioning",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "After dodging, your next attack deals +100 bonus damage and part damage",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "fists_of_the_shrike",
+    "name": "Fists of the Shrike",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Shrike",
+    "icon": "/assets/icons/weapons/shrike/FistsOfTheShrike.png",
+    "description": "A Slayer's aether strikers forged with Shrike trophies.",
+    "damageType": "Blunt",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "conditioning",
+        "name": "Conditioning",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "After dodging, your next attack deals +100 bonus damage and part damage",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "flight_of_the_shrike",
+    "name": "Flight of the Shrike",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Shrike",
+    "icon": "/assets/icons/weapons/shrike/FlightOfTheShrike.png",
+    "description": "A Slayer's chain blades forged with Shrike trophies.",
+    "damageType": "Slashing",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "conditioning",
+        "name": "Conditioning",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "After dodging, your next attack deals +100 bonus damage and part damage",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "scream_of_the_shrike",
+    "name": "Scream of the Shrike",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Shrike",
+    "icon": "/assets/icons/weapons/shrike/ScreamOfTheShrike.png",
+    "description": "A Slayer's war pike forged with Shrike trophies.",
+    "damageType": "Piercing",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "conditioning",
+        "name": "Conditioning",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "After dodging, your next attack deals +100 bonus damage and part damage",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "song_of_the_shrike",
+    "name": "Song of the Shrike",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Shrike",
+    "icon": "/assets/icons/weapons/shrike/SongOfTheShrike.png",
+    "description": "A Slayer's axe forged with Shrike trophies.",
+    "damageType": "Slashing",
+    "element": "Neutral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "conditioning",
+        "name": "Conditioning",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "After dodging, your next attack deals +100 bonus damage and part damage",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "eyes_of_night",
+    "name": "Eyes of Night",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Shrowd",
+    "icon": "/assets/icons/weapons/shrowd/EyesOfNight.png",
+    "description": "A Slayer's chain blades forged with Shrowd trophies.",
+    "damageType": "Slashing",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "cunning",
+        "name": "Cunning",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "When under 20% health, deal +50% damage",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "fall_of_night",
+    "name": "Fall of Night",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Shrowd",
+    "icon": "/assets/icons/weapons/shrowd/FallOfNight.png",
+    "description": "A Slayer's hammer forged with Shrowd trophies.",
+    "damageType": "Blunt",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "cunning",
+        "name": "Cunning",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "When under 20% health, deal +50% damage",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "gyre_of_night",
+    "name": "Gyre of Night",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Shrowd",
+    "icon": "/assets/icons/weapons/shrowd/GyreOfNight.png",
+    "description": "A Slayer's war pike forged with Shrowd trophies.",
+    "damageType": "Piercing",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "cunning",
+        "name": "Cunning",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "When under 20% health, deal +50% damage",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "hands_of_night",
+    "name": "Hands of Night",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Shrowd",
+    "icon": "/assets/icons/weapons/shrowd/HandsOfNight.png",
+    "description": "A Slayer's aether strikers forged with Shrowd trophies.",
+    "damageType": "Blunt",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "cunning",
+        "name": "Cunning",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "When under 20% health, deal +50% damage",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "reaper_of_night",
+    "name": "Reaper of Night",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Shrowd",
+    "icon": "/assets/icons/weapons/shrowd/ReaperOfNight.png",
+    "description": "A Slayer's axe forged with Shrowd trophies.",
+    "damageType": "Slashing",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "cunning",
+        "name": "Cunning",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "When under 20% health, deal +50% damage",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "the_hunger",
+    "name": "The Hunger",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Shrowd",
+    "icon": "/assets/icons/weapons/shrowd/TheHunger.png",
+    "description": "The Hunger is a craftable Exotic weapon in Dauntless. It is crafted from Shrowd reagents.",
+    "damageType": "Slashing",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "utility"
+    ],
+    "perks": [],
+    "uniqueEffect": "Activate to enter Feast, taking damage over time but gaining significant lifesteal, attack speed, and creating aetheric waves with each attack that deal area damage.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "verge_of_night",
+    "name": "Verge of Night",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Shrowd",
+    "icon": "/assets/icons/weapons/shrowd/VergeOfNight.png",
+    "description": "A Slayer's sword forged with Shrowd trophies.",
+    "damageType": "Slashing",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "cunning",
+        "name": "Cunning",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "When under 20% health, deal +50% damage",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "skarn_s_judgment",
+    "name": "Skarn's Judgment",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Skarn",
+    "icon": "/assets/icons/weapons/skarn/SkarnsJudgment.png",
+    "description": "A Slayer's axe forged with Skarn trophies.",
+    "damageType": "Slashing",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "knockout_king",
+        "name": "Knockout King",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to grant a stacking, refreshing 40 health shield that lasts for 12s",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "skarn_s_malice",
+    "name": "Skarn's Malice",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Skarn",
+    "icon": "/assets/icons/weapons/skarn/SkarnsMalice.png",
+    "description": "A Slayer's chain blades forged with Skarn trophies.",
+    "damageType": "Slashing",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "weighted_strikes",
+        "name": "Weighted Strikes",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to grant a stacking, refreshing 40 health shield that lasts for 12s",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "skarn_s_rancor",
+    "name": "Skarn's Rancor",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Skarn",
+    "icon": "/assets/icons/weapons/skarn/SkarnsRancor.png",
+    "description": "A Slayer's sword forged with Skarn trophies.",
+    "damageType": "Slashing",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "knockout_king",
+        "name": "Knockout King",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to grant a stacking, refreshing 40 health shield that lasts for 12s",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "skarn_s_smashers",
+    "name": "Skarn's Smashers",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Skarn",
+    "icon": "/assets/icons/weapons/skarn/SkarnsSmashers.png",
+    "description": "A Slayer's aether strikers forged with Skarn trophies.",
+    "damageType": "Blunt",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "knockout_king",
+        "name": "Knockout King",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to grant a stacking, refreshing 40 health shield that lasts for 12s",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "skarn_s_spite",
+    "name": "Skarn's Spite",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Skarn",
+    "icon": "/assets/icons/weapons/skarn/SkarnsSpite.png",
+    "description": "A Slayer's war pike forged with Skarn trophies.",
+    "damageType": "Slashing",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "weighted_strikes",
+        "name": "Weighted Strikes",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to grant a stacking, refreshing 40 health shield that lasts for 12s",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "skarn_s_vengeance",
+    "name": "Skarn's Vengeance",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Skarn",
+    "icon": "/assets/icons/weapons/skarn/SkarnsVengeance.png",
+    "description": "A Slayer's hammer forged with Skarn trophies.",
+    "damageType": "Blunt",
+    "element": "Terra",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "defence"
+    ],
+    "perks": [
+      {
+        "id": "knockout_king",
+        "name": "Knockout King",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to grant a stacking, refreshing 40 health shield that lasts for 12s",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "winter_gale",
+    "name": "Winter Gale",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Skraev",
+    "icon": "/assets/icons/weapons/skraev/WinterGale.png",
+    "description": "A Slayer's axe forged with Skraev trophies.",
+    "damageType": "Slashing",
+    "element": "Frost",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "nimble",
+        "name": "Nimble",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "Evading drops 3 Ice Mines on a 30 second cooldown.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "winter_ice",
+    "name": "Winter Ice",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Skraev",
+    "icon": "/assets/icons/weapons/skraev/WinterIce.png",
+    "description": "A Slayer's sword forged with Skraev trophies.",
+    "damageType": "Slashing",
+    "element": "Frost",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "nimble",
+        "name": "Nimble",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "Evading drops 3 Ice Mines on a 30 second cooldown.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "winter_squall",
+    "name": "Winter Squall",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Skraev",
+    "icon": "/assets/icons/weapons/skraev/WinterSquall.png",
+    "description": "A Slayer's hammer forged with Skraev trophies.",
+    "damageType": "Blunt",
+    "element": "Frost",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "nimble",
+        "name": "Nimble",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "Evading drops 3 Ice Mines on a 30 second cooldown.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "winter_vortex",
+    "name": "Winter Vortex",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Skraev",
+    "icon": "/assets/icons/weapons/skraev/WinterVortex.png",
+    "description": "A Slayer's war pike forged with Skraev trophies.",
+    "damageType": "Piercing",
+    "element": "Frost",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "nimble",
+        "name": "Nimble",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "Evading drops 3 Ice Mines on a 30 second cooldown.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "winter_winds",
+    "name": "Winter Winds",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Skraev",
+    "icon": "/assets/icons/weapons/skraev/WinterWinds.png",
+    "description": "A Slayer's chain blades forged with Skraev trophies.",
+    "damageType": "Slashing",
+    "element": "Frost",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "nimble",
+        "name": "Nimble",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "Evading drops 3 Ice Mines on a 30 second cooldown.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "winter_wolves",
+    "name": "Winter Wolves",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Skraev",
+    "icon": "/assets/icons/weapons/skraev/WinterWolves.png",
+    "description": "A Slayer's aether strikers forged with Skraev trophies.",
+    "damageType": "Blunt",
+    "element": "Frost",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "nimble",
+        "name": "Nimble",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "Evading drops 3 Ice Mines on a 30 second cooldown.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "storm_blades",
+    "name": "Storm Blades",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Stormclaw",
+    "icon": "/assets/icons/weapons/stormclaw/StormBlades.png",
+    "description": "A Slayer's chain blades forged with Stormclaw trophies.",
+    "damageType": "Slashing",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "energized",
+        "name": "Energized",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "After dodging through an attack,your attacks gain 100% bonus meter for +3 seconds",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "storm_breakers",
+    "name": "Storm Breakers",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Stormclaw",
+    "icon": "/assets/icons/weapons/stormclaw/StormBreakers.png",
+    "description": "A Slayer's aether strikers forged with Stormclaw trophies.",
+    "damageType": "Blunt",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "aetheric_attunement",
+        "name": "Aetheric Attunement",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "After dodging though an attack, extend Mantra timeout by 3 seconds",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "storm_cutter",
+    "name": "Storm Cutter",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Stormclaw",
+    "icon": "/assets/icons/weapons/stormclaw/StormCutter.png",
+    "description": "A Slayer's axe forged with Stormclaw trophies.",
+    "damageType": "Slashing",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "energized",
+        "name": "Energized",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "After dodging through an attack,your attacks gain 100% bonus meter for +5 seconds",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "storm_hammer",
+    "name": "Storm Hammer",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Stormclaw",
+    "icon": "/assets/icons/weapons/stormclaw/StormHammer.png",
+    "description": "A Slayer's hammer forged with Stormclaw trophies.",
+    "damageType": "Blunt",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "aetheric_attunement",
+        "name": "Aetheric Attunement",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "Reloads 3 hammer ammo after dodging through an attack",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "storm_pike",
+    "name": "Storm Pike",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Stormclaw",
+    "icon": "/assets/icons/weapons/stormclaw/StormPike.png",
+    "description": "A Slayer's war pike forged with Stormclaw trophies.",
+    "damageType": "Piercing",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "energized",
+        "name": "Energized",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "After dodging through an attack,your attacks gain 100% bonus meter for +4 seconds",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "storm_sword",
+    "name": "Storm Sword",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Stormclaw",
+    "icon": "/assets/icons/weapons/stormclaw/StormSword.png",
+    "description": "A Slayer's sword forged with Stormclaw trophies.",
+    "damageType": "Slashing",
+    "element": "Shock",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "technique",
+      "mobility"
+    ],
+    "perks": [
+      {
+        "id": "energized",
+        "name": "Energized",
+        "value": 3,
+        "baseValue": 1
+      }
+    ],
+    "uniqueEffect": "After dodging through an attack,your attacks gain 100% bonus meter for +4 seconds",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "fractured_realities",
+    "name": "Fractured Realities",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Thrax",
+    "icon": "/assets/icons/weapons/thrax/FracturedRealities.png",
+    "description": "A Slayer's aether strikers forged with Thrax trophies.",
+    "damageType": "Blunt",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Deal umbral damage to nearby enemies and teleport high into the sky. Then choose a spot to slam down on to, dealing additional umbral damage. Usable once, but resets on Behemoth kill.",
+    "isLegendary": true,
+    "bondElement": "Umbral"
+  },
+  {
+    "id": "mindsplitter",
+    "name": "Mindsplitter",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Thrax",
+    "icon": "/assets/icons/weapons/thrax/Mindsplitter.png",
+    "description": "A Slayer's axe forged with Thrax trophies.",
+    "damageType": "Slashing",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Deal umbral damage to nearby enemies and teleport high into the sky. Then choose a spot to slam down on to, dealing additional umbral damage. Usable once, but resets on Behemoth kill.",
+    "isLegendary": true,
+    "bondElement": "Umbral"
+  },
+  {
+    "id": "night_terrors",
+    "name": "Night Terrors",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Thrax",
+    "icon": "/assets/icons/weapons/thrax/NightTerrors.png",
+    "description": "A Slayer's chain blades forged with Thrax trophies.",
+    "damageType": "Slashing",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Deal umbral damage to nearby enemies and teleport high into the sky. Then choose a spot to slam down on to, dealing additional umbral damage. Usable once, but resets on Behemoth kill.",
+    "isLegendary": true,
+    "bondElement": "Umbral"
+  },
+  {
+    "id": "sanity_check",
+    "name": "Sanity Check",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Thrax",
+    "icon": "/assets/icons/weapons/thrax/SanityCheck.png",
+    "description": "A Slayer's hammer forged with Thrax trophies.",
+    "damageType": "Blunt",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Deal umbral damage to nearby enemies and teleport high into the sky. Then choose a spot to slam down on to, dealing additional umbral damage. Usable once, but resets on Behemoth kill.",
+    "isLegendary": true,
+    "bondElement": "Umbral"
+  },
+  {
+    "id": "the_apocalypse_needle",
+    "name": "The Apocalypse Needle",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Thrax",
+    "icon": "/assets/icons/weapons/thrax/TheApocalypseNeedle.png",
+    "description": "A Slayer's war pike forged with Thrax trophies.",
+    "damageType": "Piercing",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Deal umbral damage to nearby enemies and teleport high into the sky. Then choose a spot to slam down on to, dealing additional umbral damage. Usable once, but resets on Behemoth kill.",
+    "isLegendary": true,
+    "bondElement": "Umbral"
+  },
+  {
+    "id": "voidbane",
+    "name": "Voidbane",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Thrax",
+    "icon": "/assets/icons/weapons/thrax/Voidbane.png",
+    "description": "A Slayer's sword forged with Thrax trophies.",
+    "damageType": "Slashing",
+    "element": "Umbral",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Deal umbral damage to nearby enemies and teleport high into the sky. Then choose a spot to slam down on to, dealing additional umbral damage. Usable once, but resets on Behemoth kill.",
+    "isLegendary": true,
+    "bondElement": "Umbral"
+  },
+  {
+    "id": "incinerator_s_song",
+    "name": "Incinerator's Song",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Torgadoro",
+    "icon": "/assets/icons/weapons/torgadoro/IncineratorsSong.png",
+    "description": "A Slayer's axe forged with Torgadoro trophies.",
+    "damageType": "Slashing",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Enter a rage, gaining new attacks for 15 seconds. Deals +25% damage when the target is below\n50% health. Usable once, but resets on Behemoth kill.\n",
+    "isLegendary": true,
+    "bondElement": "Blaze"
+  },
+  {
+    "id": "magma_quake",
+    "name": "Magma Quake",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Torgadoro",
+    "icon": "/assets/icons/weapons/torgadoro/MagmaQuake.png",
+    "description": "A Slayer's hammer forged with Torgadoro trophies.",
+    "damageType": "Blunt",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Enter a rage, gaining new attacks for 15 seconds. Deals +25% damage when the target is below\n50% health. Usable once, but resets on Behemoth kill.\n",
+    "isLegendary": true,
+    "bondElement": "Blaze"
+  },
+  {
+    "id": "pyroclastic_envoy",
+    "name": "Pyroclastic Envoy",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Torgadoro",
+    "icon": "/assets/icons/weapons/torgadoro/PyroclasticEnvoy.png",
+    "description": "A Slayer's war pike forged with Torgadoro trophies.",
+    "damageType": "Piercing",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Enter a rage, gaining new attacks for 15 seconds. Deals +25% damage when the target is below\n50% health. Usable once, but resets on Behemoth kill.\n",
+    "isLegendary": true,
+    "bondElement": "Blaze"
+  },
+  {
+    "id": "scorching_agonies",
+    "name": "Scorching Agonies",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Torgadoro",
+    "icon": "/assets/icons/weapons/torgadoro/ScorchingAgonies.png",
+    "description": "A Slayer's chain blades forged with Torgadoro trophies.",
+    "damageType": "Slashing",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Enter a rage, gaining new attacks for 15 seconds. Deals +25% damage when the target is below\n50% health. Usable once, but resets on Behemoth kill.\n",
+    "isLegendary": true,
+    "bondElement": "Blaze"
+  },
+  {
+    "id": "tectonic_faults",
+    "name": "Tectonic Faults",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Torgadoro",
+    "icon": "/assets/icons/weapons/torgadoro/TectonicFaults.png",
+    "description": "A Slayer's aether strikers forged with Torgadoro trophies.",
+    "damageType": "Blunt",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Enter a rage, gaining new attacks for 15 seconds. Deals +25% damage when the target is below\n50% health. Usable once, but resets on Behemoth kill.\n",
+    "isLegendary": true,
+    "bondElement": "Blaze"
+  },
+  {
+    "id": "the_cauterizer",
+    "name": "The Cauterizer",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Torgadoro",
+    "icon": "/assets/icons/weapons/torgadoro/TheCauterizer.png",
+    "description": "A Slayer's sword forged with Torgadoro trophies.",
+    "damageType": "Slashing",
+    "element": "Blaze",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "prismatic",
+      "prismatic"
+    ],
+    "perks": [],
+    "uniqueEffect": "Legendary Ability: Enter a rage, gaining new attacks for 15 seconds. Deals +25% damage when the target is below\n50% health. Usable once, but resets on Behemoth kill.\n",
+    "isLegendary": true,
+    "bondElement": "Blaze"
+  },
+  {
+    "id": "valomyr_s_burden",
+    "name": "Valomyr's Burden",
+    "type": "hammer",
+    "typeName": "Hammer",
+    "behemoth": "Valomyr",
+    "icon": "/assets/icons/weapons/valomyr/ValomyrsBurden.png",
+    "description": "A Slayer's hammer forged with Valomyr trophies.",
+    "damageType": "Blunt",
+    "element": "Radiant",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "aetherhunter",
+        "name": "Aetherhunter",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "Once charged, your next attack will deal 550 bonus radiant damage. Charge rate increases with current health.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "valomyr_s_decree",
+    "name": "Valomyr's Decree",
+    "type": "axe",
+    "typeName": "Axe",
+    "behemoth": "Valomyr",
+    "icon": "/assets/icons/weapons/valomyr/ValomyrsDecree.png",
+    "description": "A Slayer's axe forged with Valomyr trophies.",
+    "damageType": "Slashing",
+    "element": "Radiant",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "aetherhunter",
+        "name": "Aetherhunter",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "Once charged, your next attack will deal 550 bonus radiant damage. Charge rate increases with current health.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "valomyr_s_hope",
+    "name": "Valomyr's Hope",
+    "type": "war pike",
+    "typeName": "War Pike",
+    "behemoth": "Valomyr",
+    "icon": "/assets/icons/weapons/valomyr/ValomyrsHope.png",
+    "description": "A Slayer's war pike forged with Valomyr trophies.",
+    "damageType": "Piercing",
+    "element": "Radiant",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "aetherhunter",
+        "name": "Aetherhunter",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "Once charged, your next attack will deal 550 bonus radiant damage. Charge rate increases with current health.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "valomyr_s_regard",
+    "name": "Valomyr's Regard",
+    "type": "sword",
+    "typeName": "Sword",
+    "behemoth": "Valomyr",
+    "icon": "/assets/icons/weapons/valomyr/ValomyrsRegard.png",
+    "description": "A Slayer's sword forged with Valomyr trophies.",
+    "damageType": "Slashing",
+    "element": "Radiant",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "aetherhunter",
+        "name": "Aetherhunter",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "Once charged, your next attack will deal 550 bonus radiant damage. Charge rate increases with current health.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "valomyr_s_revenge",
+    "name": "Valomyr's Revenge",
+    "type": "chain blades",
+    "typeName": "Chain Blades",
+    "behemoth": "Valomyr",
+    "icon": "/assets/icons/weapons/valomyr/ValomyrsRevenge.png",
+    "description": "A Slayer's chain blades forged with Valomyr trophies.",
+    "damageType": "Slashing",
+    "element": "Radiant",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "aetherhunter",
+        "name": "Aetherhunter",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "Once charged, your next attack will deal 550 bonus radiant damage. Charge rate increases with current health.",
+    "isLegendary": false,
+    "bondElement": null
+  },
+  {
+    "id": "valomyr_s_visions",
+    "name": "Valomyr's Visions",
+    "type": "aether strikers",
+    "typeName": "Aether Strikers",
+    "behemoth": "Valomyr",
+    "icon": "/assets/icons/weapons/valomyr/ValomyrsVisions.png",
+    "description": "A Slayer's aether strikers forged with Valomyr trophies.",
+    "damageType": "Blunt",
+    "element": "Radiant",
+    "basePower": 100,
+    "maxPower": 550,
+    "cellSockets": [
+      "power",
+      "utility"
+    ],
+    "perks": [
+      {
+        "id": "aetherhunter",
+        "name": "Aetherhunter",
+        "value": 3,
+        "baseValue": 2
+      }
+    ],
+    "uniqueEffect": "Once charged, your next attack will deal 550 bonus radiant damage. Charge rate increases with current health.",
+    "isLegendary": false,
+    "bondElement": null
+  }
+]

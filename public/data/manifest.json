@@ -2,13 +2,24 @@
   "default": "1.14.7",
   "versions": [
     {
-      "id": "1.6.2",
-      "name": "Patch 1.6.2 (Classic Escalation)",
-      "releaseDate": "2021-05-20",
-      "description": "Classic Dauntless Escalation era with original cell socket types (Power, Technique, Defence, Mobility, Utility) and no omnicells.",
+      "id": "1.4.4",
+      "name": "Patch 1.4.4 (Classic / Pre-Reforged)",
+      "releaseDate": "2020-11-05",
+      "description": "The legacy pre-Reforged era featuring +15 gear upgrading, Mastery progression, original cell categories (Power, Technique, Defence, Mobility, Utility), and no Power Surging or Omnicells.",
       "hasOmnicells": false,
       "hasCellSockets": true,
+      "hasPowerSurge": false,
       "era": "Classic"
+    },
+    {
+      "id": "1.6.2",
+      "name": "Patch 1.6.2 (Early Reforged)",
+      "releaseDate": "2021-05-20",
+      "description": "Early Reforged era with original cell socket types (Power, Technique, Defence, Mobility, Utility), Aetherheart Power Surging, and no Omnicells.",
+      "hasOmnicells": false,
+      "hasCellSockets": true,
+      "hasPowerSurge": true,
+      "era": "Reforged"
     },
     {
       "id": "1.12.0",
@@ -17,6 +28,7 @@
       "description": "Mid-Reforged update introducing the revised cell socket categories (Brutality, Finesse, Fortitude, Alacrity, Insight) and Omnicells.",
       "hasOmnicells": true,
       "hasCellSockets": true,
+      "hasPowerSurge": true,
       "era": "Reforged"
     },
     {
@@ -26,6 +38,7 @@
       "description": "The peak Reforged meta with full Behemoth rosters (Frostwülf, Phaelanx, Fenroar), all 6 Omnicells, and expanded cell perks.",
       "hasOmnicells": true,
       "hasCellSockets": true,
+      "hasPowerSurge": true,
       "era": "Reforged"
     },
     {
@@ -35,6 +48,7 @@
       "description": "The Awakening overhaul featuring Weapon Talents, Lantern Cores, and revised equipment progression.",
       "hasOmnicells": false,
       "hasCellSockets": false,
+      "hasPowerSurge": false,
       "era": "Awakening"
     }
   ]

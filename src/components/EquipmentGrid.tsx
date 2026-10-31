@@ -49,6 +49,7 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
     tierIndex: number;
   } | null>(null);
 
+  const isClassic = patchInfo?.era === 'Classic' || patchData.version === '1.4.4';
   const isAwakening = patchInfo?.era === 'Awakening' || patchData.version === '2.1.1';
   const hasCellSockets = patchInfo?.hasCellSockets !== false;
   const hasOmnicells = !isAwakening && patchInfo?.hasOmnicells === true && !!patchData.omnicells && patchData.omnicells.length > 0;
@@ -66,6 +67,9 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
   const currentOmnicell = patchData.omnicells.find(o => o.id === build.omnicell);
 
   const getWeaponPower = (w: WeaponItem, slotKey: string) => {
+    if (isClassic) {
+      return w.maxPower;
+    }
     if (!isAwakening) {
       return powerSurged ? w.maxPower : w.basePower;
     }
@@ -74,6 +78,9 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
   };
 
   const getArmourRes = (a: ArmourItem, slotKey: string) => {
+    if (isClassic) {
+      return a.maxResistance;
+    }
     if (!isAwakening) {
       return powerSurged ? a.maxResistance : a.baseResistance;
     }
@@ -82,6 +89,13 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
   };
 
   const getArmourPerks = (a: ArmourItem, slotKey: string) => {
+    if (isClassic) {
+      return a.perks.map(p => ({
+        id: p.id,
+        name: p.name,
+        value: p.value,
+      }));
+    }
     if (isAwakening && a.stats && a.stats.length > 0) {
       const lvl = build.gearLevels?.[slotKey] ?? 20;
       const match = a.stats
@@ -525,16 +539,16 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                     {currentWeapon.element}
                   </em>
                   <em>
-                    <Zap className="h-3 w-3 text-amber-400" /> {powerSurged ? currentWeapon.maxPower : currentWeapon.basePower} power
+                    <Zap className="h-3 w-3 text-amber-400" /> {getWeaponPower(currentWeapon, 'weapon')} power{isClassic ? ' (+15)' : ''}
                   </em>
                   {currentWeapon.perks.map(p => (
                     <em key={p.id}>
-                      +{powerSurged ? p.value : (p.baseValue ?? p.value)} {p.name}
+                      +{isClassic ? p.value : (powerSurged ? p.value : (p.baseValue ?? p.value))} {p.name}
                     </em>
                   ))}
                   {currentWeapon.isLegendary && bondedWeapon && bondedWeapon.perks.map(p => (
                     <em key={p.id} className="border-amber-500/40 text-amber-300">
-                      +{powerSurged ? p.value : (p.baseValue ?? p.value)} {p.name} (Bond)
+                      +{isClassic ? p.value : (powerSurged ? p.value : (p.baseValue ?? p.value))} {p.name} (Bond)
                     </em>
                   ))}
                 </span>
@@ -607,7 +621,7 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                     <div className="flex flex-wrap items-center gap-1.5 mt-0.5 text-[10.5px]">
                       {bondedWeapon.perks.map(p => (
                         <span key={p.id} className="text-cyan-300 font-semibold">
-                          +{powerSurged ? p.value : (p.baseValue ?? p.value)} {p.name}
+                          +{isClassic ? p.value : (powerSurged ? p.value : (p.baseValue ?? p.value))} {p.name}
                         </span>
                       ))}
                       {bondedWeapon.uniqueEffect && (
@@ -709,7 +723,7 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                   {item ? (
                     <span className="gear-badges">
                       <em>
-                        <Shield className="h-3 w-3 text-cyan-400" /> {getArmourRes(item, slot)} res
+                        <Shield className="h-3 w-3 text-cyan-400" /> {getArmourRes(item, slot)} res{isClassic ? ' (+15)' : ''}
                       </em>
                       {item.strength && (
                         <em className={`element ${item.strength.toLowerCase()}`}>

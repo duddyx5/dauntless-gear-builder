@@ -54,7 +54,10 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   onReplayOnboarding,
 }) => {
   if (!isOpen) return null;
-  const isAwakening = currentVersionId === '2.1.1' || versions.find(v => v.id === currentVersionId)?.era === 'Awakening';
+  const currentPatch = versions.find(v => v.id === currentVersionId);
+  const isAwakening = currentVersionId === '2.1.1' || currentPatch?.era === 'Awakening';
+  const isClassic = currentVersionId === '1.4.4' || currentPatch?.era === 'Classic';
+  const hasPowerSurge = currentPatch?.hasPowerSurge !== false && !isClassic && !isAwakening;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 animate-fade-in">
@@ -206,10 +209,10 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                       <span>Released: {v.releaseDate}</span>
                       {v.era === 'Awakening' || v.id === '2.1.1' ? (
                         <span className="text-amber-400 font-medium">• Awakening Era (Lantern Cores & Weapon Talents)</span>
-                      ) : v.hasOmnicells ? (
-                        <span className="text-cyan-400 font-medium">• Reforged Era (Omnicells Enabled)</span>
+                      ) : v.era === 'Reforged' ? (
+                        <span className="text-cyan-400 font-medium">• Reforged Era ({v.hasOmnicells ? 'Omnicells Enabled' : 'No Omnicells'})</span>
                       ) : (
-                        <span className="text-gray-400 font-medium">• Classic Era (No Omnicells)</span>
+                        <span className="text-emerald-400 font-medium">• Classic Era (Legacy +15 Upgrades, No Omnicells)</span>
                       )}
                     </div>
 
@@ -237,8 +240,8 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             </label>
 
             <div className="space-y-2">
-              {/* Power Surge Toggle in Settings (Reforged / Classic only) */}
-              {!isAwakening ? (
+              {/* Power Surge Toggle in Settings (Reforged only) */}
+              {hasPowerSurge ? (
                 <div className="p-3.5 rounded-xl bg-gray-800/40 border border-gray-700/60 flex items-center justify-between">
                   <div>
                     <span className="font-semibold text-sm text-white block">Power Surge (Tier 6 Max)</span>
@@ -257,6 +260,18 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                   >
                     {powerSurged ? 'ENABLED' : 'DISABLED'}
                   </button>
+                </div>
+              ) : isClassic ? (
+                <div className="p-3.5 rounded-xl bg-emerald-950/20 border border-emerald-500/30 flex items-center justify-between">
+                  <div>
+                    <span className="font-semibold text-sm text-white block">Legacy +15 Gear Upgrades</span>
+                    <span className="text-xs text-gray-400 block mt-0.5">
+                      Patch 1.4.4 uses classic +15 upgrade progression (550 power / 550 total resistance).
+                    </span>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shrink-0">
+                    MAX +15
+                  </span>
                 </div>
               ) : (
                 <div className="p-3.5 rounded-xl bg-cyan-950/20 border border-cyan-500/30 flex items-center justify-between">

@@ -154,6 +154,12 @@ function compileYamlPatch(patchId, baseDir) {
     const type = (doc.type || 'Head').toLowerCase();
     const behemothDir = path.basename(path.dirname(f));
     const behemoth = doc.behemoth || (behemothDir.charAt(0).toUpperCase() + behemothDir.slice(1));
+
+    // For 1.4.4 (Pre-Reforged, Nov 2020), Urska was released in 1.5.3 (Feb 2021)
+    if (patchId === '1.4.4' && behemoth.toLowerCase() === 'urska') {
+      continue;
+    }
+
     const desc = interpolate(doc.description, {
       typeAlt: doc.type,
       type: doc.type,
@@ -189,7 +195,10 @@ function compileYamlPatch(patchId, baseDir) {
 
     let baseResistance = 20;
     let maxResistance = 30;
-    if (doc.resistance) {
+    if (patchId === '1.4.4') {
+      baseResistance = 25;
+      maxResistance = 137.5;
+    } else if (doc.resistance) {
       if (typeof doc.resistance.base === 'number') {
         baseResistance = doc.resistance.base;
       } else if (typeof doc.resistance[0] === 'number') {
@@ -228,6 +237,12 @@ function compileYamlPatch(patchId, baseDir) {
     const type = (doc.type || 'Sword').toLowerCase();
     const behemothDir = path.basename(path.dirname(f));
     const behemoth = doc.behemoth || (behemothDir.charAt(0).toUpperCase() + behemothDir.slice(1));
+
+    // For 1.4.4 (Pre-Reforged, Nov 2020), Urska was released in 1.5.3 (Feb 2021)
+    if (patchId === '1.4.4' && behemoth.toLowerCase() === 'urska') {
+      continue;
+    }
+
     const desc = interpolate(doc.description, {
       type: doc.type,
       behemoth
@@ -269,7 +284,10 @@ function compileYamlPatch(patchId, baseDir) {
 
     let basePower = 80;
     let maxPower = 120;
-    if (doc.power) {
+    if (patchId === '1.4.4') {
+      basePower = 100;
+      maxPower = 550;
+    } else if (doc.power) {
       if (typeof doc.power.base === 'number') {
         basePower = doc.power.base;
       } else if (typeof doc.power[0] === 'number') {
@@ -507,20 +525,31 @@ function compileAwakening() {
 }
 
 // --------------------------------------------------------------------------
-// MANIFEST (Supporting 1.6.2, 1.12.0, 1.14.7, 2.1.1)
+// MANIFEST (Supporting 1.4.4, 1.6.2, 1.12.0, 1.14.7, 2.1.1)
 // --------------------------------------------------------------------------
 function writeManifest() {
   const manifest = {
     default: "1.14.7",
     versions: [
       {
-        id: "1.6.2",
-        name: "Patch 1.6.2 (Classic Escalation)",
-        releaseDate: "2021-05-20",
-        description: "Classic Dauntless Escalation era with original cell socket types (Power, Technique, Defence, Mobility, Utility) and no omnicells.",
+        id: "1.4.4",
+        name: "Patch 1.4.4 (Classic / Pre-Reforged)",
+        releaseDate: "2020-11-05",
+        description: "The legacy pre-Reforged era featuring +15 gear upgrading, Mastery progression, original cell categories (Power, Technique, Defence, Mobility, Utility), and no Power Surging or Omnicells.",
         hasOmnicells: false,
         hasCellSockets: true,
+        hasPowerSurge: false,
         era: "Classic"
+      },
+      {
+        id: "1.6.2",
+        name: "Patch 1.6.2 (Early Reforged)",
+        releaseDate: "2021-05-20",
+        description: "Early Reforged era with original cell socket types (Power, Technique, Defence, Mobility, Utility), Aetherheart Power Surging, and no Omnicells.",
+        hasOmnicells: false,
+        hasCellSockets: true,
+        hasPowerSurge: true,
+        era: "Reforged"
       },
       {
         id: "1.12.0",
@@ -529,6 +558,7 @@ function writeManifest() {
         description: "Mid-Reforged update introducing the revised cell socket categories (Brutality, Finesse, Fortitude, Alacrity, Insight) and Omnicells.",
         hasOmnicells: true,
         hasCellSockets: true,
+        hasPowerSurge: true,
         era: "Reforged"
       },
       {
@@ -538,6 +568,7 @@ function writeManifest() {
         description: "The peak Reforged meta with full Behemoth rosters (Frostwülf, Phaelanx, Fenroar), all 6 Omnicells, and expanded cell perks.",
         hasOmnicells: true,
         hasCellSockets: true,
+        hasPowerSurge: true,
         era: "Reforged"
       },
       {
@@ -547,6 +578,7 @@ function writeManifest() {
         description: "The Awakening overhaul featuring Weapon Talents, Lantern Cores, and revised equipment progression.",
         hasOmnicells: false,
         hasCellSockets: false,
+        hasPowerSurge: false,
         era: "Awakening"
       }
     ]
@@ -554,10 +586,11 @@ function writeManifest() {
 
   const manifestPath = path.join(process.cwd(), 'public/data/manifest.json');
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
-  console.log("Wrote manifest.json for 1.6.2, 1.12.0, 1.14.7, 2.1.1");
+  console.log("Wrote manifest.json for 1.4.4, 1.6.2, 1.12.0, 1.14.7, 2.1.1");
 }
 
-// Compile all 4 versions requested
+// Compile all 5 versions requested
+compileYamlPatch('1.4.4', path.join(process.cwd(), 'data-sources/patch-1.6.2/data'));
 compileYamlPatch('1.6.2', path.join(process.cwd(), 'data-sources/patch-1.6.2/data'));
 compileYamlPatch('1.12.0', path.join(process.cwd(), 'data-sources/patch-1.12.0/data'));
 compileYamlPatch('1.14.7', path.join(process.cwd(), 'data-sources/reforged/data'));

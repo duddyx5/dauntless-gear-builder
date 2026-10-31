@@ -69,6 +69,7 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
   const isLanternPicker = slotType === 'lantern';
   const isOmnicellPicker = slotType === 'omnicell';
   const isAwakening = patchData.version === '2.1.1';
+  const isClassic = patchData.version === '1.4.4';
 
   const titleMap: Record<PickerSlotType, string> = {
     weapon: 'Select Primary Weapon',
@@ -393,7 +394,7 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                         <span>{w.behemoth}</span>
                         <span>•</span>
                         <span className="text-amber-400 font-semibold font-mono">
-                          {powerSurged ? w.maxPower : w.basePower} Power
+                          {isClassic ? `${w.maxPower} Power (+15)` : `${powerSurged ? w.maxPower : w.basePower} Power`}
                         </span>
                       </span>
 
@@ -401,7 +402,7 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                       <span className="flex flex-wrap items-center gap-1.5 mt-1.5">
                         {w.perks.map(p => (
                           <em key={p.id} className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-[#0a151b] text-cyan-300 border border-[#21333d] not-italic">
-                            +{powerSurged ? p.value : (p.baseValue ?? p.value)} {p.name}
+                            +{isClassic || isAwakening ? p.value : (powerSurged ? p.value : (p.baseValue ?? p.value))} {p.name}
                           </em>
                         ))}
                         {w.cellSockets.map((s, idx) => (
@@ -500,7 +501,7 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                         </span>
                         {w.perks.map(p => (
                           <em key={p.id} className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-[#0a151b] text-cyan-300 border border-[#21333d] not-italic">
-                            +{powerSurged ? p.value : (p.baseValue ?? p.value)} {p.name}
+                            +{isClassic || isAwakening ? p.value : (powerSurged ? p.value : (p.baseValue ?? p.value))} {p.name}
                           </em>
                         ))}
                       </span>
@@ -570,7 +571,7 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                           {a.name}
                         </strong>
                         <span className="text-xs text-gray-400 font-mono font-semibold">
-                          {powerSurged ? a.maxResistance : a.baseResistance} Res
+                          {isClassic ? `${a.maxResistance} Res (+15)` : `${powerSurged ? a.maxResistance : a.baseResistance} Res`}
                         </span>
                       </span>
 
@@ -583,7 +584,7 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                       <span className="flex flex-wrap items-center gap-1.5 mt-1.5">
                         {a.perks.map(p => (
                           <em key={p.id} className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-[#0a151b] text-cyan-300 border border-[#21333d] not-italic">
-                            +{isAwakening ? p.value : (powerSurged ? p.value : (p.baseValue ?? p.value))} {p.name}
+                            +{isClassic || isAwakening ? p.value : (powerSurged ? p.value : (p.baseValue ?? p.value))} {p.name}
                           </em>
                         ))}
                         <em className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-[#0a151b] text-gray-300 border border-[#21333d] not-italic inline-flex items-center gap-1">

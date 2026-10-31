@@ -10,6 +10,7 @@ export interface PatchVersionInfo {
   description: string;
   hasOmnicells: boolean;
   hasCellSockets: boolean;
+  hasPowerSurge?: boolean;
   era?: string;
   isAwakening?: boolean;
 }

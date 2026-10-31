@@ -84,13 +84,65 @@ export interface PresetBuildItem {
 
 export const PRESET_BUILDS: PresetBuildItem[] = [
   // ---------------------------------------------------------
-  // PATCH 1.6.2 (Classic Escalation)
+  // PATCH 1.4.4 (Classic / Pre-Reforged)
   // ---------------------------------------------------------
   {
-    name: '1.6.2 Classic Low-Life Crit (Sword)',
-    description: 'Classic meta low-life build using Discipline, Iceborne, Rage & Wild Frenzy for constant 50% HP high DPS.',
+    name: '1.4.4 Classic Low-Life Iceborne (Sword)',
+    description: 'Pre-Reforged +15 legacy meta build combining Discipline, Iceborne, Rage & Wild Frenzy for constant 50% HP high DPS.',
+    version: '1.4.4',
+    era: 'Classic (Pre-Reforged)',
+    tags: ['Sword', 'Blaze', 'Low-Life', 'Classic'],
+    build: {
+      version: '1.4.4',
+      weapon: 'inferno_s_razor',
+      weaponCells: ['overpower_cell:+3', 'ragehunter_cell:+3'],
+      head: 'hellplate_casque',
+      headCell: 'discipline_cell:+3',
+      torso: 'boreal_resolve',
+      torsoCell: 'iceborne_cell:+3',
+      arms: 'malkarion_s_grasp',
+      armsCell: 'predator_cell:+3',
+      legs: 'hellplate_greaves',
+      legsCell: 'rage_cell:+3',
+      lantern: 'drask_s_eye',
+      lanternCell: 'conduit_cell:+3',
+      omnicell: null,
+      powerSurged: false,
+    }
+  },
+  {
+    name: '1.4.4 Skullforge Stagger Hammer',
+    description: 'Classic stamina shield build with The Skullforge, Overpower +6, and heavy blunt damage at max +15 upgrade.',
+    version: '1.4.4',
+    era: 'Classic (Pre-Reforged)',
+    tags: ['Hammer', 'Blaze', 'Stagger', 'Classic'],
+    build: {
+      version: '1.4.4',
+      weapon: 'inferno_s_burden',
+      weaponCells: ['knockout_king_cell:+3', 'overpower_cell:+3'],
+      head: 'the_skullforge',
+      headCell: 'ragehunter_cell:+3',
+      torso: 'hellplate_cuirass',
+      torsoCell: 'molten_cell:+3',
+      arms: 'malkarion_s_grasp',
+      armsCell: 'overpower_cell:+3',
+      legs: 'hellplate_greaves',
+      legsCell: 'iceborne_cell:+3',
+      lantern: 'drask_s_eye',
+      lanternCell: 'conduit_cell:+3',
+      omnicell: null,
+      powerSurged: false,
+    }
+  },
+
+  // ---------------------------------------------------------
+  // PATCH 1.6.2 (Early Reforged)
+  // ---------------------------------------------------------
+  {
+    name: '1.6.2 Early Reforged Low-Life Crit (Sword)',
+    description: 'Early Reforged meta low-life build using Power Surged gear, Discipline, Iceborne, Rage & Wild Frenzy for constant 50% HP high DPS.',
     version: '1.6.2',
-    era: 'Classic Escalation',
+    era: 'Early Reforged',
     tags: ['Sword', 'Blaze', 'Low-Life', 'Crit'],
     build: {
       version: '1.6.2',
@@ -114,7 +166,7 @@ export const PRESET_BUILDS: PresetBuildItem[] = [
     name: '1.6.2 Hellion Stagger Hammer',
     description: 'High-impact stagger build with Skullforge stamina shield, Overpower +6, and heavy blunt damage.',
     version: '1.6.2',
-    era: 'Classic Escalation',
+    era: 'Early Reforged',
     tags: ['Hammer', 'Blaze', 'Stagger'],
     build: {
       version: '1.6.2',
@@ -360,7 +412,8 @@ export function formatPerkEffect(desc: unknown): string {
 
 export function calculateBuildStats(build: BuildState, data: PatchData): BuildStats {
   const isAwakening = data.version === '2.1.1';
-  const isSurged = build.powerSurged;
+  const isClassic = data.version === '1.4.4';
+  const isSurged = isClassic ? true : build.powerSurged;
   let totalPower = 0;
   let totalResistance = 0;
   let element = 'Neutral';
@@ -609,8 +662,8 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
   }
 
   return {
-    totalPower,
-    totalResistance,
+    totalPower: Math.round(totalPower),
+    totalResistance: Math.round(totalResistance),
     element,
     strengths: Array.from(strengthsSet),
     weaknesses: Array.from(weaknessesSet),

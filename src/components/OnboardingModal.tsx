@@ -175,10 +175,12 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({
                     </div>
                     <div className="text-[11px] text-gray-400 flex items-center gap-2">
                       <span>{v.releaseDate}</span>
-                      {v.hasOmnicells ? (
-                        <span className="text-cyan-400">• Includes Omnicells</span>
+                      {v.era === 'Awakening' || v.id === '2.1.1' ? (
+                        <span className="text-amber-400">• Awakening Era (Lantern Cores)</span>
+                      ) : v.era === 'Reforged' ? (
+                        <span className="text-cyan-400">• Reforged ({v.hasOmnicells ? 'Omnicells' : 'No Omnicells'})</span>
                       ) : (
-                        <span className="text-gray-500">• Classic (No Omnicells)</span>
+                        <span className="text-emerald-400">• Classic Era (+15 Upgrades)</span>
                       )}
                     </div>
                   </button>
