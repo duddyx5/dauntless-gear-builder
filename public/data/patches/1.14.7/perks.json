@@ -6,30 +6,12 @@
     "description": "Increases Wound damage at the cost of Part damage.",
     "icon": "/assets/icons/perks/Acidic.png",
     "tiers": {
-      "1": [
-        "Converts {{percentPartToWoundDamage}}% of Part Damage to Wound Damage",
-        null
-      ],
-      "2": [
-        "Converts {{percentPartToWoundDamage}}% of Part Damage to Wound Damage",
-        null
-      ],
-      "3": [
-        "Converts {{percentPartToWoundDamage}}% of Part Damage to Wound Damage",
-        null
-      ],
-      "4": [
-        "Converts {{percentPartToWoundDamage}}% of Part Damage to Wound Damage",
-        "+{{percentPartDamage}}% Part damage"
-      ],
-      "5": [
-        "Converts {{percentPartToWoundDamage}}% of Part Damage to Wound Damage",
-        "+{{percentPartDamage}}% Part damage"
-      ],
-      "6": [
-        "Converts {{percentPartToWoundDamage}}% of Part Damage to Wound Damage",
-        "+{{percentPartDamage}}% Part damage"
-      ]
+      "1": "Converts 30% of Part Damage to Wound Damage",
+      "2": "Converts 40% of Part Damage to Wound Damage",
+      "3": "Converts 50% of Part Damage to Wound Damage",
+      "4": "Converts 50% of Part Damage to Wound Damage. +10% Part damage",
+      "5": "Converts 50% of Part Damage to Wound Damage. +15% Part damage",
+      "6": "Converts 50% of Part Damage to Wound Damage. +20% Part damage"
     }
   },
   "adrenaline": {
@@ -54,30 +36,12 @@
     "description": "Increases amount of shields received. At later ranks, after gaining 1000 shields, ignore the next incoming hit within 15 seconds.",
     "icon": "/assets/icons/perks/Aegis.png",
     "tiers": {
-      "1": [
-        "Increases all shields received by {{percentShields}}%",
-        null
-      ],
-      "2": [
-        "Increases all shields received by {{percentShields}}%",
-        null
-      ],
-      "3": [
-        "Increases all shields received by {{percentShields}}%",
-        null
-      ],
-      "4": [
-        "Increases all shields received by {{percentShields}}%",
-        "After gaining {{shieldGained}} shield from any source, ignore the next incoming hit within the next {{ignoreTime}} seconds."
-      ],
-      "5": [
-        "Increases all shields received by {{percentShields}}%",
-        "After gaining {{shieldGained}} shield from any source, ignore the next incoming hit within the next {{ignoreTime}} seconds."
-      ],
-      "6": [
-        "Increases all shields received by {{percentShields}}%",
-        "After gaining {{shieldGained}} shield from any source, ignore the next incoming hit within the next {{ignoreTime}} seconds."
-      ]
+      "1": "Increases all shields received by 5%",
+      "2": "Increases all shields received by 8%",
+      "3": "Increases all shields received by 11%",
+      "4": "Increases all shields received by 14%. After gaining 1000 shield from any source, ignore the next incoming hit within the next 15 seconds.",
+      "5": "Increases all shields received by 17%. After gaining 1000 shield from any source, ignore the next incoming hit within the next 15 seconds.",
+      "6": "Increases all shields received by 20%. After gaining 1000 shield from any source, ignore the next incoming hit within the next 15 seconds."
     }
   },
   "aetherborne": {
@@ -87,27 +51,12 @@
     "description": "Increases the benefits of using aether vents.",
     "icon": "/assets/icons/perks/Aetherborne.png",
     "tiers": {
-      "1": [
-        "When using an aether vent, gain +{{ventAdditionalHeal}} healing and have a {{percentVentReduction}}% chance to not consume a vent charge"
-      ],
-      "2": [
-        "When using an aether vent, gain +{{ventAdditionalHeal}} healing and have a {{percentVentReduction}}% chance to not consume a vent charge"
-      ],
-      "3": [
-        "When using an aether vent, gain +{{ventAdditionalHeal}} healing and have a {{percentVentReduction}}% chance to not consume a vent charge"
-      ],
-      "4": [
-        "When using an aether vent, gain +{{ventAdditionalHeal}} healing and have a {{percentVentReduction}}% chance to not consume a vent charge",
-        "Enter aether rush when using an aether vent."
-      ],
-      "5": [
-        "When using an aether vent, gain +{{ventAdditionalHeal}} healing and have a {{percentVentReduction}}% chance to not consume a vent charge",
-        "Enter aether rush when using an aether vent."
-      ],
-      "6": [
-        "When using an aether vent, gain +{{ventAdditionalHeal}} healing and have a {{percentVentReduction}}% chance to not consume a vent charge",
-        "Enter aether rush when using an aether vent."
-      ]
+      "1": "When using an aether vent, gain +25 healing and have a 25% chance to not consume a vent charge",
+      "2": "When using an aether vent, gain +50 healing and have a 25% chance to not consume a vent charge",
+      "3": "When using an aether vent, gain +75 healing and have a 25% chance to not consume a vent charge",
+      "4": "When using an aether vent, gain +100 healing and have a 25% chance to not consume a vent charge. Enter aether rush when using an aether vent.",
+      "5": "When using an aether vent, gain +150 healing and have a 25% chance to not consume a vent charge. Enter aether rush when using an aether vent.",
+      "6": "When using an aether vent, gain +200 healing and have a 25% chance to not consume a vent charge. Enter aether rush when using an aether vent."
     }
   },
   "aetherhunter": {
@@ -207,30 +156,12 @@
     "description": "Adds a flat amount of Wound damage on hit.",
     "icon": "/assets/icons/perks/Barbed.png",
     "tiers": {
-      "1": [
-        "+{{woundDamage}} wound damage",
-        null
-      ],
-      "2": [
-        "+{{woundDamage}} wound damage",
-        null
-      ],
-      "3": [
-        "+{{woundDamage}} wound damage",
-        null
-      ],
-      "4": [
-        "+{{woundDamage}} wound damage",
-        "After dodging through an attack, your next attack deals +{{woundDamageNextAttack}} wound damage"
-      ],
-      "5": [
-        "+{{woundDamage}} wound damage",
-        "After dodging through an attack, your next attack deals +{{woundDamageNextAttack}} wound damage"
-      ],
-      "6": [
-        "+{{woundDamage}} wound damage",
-        "After dodging through an attack, your next attack deals +{{woundDamageNextAttack}} wound damage"
-      ]
+      "1": "+10 wound damage",
+      "2": "+20 wound damage",
+      "3": "+30 wound damage",
+      "4": "+40 wound damage. After dodging through an attack, your next attack deals +250 wound damage",
+      "5": "+50 wound damage. After dodging through an attack, your next attack deals +350 wound damage",
+      "6": "+60 wound damage. After dodging through an attack, your next attack deals +500 wound damage"
     }
   },
   "berserker": {
@@ -240,30 +171,12 @@
     "description": "Reduces max health. Dealing damage stacks increased damage dealt for a short period.",
     "icon": "/assets/icons/perks/Berserker.png",
     "tiers": {
-      "1": [
-        "{{maxHealthReduction}} max health",
-        "After dealing damage, gain +{{percentDamage}}% damage for {{damageTime}} seconds. Stacks {{damageStacks}} times."
-      ],
-      "2": [
-        "{{maxHealthReduction}} max health",
-        "After dealing damage, gain +{{percentDamage}}% damage for {{damageTime}} seconds. Stacks {{damageStacks}} times."
-      ],
-      "3": [
-        "{{maxHealthReduction}} max health",
-        "After dealing damage, gain +{{percentDamage}}% damage for {{damageTime}} seconds. Stacks {{damageStacks}} times."
-      ],
-      "4": [
-        "{{maxHealthReduction}} max health",
-        "After dealing damage, gain +{{percentDamage}}% damage for {{damageTime}} seconds. Stacks {{damageStacks}} times."
-      ],
-      "5": [
-        "{{maxHealthReduction}} max health",
-        "After dealing damage, gain +{{percentDamage}}% damage for {{damageTime}} seconds. Stacks {{damageStacks}} times."
-      ],
-      "6": [
-        "{{maxHealthReduction}} max health",
-        "After dealing damage, gain +{{percentDamage}}% damage for {{damageTime}} seconds. Stacks {{damageStacks}} times."
-      ]
+      "1": "-50 max health. After dealing damage, gain +1% damage for 3 seconds. Stacks 10 times.",
+      "2": "-100 max health. After dealing damage, gain +1.5% damage for 3 seconds. Stacks 10 times.",
+      "3": "-150 max health. After dealing damage, gain +2% damage for 3 seconds. Stacks 10 times.",
+      "4": "-200 max health. After dealing damage, gain +2.5% damage for 3 seconds. Stacks 10 times.",
+      "5": "-250 max health. After dealing damage, gain +3% damage for 3 seconds. Stacks 10 times.",
+      "6": "-300 max health. After dealing damage, gain +3.5% damage for 3 seconds. Stacks 10 times."
     }
   },
   "bladestorm": {
@@ -273,30 +186,12 @@
     "description": "Adds a flat amount of Part damage on hit.",
     "icon": "/assets/icons/perks/Bladestorm.png",
     "tiers": {
-      "1": [
-        "+{{partDamage}} Part Damage",
-        null
-      ],
-      "2": [
-        "+{{partDamage}} Part Damage",
-        null
-      ],
-      "3": [
-        "+{{partDamage}} Part Damage",
-        null
-      ],
-      "4": [
-        "+{{partDamage}} Part Damage",
-        "After dodging through an attack, your next attack within {{nextAttackTime}} seconds deals +{{partDamageNextAttack}} part damage"
-      ],
-      "5": [
-        "+{{partDamage}} Part Damage",
-        "After dodging through an attack, your next attack within {{nextAttackTime}} seconds deals +{{partDamageNextAttack}} part damage"
-      ],
-      "6": [
-        "+{{partDamage}} Part Damage",
-        "After dodging through an attack, your next attack within {{nextAttackTime}} seconds deals +{{partDamageNextAttack}} part damage"
-      ]
+      "1": "+5 Part Damage",
+      "2": "+10 Part Damage",
+      "3": "+15 Part Damage",
+      "4": "+20 Part Damage. After dodging through an attack, your next attack within 5 seconds deals +200 part damage",
+      "5": "+30 Part Damage. After dodging through an attack, your next attack within 5 seconds deals +200 part damage",
+      "6": "+40 Part Damage. After dodging through an attack, your next attack within 5 seconds deals +400 part damage"
     }
   },
   "bloodless": {
@@ -306,30 +201,12 @@
     "description": "Protects against Wounded and Crippling Wound statuses.",
     "icon": "/assets/icons/perks/Bloodless.png",
     "tiers": {
-      "1": [
-        "Reduces duration of Wounded status by {{percentWoundedReduction}}%",
-        null
-      ],
-      "2": [
-        "Reduces duration of Wounded status by {{percentWoundedReduction}}%",
-        null
-      ],
-      "3": [
-        "Immune to Wounded status",
-        null
-      ],
-      "4": [
-        "Immune to Wounded status",
-        "Reduces effectiveness of Crippling Wounded status by {{percentCripplingWoundedReduction}}%"
-      ],
-      "5": [
-        "Immune to Wounded status",
-        "Reduces effectiveness of Crippling Wounded status by {{percentCripplingWoundedReduction}}%"
-      ],
-      "6": [
-        "Immune to Wounded status",
-        "Immune to Crippling Wound status"
-      ]
+      "1": "Reduces duration of Wounded status by 50%",
+      "2": "Reduces duration of Wounded status by 80%",
+      "3": "Immune to Wounded status",
+      "4": "Immune to Wounded status. Reduces effectiveness of Crippling Wounded status by 50%",
+      "5": "Immune to Wounded status. Reduces effectiveness of Crippling Wounded status by 80%",
+      "6": "Immune to Wounded status. Immune to Crippling Wound status"
     }
   },
   "cascade": {
@@ -339,36 +216,12 @@
     "description": "Spawn beneficial Boosts for your allies",
     "icon": "/assets/icons/perks/Cascade.png",
     "tiers": {
-      "1": [
-        "On Lantern Hold, randomly generate {{boostQuantity}} of the following Boosts: Healing, Stamina, Power.",
-        null,
-        null
-      ],
-      "2": [
-        "On Lantern Hold, randomly generate {{boostQuantity}} of the following Boosts: Healing, Stamina, Power.",
-        null,
-        null
-      ],
-      "3": [
-        "On Lantern Hold, randomly generate {{boostQuantity}} of the following Boosts: Healing, Stamina, Power.",
-        null,
-        null
-      ],
-      "4": [
-        "On Lantern Hold, randomly generate {{boostQuantity}} of the following Boosts: Healing, Stamina, Power. ",
-        "Stamina Boost duration increased.",
-        null
-      ],
-      "5": [
-        "On Lantern Hold, randomly generate {{boostQuantity}} of the following Boosts: Healing, Stamina, Power.",
-        "Healing Boost also grants shields. (max {{maxShield}}).",
-        null
-      ],
-      "6": [
-        "On Lantern Hold, randomly generate {{boostQuantity}} of the following Boosts: Healing, Stamina, Power.",
-        "Power Boost duration increased.",
-        "Chance to generate Invincibility Boost."
-      ]
+      "1": "On Lantern Hold, randomly generate 1 of the following Boosts: Healing, Stamina, Power.",
+      "2": "On Lantern Hold, randomly generate 2 of the following Boosts: Healing, Stamina, Power.",
+      "3": "On Lantern Hold, randomly generate 3 of the following Boosts: Healing, Stamina, Power.",
+      "4": "On Lantern Hold, randomly generate 4 of the following Boosts: Healing, Stamina, Power. Stamina Boost duration increased.",
+      "5": "On Lantern Hold, randomly generate 4 of the following Boosts: Healing, Stamina, Power. Healing Boost also grants shields. (max 600).",
+      "6": "On Lantern Hold, randomly generate 4 of the following Boosts: Healing, Stamina, Power. Power Boost duration increased. Chance to generate Invincibility Boost."
     }
   },
   "catalyst": {
@@ -378,30 +231,12 @@
     "description": "Increases effectiveness of Tonics. At later ranks, increases duration as well.",
     "icon": "/assets/icons/perks/Catalyst.png",
     "tiers": {
-      "1": [
-        "+{{percentTonicEffect}}% Tonic Effectiveness",
-        null
-      ],
-      "2": [
-        "+{{percentTonicEffect}}% Tonic Effectiveness",
-        null
-      ],
-      "3": [
-        "+{{percentTonicEffect}}% Tonic Effectiveness",
-        null
-      ],
-      "4": [
-        "+{{percentTonicEffect}}% Tonic Effectiveness",
-        "+{{percentTonicDuration}}% Tonic Duration"
-      ],
-      "5": [
-        "+{{percentTonicEffect}}% Tonic Effectiveness",
-        "+{{percentTonicDuration}}% Tonic Duration"
-      ],
-      "6": [
-        "+{{percentTonicEffect}}% Tonic Effectiveness",
-        "+{{percentTonicDuration}}% Tonic Duration"
-      ]
+      "1": "+10% Tonic Effectiveness",
+      "2": "+20% Tonic Effectiveness",
+      "3": "+30% Tonic Effectiveness",
+      "4": "+40% Tonic Effectiveness. +20% Tonic Duration",
+      "5": "+50% Tonic Effectiveness. +40% Tonic Duration",
+      "6": "+60% Tonic Effectiveness. +60% Tonic Duration"
     }
   },
   "conditioning": {
@@ -456,30 +291,12 @@
     "description": "Grants a chance to critically strike, increasing damage dealt.",
     "icon": "/assets/icons/perks/Cunning.png",
     "tiers": {
-      "1": [
-        "+{{percentCritChance}}% critical strike chance",
-        null
-      ],
-      "2": [
-        "+{{percentCritChance}}% critical strike chance",
-        null
-      ],
-      "3": [
-        "+{{percentCritChance}}% critical strike chance",
-        null
-      ],
-      "4": [
-        "+{{percentCritChance}}% critical strike chance",
-        "+{{percentCritDamage}}% critical strike damage"
-      ],
-      "5": [
-        "+{{percentCritChance}}% critical strike chance",
-        "+{{percentCritDamage}}% critical strike damage"
-      ],
-      "6": [
-        "+{{percentCritChance}}% critical strike chance",
-        "+{{percentCritDamage}}% critical strike damage"
-      ]
+      "1": "+2% critical strike chance",
+      "2": "+3% critical strike chance",
+      "3": "+4% critical strike chance",
+      "4": "+5% critical strike chance. +10% critical strike damage",
+      "5": "+7.5% critical strike chance. +20% critical strike damage",
+      "6": "+10% critical strike chance. +30% critical strike damage"
     }
   },
   "deconstruction": {
@@ -519,30 +336,12 @@
     "description": "Weaponize your shields, detonating them with attacks to deal damage to behemoths.",
     "icon": "/assets/icons/perks/Earth.png",
     "tiers": {
-      "1": [
-        "Hitting a Behemoth with a weapon attack while shields are over 200 will detonate all your shields, depleting them and dealing damage equals to {{percentShieldDamage}}% of the value of the removed shield.",
-        null
-      ],
-      "2": [
-        "Hitting a Behemoth with a weapon attack while shields are over 200 will detonate all your shields, depleting them and dealing damage equals to {{percentShieldDamage}}% of the value of the removed shield.",
-        null
-      ],
-      "3": [
-        "Hitting a Behemoth with a weapon attack while shields are over 200 will detonate all your shields, depleting them and dealing damage equals to {{percentShieldDamage}}% of the value of the removed shield.",
-        null
-      ],
-      "4": [
-        "Hitting a Behemoth with a weapon attack while shields are over 200 will detonate all your shields, depleting them and dealing damage equals to {{percentShieldDamage}}% of the value of the removed shield.",
-        null
-      ],
-      "5": [
-        "Hitting a Behemoth with a weapon attack while shields are over 200 will detonate all your shields, depleting them and dealing damage equals to {{percentShieldDamage}}% of the value of the removed shield.",
-        null
-      ],
-      "6": [
-        "Hitting a Behemoth with a weapon attack while shields are over 200 will detonate all your shields, depleting them and dealing damage equals to {{percentShieldDamage}}% of the value of the removed shield.",
-        "After Detonating your shield, gain a {{shieldBack}} health shield"
-      ]
+      "1": "Hitting a Behemoth with a weapon attack while shields are over 200 will detonate all your shields, depleting them and dealing damage equals to 100% of the value of the removed shield.",
+      "2": "Hitting a Behemoth with a weapon attack while shields are over 200 will detonate all your shields, depleting them and dealing damage equals to 150% of the value of the removed shield.",
+      "3": "Hitting a Behemoth with a weapon attack while shields are over 200 will detonate all your shields, depleting them and dealing damage equals to 200% of the value of the removed shield.",
+      "4": "Hitting a Behemoth with a weapon attack while shields are over 200 will detonate all your shields, depleting them and dealing damage equals to 300% of the value of the removed shield.",
+      "5": "Hitting a Behemoth with a weapon attack while shields are over 200 will detonate all your shields, depleting them and dealing damage equals to 400% of the value of the removed shield.",
+      "6": "Hitting a Behemoth with a weapon attack while shields are over 200 will detonate all your shields, depleting them and dealing damage equals to 400% of the value of the removed shield. After Detonating your shield, gain a 100 health shield"
     }
   },
   "endurance": {
@@ -627,36 +426,12 @@
     "description": "Fight like Fire. Gain increased movement speed and attack speed at all times, but lose health as you damage behemoths.",
     "icon": "/assets/icons/perks/Fire.png",
     "tiers": {
-      "1": [
-        "Gain {{percentIncreasedAttackSpeed}}% increased Attack Speed",
-        "Gain {{percentIncreasedMovementSpeed}}% increased Movement Speed",
-        "On hitting a behemoth with a weapon attack, lose life equal to {{percentHitLifeLoss}}% of your max health."
-      ],
-      "2": [
-        "Gain {{percentIncreasedAttackSpeed}}% increased Attack Speed",
-        "Gain {{percentIncreasedMovementSpeed}}% increased Movement Speed",
-        "On hitting a behemoth with a weapon attack, lose life equal to {{percentHitLifeLoss}}% of your max health."
-      ],
-      "3": [
-        "Gain {{percentIncreasedAttackSpeed}}% increased Attack Speed",
-        "Gain {{percentIncreasedMovementSpeed}}% increased Movement Speed",
-        "On hitting a behemoth with a weapon attack, lose life equal to {{percentHitLifeLoss}}% of your max health."
-      ],
-      "4": [
-        "Gain {{percentIncreasedAttackSpeed}}% increased Attack Speed",
-        "Gain {{percentIncreasedMovementSpeed}}% increased Movement Speed",
-        "On hitting a behemoth with a weapon attack, lose life equal to {{percentHitLifeLoss}}% of your max health."
-      ],
-      "5": [
-        "Gain {{percentIncreasedAttackSpeed}}% increased Attack Speed",
-        "Gain {{percentIncreasedMovementSpeed}}% increased Movement Speed",
-        "On hitting a behemoth with a weapon attack, lose life equal to {{percentHitLifeLoss}}% of your max health."
-      ],
-      "6": [
-        "Gain {{percentIncreasedAttackSpeed}}% increased Attack Speed",
-        "Gain {{percentIncreasedMovementSpeed}}% increased Movement Speed",
-        "On hitting a behemoth with a weapon attack, lose life equal to {{percentHitLifeLoss}}% of your max health."
-      ]
+      "1": "Gain 5% increased Attack Speed. Gain 5% increased Movement Speed. On hitting a behemoth with a weapon attack, lose life equal to 1% of your max health.",
+      "2": "Gain 7.5% increased Attack Speed. Gain 10% increased Movement Speed. On hitting a behemoth with a weapon attack, lose life equal to 2% of your max health.",
+      "3": "Gain 10% increased Attack Speed. Gain 15% increased Movement Speed. On hitting a behemoth with a weapon attack, lose life equal to 3% of your max health.",
+      "4": "Gain 12.5% increased Attack Speed. Gain 20% increased Movement Speed. On hitting a behemoth with a weapon attack, lose life equal to 4% of your max health.",
+      "5": "Gain 15% increased Attack Speed. Gain 25% increased Movement Speed. On hitting a behemoth with a weapon attack, lose life equal to 5% of your max health.",
+      "6": "Gain 20% increased Attack Speed. Gain 30% increased Movement Speed. On hitting a behemoth with a weapon attack, lose life equal to 5% of your max health."
     }
   },
   "fireproof": {
@@ -711,30 +486,12 @@
     "description": "Gain bonus critical strike chance based on current shield.",
     "icon": "/assets/icons/perks/Galvanized.png",
     "tiers": {
-      "1": [
-        "For every {{shield}} Shield, gain +{{critChance}}% bonus critical strike chance.",
-        null
-      ],
-      "2": [
-        "For every {{shield}} Shield, gain +{{critChance}}% bonus critical strike chance.",
-        null
-      ],
-      "3": [
-        "For every {{shield}} Shield, gain +{{critChance}}% bonus critical strike chance.",
-        null
-      ],
-      "4": [
-        "For every {{shield}} Shield, gain +{{critChance}}% bonus critical strike chance.",
-        "+{{critDamage}}% critical strike damage."
-      ],
-      "5": [
-        "For every {{shield}} Shield, gain +{{critChance}}% bonus critical strike chance.",
-        "+{{critDamage}}% critical strike damage."
-      ],
-      "6": [
-        "For every {{shield}} Shield, gain +{{critChance}}% bonus critical strike chance.",
-        "+{{critDamage}}% critical strike damage."
-      ]
+      "1": "For every 150 Shield, gain +1% bonus critical strike chance.",
+      "2": "For every 125 Shield, gain +1% bonus critical strike chance.",
+      "3": "For every 100 Shield, gain +1% bonus critical strike chance.",
+      "4": "For every 85 Shield, gain +1% bonus critical strike chance. +5% critical strike damage.",
+      "5": "For every 70 Shield, gain +1% bonus critical strike chance. +10% critical strike damage.",
+      "6": "For every 50 Shield, gain +1% bonus critical strike chance. +15% critical strike damage."
     }
   },
   "grace": {
@@ -744,30 +501,12 @@
     "description": "Sprinting increases movespeed. At higher levels, converts increased movespeed to attack speed.",
     "icon": "/assets/icons/perks/Grace.png",
     "tiers": {
-      "1": [
-        "While sprinting, gain movespeed up to {{percentSprintSpeed}}%",
-        null
-      ],
-      "2": [
-        "While sprinting, gain movespeed up to {{percentSprintSpeed}}%",
-        null
-      ],
-      "3": [
-        "While sprinting, gain movespeed up to {{percentSprintSpeed}}%",
-        null
-      ],
-      "4": [
-        "While sprinting, gain movespeed up to {{percentSprintSpeed}}%",
-        "After sprinting, gain attack speed equal to half of Grace's bonus movement speed for {{attackSpeedTime}} seconds"
-      ],
-      "5": [
-        "While sprinting, gain movespeed up to {{percentSprintSpeed}}%",
-        "After sprinting, gain attack speed equal to half of Grace's bonus movement speed for {{attackSpeedTime}} seconds"
-      ],
-      "6": [
-        "While sprinting, gain movespeed up to {{percentSprintSpeed}}%",
-        "After sprinting, gain attack speed equal to half of Grace's bonus movement speed for {{attackSpeedTime}} seconds"
-      ]
+      "1": "While sprinting, gain movespeed up to 5%",
+      "2": "While sprinting, gain movespeed up to 8%",
+      "3": "While sprinting, gain movespeed up to 11%",
+      "4": "While sprinting, gain movespeed up to 14%. After sprinting, gain attack speed equal to half of Grace's bonus movement speed for 40 seconds",
+      "5": "While sprinting, gain movespeed up to 17%. After sprinting, gain attack speed equal to half of Grace's bonus movement speed for 40 seconds",
+      "6": "While sprinting, gain movespeed up to 20%. After sprinting, gain attack speed equal to half of Grace's bonus movement speed for 40 seconds"
     }
   },
   "guardian": {
@@ -822,30 +561,12 @@
     "description": "Protects against Shocked status effect. At later ranks, allows you to  attack electric shields.",
     "icon": "/assets/icons/perks/Insulated.png",
     "tiers": {
-      "1": [
-        "Reduces duration of shocked status by {{percentShockedReduction}}%",
-        null
-      ],
-      "2": [
-        "Reduces duration of shocked status by {{percentShockedReduction}}%",
-        null
-      ],
-      "3": [
-        "Reduces duration of shocked status by {{percentShockedReduction}}%",
-        null
-      ],
-      "4": [
-        "Reduces duration of shocked status by {{percentShockedReduction}}%",
-        "Reduces knockback and damage of hitting electrified shields"
-      ],
-      "5": [
-        "Reduces duration of shocked status by {{percentShockedReduction}}%",
-        "Prevents knockback and damage when hitting electrified shields"
-      ],
-      "6": [
-        "Immune to shocked status",
-        "Prevents knockback and damage when hitting electrified shields"
-      ]
+      "1": "Reduces duration of shocked status by 25%",
+      "2": "Reduces duration of shocked status by 50%",
+      "3": "Reduces duration of shocked status by 75%",
+      "4": "Reduces duration of shocked status by 75%. Reduces knockback and damage of hitting electrified shields",
+      "5": "Reduces duration of shocked status by 75%. Prevents knockback and damage when hitting electrified shields",
+      "6": "Immune to shocked status. Prevents knockback and damage when hitting electrified shields"
     }
   },
   "invigorated": {
@@ -870,30 +591,12 @@
     "description": "Percent increase to Stagger damage.",
     "icon": "/assets/icons/perks/KnockoutKing.png",
     "tiers": {
-      "1": [
-        "+{{percentStaggerDamage}}% Stagger Damage",
-        null
-      ],
-      "2": [
-        "+{{percentStaggerDamage}}% Stagger Damage",
-        null
-      ],
-      "3": [
-        "+{{percentStaggerDamage}}% Stagger Damage",
-        null
-      ],
-      "4": [
-        "+{{percentStaggerDamage}}% Stagger Damage",
-        "After dodging through an attack, your next attack within  {{nextAttackTime}} seconds deals  +{{percentStaggerDamagenextAttack}}% stagger damage"
-      ],
-      "5": [
-        "+{{percentStaggerDamage}}% Stagger Damage",
-        "After dodging through an attack, your next attack within  {{nextAttackTime}} seconds deals  +{{percentStaggerDamagenextAttack}}% stagger damage"
-      ],
-      "6": [
-        "+{{percentStaggerDamage}}% Stagger Damage",
-        "After dodging through an attack, your next attack within  {{nextAttackTime}} seconds deals  +{{percentStaggerDamagenextAttack}}% stagger damage"
-      ]
+      "1": "+5% Stagger Damage",
+      "2": "+10% Stagger Damage",
+      "3": "+15% Stagger Damage",
+      "4": "+20% Stagger Damage. After dodging through an attack, your next attack within  5 seconds deals  +50% stagger damage",
+      "5": "+25% Stagger Damage. After dodging through an attack, your next attack within  5 seconds deals  +50% stagger damage",
+      "6": "+30% Stagger Damage. After dodging through an attack, your next attack within  5 seconds deals  +100% stagger damage"
     }
   },
   "lucent": {
@@ -918,36 +621,12 @@
     "description": "Improves your ability to revive allies.",
     "icon": "/assets/icons/perks/Medic.png",
     "tiers": {
-      "1": [
-        "When reviving an ally they are healed an additional {{percentAllyHeal}}%",
-        null,
-        null
-      ],
-      "2": [
-        "When reviving an ally they are healed an additional {{percentAllyHeal}}%",
-        null,
-        null
-      ],
-      "3": [
-        "When reviving an ally they are healed an additional {{percentAllyHeal}}%",
-        null,
-        null
-      ],
-      "4": [
-        "When reviving an ally they are healed an additional {{percentAllyHeal}}%",
-        "Increases Revive Speed by {{reviveSpeed}}%",
-        null
-      ],
-      "5": [
-        "When reviving an ally they are healed an additional {{percentAllyHeal}}%",
-        "Increases Revive Speed by {{reviveSpeed}}%",
-        null
-      ],
-      "6": [
-        "When reviving an ally they are healed an additional {{percentAllyHeal}}%",
-        "Increases Revive Speed by {{reviveSpeed}}%",
-        "After reviving an ally, gain a {{healthShield}} health shield for {{shieldTime}} seconds"
-      ]
+      "1": "When reviving an ally they are healed an additional 5%",
+      "2": "When reviving an ally they are healed an additional 10%",
+      "3": "When reviving an ally they are healed an additional 20%",
+      "4": "When reviving an ally they are healed an additional 20%. Increases Revive Speed by 66%",
+      "5": "When reviving an ally they are healed an additional 30%. Increases Revive Speed by 66%",
+      "6": "When reviving an ally they are healed an additional 40%. Increases Revive Speed by 66%. After reviving an ally, gain a 300 health shield for 20 seconds"
     }
   },
   "mender": {
@@ -972,30 +651,12 @@
     "description": "Increases Wound damage against Staggered behemoths. At later ranks, increases wound duration.",
     "icon": "/assets/icons/perks/Merciless.png",
     "tiers": {
-      "1": [
-        "+{{woundDamageVsStaggered}} wound damage vs staggered Behemoths",
-        null
-      ],
-      "2": [
-        "+{{woundDamageVsStaggered}} wound damage vs staggered Behemoths",
-        null
-      ],
-      "3": [
-        "+{{woundDamageVsStaggered}} wound damage vs staggered Behemoths",
-        null
-      ],
-      "4": [
-        "+{{woundDamageVsStaggered}} wound damage vs staggered Behemoths",
-        "Increases the duration a part stays wounded by {{percentWoundDuration}}%."
-      ],
-      "5": [
-        "+{{woundDamageVsStaggered}} wound damage vs staggered Behemoths",
-        "Increases the duration a part stays wounded by {{percentWoundDuration}}%."
-      ],
-      "6": [
-        "+{{woundDamageVsStaggered}} wound damage vs staggered Behemoths",
-        "Increases the duration a part stays wounded by {{percentWoundDuration}}%."
-      ]
+      "1": "+40 wound damage vs staggered Behemoths",
+      "2": "+60 wound damage vs staggered Behemoths",
+      "3": "+80 wound damage vs staggered Behemoths",
+      "4": "+100 wound damage vs staggered Behemoths. Increases the duration a part stays wounded by 20%.",
+      "5": "+115 wound damage vs staggered Behemoths. Increases the duration a part stays wounded by 40%.",
+      "6": "+130 wound damage vs staggered Behemoths. Increases the duration a part stays wounded by 60%."
     }
   },
   "molten": {
@@ -1035,30 +696,12 @@
     "description": "Grants a chance to halve damage, and at later ranks, the ability to cheat death.",
     "icon": "/assets/icons/perks/NineLives.png",
     "tiers": {
-      "1": [
-        "+{{halveDamageChance}}% chance to halve incoming damage",
-        null
-      ],
-      "2": [
-        "+{{halveDamageChance}}% chance to halve incoming damage",
-        null
-      ],
-      "3": [
-        "+{{halveDamageChance}}% chance to halve incoming damage",
-        null
-      ],
-      "4": [
-        "+{{halveDamageChance}}% chance to halve incoming damage",
-        "If you would be knocked out, stay up and heal for {{knockedOutHeal}}. {{healCooldown}} minute cooldown"
-      ],
-      "5": [
-        "+{{halveDamageChance}}% chance to halve incoming damage",
-        "If you would be knocked out, stay up and heal for {{knockedOutHeal}}. {{healCooldown}} minute cooldown"
-      ],
-      "6": [
-        "+{{halveDamageChance}}% chance to halve incoming damage",
-        "If you would be knocked out, stay up and heal for {{knockedOutHeal}}, and gain +{{percentAttackSpeed}}% attack speed and movement speed for {{empoweredTime}} seconds. {{healCooldown}} minute cooldown"
-      ]
+      "1": "+5% chance to halve incoming damage",
+      "2": "+8% chance to halve incoming damage",
+      "3": "+12% chance to halve incoming damage",
+      "4": "+12% chance to halve incoming damage. If you would be knocked out, stay up and heal for 400. 5 minute cooldown",
+      "5": "+16% chance to halve incoming damage. If you would be knocked out, stay up and heal for 400. 5 minute cooldown",
+      "6": "+20% chance to halve incoming damage. If you would be knocked out, stay up and heal for 400, and gain +33% attack speed and movement speed for 10 seconds. 5 minute cooldown"
     }
   },
   "omnisurge": {
@@ -1068,30 +711,12 @@
     "description": "Reduce the cooldown of yout Omnicell ability. At later ranks, activating your omnicell ability reduces Lantern ability cooldown.",
     "icon": "/assets/icons/perks/Omnisurge.png",
     "tiers": {
-      "1": [
-        "Reduce the cooldown of your Omnicell ability by {{omnicellCooldownReduction}}%.",
-        null
-      ],
-      "2": [
-        "Reduce the cooldown of your Omnicell ability by {{omnicellCooldownReduction}}%.",
-        null
-      ],
-      "3": [
-        "Reduce the cooldown of your Omnicell ability by {{omnicellCooldownReduction}}%.",
-        null
-      ],
-      "4": [
-        "Reduce the cooldown of your Omnicell ability by {{omnicellCooldownReduction}}%.",
-        "On Omnicell ability activation, reduce the cooldown of your Lantern ability by {{lanternCooldownReduction}}%."
-      ],
-      "5": [
-        "Reduce the cooldown of your Omnicell ability by {{omnicellCooldownReduction}}%.",
-        "On Omnicell ability activation, reduce the cooldown of your Lantern ability by {{lanternCooldownReduction}}%."
-      ],
-      "6": [
-        "Reduce the cooldown of your Omnicell ability by {{omnicellCooldownReduction}}%.",
-        "On Omnicell ability activation, reduce the cooldown of your Lantern ability by {{lanternCooldownReduction}}%."
-      ]
+      "1": "Reduce the cooldown of your Omnicell ability by 5%.",
+      "2": "Reduce the cooldown of your Omnicell ability by 8%.",
+      "3": "Reduce the cooldown of your Omnicell ability by 11%.",
+      "4": "Reduce the cooldown of your Omnicell ability by 14%. On Omnicell ability activation, reduce the cooldown of your Lantern ability by 20%.",
+      "5": "Reduce the cooldown of your Omnicell ability by 17%. On Omnicell ability activation, reduce the cooldown of your Lantern ability by 30%.",
+      "6": "Reduce the cooldown of your Omnicell ability by 20%. On Omnicell ability activation, reduce the cooldown of your Lantern ability by 40%."
     }
   },
   "overpower": {
@@ -1206,30 +831,12 @@
     "description": "Guarantees a critical hit after a number of hits. At higher ranks, also increases critical damage.",
     "icon": "/assets/icons/perks/Pulse.png",
     "tiers": {
-      "1": [
-        "Every {{hits}}th hit with your weapon is a critical hit.",
-        null
-      ],
-      "2": [
-        "Every {{hits}}th hit with your weapon is a critical hit.",
-        null
-      ],
-      "3": [
-        "Every {{hits}}th hit with your weapon is a critical hit.",
-        null
-      ],
-      "4": [
-        "Every {{hits}}th hit with your weapon is a critical hit.",
-        "+{{percentCritDamage}}% critical strike damage"
-      ],
-      "5": [
-        "Every {{hits}}th hit with your weapon is a critical hit.",
-        "+{{percentCritDamage}}% critical strike damage"
-      ],
-      "6": [
-        "Every {{hits}}th hit with your weapon is a critical hit.",
-        "+{{percentCritDamage}}% critical strike damage"
-      ]
+      "1": "Every 10th hit with your weapon is a critical hit.",
+      "2": "Every 9th hit with your weapon is a critical hit.",
+      "3": "Every 8th hit with your weapon is a critical hit.",
+      "4": "Every 7th hit with your weapon is a critical hit. +5% critical strike damage",
+      "5": "Every 6th hit with your weapon is a critical hit. +10% critical strike damage",
+      "6": "Every 5th hit with your weapon is a critical hit. +15% critical strike damage"
     }
   },
   "rage": {
@@ -1284,30 +891,12 @@
     "description": "Lowers attack speed but increases damage dealt.",
     "icon": "/assets/icons/perks/Reduce.png",
     "tiers": {
-      "1": [
-        "Damage is increased by {{percentDamage}}%.",
-        "Attack Speed is adjusted by {{percentReducedAtkSpeed}}%."
-      ],
-      "2": [
-        "Damage is increased by {{percentDamage}}%.",
-        "Attack Speed is adjusted by {{percentReducedAtkSpeed}}%."
-      ],
-      "3": [
-        "Damage is increased by {{percentDamage}}%.",
-        "Attack Speed is adjusted by {{percentReducedAtkSpeed}}%."
-      ],
-      "4": [
-        "Damage is increased by {{percentDamage}}%.",
-        "Attack Speed is adjusted by {{percentReducedAtkSpeed}}%."
-      ],
-      "5": [
-        "Damage is increased by {{percentDamage}}%.",
-        "Attack Speed is adjusted by {{percentReducedAtkSpeed}}%."
-      ],
-      "6": [
-        "Damage is increased by {{percentDamage}}%.",
-        "Attack Speed is adjusted by {{percentReducedAtkSpeed}}%."
-      ]
+      "1": "Damage is increased by 10%. Attack Speed is adjusted by -5%.",
+      "2": "Damage is increased by 15%. Attack Speed is adjusted by -10%.",
+      "3": "Damage is increased by 20%. Attack Speed is adjusted by -15%.",
+      "4": "Damage is increased by 30%. Attack Speed is adjusted by -20%.",
+      "5": "Damage is increased by 40%. Attack Speed is adjusted by -25%.",
+      "6": "Damage is increased by 50%. Attack Speed is adjusted by -30%."
     }
   },
   "relentless": {
@@ -1317,30 +906,12 @@
     "description": "Increases the duration of your aether rush. At higher ranks, also increases the effects of aether rush.",
     "icon": "/assets/icons/perks/Relentless.png",
     "tiers": {
-      "1": [
-        "Increases the duration of your aether rush by +{{percentAetherRushDuration}}%",
-        null
-      ],
-      "2": [
-        "Increases the duration of your aether rush by +{{percentAetherRushDuration}}%",
-        null
-      ],
-      "3": [
-        "Increases the duration of your aether rush by +{{percentAetherRushDuration}}%",
-        null
-      ],
-      "4": [
-        "Increases the duration of your aether rush by +{{percentAetherRushDuration}}%",
-        "Increases the effects of your aether rush by +{{percentAetherRushEffect}}%"
-      ],
-      "5": [
-        "Increases the duration of your aether rush by +{{percentAetherRushDuration}}%",
-        "Increases the effects of your aether rush by +{{percentAetherRushEffect}}%"
-      ],
-      "6": [
-        "Increases the duration of your aether rush by +{{percentAetherRushDuration}}%",
-        "Increases the effects of your aether rush by +{{percentAetherRushEffect}}%"
-      ]
+      "1": "Increases the duration of your aether rush by +20%",
+      "2": "Increases the duration of your aether rush by +30%",
+      "3": "Increases the duration of your aether rush by +50%",
+      "4": "Increases the duration of your aether rush by +50%. Increases the effects of your aether rush by +40%",
+      "5": "Increases the duration of your aether rush by +50%. Increases the effects of your aether rush by +70%",
+      "6": "Increases the duration of your aether rush by +50%. Increases the effects of your aether rush by +100%"
     }
   },
   "reuse": {
@@ -1380,36 +951,12 @@
     "description": "Interrupting a Behemoth restores Stamina and grants Movespeed. At +6 also temporarily removes stamina costs.",
     "icon": "/assets/icons/perks/Rushdown.png",
     "tiers": {
-      "1": [
-        "Interrupting a Behemoth restores {{percentStaminaRecovery}}% of maximum stamina.",
-        "Interrupting a Behemoth grants {{percentMovementSpeed}}% movement speed for 10s.",
-        null
-      ],
-      "2": [
-        "Interrupting a Behemoth restores {{percentStaminaRecovery}}% of maximum stamina.",
-        "Interrupting a Behemoth grants {{percentMovementSpeed}}% movement speed for 10s.",
-        null
-      ],
-      "3": [
-        "Interrupting a Behemoth restores {{percentStaminaRecovery}}% of maximum stamina.",
-        "Interrupting a Behemoth grants {{percentMovementSpeed}}% movement speed for 10s.",
-        null
-      ],
-      "4": [
-        "Interrupting a Behemoth restores {{percentStaminaRecovery}}% of maximum stamina.",
-        "Interrupting a Behemoth grants {{percentMovementSpeed}}% movement speed for 10s.",
-        null
-      ],
-      "5": [
-        "Interrupting a Behemoth restores {{percentStaminaRecovery}}% of maximum stamina.",
-        "Interrupting a Behemoth grants {{percentMovementSpeed}}% movement speed for 10s.",
-        null
-      ],
-      "6": [
-        "Interrupting a Behemoth restores {{percentStaminaRecovery}}% of maximum stamina.",
-        "Interrupting a Behemoth grants {{percentMovementSpeed}}% movement speed for 10s.",
-        "Interrupting a Behemoth removes all stamina costs for 10s."
-      ]
+      "1": "Interrupting a Behemoth restores 30% of maximum stamina. Interrupting a Behemoth grants 10% movement speed for 10s.",
+      "2": "Interrupting a Behemoth restores 40% of maximum stamina. Interrupting a Behemoth grants 20% movement speed for 10s.",
+      "3": "Interrupting a Behemoth restores 50% of maximum stamina. Interrupting a Behemoth grants 20% movement speed for 10s.",
+      "4": "Interrupting a Behemoth restores 75% of maximum stamina. Interrupting a Behemoth grants 40% movement speed for 10s.",
+      "5": "Interrupting a Behemoth restores 100% of maximum stamina. Interrupting a Behemoth grants 40% movement speed for 10s.",
+      "6": "Interrupting a Behemoth restores 100% of maximum stamina. Interrupting a Behemoth grants 40% movement speed for 10s. Interrupting a Behemoth removes all stamina costs for 10s."
     }
   },
   "savagery": {
@@ -1434,30 +981,12 @@
     "description": "Percent increase to Part damage.",
     "icon": "/assets/icons/perks/Sharpened.png",
     "tiers": {
-      "1": [
-        "+{{percentPartDamage}}% part damage",
-        null
-      ],
-      "2": [
-        "+{{percentPartDamage}}% part damage",
-        null
-      ],
-      "3": [
-        "+{{percentPartDamage}}% part damage",
-        null
-      ],
-      "4": [
-        "+{{percentPartDamage}}% part damage",
-        "After dodging through an attack, your next attack within  {{nextAttackTime}} seconds deals +{{percentPartDamageNextAttack}}% part damage"
-      ],
-      "5": [
-        "+{{percentPartDamage}}% part damage",
-        "After dodging through an attack, your next attack within  {{nextAttackTime}} seconds deals +{{percentPartDamageNextAttack}}% part damage"
-      ],
-      "6": [
-        "+{{percentPartDamage}}% part damage",
-        "After dodging through an attack, your next attack within  {{nextAttackTime}} seconds deals +{{percentPartDamageNextAttack}}% part damage"
-      ]
+      "1": "+5% part damage",
+      "2": "+10% part damage",
+      "3": "+15% part damage",
+      "4": "+20% part damage. After dodging through an attack, your next attack within  5 seconds deals +50% part damage",
+      "5": "+25% part damage. After dodging through an attack, your next attack within  5 seconds deals +50% part damage",
+      "6": "+30% part damage. After dodging through an attack, your next attack within  5 seconds deals +100% part damage"
     }
   },
   "shellshock_resist": {
@@ -1602,30 +1131,12 @@
     "description": "Increases Max Health.",
     "icon": "/assets/icons/perks/Tough.png",
     "tiers": {
-      "1": [
-        "+{{maxHealth}} max health",
-        "+{{percentHealing}}% increased healing from all sources"
-      ],
-      "2": [
-        "+{{maxHealth}} max health",
-        "+{{percentHealing}}% increased healing from all sources"
-      ],
-      "3": [
-        "+{{maxHealth}} max health",
-        "+{{percentHealing}}% increased healing from all sources"
-      ],
-      "4": [
-        "+{{maxHealth}} max health",
-        "+{{percentHealing}}% increased healing from all sources"
-      ],
-      "5": [
-        "+{{maxHealth}} max health",
-        "+{{percentHealing}}% increased healing from all sources"
-      ],
-      "6": [
-        "+{{maxHealth}} max health",
-        "+{{percentHealing}}% increased healing from all sources"
-      ]
+      "1": "+50 max health. +5% increased healing from all sources",
+      "2": "+100 max health. +10% increased healing from all sources",
+      "3": "+150 max health. +15% increased healing from all sources",
+      "4": "+250 max health. +25% increased healing from all sources",
+      "5": "+300 max health. +35% increased healing from all sources",
+      "6": "+500 max health. +50% increased healing from all sources"
     }
   },
   "vampiric": {
@@ -1680,36 +1191,12 @@
     "description": "Adds a flat amount of Stagger damage on hit. At later ranks, allows more weapon attacks to interrupt.",
     "icon": "/assets/icons/perks/WeightedStrikes.png",
     "tiers": {
-      "1": [
-        "+{{staggerDamage}} Stagger Damage on Hit",
-        null,
-        null
-      ],
-      "2": [
-        "+{{staggerDamage}} Stagger Damage on Hit",
-        null,
-        null
-      ],
-      "3": [
-        "+{{staggerDamage}} Stagger Damage on Hit",
-        null,
-        null
-      ],
-      "4": [
-        "+{{staggerDamage}} Stagger Damage on Hit",
-        "After dodging through an attack, your next attack within {{nextAttackTime}} seconds deals +{{staggerDamageNextAttack}} stagger damage",
-        null
-      ],
-      "5": [
-        "+{{staggerDamage}} Stagger Damage on Hit",
-        "After dodging through an attack, your next attack within {{nextAttackTime}} seconds deals +{{staggerDamageNextAttack}} stagger damage",
-        null
-      ],
-      "6": [
-        "+{{staggerDamage}} Stagger Damage on Hit",
-        "After dodging through an attack, your next attack within {{nextAttackTime}} seconds deals +{{staggerDamageNextAttack}} stagger damage",
-        "Ranged swings and missiles interrupt unstable Behemoth attacks"
-      ]
+      "1": "+5 Stagger Damage on Hit",
+      "2": "+10 Stagger Damage on Hit",
+      "3": "+15 Stagger Damage on Hit",
+      "4": "+20 Stagger Damage on Hit. After dodging through an attack, your next attack within 5 seconds deals +200 stagger damage",
+      "5": "+30 Stagger Damage on Hit. After dodging through an attack, your next attack within 5 seconds deals +200 stagger damage",
+      "6": "+40 Stagger Damage on Hit. After dodging through an attack, your next attack within 5 seconds deals +400 stagger damage. Ranged swings and missiles interrupt unstable Behemoth attacks"
     }
   },
   "zeal": {

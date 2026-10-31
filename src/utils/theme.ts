@@ -33,7 +33,7 @@ export function getSocketStyle(socket: string) {
 }
 
 export function getCellCategoryIcon(socketOrSlot?: string | null): string {
-  const key = (socketOrSlot || 'prismatic').toLowerCase();
+  const key = (socketOrSlot || 'prismatic').toLowerCase().trim();
   switch (key) {
     case 'alacrity':
       return '/assets/icons/perks/Alacrity.png';
@@ -46,16 +46,16 @@ export function getCellCategoryIcon(socketOrSlot?: string | null): string {
     case 'insight':
       return '/assets/icons/perks/Insight.png';
     case 'power':
-      return '/assets/icons/perks/Power.png';
+      return '/assets/icons/perks/Power.svg';
     case 'technique':
-      return '/assets/icons/perks/Technique.png';
+      return '/assets/icons/perks/Technique.svg';
     case 'defence':
     case 'defense':
-      return '/assets/icons/perks/Defence.png';
+      return '/assets/icons/perks/Defence.svg';
     case 'mobility':
-      return '/assets/icons/perks/Mobility.png';
+      return '/assets/icons/perks/Mobility.svg';
     case 'utility':
-      return '/assets/icons/perks/Utility.png';
+      return '/assets/icons/perks/Utility.svg';
     case 'prismatic':
     default:
       return '/assets/icons/perks/Prismatic.png';

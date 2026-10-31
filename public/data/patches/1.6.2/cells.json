@@ -4,7 +4,7 @@
     "name": "Assassin's Vigour Cell",
     "slot": "defence",
     "slotName": "Defence",
-    "icon": "/assets/icons/cells/defence/Assassin'sVigourCell.png",
+    "icon": "/assets/icons/perks/Defence.svg",
     "variants": [
       {
         "name": "+1 Assassin's Vigour Cell",
@@ -37,7 +37,7 @@
     "name": "Bloodless Cell",
     "slot": "defence",
     "slotName": "Defence",
-    "icon": "/assets/icons/cells/defence/BloodlessCell.png",
+    "icon": "/assets/icons/perks/Defence.svg",
     "variants": [
       {
         "name": "+1 Bloodless Cell",
@@ -70,7 +70,7 @@
     "name": "Fireproof Cell",
     "slot": "defence",
     "slotName": "Defence",
-    "icon": "/assets/icons/cells/defence/FireproofCell.png",
+    "icon": "/assets/icons/perks/Defence.svg",
     "variants": [
       {
         "name": "+1 Fireproof Cell",
@@ -103,7 +103,7 @@
     "name": "Fortress Cell",
     "slot": "defence",
     "slotName": "Defence",
-    "icon": "/assets/icons/cells/defence/FortressCell.png",
+    "icon": "/assets/icons/perks/Defence.svg",
     "variants": [
       {
         "name": "+1 Fortress Cell",
@@ -136,7 +136,7 @@
     "name": "Guardian Cell",
     "slot": "defence",
     "slotName": "Defence",
-    "icon": "/assets/icons/cells/defence/GuardianCell.png",
+    "icon": "/assets/icons/perks/Defence.svg",
     "variants": [
       {
         "name": "+1 Guardian Cell",
@@ -169,7 +169,7 @@
     "name": "Iceborne Cell",
     "slot": "defence",
     "slotName": "Defence",
-    "icon": "/assets/icons/cells/defence/IceborneCell.png",
+    "icon": "/assets/icons/perks/Defence.svg",
     "variants": [
       {
         "name": "+1 Iceborne Cell",
@@ -202,7 +202,7 @@
     "name": "Insulated Cell",
     "slot": "defence",
     "slotName": "Defence",
-    "icon": "/assets/icons/cells/defence/InsulatedCell.png",
+    "icon": "/assets/icons/perks/Defence.svg",
     "variants": [
       {
         "name": "+1 Insulated Cell",
@@ -235,7 +235,7 @@
     "name": "Nine Lives Cell",
     "slot": "defence",
     "slotName": "Defence",
-    "icon": "/assets/icons/cells/defence/NineLivesCell.png",
+    "icon": "/assets/icons/perks/Defence.svg",
     "variants": [
       {
         "name": "+1 Nine Lives Cell",
@@ -268,7 +268,7 @@
     "name": "Parasitic Cell",
     "slot": "defence",
     "slotName": "Defence",
-    "icon": "/assets/icons/cells/defence/ParasiticCell.png",
+    "icon": "/assets/icons/perks/Defence.svg",
     "variants": [
       {
         "name": "+1 Parasitic Cell",
@@ -301,7 +301,7 @@
     "name": "Shellshock Resist Cell",
     "slot": "defence",
     "slotName": "Defence",
-    "icon": "/assets/icons/cells/defence/ShellshockResistCell.png",
+    "icon": "/assets/icons/perks/Defence.svg",
     "variants": [
       {
         "name": "+1 Shellshock Resist Cell",
@@ -334,7 +334,7 @@
     "name": "Strategist Cell",
     "slot": "defence",
     "slotName": "Defence",
-    "icon": "/assets/icons/cells/defence/StrategistCell.png",
+    "icon": "/assets/icons/perks/Defence.svg",
     "variants": [
       {
         "name": "+1 Strategist Cell",
@@ -367,7 +367,7 @@
     "name": "Sturdy Cell",
     "slot": "defence",
     "slotName": "Defence",
-    "icon": "/assets/icons/cells/defence/SturdyCell.png",
+    "icon": "/assets/icons/perks/Defence.svg",
     "variants": [
       {
         "name": "+1 Sturdy Cell",
@@ -400,7 +400,7 @@
     "name": "Tough Cell",
     "slot": "defence",
     "slotName": "Defence",
-    "icon": "/assets/icons/cells/defence/ToughCell.png",
+    "icon": "/assets/icons/perks/Defence.svg",
     "variants": [
       {
         "name": "+1 Tough Cell",
@@ -433,7 +433,7 @@
     "name": "Warmth Cell",
     "slot": "defence",
     "slotName": "Defence",
-    "icon": "/assets/icons/cells/defence/WarmthCell.png",
+    "icon": "/assets/icons/perks/Defence.svg",
     "variants": [
       {
         "name": "+1 Warmth Cell",
@@ -466,7 +466,7 @@
     "name": "Agility Cell",
     "slot": "mobility",
     "slotName": "Mobility",
-    "icon": "/assets/icons/cells/mobility/AgilityCell.png",
+    "icon": "/assets/icons/perks/Mobility.svg",
     "variants": [
       {
         "name": "+1 Agility Cell",
@@ -499,7 +499,7 @@
     "name": "Conditioning Cell",
     "slot": "mobility",
     "slotName": "Mobility",
-    "icon": "/assets/icons/cells/mobility/ConditioningCell.png",
+    "icon": "/assets/icons/perks/Mobility.svg",
     "variants": [
       {
         "name": "+1 Conditioning Cell",
@@ -532,7 +532,7 @@
     "name": "Endurance Cell",
     "slot": "mobility",
     "slotName": "Mobility",
-    "icon": "/assets/icons/cells/mobility/EnduranceCell.png",
+    "icon": "/assets/icons/perks/Mobility.svg",
     "variants": [
       {
         "name": "+1 Endurance Cell",
@@ -565,7 +565,7 @@
     "name": "Evasion Cell",
     "slot": "mobility",
     "slotName": "Mobility",
-    "icon": "/assets/icons/cells/mobility/EvasionCell.png",
+    "icon": "/assets/icons/perks/Mobility.svg",
     "variants": [
       {
         "name": "+1 Evasion Cell",
@@ -598,7 +598,7 @@
     "name": "Fleet Footed Cell",
     "slot": "mobility",
     "slotName": "Mobility",
-    "icon": "/assets/icons/cells/mobility/FleetFootedCell.png",
+    "icon": "/assets/icons/perks/Mobility.svg",
     "variants": [
       {
         "name": "+1 Fleet Footed Cell",
@@ -631,7 +631,7 @@
     "name": "Grace Cell",
     "slot": "mobility",
     "slotName": "Mobility",
-    "icon": "/assets/icons/cells/mobility/GraceCell.png",
+    "icon": "/assets/icons/perks/Mobility.svg",
     "variants": [
       {
         "name": "+1 Grace Cell",
@@ -664,7 +664,7 @@
     "name": "Nimble Cell",
     "slot": "mobility",
     "slotName": "Mobility",
-    "icon": "/assets/icons/cells/mobility/NimbleCell.png",
+    "icon": "/assets/icons/perks/Mobility.svg",
     "variants": [
       {
         "name": "+1 Nimble Cell",
@@ -697,7 +697,7 @@
     "name": "Sprinter Cell",
     "slot": "mobility",
     "slotName": "Mobility",
-    "icon": "/assets/icons/cells/mobility/SprinterCell.png",
+    "icon": "/assets/icons/perks/Mobility.svg",
     "variants": [
       {
         "name": "+1 Sprinter Cell",
@@ -730,7 +730,7 @@
     "name": "Swift Cell",
     "slot": "mobility",
     "slotName": "Mobility",
-    "icon": "/assets/icons/cells/mobility/SwiftCell.png",
+    "icon": "/assets/icons/perks/Mobility.svg",
     "variants": [
       {
         "name": "+1 Swift Cell",
@@ -763,7 +763,7 @@
     "name": "Aetherhunter Cell",
     "slot": "power",
     "slotName": "Power",
-    "icon": "/assets/icons/cells/power/AetherhunterCell.png",
+    "icon": "/assets/icons/perks/Power.svg",
     "variants": [
       {
         "name": "+1 Aetherhunter Cell",
@@ -796,7 +796,7 @@
     "name": "Deconstruction Cell",
     "slot": "power",
     "slotName": "Power",
-    "icon": "/assets/icons/cells/power/DeconstructionCell.png",
+    "icon": "/assets/icons/perks/Power.svg",
     "variants": [
       {
         "name": "+1 Deconstruction Cell",
@@ -829,7 +829,7 @@
     "name": "Discipline Cell",
     "slot": "power",
     "slotName": "Power",
-    "icon": "/assets/icons/cells/power/DisciplineCell.png",
+    "icon": "/assets/icons/perks/Power.svg",
     "variants": [
       {
         "name": "+1 Discipline Cell",
@@ -862,7 +862,7 @@
     "name": "Knockout King Cell",
     "slot": "power",
     "slotName": "Power",
-    "icon": "/assets/icons/cells/power/KnockoutKingCell.png",
+    "icon": "/assets/icons/perks/Power.svg",
     "variants": [
       {
         "name": "+1 Knockout King Cell",
@@ -895,7 +895,7 @@
     "name": "Overpower Cell",
     "slot": "power",
     "slotName": "Power",
-    "icon": "/assets/icons/cells/power/OverpowerCell.png",
+    "icon": "/assets/icons/perks/Power.svg",
     "variants": [
       {
         "name": "+1 Overpower Cell",
@@ -928,7 +928,7 @@
     "name": "Pacifier Cell",
     "slot": "power",
     "slotName": "Power",
-    "icon": "/assets/icons/cells/power/PacifierCell.png",
+    "icon": "/assets/icons/perks/Power.svg",
     "variants": [
       {
         "name": "+1 Pacifier Cell",
@@ -961,7 +961,7 @@
     "name": "Rage Cell",
     "slot": "power",
     "slotName": "Power",
-    "icon": "/assets/icons/cells/power/RageCell.png",
+    "icon": "/assets/icons/perks/Power.svg",
     "variants": [
       {
         "name": "+1 Rage Cell",
@@ -994,7 +994,7 @@
     "name": "Ragehunter Cell",
     "slot": "power",
     "slotName": "Power",
-    "icon": "/assets/icons/cells/power/RagehunterCell.png",
+    "icon": "/assets/icons/perks/Power.svg",
     "variants": [
       {
         "name": "+1 Ragehunter Cell",
@@ -1027,7 +1027,7 @@
     "name": "Sharpened Cell",
     "slot": "power",
     "slotName": "Power",
-    "icon": "/assets/icons/cells/power/SharpenedCell.png",
+    "icon": "/assets/icons/perks/Power.svg",
     "variants": [
       {
         "name": "+1 Sharpened Cell",
@@ -1060,7 +1060,7 @@
     "name": "Tenacious Cell",
     "slot": "power",
     "slotName": "Power",
-    "icon": "/assets/icons/cells/power/TenaciousCell.png",
+    "icon": "/assets/icons/perks/Power.svg",
     "variants": [
       {
         "name": "+1 Tenacious Cell",
@@ -1093,7 +1093,7 @@
     "name": "Acidic Cell",
     "slot": "technique",
     "slotName": "Technique",
-    "icon": "/assets/icons/cells/technique/AcidicCell.png",
+    "icon": "/assets/icons/perks/Technique.svg",
     "variants": [
       {
         "name": "+1 Acidic Cell",
@@ -1126,7 +1126,7 @@
     "name": "Adrenaline Cell",
     "slot": "technique",
     "slotName": "Technique",
-    "icon": "/assets/icons/cells/technique/AdrenalineCell.png",
+    "icon": "/assets/icons/perks/Technique.svg",
     "variants": [
       {
         "name": "+1 Adrenaline Cell",
@@ -1159,7 +1159,7 @@
     "name": "Barbed Cell",
     "slot": "technique",
     "slotName": "Technique",
-    "icon": "/assets/icons/cells/technique/BarbedCell.png",
+    "icon": "/assets/icons/perks/Technique.svg",
     "variants": [
       {
         "name": "+1 Barbed Cell",
@@ -1192,7 +1192,7 @@
     "name": "Berserker Cell",
     "slot": "technique",
     "slotName": "Technique",
-    "icon": "/assets/icons/cells/technique/BerserkerCell.png",
+    "icon": "/assets/icons/perks/Technique.svg",
     "variants": [
       {
         "name": "+1 Berserker Cell",
@@ -1225,7 +1225,7 @@
     "name": "Bladestorm Cell",
     "slot": "technique",
     "slotName": "Technique",
-    "icon": "/assets/icons/cells/technique/BladestormCell.png",
+    "icon": "/assets/icons/perks/Technique.svg",
     "variants": [
       {
         "name": "+1 Bladestorm Cell",
@@ -1258,7 +1258,7 @@
     "name": "Cunning Cell",
     "slot": "technique",
     "slotName": "Technique",
-    "icon": "/assets/icons/cells/technique/CunningCell.png",
+    "icon": "/assets/icons/perks/Technique.svg",
     "variants": [
       {
         "name": "+1 Cunning Cell",
@@ -1291,7 +1291,7 @@
     "name": "Evasive Fury Cell",
     "slot": "technique",
     "slotName": "Technique",
-    "icon": "/assets/icons/cells/technique/EvasiveFuryCell.png",
+    "icon": "/assets/icons/perks/Technique.svg",
     "variants": [
       {
         "name": "+1 Evasive Fury Cell",
@@ -1324,7 +1324,7 @@
     "name": "Merciless Cell",
     "slot": "technique",
     "slotName": "Technique",
-    "icon": "/assets/icons/cells/technique/MercilessCell.png",
+    "icon": "/assets/icons/perks/Technique.svg",
     "variants": [
       {
         "name": "+1 Merciless Cell",
@@ -1357,7 +1357,7 @@
     "name": "Molten Cell",
     "slot": "technique",
     "slotName": "Technique",
-    "icon": "/assets/icons/cells/technique/MoltenCell.png",
+    "icon": "/assets/icons/perks/Technique.svg",
     "variants": [
       {
         "name": "+1 Molten Cell",
@@ -1390,7 +1390,7 @@
     "name": "Predator Cell",
     "slot": "technique",
     "slotName": "Technique",
-    "icon": "/assets/icons/cells/technique/PredatorCell.png",
+    "icon": "/assets/icons/perks/Technique.svg",
     "variants": [
       {
         "name": "+1 Predator Cell",
@@ -1423,7 +1423,7 @@
     "name": "Relentless",
     "slot": "technique",
     "slotName": "Technique",
-    "icon": "/assets/icons/cells/technique/Relentless.png",
+    "icon": "/assets/icons/perks/Technique.svg",
     "variants": [
       {
         "name": "+1 Relentless Cell",
@@ -1456,7 +1456,7 @@
     "name": "Savagery Cell",
     "slot": "technique",
     "slotName": "Technique",
-    "icon": "/assets/icons/cells/technique/SavageryCell.png",
+    "icon": "/assets/icons/perks/Technique.svg",
     "variants": [
       {
         "name": "+1 Savagery Cell",
@@ -1489,7 +1489,7 @@
     "name": "Weighted Strikes Cell",
     "slot": "technique",
     "slotName": "Technique",
-    "icon": "/assets/icons/cells/technique/WeightedStrikesCell.png",
+    "icon": "/assets/icons/perks/Technique.svg",
     "variants": [
       {
         "name": "+1 Weighted Strikes Cell",
@@ -1522,7 +1522,7 @@
     "name": "Wild Frenzy Cell",
     "slot": "technique",
     "slotName": "Technique",
-    "icon": "/assets/icons/cells/technique/WildFrenzyCell.png",
+    "icon": "/assets/icons/perks/Technique.svg",
     "variants": [
       {
         "name": "+1 Wild Frenzy Cell",
@@ -1555,7 +1555,7 @@
     "name": "Aetherborne Cell",
     "slot": "utility",
     "slotName": "Utility",
-    "icon": "/assets/icons/cells/utility/AetherborneCell.png",
+    "icon": "/assets/icons/perks/Utility.svg",
     "variants": [
       {
         "name": "+1 Aetherborne Cell",
@@ -1588,7 +1588,7 @@
     "name": "Aetheric Attunement Cell",
     "slot": "utility",
     "slotName": "Utility",
-    "icon": "/assets/icons/cells/utility/AethericAttunementCell.png",
+    "icon": "/assets/icons/perks/Utility.svg",
     "variants": [
       {
         "name": "+1 Aetheric Attunement Cell",
@@ -1621,7 +1621,7 @@
     "name": "Aetheric Frenzy Cell",
     "slot": "utility",
     "slotName": "Utility",
-    "icon": "/assets/icons/cells/utility/AethericFrenzyCell.png",
+    "icon": "/assets/icons/perks/Utility.svg",
     "variants": [
       {
         "name": "+1 Aetheric Frenzy Cell",
@@ -1654,7 +1654,7 @@
     "name": "Cascade Cell",
     "slot": "utility",
     "slotName": "Utility",
-    "icon": "/assets/icons/cells/utility/CascadeCell.png",
+    "icon": "/assets/icons/perks/Utility.svg",
     "variants": [
       {
         "name": "+1 Cascade Cell",
@@ -1687,7 +1687,7 @@
     "name": "Catalyst Cell",
     "slot": "utility",
     "slotName": "Utility",
-    "icon": "/assets/icons/cells/utility/CatalystCell.png",
+    "icon": "/assets/icons/perks/Utility.svg",
     "variants": [
       {
         "name": "+1 Catalyst Cell",
@@ -1720,7 +1720,7 @@
     "name": "Conduit Cell",
     "slot": "utility",
     "slotName": "Utility",
-    "icon": "/assets/icons/cells/utility/ConduitCell.png",
+    "icon": "/assets/icons/perks/Utility.svg",
     "variants": [
       {
         "name": "+1 Conduit Cell",
@@ -1753,7 +1753,7 @@
     "name": "Energized Cell",
     "slot": "utility",
     "slotName": "Utility",
-    "icon": "/assets/icons/cells/utility/EnergizedCell.png",
+    "icon": "/assets/icons/perks/Utility.svg",
     "variants": [
       {
         "name": "+1 Energized Cell",
@@ -1786,7 +1786,7 @@
     "name": "Engineer Cell",
     "slot": "utility",
     "slotName": "Utility",
-    "icon": "/assets/icons/cells/utility/EngineerCell.png",
+    "icon": "/assets/icons/perks/Utility.svg",
     "variants": [
       {
         "name": "+1 Engineer Cell",
@@ -1819,7 +1819,7 @@
     "name": "Lucent Cell",
     "slot": "utility",
     "slotName": "Utility",
-    "icon": "/assets/icons/cells/utility/LucentCell.png",
+    "icon": "/assets/icons/perks/Utility.svg",
     "variants": [
       {
         "name": "+1 Lucent Cell",
@@ -1852,7 +1852,7 @@
     "name": "Medic Cell",
     "slot": "utility",
     "slotName": "Utility",
-    "icon": "/assets/icons/cells/utility/MedicCell.png",
+    "icon": "/assets/icons/perks/Utility.svg",
     "variants": [
       {
         "name": "+1 Medic Cell",
@@ -1885,7 +1885,7 @@
     "name": "Mender Cell",
     "slot": "utility",
     "slotName": "Utility",
-    "icon": "/assets/icons/cells/utility/MenderCell.png",
+    "icon": "/assets/icons/perks/Utility.svg",
     "variants": [
       {
         "name": "+1 Mender Cell",
@@ -1918,7 +1918,7 @@
     "name": "Stunning Vigour Cell",
     "slot": "utility",
     "slotName": "Utility",
-    "icon": "/assets/icons/cells/utility/StunningVigourCell.png",
+    "icon": "/assets/icons/perks/Utility.svg",
     "variants": [
       {
         "name": "+1 Stunning Vigour Cell",
@@ -1951,7 +1951,7 @@
     "name": "Vampiric Cell",
     "slot": "utility",
     "slotName": "Utility",
-    "icon": "/assets/icons/cells/utility/VampiricCell.png",
+    "icon": "/assets/icons/perks/Utility.svg",
     "variants": [
       {
         "name": "+1 Vampiric Cell",
@@ -1984,7 +1984,7 @@
     "name": "Zeal Cell",
     "slot": "utility",
     "slotName": "Utility",
-    "icon": "/assets/icons/cells/utility/ZealCell.png",
+    "icon": "/assets/icons/perks/Utility.svg",
     "variants": [
       {
         "name": "+1 Zeal Cell",

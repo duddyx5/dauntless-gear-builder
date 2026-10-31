@@ -3,11 +3,56 @@ import path from 'path';
 import yaml from 'js-yaml';
 
 function interpolate(template, values) {
-  if (!template || typeof template !== 'string') return template || '';
-  if (!values) return template;
-  return template.replace(/\{\{\s*(\w+)\s*\}\}/g, (_, key) => {
-    return values[key] !== undefined ? values[key] : `{{${key}}}`;
+  if (template === null || template === undefined) return '';
+  if (Array.isArray(template)) {
+    return template
+      .filter(item => item !== null && item !== undefined)
+      .map(item => interpolate(item, values))
+      .filter(str => typeof str === 'string' && str.trim().length > 0)
+      .join('. ')
+      .replace(/\.\s*\./g, '.');
+  }
+  if (typeof template !== 'string') return String(template);
+  let res = template.replace(/\{\{\s*NL\s*\}\}/gi, '\n');
+  if (!values) return res;
+  return res.replace(/\{+\s*(\w+)\s*\}+/g, (match, key) => {
+    if (values[key] !== undefined) return values[key];
+    const lowerKey = key.toLowerCase();
+    for (const [vKey, vVal] of Object.entries(values)) {
+      if (vKey.toLowerCase() === lowerKey) return vVal;
+    }
+    return match;
   });
+}
+
+function getCellCategoryIconPath(slot) {
+  const key = (slot || 'prismatic').toLowerCase().trim();
+  switch (key) {
+    case 'power':
+      return '/assets/icons/perks/Power.svg';
+    case 'technique':
+      return '/assets/icons/perks/Technique.svg';
+    case 'defence':
+    case 'defense':
+      return '/assets/icons/perks/Defence.svg';
+    case 'mobility':
+      return '/assets/icons/perks/Mobility.svg';
+    case 'utility':
+      return '/assets/icons/perks/Utility.svg';
+    case 'alacrity':
+      return '/assets/icons/perks/Alacrity.png';
+    case 'brutality':
+      return '/assets/icons/perks/Brutality.png';
+    case 'finesse':
+      return '/assets/icons/perks/Finesse.png';
+    case 'fortitude':
+      return '/assets/icons/perks/Fortitude.png';
+    case 'insight':
+      return '/assets/icons/perks/Insight.png';
+    case 'prismatic':
+    default:
+      return '/assets/icons/perks/Prismatic.png';
+  }
 }
 
 function slugify(str) {
@@ -51,14 +96,15 @@ function compileYamlPatch(patchId, baseDir) {
     const tiers = {};
     if (doc.effects) {
       for (const [tierNum, tierObj] of Object.entries(doc.effects)) {
-        tiers[tierNum] = interpolate(tierObj.description, tierObj.values);
+        const combinedValues = { ...(doc.values || {}), ...(tierObj.values || {}) };
+        tiers[tierNum] = interpolate(tierObj.description, combinedValues);
       }
     }
     perksMap[id] = {
       id,
       name: doc.name,
       type: doc.type || 'General',
-      description: doc.description || '',
+      description: interpolate(doc.description, doc.values) || '',
       icon: doc.icon || `/assets/icons/perks/${doc.name.replace(/\s+/g, '')}.png`,
       tiers
     };
@@ -94,7 +140,7 @@ function compileYamlPatch(patchId, baseDir) {
       name: doc.name,
       slot: slot.toLowerCase(),
       slotName: slot.charAt(0).toUpperCase() + slot.slice(1),
-      icon: doc.icon || `/assets/icons/cells/${slot.toLowerCase()}/${doc.name.replace(/\s+/g, '')}.png`,
+      icon: doc.icon || getCellCategoryIconPath(slot),
       variants: variants.sort((a, b) => a.level - b.level)
     });
   }
@@ -217,7 +263,8 @@ function compileYamlPatch(patchId, baseDir) {
     let uniqueEffect = null;
     if (Array.isArray(doc.unique_effects) && doc.unique_effects.length > 0) {
       const ue = doc.unique_effects.find(u => u.powerSurged === true || u.from === 1 || u.to === 1) || doc.unique_effects[doc.unique_effects.length - 1];
-      uniqueEffect = interpolate(ue.description, ue.values);
+      const combinedValues = { ...(doc.values || {}), ...(ue.values || {}) };
+      uniqueEffect = interpolate(ue.description, combinedValues);
     }
 
     let basePower = 80;
@@ -291,8 +338,8 @@ function compileYamlPatch(patchId, baseDir) {
     for (const f of omnicellFiles) {
       const doc = yaml.load(fs.readFileSync(f, 'utf8'));
       if (!doc || !doc.name) continue;
-      const passiveDesc = interpolate(doc.passive, doc.passive_values);
-      const activeDesc = interpolate(doc.active, doc.active_values);
+      const passiveDesc = interpolate(doc.passive, { ...(doc.values || {}), ...(doc.passive_values || {}) });
+      const activeDesc = interpolate(doc.active, { ...(doc.values || {}), ...(doc.active_values || {}) });
 
       omnicellsList.push({
         id: slugify(doc.name),

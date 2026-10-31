@@ -8,7 +8,7 @@ import {
 } from '../types/builder';
 import { PickerSlotType } from './SlotPickerSheet';
 import { parseCellSpec } from '../utils/calculator';
-import { getElementStyle, resolveAssetUrl } from '../utils/theme';
+import { getElementStyle, resolveAssetUrl, getCellCategoryIcon } from '../utils/theme';
 import { renderFormattedCoreText } from '../utils/formatText';
 import {
   Sword,
@@ -244,6 +244,7 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
     slotType: PickerSlotType
   ) => {
     const parsed = parseCellSpec(cellSpec, patchData.cells);
+    const socketIcon = getCellCategoryIcon(allowedSocket);
 
     if (!parsed) {
       return (
@@ -252,11 +253,20 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
           onClick={() => onOpenPicker(slotType, allowedSocket)}
           className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold border border-dashed border-[#2a424e] bg-[#091419]/70 text-gray-400 hover:border-cyan-500/50 hover:text-cyan-300 transition-all cursor-pointer"
         >
-          <span className="w-2 h-2 border border-gray-500/80 bg-gray-700/80 rotate-45 inline-block shrink-0" />
+          <img
+            src={resolveAssetUrl(socketIcon)}
+            alt={allowedSocket}
+            className="w-3.5 h-3.5 object-contain shrink-0 filter drop-shadow opacity-75"
+            onError={(e) => {
+              (e.target as HTMLElement).style.display = 'none';
+            }}
+          />
           <span className="capitalize text-[10.5px]">Empty {allowedSocket} Socket</span>
         </button>
       );
     }
+
+    const equippedIcon = getCellCategoryIcon(parsed.cell?.slot || allowedSocket);
 
     return (
       <button
@@ -264,7 +274,14 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
         onClick={() => onOpenPicker(slotType, allowedSocket)}
         className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold border border-[#2a424e] bg-[#101e25] hover:border-cyan-400 text-cyan-200 transition-all cursor-pointer"
       >
-        <span className="cell-gem" />
+        <img
+          src={resolveAssetUrl(equippedIcon)}
+          alt={allowedSocket}
+          className="w-3.5 h-3.5 object-contain shrink-0 filter drop-shadow"
+          onError={(e) => {
+            (e.target as HTMLElement).style.display = 'none';
+          }}
+        />
         <span className="font-semibold text-cyan-300 truncate text-[11px]">
           {isAwakening ? `${parsed.perkName} Cell` : `+${parsed.variantLevel} ${parsed.perkName}`}
         </span>

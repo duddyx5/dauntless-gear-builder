@@ -405,8 +405,14 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                           </em>
                         ))}
                         {w.cellSockets.map((s, idx) => (
-                          <em key={idx} className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-[#0a151b] text-gray-300 border border-[#21333d] not-italic">
-                            {s}
+                          <em key={idx} className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-[#0a151b] text-gray-300 border border-[#21333d] not-italic inline-flex items-center gap-1">
+                            <img
+                              src={resolveAssetUrl(getCellCategoryIcon(s))}
+                              alt={s}
+                              className="w-2.5 h-2.5 object-contain"
+                              onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
+                            />
+                            <span>{s}</span>
                           </em>
                         ))}
                       </span>
@@ -580,8 +586,14 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                             +{isAwakening ? p.value : (powerSurged ? p.value : (p.baseValue ?? p.value))} {p.name}
                           </em>
                         ))}
-                        <em className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-[#0a151b] text-gray-300 border border-[#21333d] not-italic">
-                          {isAwakening && a.cellSockets && a.cellSockets.length > 1 ? 'Sockets (2)' : a.cellSocket}
+                        <em className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-[#0a151b] text-gray-300 border border-[#21333d] not-italic inline-flex items-center gap-1">
+                          <img
+                            src={resolveAssetUrl(getCellCategoryIcon(a.cellSocket))}
+                            alt={a.cellSocket}
+                            className="w-2.5 h-2.5 object-contain"
+                            onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
+                          />
+                          <span>{isAwakening && a.cellSockets && a.cellSockets.length > 1 ? 'Sockets (2)' : a.cellSocket}</span>
                         </em>
                       </span>
                     </span>
@@ -636,8 +648,9 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                         className="w-full h-full object-contain filter drop-shadow"
                         onError={(e) => {
                           const img = e.target as HTMLImageElement;
+                          img.onerror = null;
                           const fallback = resolveAssetUrl(getCellCategoryIcon(c.slot));
-                          if (img.src !== fallback) {
+                          if (img.src !== fallback && !img.src.endsWith(fallback)) {
                             img.src = fallback;
                           }
                         }}
