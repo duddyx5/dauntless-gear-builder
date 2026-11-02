@@ -66,9 +66,16 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
   const currentLantern = patchData.lanterns.find(l => l.id === build.lantern);
   const currentOmnicell = patchData.omnicells.find(o => o.id === build.omnicell);
 
+  const getClassicPerkVal = (level: number, baseMaxVal = 3) => {
+    if (level >= 10) return Math.min(3, baseMaxVal);
+    if (level >= 6) return Math.min(2, baseMaxVal);
+    return Math.min(1, baseMaxVal);
+  };
+
   const getWeaponPower = (w: WeaponItem, slotKey: string) => {
     if (isClassic) {
-      return w.maxPower;
+      const lvl = build.gearLevels?.[slotKey] ?? 15;
+      return w.basePower + Math.round((w.maxPower - w.basePower) * (lvl / 15));
     }
     if (!isAwakening) {
       return powerSurged ? w.maxPower : w.basePower;
@@ -79,7 +86,8 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
 
   const getArmourRes = (a: ArmourItem, slotKey: string) => {
     if (isClassic) {
-      return a.maxResistance;
+      const lvl = build.gearLevels?.[slotKey] ?? 15;
+      return +(a.baseResistance + (a.maxResistance - a.baseResistance) * (lvl / 15)).toFixed(1);
     }
     if (!isAwakening) {
       return powerSurged ? a.maxResistance : a.baseResistance;
@@ -90,10 +98,11 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
 
   const getArmourPerks = (a: ArmourItem, slotKey: string) => {
     if (isClassic) {
+      const lvl = build.gearLevels?.[slotKey] ?? 15;
       return a.perks.map(p => ({
         id: p.id,
         name: p.name,
-        value: p.value,
+        value: getClassicPerkVal(lvl, p.value),
       }));
     }
     if (isAwakening && a.stats && a.stats.length > 0) {
@@ -117,8 +126,12 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
   };
 
   const renderGearLevelControl = (slotKey: string) => {
-    if (!isAwakening || !onGearLevelChange) return null;
-    const currentLevel = build.gearLevels?.[slotKey] ?? 20;
+    if ((!isAwakening && !isClassic) || !onGearLevelChange) return null;
+    const defaultLevel = isClassic ? 15 : 20;
+    const rawLevel = build.gearLevels?.[slotKey] ?? defaultLevel;
+    const minLevel = isClassic ? 0 : 1;
+    const maxLevel = isClassic ? 15 : 20;
+    const currentLevel = Math.max(minLevel, Math.min(maxLevel, rawLevel));
 
     return (
       <div
@@ -128,22 +141,22 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
         <span className="text-[10px] font-bold text-gray-400 uppercase">Lv</span>
         <button
           type="button"
-          disabled={currentLevel <= 1}
+          disabled={currentLevel <= minLevel}
           onClick={() => onGearLevelChange(slotKey, currentLevel - 1)}
-          className="w-5 h-5 rounded bg-[#101c22] hover:bg-[#1a2d36] disabled:opacity-30 text-white font-bold flex items-center justify-center transition-colors text-xs"
-          title="Decrease Gear Level"
+          className="w-5 h-5 rounded bg-[#101c22] hover:bg-[#1a2d36] disabled:opacity-30 text-white font-bold flex items-center justify-center transition-colors text-xs cursor-pointer"
+          title={`Decrease Level`}
         >
           -
         </button>
-        <span className="font-mono font-bold text-cyan-300 w-5 text-center text-xs">
-          {currentLevel}
+        <span className="font-mono font-bold text-cyan-300 w-6 text-center text-xs">
+          {isClassic ? `+${currentLevel}` : currentLevel}
         </span>
         <button
           type="button"
-          disabled={currentLevel >= 20}
+          disabled={currentLevel >= maxLevel}
           onClick={() => onGearLevelChange(slotKey, currentLevel + 1)}
-          className="w-5 h-5 rounded bg-[#101c22] hover:bg-[#1a2d36] disabled:opacity-30 text-white font-bold flex items-center justify-center transition-colors text-xs"
-          title="Increase Gear Level"
+          className="w-5 h-5 rounded bg-[#101c22] hover:bg-[#1a2d36] disabled:opacity-30 text-white font-bold flex items-center justify-center transition-colors text-xs cursor-pointer"
+          title={`Increase Level`}
         >
           +
         </button>
@@ -503,6 +516,12 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
       ) : (
         /* Reforged / Classic Single Weapon Layout */
         <article className="gear-card weapon-card">
+          {isClassic && (
+            <div className="flex items-center justify-between gap-2 p-2 px-3 pb-0">
+              <span className="gear-meta !mb-0">{currentWeapon ? `Weapon · ${currentWeapon.typeName}` : 'Primary Weapon'}</span>
+              {renderGearLevelControl('weapon')}
+            </div>
+          )}
           <button
             type="button"
             onClick={() => onOpenPicker('weapon')}
@@ -539,16 +558,16 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                     {currentWeapon.element}
                   </em>
                   <em>
-                    <Zap className="h-3 w-3 text-amber-400" /> {getWeaponPower(currentWeapon, 'weapon')} power{isClassic ? ' (+15)' : ''}
+                    <Zap className="h-3 w-3 text-amber-400" /> {getWeaponPower(currentWeapon, 'weapon')} power{isClassic ? ` (+${Math.max(0, Math.min(15, build.gearLevels?.weapon ?? 15))})` : ''}
                   </em>
                   {currentWeapon.perks.map(p => (
                     <em key={p.id}>
-                      +{isClassic ? p.value : (powerSurged ? p.value : (p.baseValue ?? p.value))} {p.name}
+                      +{isClassic ? getClassicPerkVal(Math.max(0, Math.min(15, build.gearLevels?.weapon ?? 15)), p.value) : (powerSurged ? p.value : (p.baseValue ?? p.value))} {p.name}
                     </em>
                   ))}
                   {currentWeapon.isLegendary && bondedWeapon && bondedWeapon.perks.map(p => (
                     <em key={p.id} className="border-amber-500/40 text-amber-300">
-                      +{isClassic ? p.value : (powerSurged ? p.value : (p.baseValue ?? p.value))} {p.name} (Bond)
+                      +{isClassic ? getClassicPerkVal(Math.max(0, Math.min(15, build.gearLevels?.weapon ?? 15)), p.value) : (powerSurged ? p.value : (p.baseValue ?? p.value))} {p.name} (Bond)
                     </em>
                   ))}
                 </span>
@@ -621,7 +640,7 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                     <div className="flex flex-wrap items-center gap-1.5 mt-0.5 text-[10.5px]">
                       {bondedWeapon.perks.map(p => (
                         <span key={p.id} className="text-cyan-300 font-semibold">
-                          +{isClassic ? p.value : (powerSurged ? p.value : (p.baseValue ?? p.value))} {p.name}
+                          +{isClassic ? getClassicPerkVal(Math.max(0, Math.min(15, build.gearLevels?.weapon ?? 15)), p.value) : (powerSurged ? p.value : (p.baseValue ?? p.value))} {p.name}
                         </span>
                       ))}
                       {bondedWeapon.uniqueEffect && (
@@ -723,7 +742,7 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                   {item ? (
                     <span className="gear-badges">
                       <em>
-                        <Shield className="h-3 w-3 text-cyan-400" /> {getArmourRes(item, slot)} res{isClassic ? ' (+15)' : ''}
+                        <Shield className="h-3 w-3 text-cyan-400" /> {getArmourRes(item, slot)} res{isClassic ? ` (+${Math.max(0, Math.min(15, build.gearLevels?.[slot] ?? 15))})` : ''}
                       </em>
                       {item.strength && (
                         <em className={`element ${item.strength.toLowerCase()}`}>

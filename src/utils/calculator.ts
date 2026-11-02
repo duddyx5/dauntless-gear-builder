@@ -11,37 +11,40 @@ import {
   OmnicellItem,
 } from '../types/builder';
 
-export const createEmptyBuild = (version: string = '1.14.7'): BuildState => ({
-  version,
-  weapon: null,
-  bondedWeapon: null,
-  secondaryWeapon: null,
-  gearLevels: {
-    weapon: 20,
-    secondaryWeapon: 20,
-    head: 20,
-    torso: 20,
-    arms: 20,
-    legs: 20,
-  },
-  weaponTalents: [0, 0, 0, 0, 0, 0, 0],
-  secondaryWeaponTalents: [0, 0, 0, 0, 0, 0, 0],
-  weaponCells: [null, null],
-  head: null,
-  headCell: null,
-  torso: null,
-  torsoCell: null,
-  torsoCell2: null,
-  arms: null,
-  armsCell: null,
-  legs: null,
-  legsCell: null,
-  legsCell2: null,
-  lantern: null,
-  lanternCell: null,
-  omnicell: null,
-  powerSurged: true,
-});
+export const createEmptyBuild = (version: string = '1.14.7'): BuildState => {
+  const defaultLvl = version === '1.4.4' ? 15 : 20;
+  return {
+    version,
+    weapon: null,
+    bondedWeapon: null,
+    secondaryWeapon: null,
+    gearLevels: {
+      weapon: defaultLvl,
+      secondaryWeapon: defaultLvl,
+      head: defaultLvl,
+      torso: defaultLvl,
+      arms: defaultLvl,
+      legs: defaultLvl,
+    },
+    weaponTalents: [0, 0, 0, 0, 0, 0, 0],
+    secondaryWeaponTalents: [0, 0, 0, 0, 0, 0, 0],
+    weaponCells: [null, null],
+    head: null,
+    headCell: null,
+    torso: null,
+    torsoCell: null,
+    torsoCell2: null,
+    arms: null,
+    armsCell: null,
+    legs: null,
+    legsCell: null,
+    legsCell2: null,
+    lantern: null,
+    lanternCell: null,
+    omnicell: null,
+    powerSurged: true,
+  };
+};
 
 export const DEFAULT_BUILD: BuildState = {
   version: '1.14.7',
@@ -95,6 +98,7 @@ export const PRESET_BUILDS: PresetBuildItem[] = [
     build: {
       version: '1.4.4',
       weapon: 'inferno_s_razor',
+      gearLevels: { weapon: 15, head: 15, torso: 15, arms: 15, legs: 15 },
       weaponCells: ['overpower_cell:+3', 'ragehunter_cell:+3'],
       head: 'hellplate_casque',
       headCell: 'discipline_cell:+3',
@@ -119,6 +123,7 @@ export const PRESET_BUILDS: PresetBuildItem[] = [
     build: {
       version: '1.4.4',
       weapon: 'inferno_s_burden',
+      gearLevels: { weapon: 15, head: 15, torso: 15, arms: 15, legs: 15 },
       weaponCells: ['knockout_king_cell:+3', 'overpower_cell:+3'],
       head: 'the_skullforge',
       headCell: 'ragehunter_cell:+3',
@@ -410,6 +415,12 @@ export function formatPerkEffect(desc: unknown): string {
   return String(desc);
 }
 
+export function getClassicPerkValue(level: number, maxVal = 3): number {
+  if (level >= 10) return Math.min(3, maxVal);
+  if (level >= 6) return Math.min(2, maxVal);
+  return Math.min(1, maxVal);
+}
+
 export function calculateBuildStats(build: BuildState, data: PatchData): BuildStats {
   const isAwakening = data.version === '2.1.1';
   const isClassic = data.version === '1.4.4';
@@ -446,7 +457,11 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
   // 1. Primary Weapon
   const weapon = data.weapons.find(w => w.id === build.weapon);
   if (weapon) {
-    if (isAwakening) {
+    if (isClassic) {
+      const lvl = Math.max(0, Math.min(15, build.gearLevels?.weapon ?? 15));
+      const power = weapon.basePower + Math.round((weapon.maxPower - weapon.basePower) * (lvl / 15));
+      totalPower = power;
+    } else if (isAwakening) {
       const lvl = Math.max(build.gearLevels?.weapon ?? 20, build.secondaryWeapon ? (build.gearLevels?.secondaryWeapon ?? 20) : 0);
       const power = weapon.basePower + Math.round((weapon.maxPower - weapon.basePower) * ((lvl - 1) / 19));
       totalPower = power;
@@ -456,7 +471,9 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
     element = weapon.element;
     if (weapon.perks) {
       weapon.perks.forEach(p => {
-        const val = isAwakening ? p.value : (isSurged ? p.value : (p.baseValue ?? p.value));
+        const val = isClassic
+          ? getClassicPerkValue(build.gearLevels?.weapon ?? 15, p.value)
+          : (isAwakening ? p.value : (isSurged ? p.value : (p.baseValue ?? p.value)));
         addPerkPoint(p.id, p.name, val, weapon.name, 'Primary Weapon');
       });
     }
@@ -466,7 +483,9 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
       const bondedWeapon = data.weapons.find(w => w.id === build.bondedWeapon);
       if (bondedWeapon && bondedWeapon.perks) {
         bondedWeapon.perks.forEach(p => {
-          const val = isSurged ? p.value : (p.baseValue ?? p.value);
+          const val = isClassic
+            ? getClassicPerkValue(build.gearLevels?.weapon ?? 15, p.value)
+            : (isSurged ? p.value : (p.baseValue ?? p.value));
           addPerkPoint(p.id, p.name, val, `${bondedWeapon.name} (Bond)`, 'Bonded Weapon');
         });
       }
@@ -533,7 +552,11 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
     const armour = data.armour.find(a => a.id === armourId);
 
     if (armour) {
-      if (isAwakening) {
+      if (isClassic) {
+        const lvl = Math.max(0, Math.min(15, build.gearLevels?.[s] ?? 15));
+        const res = armour.baseResistance + (armour.maxResistance - armour.baseResistance) * (lvl / 15);
+        totalResistance += res;
+      } else if (isAwakening) {
         const lvl = build.gearLevels?.[s] ?? 20;
         const res = armour.baseResistance + Math.round((armour.maxResistance - armour.baseResistance) * ((lvl - 1) / 19));
         totalResistance += res;
@@ -556,7 +579,9 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
         }
       } else if (armour.perks) {
         armour.perks.forEach(p => {
-          const val = isAwakening ? p.value : (isSurged ? p.value : (p.baseValue ?? p.value));
+          const val = isClassic
+            ? getClassicPerkValue(build.gearLevels?.[s] ?? 15, p.value)
+            : (isAwakening ? p.value : (isSurged ? p.value : (p.baseValue ?? p.value)));
           addPerkPoint(p.id, p.name, val, armour.name, armour.slotName || s);
         });
       }
@@ -717,21 +742,35 @@ export function decodeBuildFromHash(hashStr: string): Partial<BuildState> | null
     const json = atob(decodeURIComponent(code));
     const compact = JSON.parse(json);
 
+    const ver = compact.v || '1.14.7';
+    const isClassic = ver === '1.4.4';
+    const defaultLevel = isClassic ? 15 : 20;
+    const maxLevel = isClassic ? 15 : 20;
+    let gearLevels: Record<string, number> = {};
+    if (compact.gl && typeof compact.gl === 'object') {
+      ['weapon', 'secondaryWeapon', 'head', 'torso', 'arms', 'legs'].forEach(k => {
+        const val = compact.gl[k];
+        gearLevels[k] = val !== undefined ? Math.min(val, maxLevel) : defaultLevel;
+      });
+    } else {
+      gearLevels = {
+        weapon: defaultLevel,
+        secondaryWeapon: defaultLevel,
+        head: defaultLevel,
+        torso: defaultLevel,
+        arms: defaultLevel,
+        legs: defaultLevel,
+      };
+    }
+
     return {
-      version: compact.v || '1.14.7',
+      version: ver,
       weapon: compact.w || null,
       bondedWeapon: compact.bw || null,
       secondaryWeapon: compact.w2 || null,
       weaponTalents: compact.wt || [0, 0, 0, 0, 0],
       secondaryWeaponTalents: compact.w2t || [0, 0, 0, 0, 0],
-      gearLevels: compact.gl || {
-        weapon: 20,
-        secondaryWeapon: 20,
-        head: 20,
-        torso: 20,
-        arms: 20,
-        legs: 20,
-      },
+      gearLevels,
       weaponCells: compact.wc || [],
       head: compact.h || null,
       headCell: compact.hc || null,

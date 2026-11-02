@@ -264,13 +264,13 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
               ) : isClassic ? (
                 <div className="p-3.5 rounded-xl bg-emerald-950/20 border border-emerald-500/30 flex items-center justify-between">
                   <div>
-                    <span className="font-semibold text-sm text-white block">Legacy +15 Gear Upgrades</span>
+                    <span className="font-semibold text-sm text-white block">Classic +0 to +15 Progression</span>
                     <span className="text-xs text-gray-400 block mt-0.5">
-                      Patch 1.4.4 uses classic +15 upgrade progression (550 power / 550 total resistance).
+                      Patch 1.4.4 gear levels (0 to +15) can be adjusted per piece directly on each equipment card.
                     </span>
                   </div>
                   <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shrink-0">
-                    MAX +15
+                    LEVELS +0 TO +15
                   </span>
                 </div>
               ) : (

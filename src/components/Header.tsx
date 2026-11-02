@@ -122,10 +122,10 @@ export const Header: React.FC<HeaderProps> = ({
             ) : isClassic ? (
               <div
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-950/40 text-amber-300 border border-amber-500/30"
-                title="Classic Patch 1.4.4 uses legacy +15 gear upgrades (550 power / 550 res)"
+                title="Classic Patch 1.4.4 uses legacy +0 to +15 gear upgrades"
               >
                 <Zap className="h-3.5 w-3.5 text-amber-400" />
-                <span>+15 Stats</span>
+                <span>+0 to +15 Levels</span>
               </div>
             ) : (
               <div
@@ -328,7 +328,7 @@ export const Header: React.FC<HeaderProps> = ({
               ) : isClassic ? (
                 <div className="py-2.5 px-2 border-b border-[#1d3039] text-xs text-amber-300 flex items-center gap-2">
                   <Zap className="h-4 w-4 text-amber-400 shrink-0" />
-                  <span>Classic Legacy +15 Upgrades Active</span>
+                  <span>Classic Gear Levels Active (+0 to +15)</span>
                 </div>
               ) : (
                 <div className="py-2.5 px-2 border-b border-[#1d3039] text-xs text-cyan-300 flex items-center gap-2">

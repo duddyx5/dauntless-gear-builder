@@ -41,11 +41,11 @@ export const DesktopStatsSidebar: React.FC<DesktopStatsSidebarProps> = ({
             <p className="kicker">Live build</p>
             <h2>Build overview</h2>
           </div>
-          <span className={isAwakening || stats.totalPower > 500 ? 'status-live' : 'status-base'}>
+          <span className={isAwakening || stats.totalPower >= 500 ? 'status-live' : 'status-base'}>
             {isAwakening
               ? 'Awakening 2.1.1'
               : currentVersionId === '1.4.4'
-              ? 'Classic +15'
+              ? (stats.totalPower >= 550 ? 'Classic +15' : `Classic (${stats.totalPower} Pow)`)
               : stats.totalPower > 500
               ? 'Power surged'
               : 'Base stats'}

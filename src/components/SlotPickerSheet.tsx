@@ -104,10 +104,13 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
         w.behemoth.toLowerCase().includes(searchTerm.toLowerCase()) ||
         w.perks.some(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()));
       const matchElem = selectedElement === 'All' || w.element.toLowerCase() === selectedElement.toLowerCase();
-      const matchType =
-        selectedWeaponType === 'All' ||
-        w.type.toLowerCase() === selectedWeaponType.toLowerCase().replace(/\s+/g, '') ||
-        w.typeName.toLowerCase() === selectedWeaponType.toLowerCase();
+      const matchType = (() => {
+        if (selectedWeaponType === 'All') return true;
+        const cleanSelected = selectedWeaponType.toLowerCase().replace(/[_-\s]+/g, '').replace(/s$/, '');
+        const cleanType = (w.type || '').toLowerCase().replace(/[_-\s]+/g, '').replace(/s$/, '');
+        const cleanTypeName = (w.typeName || '').toLowerCase().replace(/[_-\s]+/g, '').replace(/s$/, '');
+        return cleanType.includes(cleanSelected) || cleanTypeName.includes(cleanSelected);
+      })();
       return matchSearch && matchElem && matchType;
     });
   }, [patchData.weapons, isWeaponPicker, searchTerm, selectedElement, selectedWeaponType]);
@@ -148,7 +151,9 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
         a.perks.some(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()));
       const matchElem =
         selectedElement === 'All' ||
-        (a.strength && a.strength.toLowerCase() === selectedElement.toLowerCase());
+        (selectedElement.toLowerCase() === 'neutral'
+          ? (!a.strength || a.strength.toLowerCase() === 'neutral')
+          : (!!a.strength && a.strength.toLowerCase() === selectedElement.toLowerCase()));
       return matchSearch && matchElem;
     });
   }, [patchData.armour, isArmourPicker, slotType, searchTerm, selectedElement]);
@@ -644,7 +649,7 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                   >
                     <span className="w-11 h-11 rounded-lg bg-[#09151a] border border-[#21333d] flex items-center justify-center p-1.5 shrink-0 overflow-hidden relative">
                       <img
-                        src={resolveAssetUrl(c.icon || getCellCategoryIcon(c.slot))}
+                        src={resolveAssetUrl(getCellCategoryIcon(c.slot) || c.icon)}
                         alt={c.name}
                         className="w-full h-full object-contain filter drop-shadow"
                         onError={(e) => {

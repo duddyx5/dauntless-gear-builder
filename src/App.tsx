@@ -154,12 +154,21 @@ export const App: React.FC = () => {
           const lanternExists = prev.lantern ? loaded.lanterns.some(l => l.id === prev.lantern) : false;
           const omnicellExists = prev.omnicell ? loaded.omnicells.some(o => o.id === prev.omnicell) : false;
 
+          const isClassic = currentVersionId === '1.4.4';
+          const maxLevel = isClassic ? 15 : 20;
+          const defaultLevel = isClassic ? 15 : 20;
+          const updatedLevels: Record<string, number> = {};
+          ['weapon', 'secondaryWeapon', 'head', 'torso', 'arms', 'legs'].forEach(k => {
+            const current = prev.gearLevels?.[k];
+            updatedLevels[k] = current !== undefined ? Math.min(current, maxLevel) : defaultLevel;
+          });
+
           return {
             ...prev,
             version: currentVersionId,
             weapon: weaponExists ? prev.weapon : null,
             secondaryWeapon: currentVersionId === '2.1.1' ? (secWeaponExists ? prev.secondaryWeapon : null) : null,
-            gearLevels: prev.gearLevels || { weapon: 20, secondaryWeapon: 20, head: 20, torso: 20, arms: 20, legs: 20 },
+            gearLevels: updatedLevels,
             head: headExists ? prev.head : null,
             torso: torsoExists ? prev.torso : null,
             arms: armsExists ? prev.arms : null,
@@ -403,14 +412,18 @@ export const App: React.FC = () => {
   }, [activePicker.slot, build]);
 
   const handleGearLevelChange = useCallback((slotKey: string, level: number) => {
+    const isClassic = currentVersionId === '1.4.4';
+    const minLevel = isClassic ? 0 : 1;
+    const maxLevel = isClassic ? 15 : 20;
+    const defaultLevel = isClassic ? 15 : 20;
     setBuild(prev => ({
       ...prev,
       gearLevels: {
-        ...(prev.gearLevels || { weapon: 20, secondaryWeapon: 20, head: 20, torso: 20, arms: 20, legs: 20 }),
-        [slotKey]: Math.max(1, Math.min(20, level)),
+        ...(prev.gearLevels || { weapon: defaultLevel, secondaryWeapon: defaultLevel, head: defaultLevel, torso: defaultLevel, arms: defaultLevel, legs: defaultLevel }),
+        [slotKey]: Math.max(minLevel, Math.min(maxLevel, level)),
       }
     }));
-  }, []);
+  }, [currentVersionId]);
 
   const handleWeaponTalentChange = useCallback((slotKey: 'weapon' | 'secondaryWeapon', tierIndex: number, optionIndex: number) => {
     setBuild(prev => {
