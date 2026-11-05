@@ -146,6 +146,7 @@ export const App: React.FC = () => {
         // Sanitize build to make sure equipped items exist in this patch
         setBuild(prev => {
           const weaponExists = prev.weapon ? loaded.weapons.some(w => w.id === prev.weapon) : false;
+          const bondedWeaponExists = prev.bondedWeapon ? loaded.weapons.some(w => w.id === prev.bondedWeapon) : false;
           const secWeaponExists = prev.secondaryWeapon ? loaded.weapons.some(w => w.id === prev.secondaryWeapon) : false;
           const headExists = prev.head ? loaded.armour.some(a => a.id === prev.head && a.slot === 'head') : false;
           const torsoExists = prev.torso ? loaded.armour.some(a => a.id === prev.torso && a.slot === 'torso') : false;
@@ -167,6 +168,7 @@ export const App: React.FC = () => {
             ...prev,
             version: currentVersionId,
             weapon: weaponExists ? prev.weapon : null,
+            bondedWeapon: currentVersionId === '2.1.1' ? null : (bondedWeaponExists ? prev.bondedWeapon : null),
             secondaryWeapon: currentVersionId === '2.1.1' ? (secWeaponExists ? prev.secondaryWeapon : null) : null,
             gearLevels: updatedLevels,
             head: headExists ? prev.head : null,
