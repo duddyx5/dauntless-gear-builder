@@ -1,76 +1,115 @@
 # Dauntless Gear Builder
 
-A modern, refined, and version-aware build planner for **Dauntless**, supporting historical and modern patch eras:
-- **Patch 1.6.2 (Classic Escalation)**: Classic cell socket categories (*Power, Technique, Defence, Mobility, Utility*) with no Omnicells.
-- **Patch 1.12.0 (Reforged Mid-Era)**: Introduction of modernized cell sockets (*Brutality, Finesse, Fortitude, Alacrity, Insight*) and Omnicells (*Discipline, Bastion, Iceborne, Tempest, Revenant*).
-- **Patch 1.14.7 (Reforged Final)**: Peak Reforged meta with full Behemoth equipment rosters, expanded cells (*Pulse, Reuse, Recycle, Reduce*), and Artificer.
-- **Patch 2.1.1 (Awakening)**: Post-Awakening overhaul featuring Weapon Talents and Lantern Cores.
+[![Version](https://img.shields.io/badge/version-v0.9.5--beta-cyan.svg)](CHANGELOG.md)
+[![Status](https://img.shields.io/badge/status-public--testing-amber.svg)](CHANGELOG.md)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](LICENSE)
+[![PWA Ready](https://img.shields.io/badge/PWA-installable_%26_offline-emerald.svg)](public/manifest.webmanifest)
+
+A modern, responsive, and version-aware loadout workshop for **Dauntless**, spanning 5 distinct game eras from pre-Reforged classic to Awakening.
+
+> [!NOTE]
+> **Project Status: Public Beta Testing (`v0.9.5-beta`)**
+> 
+> *Dauntless Gear Builder* is currently in active public beta testing. Equipment datasets, perk curves, and community sharing systems are continuously calibrated and verified against historical archives and live server data. See [CHANGELOG.md](CHANGELOG.md) for full development history.
 
 ---
 
 ## 🌟 Key Features
 
-### 1. ⏱️ 4-Patch Version-Aware Game Data
-- Select between **1.6.2**, **1.12.0**, **1.14.7**, and **2.1.1** from the persistent patch selector.
-- Instantly updates item stats, available cell sockets, perk values, and unique effects matching that exact era.
-- Community presets are automatically filtered to show builds engineered specifically for the active version.
-- Directory schema:
-  ```
-  public/
-  └── data/
-      ├── manifest.json            # Manifest for 1.6.2, 1.12.0, 1.14.7, 2.1.1
-      └── patches/
-          ├── 1.6.2/               # Classic Escalation Meta
-          ├── 1.12.0/              # Reforged Mid-Era Meta
-          ├── 1.14.7/              # Reforged Final Meta
-          └── 2.1.1/               # Awakening Meta
-  ```
+### 1. ⏱️ 5 Historical & Modern Patch Eras
+Switch seamlessly between 5 game eras from the persistent top navigation:
+- **Patch 1.4.4 (Classic / Pre-Reforged - Nov 2020)**:
+  Legacy +0 to +15 gear upgrades (100–550 weapon power, 25–137.5 resistance per piece). Original cell categories (*Power, Technique, Defence, Mobility, Utility*), mastery milestones, legendary weapon bonding, and no Omnicells.
+- **Patch 1.6.2 (Early Reforged - May 2021)**:
+  Early Reforged era with original cell socket types, Aetherheart Power Surging, legendary weapon bonding, and no Omnicells.
+- **Patch 1.12.0 (Reforged Mid-Era - Nov 2022)**:
+  Mid-Reforged overhaul introducing modern cell categories (*Brutality, Finesse, Fortitude, Alacrity, Insight*), all 6 Omnicells, and legendary weapon bonding.
+- **Patch 1.14.7 (Reforged Final - Nov 2023)**:
+  Peak Reforged meta with full Behemoth rosters (Frostwülf, Phaelanx, Fenroar, Alyra, Chronovore), expanded cell perks, and complete Escalation gear.
+- **Patch 2.1.1 (Awakening - Feb 2025)**:
+  Awakening meta overhaul featuring Dual Weapons (Primary + Secondary), interactive 5-tier Weapon Talent trees, Lantern Cores with distinct passives and abilities, and individual gear levels 1–20.
 
-### 2. 📱 Responsive Experience (Phones, Tablets & Desktops)
-- **Smartphone & Small Screens**:
-  - Smooth bottom-sheet equipment and cell selector with touch-friendly tap targets, element tabs, and live search.
-  - Sticky bottom summary bar showing live Power, Resistance, and active perk badges at a glance, with tap-to-expand details.
-- **Tablets & Desktop Screens**:
-  - Dual-column widescreen layout with zero UI element sacrifices.
-  - Left column: Equipment slots with cell socket indicators and unique effects.
-  - Right column: Persistent Live Build Overview & Perks Inspector with 1..6 tier progress bars, overcap warnings, and source breakdowns.
+```
+public/
+└── data/
+    ├── manifest.json            # Version index (1.4.4, 1.6.2, 1.12.0, 1.14.7, 2.1.1)
+    └── patches/
+        ├── 1.4.4/               # Classic Pre-Reforged (+15 Upgrades)
+        ├── 1.6.2/               # Early Reforged (Aetherhearts, Classic Sockets)
+        ├── 1.12.0/              # Mid Reforged (Omnicells, Modern Sockets)
+        ├── 1.14.7/              # Peak Reforged Meta (Full Roster)
+        └── 2.1.1/               # Awakening Meta (Talents & Dual Weapons)
+```
 
-### 3. 👥 Version-Filtered Community Builds & Local Storage
-- **Preset Meta Builds**: View and equip community builds for the active version (e.g. Classic Low-Life Crit Sword for 1.6.2, Bastion Shield Tank for 1.12.0, Inferno Overpower Meta for 1.14.7, and Silver Sword Bastion Nova for 2.1.1).
-- **Local Storage**: Save, rename, and load your own builds locally.
-- **Compact Build Sharing**: 1-click share URL generates compact hashes preserving gear selections and patch version.
+### 2. 📱 Progressive Web App (PWA) & Full Offline Support
+- **Installable Native App**: Install to desktop (macOS / Windows / Linux dock) or mobile home screens (iOS Safari & Android Chrome) without browser toolbars.
+- **Service Worker & Workbox**: Automatic offline caching of application bundles, icons, and all `/data/` patch files via `NetworkFirst` and `StaleWhileRevalidate` caching strategies.
+- **Responsive Layout**:
+  - **Mobile**: Touch-optimized bottom sheets, search filters, and an expandable summary drawer.
+  - **Desktop / Tablet**: Widescreen dual-column interface with live stats sidebar, perk breakdown, and overcap warnings.
 
-### 4. ⚡ Power Surge & Calculation Engine
-- One-tap **Surge Toggle** in the header to switch between base stats and maximum Power Surged stats (+3 perks, 120 Power, 30+ Res).
-- Real-time perk point aggregation, tier capping at +6, and elemental resistance calculations.
+### 3. 👥 Community Builds with Deduplication & Auto-Upvoting
+- **Curated & Community Loadouts**: Browse curated presets or player-submitted builds across **Top 20** (most upvoted), **New 20** (most recent), **All Builds**, and **My Builds** (device-owned).
+- **Canonical Loadout Deduplication**:
+  - When submitting a build, an order-independent fingerprint is generated (`getLoadoutFingerprint`).
+  - If an identical equipment and cell configuration already exists, the database prevents duplicate entries and **automatically awards your upvote to the original author's build**.
+- **Compact Build Sharing**: Instant 1-click shareable URLs encoded with a compact hash containing all equipment, cells, and patch parameters.
+
+### 4. ⚔️ Calculation Engine & Legendary Bonding
+- **Legendary Weapon Bonding**: Bond same-element weapons to Malkarion, Torgadoro, Thrax, Agarus, Urska, or Chronovore weapons to inherit innate perks and unique effects (available on patches 1.4.4 through 1.14.7).
+- **Perk Point Aggregation**: Live calculation of total perk points, tier threshold validation (+6 cap for Reforged/Classic, activation thresholds for Awakening), and element resistance balances.
+- **Dauntless Forever Commands**: Built-in generator to export equipment giving commands for self-hosted community servers.
+
+### 5. 🎨 Dual Themes (Dark & Light)
+- **Dark Mode**: Cyberpunk slate and aether blue palette (`#081217` background).
+- **Light Mode**: High-readability Material Design 3 palette with clear text contrast and surface elevation.
 
 ---
 
 ## 🚀 Getting Started
 
-### Development
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v20+ recommended)
+- [npm](https://www.npmjs.com/)
+
+### Installation & Development
 ```bash
+# Clone the repository
+git clone https://github.com/duddyx5/dauntless-gear-builder.git
+cd dauntless-gear-builder
+
+# Install dependencies
 npm install
+
+# Start Vite development server
 npm run dev
 ```
 Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ### Building for Production
 ```bash
+# Build production bundles, generate service worker and PWA manifest
 npm run build
+
+# Preview production build locally
 npm run preview
 ```
 
-### Compiling or Updating Patch Data
+### Re-compiling Patch Data
 ```bash
 npm run build:data
 ```
 
 ---
 
+## 🤝 Contributing
+
+Contributions, bug reports, and dataset suggestions are welcome! Please open an issue or pull request on [GitHub](https://github.com/duddyx5/dauntless-gear-builder).
+
+---
+
 ## 📜 License & Acknowledgements
 
-- **Source Code License**: This project is free and open-source software licensed under the **[GNU Affero General Public License v3.0 (AGPL-3.0)](LICENSE)**.
-- **Acknowledgements**: Inspired by and built upon historical dataset schemas from the original [dauntless-builder](https://github.com/atomicptr/dauntless-builder) by atomicptr and community contributors.
+- **License**: Free and open-source software under the **[GNU Affero General Public License v3.0 (AGPL-3.0)](LICENSE)**.
+- **Acknowledgements**: Inspired by and built upon historical dataset schemas from [dauntless-builder](https://github.com/atomicptr/dauntless-builder) by atomicptr and community contributors.
 - **Legal Disclaimer**: *Dauntless* and all associated logos, icons, gear names, and behemoth artwork are registered trademarks and intellectual property of **Phoenix Labs**. This is an unofficial, community-created fan project and is not affiliated with or endorsed by Phoenix Labs.
-
