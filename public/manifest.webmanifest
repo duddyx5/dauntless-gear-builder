@@ -1,0 +1,33 @@
+{
+  "name": "Dauntless Gear Builder",
+  "short_name": "Gear Builder",
+  "description": "Interactive workshop for planning Dauntless weapons, armor, cells, and perk synergies across all game eras.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#081217",
+  "background_color": "#060d11",
+  "categories": ["games", "utilities", "entertainment"],
+  "icons": [
+    {
+      "src": "pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "maskable-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

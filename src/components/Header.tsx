@@ -17,6 +17,7 @@ import {
   Youtube,
   Github,
   Coffee,
+  Download,
 } from 'lucide-react';
 
 const XIcon: React.FC<{ className?: string }> = ({ className = 'h-4 w-4' }) => (
@@ -38,6 +39,8 @@ interface HeaderProps {
   onReset: () => void;
   currentTheme: ThemeMode;
   onThemeChange: (theme: ThemeMode) => void;
+  isStandalone?: boolean;
+  onInstallApp?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -53,6 +56,8 @@ export const Header: React.FC<HeaderProps> = ({
   onReset,
   currentTheme,
   onThemeChange,
+  isStandalone = false,
+  onInstallApp,
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const currentVersion = versions.find(v => v.id === currentVersionId) || versions[0];
@@ -147,6 +152,19 @@ export const Header: React.FC<HeaderProps> = ({
               <Bookmark className="h-3.5 w-3.5 text-cyan-400" />
               <span>Builds</span>
             </button>
+
+            {/* Install PWA Button */}
+            {!isStandalone && onInstallApp && (
+              <button
+                type="button"
+                onClick={onInstallApp}
+                className="quiet-button border-cyan-500/30 hover:border-cyan-400 text-cyan-300 hover:text-cyan-200"
+                title="Install Dauntless Gear Builder as an App"
+              >
+                <Download className="h-3.5 w-3.5 text-cyan-400" />
+                <span>Install App</span>
+              </button>
+            )}
 
             {/* Primary Share Button */}
             <button
@@ -352,6 +370,26 @@ export const Header: React.FC<HeaderProps> = ({
                 </div>
                 <ChevronDown className="h-4 w-4 text-gray-500 -rotate-90" />
               </button>
+
+              {/* Install App (PWA) */}
+              {!isStandalone && onInstallApp && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    onInstallApp();
+                  }}
+                  className="w-full min-h-[46px] border-b border-[#1d3039] bg-cyan-950/20 hover:bg-cyan-950/40 flex items-center justify-between px-1 text-xs font-bold text-cyan-300 hover:text-cyan-200 transition-colors"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <Download className="h-4 w-4 text-cyan-400" />
+                    <span>Install App (PWA)</span>
+                  </div>
+                  <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-cyan-500/20 border border-cyan-500/40 text-cyan-300">
+                    Offline
+                  </span>
+                </button>
+              )}
 
               {/* Share */}
               <button
