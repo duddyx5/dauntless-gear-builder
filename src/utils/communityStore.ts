@@ -14,6 +14,69 @@ export interface CommunityBuild {
   createdAt: string;
 }
 
+export interface SubmitBuildResult {
+  success: boolean;
+  isDuplicate: boolean;
+  build: CommunityBuild | null;
+  message: string;
+}
+
+/**
+ * Generate a canonical, order-independent fingerprint for a build loadout.
+ * Swapping socket positions or irrelevant properties produces the exact same fingerprint.
+ */
+export function getLoadoutFingerprint(build: BuildState): string {
+  const isAwakening = build.version === '2.1.1';
+  const isClassic = build.version === '1.4.4';
+
+  const normalized = {
+    v: build.version || '1.14.7',
+    w: build.weapon || '',
+    bw: (!isAwakening && build.bondedWeapon) ? build.bondedWeapon : '',
+    sw: (isAwakening && build.secondaryWeapon) ? build.secondaryWeapon : '',
+    wt: isAwakening ? (build.weaponTalents || []).join(',') : '',
+    swt: isAwakening ? (build.secondaryWeaponTalents || []).join(',') : '',
+    wc: (build.weaponCells || []).filter(Boolean).map(String).sort().join('|'),
+    h: build.head || '',
+    hc: build.headCell || '',
+    t: build.torso || '',
+    tc: [build.torsoCell, isAwakening ? build.torsoCell2 : null].filter(Boolean).map(String).sort().join('|'),
+    a: build.arms || '',
+    ac: build.armsCell || '',
+    l: build.legs || '',
+    lc: [build.legsCell, isAwakening ? build.legsCell2 : null].filter(Boolean).map(String).sort().join('|'),
+    lt: build.lantern || '',
+    ltc: !isAwakening ? (build.lanternCell || '') : '',
+    om: (!isAwakening && !isClassic) ? (build.omnicell || '') : '',
+    ps: (!isClassic && !isAwakening) ? (build.powerSurged !== false) : false,
+    gl: (isClassic || isAwakening) ? JSON.stringify(build.gearLevels || {}) : '',
+  };
+
+  return Object.entries(normalized)
+    .map(([k, v]) => `${k}:${v}`)
+    .join(';');
+}
+
+const SUBMIT_RATE_LIMIT_KEY = 'dauntless_last_submits';
+
+function checkRateLimit(): boolean {
+  try {
+    const now = Date.now();
+    const raw = localStorage.getItem(SUBMIT_RATE_LIMIT_KEY);
+    const timestamps: number[] = raw ? JSON.parse(raw) : [];
+    // Keep timestamps from the last 5 minutes (300,000ms)
+    const recent = timestamps.filter(t => now - t < 300000);
+    if (recent.length >= 6) {
+      return false;
+    }
+    recent.push(now);
+    localStorage.setItem(SUBMIT_RATE_LIMIT_KEY, JSON.stringify(recent));
+    return true;
+  } catch {
+    return true;
+  }
+}
+
 // ---------- Helpers to map DB rows → CommunityBuild ----------
 
 function rowToCommunityBuild(row: any): CommunityBuild {
@@ -123,7 +186,11 @@ export async function getCommunityBuilds(
 }
 
 /**
- * Submit a new community build.
+ * Submit a community build.
+ * Checks for duplicate loadouts in the same patch version:
+ * - If duplicate found: prevents creating a duplicate row, automatically upvotes
+ *   the original build on the user's behalf, marks it in their library, and notifies them.
+ * - If unique: creates the new community build, starts it with 1 upvote from the creator.
  */
 export async function submitCommunityBuild(entry: {
   name: string;
@@ -131,37 +198,122 @@ export async function submitCommunityBuild(entry: {
   description: string;
   tags: string[];
   build: BuildState;
-}): Promise<CommunityBuild | null> {
-  const voterId = getVoterId();
-  const buildWithCreator = {
-    ...entry.build,
-    _creatorId: voterId,
-  };
-
-  const { data, error } = await supabase
-    .from('builds')
-    .insert([
-      {
-        version: entry.build.version,
-        name: entry.name,
-        author: entry.author || 'Anonymous Slayer',
-        description: entry.description,
-        tags: entry.tags,
-        build_state: buildWithCreator,
-        upvotes: 0,
-      },
-    ])
-    .select()
-    .single();
-
-  if (error) {
-    console.error('Error submitting build:', error);
-    return null;
+}): Promise<SubmitBuildResult> {
+  if (!checkRateLimit()) {
+    return {
+      success: false,
+      isDuplicate: false,
+      build: null,
+      message: 'Rate limit reached: Please wait a couple minutes before submitting another build.',
+    };
   }
 
-  const created = rowToCommunityBuild(data);
-  addMyCreatedBuildId(created.id);
-  return created;
+  const voterId = getVoterId();
+  const targetFingerprint = getLoadoutFingerprint(entry.build);
+
+  try {
+    // 1. Fetch existing builds in this patch to check for duplicate loadouts
+    const { data: existingRows } = await supabase
+      .from('builds')
+      .select('*')
+      .eq('version', entry.build.version);
+
+    if (existingRows && existingRows.length > 0) {
+      const duplicateRow = existingRows.find(row => {
+        const state = row.build_state as BuildState | undefined;
+        if (!state) return false;
+        const rowFp = (state as any)?._fingerprint || getLoadoutFingerprint(state);
+        return rowFp === targetFingerprint;
+      });
+
+      if (duplicateRow) {
+        const duplicateBuild = rowToCommunityBuild(duplicateRow);
+
+        // Add to this device's tracked builds so it appears under their saved/my builds
+        addMyCreatedBuildId(duplicateBuild.id);
+
+        // Check if current user already upvoted
+        const alreadyVoted = await hasVoted(duplicateBuild.id);
+        let voteMsg = '';
+
+        if (!alreadyVoted) {
+          // Cast automatic upvote for the original build!
+          await toggleUpvote(duplicateBuild.id);
+          voteMsg = ` We've automatically added your upvote to it!`;
+        } else {
+          voteMsg = ` You have already upvoted this build!`;
+        }
+
+        return {
+          success: true,
+          isDuplicate: true,
+          build: duplicateBuild,
+          message: `This exact loadout was first forged by ${duplicateBuild.author} ("${duplicateBuild.name}").${voteMsg}`,
+        };
+      }
+    }
+
+    // 2. Loadout is unique: forge new community build
+    const buildWithMeta = {
+      ...entry.build,
+      _creatorId: voterId,
+      _fingerprint: targetFingerprint,
+    };
+
+    const { data, error } = await supabase
+      .from('builds')
+      .insert([
+        {
+          version: entry.build.version,
+          name: entry.name,
+          author: entry.author || 'Anonymous Slayer',
+          description: entry.description,
+          tags: entry.tags,
+          build_state: buildWithMeta,
+          upvotes: 1, // Initial creator upvote
+        },
+      ])
+      .select()
+      .single();
+
+    if (error) {
+      console.error('Error submitting build:', error);
+      return {
+        success: false,
+        isDuplicate: false,
+        build: null,
+        message: 'Database error: ' + error.message,
+      };
+    }
+
+    const created = rowToCommunityBuild(data);
+    addMyCreatedBuildId(created.id);
+
+    // Record initial creator upvote in build_upvotes
+    try {
+      await supabase
+        .from('build_upvotes')
+        .insert([{ build_id: created.id, voter_id: voterId }]);
+      const votedCache = loadVotedCache();
+      votedCache.add(created.id);
+      saveVotedCache(votedCache);
+    } catch {}
+
+    return {
+      success: true,
+      isDuplicate: false,
+      build: created,
+      message: `Your build "${created.name}" has been forged and published to the community library!`,
+    };
+  } catch (err: any) {
+    console.error('Submit community build exception:', err);
+    return {
+      success: false,
+      isDuplicate: false,
+      build: null,
+      message: 'Failed to submit build: ' + (err?.message || 'Unknown error'),
+    };
+  }
 }
 
 /**

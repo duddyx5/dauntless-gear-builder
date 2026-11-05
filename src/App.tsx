@@ -670,6 +670,7 @@ export const App: React.FC = () => {
           }
           showToast('Loaded build!');
         }}
+        onShowToast={showToast}
       />
 
       {/* Dauntless Forever Launcher Commands Generator Modal */}

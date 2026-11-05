@@ -31,6 +31,8 @@ import {
   ChevronUp,
   Loader2,
   Search,
+  CheckCircle2,
+  AlertCircle,
 } from 'lucide-react';
 
 interface SavedBuildEntry {
@@ -45,6 +47,7 @@ interface PresetsModalProps {
   onClose: () => void;
   currentBuild: BuildState;
   onLoadBuild: (build: BuildState) => void;
+  onShowToast?: (msg: string) => void;
 }
 
 type TabType = 'presets' | 'userBuilds' | 'saved';
@@ -54,6 +57,7 @@ export const PresetsModal: React.FC<PresetsModalProps> = ({
   onClose,
   currentBuild,
   onLoadBuild,
+  onShowToast,
 }) => {
   const [savedBuilds, setSavedBuilds] = useState<SavedBuildEntry[]>([]);
   const [newBuildName, setNewBuildName] = useState('');
@@ -68,6 +72,10 @@ export const PresetsModal: React.FC<PresetsModalProps> = ({
   const [userBuildsSearch, setUserBuildsSearch] = useState('');
   const [isLoadingBuilds, setIsLoadingBuilds] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionNotice, setSubmissionNotice] = useState<{
+    type: 'success' | 'info' | 'error';
+    message: string;
+  } | null>(null);
   const [votingId, setVotingId] = useState<string | null>(null);
 
   // Submit form state
@@ -176,13 +184,32 @@ export const PresetsModal: React.FC<PresetsModalProps> = ({
         .map(t => t.trim())
         .filter(Boolean);
 
-      await submitCommunityBuild({
+      const result = await submitCommunityBuild({
         name,
         author: submitAuthor.trim() || 'Anonymous Slayer',
         description: submitDescription.trim(),
         tags,
         build: { ...currentBuild },
       });
+
+      if (!result.success) {
+        setSubmissionNotice({ type: 'error', message: result.message });
+        if (onShowToast) onShowToast(result.message);
+        return;
+      }
+
+      if (result.isDuplicate) {
+        setSubmissionNotice({
+          type: 'info',
+          message: result.message,
+        });
+      } else {
+        setSubmissionNotice({
+          type: 'success',
+          message: result.message,
+        });
+      }
+      if (onShowToast) onShowToast(result.message);
 
       // Reset form
       setSubmitName('');
@@ -191,8 +218,11 @@ export const PresetsModal: React.FC<PresetsModalProps> = ({
       setSubmitTags('');
       setShowSubmitForm(false);
       await refreshCommunityBuilds();
-    } catch (err) {
+    } catch (err: any) {
       console.error('Submit failed:', err);
+      const msg = err?.message || 'Failed to submit build.';
+      setSubmissionNotice({ type: 'error', message: msg });
+      if (onShowToast) onShowToast(msg);
     } finally {
       setIsSubmitting(false);
     }
@@ -493,6 +523,47 @@ export const PresetsModal: React.FC<PresetsModalProps> = ({
           {/* ========== TAB: User Builds (Community Submitted — Supabase) ========== */}
           {activeTab === 'userBuilds' && (
             <div className="space-y-3">
+              {/* Submission Result Notice Banner */}
+              {submissionNotice && (
+                <div
+                  className={`p-3 rounded-xl border flex items-start justify-between gap-2.5 animate-slide-down ${
+                    submissionNotice.type === 'info'
+                      ? 'bg-blue-950/40 border-blue-500/50 text-blue-200'
+                      : submissionNotice.type === 'success'
+                        ? 'bg-emerald-950/40 border-emerald-500/50 text-emerald-200'
+                        : 'bg-red-950/40 border-red-500/50 text-red-200'
+                  }`}
+                >
+                  <div className="flex items-start gap-2.5 text-xs">
+                    {submissionNotice.type === 'info' ? (
+                      <Sparkles className="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" />
+                    ) : submissionNotice.type === 'success' ? (
+                      <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+                    ) : (
+                      <AlertCircle className="h-4 w-4 text-red-400 shrink-0 mt-0.5" />
+                    )}
+                    <div>
+                      <strong className="block font-semibold">
+                        {submissionNotice.type === 'info'
+                          ? 'Build Matched & Upvoted!'
+                          : submissionNotice.type === 'success'
+                            ? 'Build Forged & Published!'
+                            : 'Submission Note'}
+                      </strong>
+                      <p className="mt-0.5 text-gray-300 leading-relaxed">{submissionNotice.message}</p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setSubmissionNotice(null)}
+                    className="text-gray-400 hover:text-white p-1 rounded transition-colors"
+                    aria-label="Dismiss notice"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                </div>
+              )}
+
               {/* Submit / Category / Filter controls */}
               {!showSubmitForm && (
                 <div className="space-y-2.5">
