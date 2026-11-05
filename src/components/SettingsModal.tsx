@@ -18,7 +18,6 @@ import {
   Youtube,
   Github,
   Coffee,
-  Download,
 } from 'lucide-react';
 
 const XIcon: React.FC<{ className?: string }> = ({ className = 'h-4 w-4' }) => (
@@ -39,8 +38,6 @@ interface SettingsModalProps {
   onTogglePowerSurge: () => void;
   onOpenLauncherModal?: () => void;
   onReplayOnboarding?: () => void;
-  isStandalone?: boolean;
-  onInstallApp?: () => void;
 }
 
 export const SettingsModal: React.FC<SettingsModalProps> = ({
@@ -55,8 +52,6 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   onTogglePowerSurge,
   onOpenLauncherModal,
   onReplayOnboarding,
-  isStandalone = false,
-  onInstallApp,
 }) => {
   if (!isOpen) return null;
   const currentPatch = versions.find(v => v.id === currentVersionId);
@@ -290,35 +285,6 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                     LEVELS 1-20
                   </span>
                 </div>
-              )}
-
-              {/* Install App (PWA) */}
-              {!isStandalone && onInstallApp && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    onClose();
-                    onInstallApp();
-                  }}
-                  className="w-full p-3.5 rounded-xl bg-cyan-950/20 hover:bg-cyan-950/40 border border-cyan-500/30 hover:border-cyan-400 text-left flex items-center justify-between text-xs text-cyan-200 transition-colors group cursor-pointer"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="h-8 w-8 rounded-lg bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center text-cyan-300 shrink-0">
-                      <Download className="h-4 w-4" />
-                    </div>
-                    <div>
-                      <span className="font-semibold text-sm text-white block group-hover:text-cyan-300 transition-colors">
-                        Install App (PWA)
-                      </span>
-                      <span className="text-xs text-gray-400 block mt-0.5">
-                        Install on your home screen or desktop for full offline support and fast loading.
-                      </span>
-                    </div>
-                  </div>
-                  <span className="px-2.5 py-1 rounded-md text-[11px] font-bold bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 uppercase tracking-wider shrink-0">
-                    Install
-                  </span>
-                </button>
               )}
 
               {/* Launcher Commands Shortcut (Only for supported DF versions) */}

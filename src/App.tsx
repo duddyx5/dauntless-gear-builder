@@ -28,7 +28,6 @@ import { PresetsModal } from './components/PresetsModal';
 import { DauntlessForeverModal } from './components/DauntlessForeverModal';
 import { SettingsModal } from './components/SettingsModal';
 import { OnboardingModal } from './components/OnboardingModal';
-import { InstallPromptModal } from './components/InstallPromptModal';
 import { Toast } from './components/Toast';
 import { Loader2, AlertCircle, Youtube, Github, Coffee } from 'lucide-react';
 
@@ -67,23 +66,6 @@ export const App: React.FC = () => {
   const [isPresetsOpen, setIsPresetsOpen] = useState(false);
   const [isLauncherModalOpen, setIsLauncherModalOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const [isInstallModalOpen, setIsInstallModalOpen] = useState(false);
-  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
-  const [isStandalone, setIsStandalone] = useState<boolean>(() => {
-    if (typeof window === 'undefined') return false;
-    return (
-      window.matchMedia('(display-mode: standalone)').matches ||
-      (window.navigator as any).standalone === true ||
-      document.referrer.includes('android-app://')
-    );
-  });
-  const isIOS = useMemo(() => {
-    if (typeof window === 'undefined') return false;
-    return (
-      /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
-    );
-  }, []);
   const [currentTheme, setCurrentTheme] = useState<ThemeMode>(() => initTheme());
   const [isOnboardingOpen, setIsOnboardingOpen] = useState<boolean>(() => {
     if (typeof window === 'undefined') return false;
@@ -109,45 +91,6 @@ export const App: React.FC = () => {
     setIsOnboardingOpen(false);
     showToast('Welcome Slayer! Start forging your build.');
   };
-
-  // PWA Install Event Listeners
-  useEffect(() => {
-    const handleBeforeInstallPrompt = (e: Event) => {
-      e.preventDefault();
-      setDeferredPrompt(e);
-    };
-
-    const handleAppInstalled = () => {
-      setDeferredPrompt(null);
-      setIsStandalone(true);
-      showToast('Dauntless Gear Builder installed successfully!');
-    };
-
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    window.addEventListener('appinstalled', handleAppInstalled);
-
-    return () => {
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-      window.removeEventListener('appinstalled', handleAppInstalled);
-    };
-  }, [showToast]);
-
-  const handleInstallClick = useCallback(async () => {
-    if (deferredPrompt) {
-      try {
-        await deferredPrompt.prompt();
-        const choice = await deferredPrompt.userChoice;
-        if (choice && choice.outcome === 'accepted') {
-          setDeferredPrompt(null);
-          showToast('Installing Dauntless Gear Builder...');
-        }
-      } catch (err) {
-        setIsInstallModalOpen(true);
-      }
-    } else {
-      setIsInstallModalOpen(true);
-    }
-  }, [deferredPrompt, showToast]);
 
   // 1. Fetch manifest.json
   useEffect(() => {
@@ -541,8 +484,6 @@ export const App: React.FC = () => {
         onReset={handleReset}
         currentTheme={currentTheme}
         onThemeChange={handleThemeChange}
-        isStandalone={isStandalone}
-        onInstallApp={handleInstallClick}
       />
 
       {/* Main Container: Single-column on mobile, Dual-column with full live sidebar on desktop & tablet */}
@@ -759,17 +700,6 @@ export const App: React.FC = () => {
         }}
         onOpenLauncherModal={() => setIsLauncherModalOpen(true)}
         onReplayOnboarding={() => setIsOnboardingOpen(true)}
-        isStandalone={isStandalone}
-        onInstallApp={handleInstallClick}
-      />
-
-      {/* Progressive Web App Install Modal */}
-      <InstallPromptModal
-        isOpen={isInstallModalOpen}
-        onClose={() => setIsInstallModalOpen(false)}
-        canNativeInstall={!!deferredPrompt}
-        onNativeInstall={handleInstallClick}
-        isIOS={isIOS}
       />
 
       {/* First-Time User Onboarding Modal */}
