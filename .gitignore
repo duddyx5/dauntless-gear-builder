@@ -29,3 +29,6 @@ dev-dist
 
 # Raw data sources (compiled data is in public/data/)
 data-sources/reforged/.git
+
+# Video recordings
+recordings/
