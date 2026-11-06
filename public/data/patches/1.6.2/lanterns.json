@@ -47,7 +47,7 @@
   {
     "id": "recruit_s_lantern",
     "name": "Recruit's Lantern",
-    "icon": "/assets/icons/lanterns/RecruitsLantern.png",
+    "icon": "/assets/icons/lanterns/GenericLantern.png",
     "description": "",
     "cellSocket": "prismatic",
     "holdAbility": "Disperses aether that allows the Slayer to track the Behemoth.",

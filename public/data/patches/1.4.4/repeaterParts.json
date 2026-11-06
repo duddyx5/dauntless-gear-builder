@@ -1,0 +1,488 @@
+{
+  "barrels": [
+    {
+      "id": "animus_barrel",
+      "name": "Animus Barrel",
+      "slot": "barrel",
+      "description": "The Animus Barrel is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/elements/Terra.png",
+      "element": "Terra",
+      "basePower": 100,
+      "maxPower": 550,
+      "partEffect": [
+        "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.",
+        "Shots and abilities deal terra damage."
+      ],
+      "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.. Shots and abilities deal terra damage.",
+      "isLegendary": true
+    },
+    {
+      "id": "blizzard_barrel",
+      "name": "Blizzard Barrel",
+      "slot": "barrel",
+      "description": "The Blizzard Barrel is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/elements/Frost.png",
+      "element": "Frost",
+      "basePower": 100,
+      "maxPower": 550,
+      "partEffect": [
+        "Shots and abilities deal frost damage."
+      ],
+      "uniqueEffect": "Shots and abilities deal frost damage.",
+      "isLegendary": false
+    },
+    {
+      "id": "cryo_barrel",
+      "name": "Cryo Barrel",
+      "slot": "barrel",
+      "description": "The Cryo Barrel is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/elements/Frost.png",
+      "element": "Frost",
+      "basePower": 100,
+      "maxPower": 550,
+      "partEffect": [
+        "Legendary Ability: Create a Frost Shield that blocks hostile projectiles for 6 seconds. Damages and chills Behemoths that contact it (can interrupt).",
+        "Shots and abilities deal frost damage."
+      ],
+      "uniqueEffect": "Legendary Ability: Create a Frost Shield that blocks hostile projectiles for 6 seconds. Damages and chills Behemoths that contact it (can interrupt).. Shots and abilities deal frost damage.",
+      "isLegendary": true
+    },
+    {
+      "id": "dawnstar_barrel",
+      "name": "Dawnstar Barrel",
+      "slot": "barrel",
+      "description": "The Dawnstar Barrel is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/elements/Radiant.png",
+      "element": "Radiant",
+      "basePower": 100,
+      "maxPower": 550,
+      "partEffect": [
+        "Shots and abilities deal radiant damage."
+      ],
+      "uniqueEffect": "Shots and abilities deal radiant damage.",
+      "isLegendary": false
+    },
+    {
+      "id": "dynamic_carbine",
+      "name": "Dynamic Carbine",
+      "slot": "barrel",
+      "description": "The Storm Barrel is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/elements/Shock.png",
+      "element": "Shock",
+      "basePower": 100,
+      "maxPower": 550,
+      "partEffect": [
+        "Legendary Ability: Teleport to a Behemoth, dealing Shock damage. Usable once, but resets on Behemoth kill.",
+        "Shots and abilities deal shock damage."
+      ],
+      "uniqueEffect": "Legendary Ability: Teleport to a Behemoth, dealing Shock damage. Usable once, but resets on Behemoth kill.. Shots and abilities deal shock damage.",
+      "isLegendary": true
+    },
+    {
+      "id": "eldritch_barrel",
+      "name": "Eldritch Barrel",
+      "slot": "barrel",
+      "description": "The Eldritch Barrel is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/elements/Umbral.png",
+      "element": "Umbral",
+      "basePower": 100,
+      "maxPower": 550,
+      "partEffect": [
+        "Legendary Ability: Deal umbral damage to nearby enemies and teleport high into the sky. Then choose a spot to slam down on to, dealing additional umbral damage. Usable once, but resets on Behemoth kill.",
+        "Shots and abilities deal umbral damage."
+      ],
+      "uniqueEffect": "Legendary Ability: Deal umbral damage to nearby enemies and teleport high into the sky. Then choose a spot to slam down on to, dealing additional umbral damage. Usable once, but resets on Behemoth kill.. Shots and abilities deal umbral damage.",
+      "isLegendary": true
+    },
+    {
+      "id": "inferno_barrel",
+      "name": "Inferno Barrel",
+      "slot": "barrel",
+      "description": "The Inferno Barrel is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/elements/Blaze.png",
+      "element": "Blaze",
+      "basePower": 100,
+      "maxPower": 550,
+      "partEffect": [
+        "Shots and abilities deal blaze damage."
+      ],
+      "uniqueEffect": "Shots and abilities deal blaze damage.",
+      "isLegendary": false
+    },
+    {
+      "id": "standard_barrel",
+      "name": "Standard Barrel",
+      "slot": "barrel",
+      "description": "The Standard Barrel is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/weapons/generic/RecruitsRepeaters.png",
+      "element": "Neutral",
+      "basePower": 100,
+      "maxPower": 550,
+      "partEffect": [
+        "Shots and abilities deal physical damage."
+      ],
+      "uniqueEffect": "Shots and abilities deal physical damage.",
+      "isLegendary": false
+    },
+    {
+      "id": "storm_barrel",
+      "name": "Storm Barrel",
+      "slot": "barrel",
+      "description": "The Storm Barrel is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/elements/Shock.png",
+      "element": "Shock",
+      "basePower": 100,
+      "maxPower": 550,
+      "partEffect": [
+        "Shots and abilities deal shock damage."
+      ],
+      "uniqueEffect": "Shots and abilities deal shock damage.",
+      "isLegendary": false
+    },
+    {
+      "id": "sylvan_barrel",
+      "name": "Sylvan Barrel",
+      "slot": "barrel",
+      "description": "The Sylvan Barrel is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/elements/Terra.png",
+      "element": "Terra",
+      "basePower": 100,
+      "maxPower": 550,
+      "partEffect": [
+        "Shots and abilities deal terra damage."
+      ],
+      "uniqueEffect": "Shots and abilities deal terra damage.",
+      "isLegendary": false
+    },
+    {
+      "id": "twilight_barrel",
+      "name": "Twilight Barrel",
+      "slot": "barrel",
+      "description": "The Twilight Barrel is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/elements/Umbral.png",
+      "element": "Umbral",
+      "basePower": 100,
+      "maxPower": 550,
+      "partEffect": [
+        "Shots and abilities deal umbral damage."
+      ],
+      "uniqueEffect": "Shots and abilities deal umbral damage.",
+      "isLegendary": false
+    },
+    {
+      "id": "volcanic_barrel",
+      "name": "Volcanic Barrel",
+      "slot": "barrel",
+      "description": "The Volcanic Barrel is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/elements/Blaze.png",
+      "element": "Blaze",
+      "basePower": 100,
+      "maxPower": 550,
+      "partEffect": [
+        "Legendary Ability: Enter a rage, gaining new attacks for 15 seconds. Deals +25% damage when the target is below 50% health. Usable once, but resets on Behemoth kill.",
+        "Shots and abilities deal blaze damage."
+      ],
+      "uniqueEffect": "Legendary Ability: Enter a rage, gaining new attacks for 15 seconds. Deals +25% damage when the target is below 50% health. Usable once, but resets on Behemoth kill.. Shots and abilities deal blaze damage.",
+      "isLegendary": true
+    }
+  ],
+  "chambers": [
+    {
+      "id": "full_bore_chamber",
+      "name": "Full-Bore Chamber",
+      "slot": "chamber",
+      "description": "The Full-Bore Chamber is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/parts/repeaters/chambers/FullBoreChamber.png",
+      "element": null,
+      "partEffect": [
+        "Fires a piercing bolt in a line, dealing damage that falls as it travels.",
+        "Empowered: Deals greatly increased damage and pushes the slayer backwards."
+      ],
+      "isLegendary": false
+    },
+    {
+      "id": "marksman_chamber",
+      "name": "Marksman Chamber",
+      "slot": "chamber",
+      "description": "The Marksman Chamber is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/parts/repeaters/chambers/MarksmanChamber.png",
+      "element": null,
+      "partEffect": [
+        "Fires a shot in a line, dealing 250 damage to the first Behemoth hit. If a part is struck, that part takes 40% more damage from Shots for 10 seconds.",
+        "Empowered: Damage bonus increased to 80%, and 25% to all allies."
+      ],
+      "isLegendary": false
+    },
+    {
+      "id": "salvo_chamber",
+      "name": "Salvo Chamber",
+      "slot": "chamber",
+      "description": "The Salvo Chamber is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/parts/repeaters/chambers/SalvoChamber.png",
+      "element": null,
+      "partEffect": [
+        "Fires an explosive missile in a line, dealing 400 damage in an area upon impact.",
+        "Empowered: Fires 3 missiles in a spread."
+      ],
+      "isLegendary": false
+    }
+  ],
+  "grips": [
+    {
+      "id": "captain_s_grip",
+      "name": "Captain's Grip",
+      "slot": "grip",
+      "description": "The Captain's Grip is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/parts/repeaters/grips/CaptainsGrip.png",
+      "element": null,
+      "partEffect": [
+        "Launches a collectible buff a short distance, granting 15% increased attack speed for 15 seconds when collected.",
+        "Empowered: Grants the same buff to all Slayers."
+      ],
+      "isLegendary": false
+    },
+    {
+      "id": "saboteur_s_grip",
+      "name": "Saboteur's Grip",
+      "slot": "grip",
+      "description": "The Saboteur's Grip is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/parts/repeaters/grips/SaboteursGrip.png",
+      "element": null,
+      "partEffect": [
+        "Launches an explosive mine that deals 400 damage. Mine charges after a short period, increasing damage to 700.",
+        "Empowered: Deals 900 damage when charged and can interrupt Behemoths."
+      ],
+      "isLegendary": false
+    }
+  ],
+  "prisms": [
+    {
+      "id": "brilliant_prism",
+      "name": "Brilliant Prism",
+      "slot": "prism",
+      "description": "The Brilliant Prism is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/elements/Radiant.png",
+      "element": null,
+      "partEffect": [
+        "Once charged, your next attack will deal 550 bonus radiant damage. Charge rate increases with current health."
+      ],
+      "uniqueEffect": "Once charged, your next attack will deal 550 bonus radiant damage. Charge rate increases with current health.",
+      "isLegendary": false
+    },
+    {
+      "id": "eclipse_prism",
+      "name": "Eclipse Prism",
+      "slot": "prism",
+      "description": "The Eclipse Prism is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/elements/Umbral.png",
+      "element": null,
+      "partEffect": [
+        "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 2.25% for 5 seconds. If 5 or more orbs are present, the bonus doubles.\n"
+      ],
+      "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 2.25% for 5 seconds. If 5 or more orbs are present, the bonus doubles.\n",
+      "isLegendary": false
+    },
+    {
+      "id": "ferocious_prism",
+      "name": "Ferocious Prism",
+      "slot": "prism",
+      "description": "The Ferocious Prism is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/perks/Prismatic.png",
+      "element": null,
+      "partEffect": [
+        "Periodically enter a rage, dealing +5% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly."
+      ],
+      "uniqueEffect": "Periodically enter a rage, dealing +5% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.",
+      "isLegendary": false
+    },
+    {
+      "id": "firestorm_prism",
+      "name": "Firestorm Prism",
+      "slot": "prism",
+      "description": "The Firestorm Prism is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/elements/Blaze.png",
+      "element": null,
+      "partEffect": [
+        "After spending 150 stamina, next attack emits a cone of flame that deals +200 blaze damage to each unique target within the cone."
+      ],
+      "uniqueEffect": "After spending 150 stamina, next attack emits a cone of flame that deals +200 blaze damage to each unique target within the cone.",
+      "isLegendary": false
+    },
+    {
+      "id": "frostbite_prism",
+      "name": "Frostbite Prism",
+      "slot": "prism",
+      "description": "The Frostbite Prism is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/elements/Frost.png",
+      "element": null,
+      "partEffect": [
+        "Once charged, your next attack places a frost brand that deals 1,000 frost damage after 30 seconds. Slayers can destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds."
+      ],
+      "uniqueEffect": "Once charged, your next attack places a frost brand that deals 1,000 frost damage after 30 seconds. Slayers can destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds.",
+      "isLegendary": false
+    },
+    {
+      "id": "glacial_prism",
+      "name": "Glacial Prism",
+      "slot": "prism",
+      "description": "The Glacial Prism is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/elements/Frost.png",
+      "element": null,
+      "partEffect": [
+        "Evading drops 6 Ice Mines on a 30 second cooldown."
+      ],
+      "uniqueEffect": "Evading drops 6 Ice Mines on a 30 second cooldown.",
+      "isLegendary": false
+    },
+    {
+      "id": "primal_prism",
+      "name": "Primal Prism",
+      "slot": "prism",
+      "description": "The Primal Prism is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/elements/Terra.png",
+      "element": null,
+      "partEffect": [
+        "Once charged, your next attack unleases whirling blades that deal 75 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed."
+      ],
+      "uniqueEffect": "Once charged, your next attack unleases whirling blades that deal 75 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.",
+      "isLegendary": false
+    },
+    {
+      "id": "searing_prism",
+      "name": "Searing Prism",
+      "slot": "prism",
+      "description": "The Searing Prism is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/elements/Blaze.png",
+      "element": null,
+      "partEffect": [
+        "The tenth hit in quick succession deals 225 bonus damage and major blaze damage"
+      ],
+      "uniqueEffect": "The tenth hit in quick succession deals 225 bonus damage and major blaze damage",
+      "isLegendary": false
+    },
+    {
+      "id": "snowdrift_prism",
+      "name": "Snowdrift Prism",
+      "slot": "prism",
+      "description": "The Snowdrift Prism is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/elements/Frost.png",
+      "element": null,
+      "partEffect": [
+        "The last 4 shots in your magazine generate a Frost Sprite that cause your next attack to deal 60 bonus damage and minor frost damage. Max 4 Sprites.\n"
+      ],
+      "uniqueEffect": "The last 4 shots in your magazine generate a Frost Sprite that cause your next attack to deal 60 bonus damage and minor frost damage. Max 4 Sprites.\n",
+      "isLegendary": false
+    },
+    {
+      "id": "stoneheart_prism",
+      "name": "Stoneheart Prism",
+      "slot": "prism",
+      "description": "The Stoneheart Prism is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/elements/Terra.png",
+      "element": null,
+      "partEffect": [
+        "Dealing damage has a chance (based on damage dealt) to grant a stacking, refreshing 40 health shield that lasts for 12s."
+      ],
+      "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to grant a stacking, refreshing 40 health shield that lasts for 12s.",
+      "isLegendary": false
+    }
+  ],
+  "mods": [
+    {
+      "id": "capacitive_magazine",
+      "name": "Capacitive Magazine",
+      "slot": "mod",
+      "description": "",
+      "icon": "/assets/icons/parts/repeaters/mods/CapacitiveMagazine.png",
+      "element": null,
+      "partEffect": [
+        "Using an ability returns 4 ammo to the magazine."
+      ],
+      "isLegendary": false
+    },
+    {
+      "id": "demolition_sights",
+      "name": "Demolition Sights",
+      "slot": "mod",
+      "description": "",
+      "icon": "/assets/icons/parts/repeaters/mods/DemolitionSights.png",
+      "element": null,
+      "partEffect": [
+        "While empowered, deal +50% damage to objects created by Behemoths."
+      ],
+      "isLegendary": false
+    },
+    {
+      "id": "extraction_catalyst",
+      "name": "Extraction Catalyst",
+      "slot": "mod",
+      "description": "",
+      "icon": "/assets/icons/parts/repeaters/mods/ExtractionCatalyst.png",
+      "element": null,
+      "partEffect": [
+        "Reduce both ability cooldowns by 2 seconds when dodging through Behemoth attacks."
+      ],
+      "isLegendary": false
+    },
+    {
+      "id": "lightweight_frame",
+      "name": "Lightweight Frame",
+      "slot": "mod",
+      "description": "",
+      "icon": "/assets/icons/parts/repeaters/mods/LightweightFrame.png",
+      "element": null,
+      "partEffect": [
+        "Gain 20% increased movespeed when at 6 or less ammo."
+      ],
+      "isLegendary": false
+    },
+    {
+      "id": "lucky_magazine",
+      "name": "Lucky Magazine",
+      "slot": "mod",
+      "description": "",
+      "icon": "/assets/icons/parts/repeaters/mods/LuckyMagazine.png",
+      "element": null,
+      "partEffect": [
+        "Grants 2% critical strike chance for each round missing from the magazine."
+      ],
+      "isLegendary": false
+    },
+    {
+      "id": "precision_sights",
+      "name": "Precision Sights",
+      "slot": "mod",
+      "description": "",
+      "icon": "/assets/icons/parts/repeaters/mods/PrecisionSights.png",
+      "element": null,
+      "partEffect": [
+        "Deal 5 increased damage when attacking the same part multiple times. Stacks up to 8 times."
+      ],
+      "isLegendary": false
+    },
+    {
+      "id": "scoped_sights",
+      "name": "Scoped Sights",
+      "slot": "mod",
+      "description": "",
+      "icon": "/assets/icons/parts/repeaters/mods/ScopedSights.png",
+      "element": null,
+      "partEffect": [
+        "Increases damage falloff range by 25%"
+      ],
+      "isLegendary": false
+    },
+    {
+      "id": "tactician_s_magazine",
+      "name": "Tactician's Magazine",
+      "slot": "mod",
+      "description": "",
+      "icon": "/assets/icons/parts/repeaters/mods/TacticiansMagazine.png",
+      "element": null,
+      "partEffect": [
+        "Empowered Reloading at exactly 0 ammo decreases the cooldown of both abilities by 4 seconds."
+      ],
+      "isLegendary": false
+    }
+  ]
+}

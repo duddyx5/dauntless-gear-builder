@@ -402,7 +402,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
         {/* Footer */}
         <div className="p-3.5 bg-gray-900/60 border-t border-dauntless-border flex items-center justify-between shrink-0">
           <span className="text-[11px] text-gray-400">
-            Dauntless Gear Builder <span className="font-semibold text-cyan-400">v0.9.5-beta</span> • AGPL-3.0
+            Dauntless Gear Builder <span className="font-semibold text-cyan-400">v0.9.6-beta</span> • AGPL-3.0
           </span>
           <button
             type="button"

@@ -6,6 +6,7 @@ import {
   LanternItem,
   OmnicellItem,
   PatchData,
+  RepeaterPartItem,
 } from '../types/builder';
 import { getElementStyle, getSocketStyle, getCellCategoryIcon, resolveAssetUrl } from '../utils/theme';
 import { formatPerkEffect } from '../utils/calculator';
@@ -16,6 +17,11 @@ export type PickerSlotType =
   | 'weapon'
   | 'bondedWeapon'
   | 'secondaryWeapon'
+  | 'repeaterBarrel'
+  | 'repeaterChamber'
+  | 'repeaterGrip'
+  | 'repeaterPrism'
+  | 'repeaterMod'
   | 'weaponCell_0'
   | 'weaponCell_1'
   | 'head'
@@ -68,6 +74,13 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
   const isArmourPicker = ['head', 'torso', 'arms', 'legs'].includes(slotType);
   const isLanternPicker = slotType === 'lantern';
   const isOmnicellPicker = slotType === 'omnicell';
+  const isRepeaterPartPicker = [
+    'repeaterBarrel',
+    'repeaterChamber',
+    'repeaterGrip',
+    'repeaterPrism',
+    'repeaterMod',
+  ].includes(slotType);
   const isAwakening = patchData.version === '2.1.1';
   const isClassic = patchData.version === '1.4.4';
 
@@ -75,6 +88,11 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
     weapon: 'Select Primary Weapon',
     bondedWeapon: equippedWeapon ? `Select Bonded Weapon (${equippedWeapon.element} ${equippedWeapon.typeName})` : 'Select Bonded Weapon',
     secondaryWeapon: 'Select Secondary Weapon',
+    repeaterBarrel: 'Select Repeater Barrel (Element & Damage)',
+    repeaterChamber: 'Select Repeater Chamber (Active Shot)',
+    repeaterGrip: 'Select Repeater Grip (Utility Ability)',
+    repeaterPrism: 'Select Repeater Prism (Unique Effect)',
+    repeaterMod: 'Select Repeater Modification',
     weaponCell_0: 'Select Weapon Cell (Slot 1)',
     weaponCell_1: 'Select Weapon Cell (Slot 2)',
     head: 'Select Head Armour (Helmet)',
@@ -196,6 +214,32 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
     );
   }, [patchData.omnicells, isOmnicellPicker, searchTerm]);
 
+  // Filtered Repeater Parts
+  const filteredRepeaterParts = useMemo(() => {
+    if (!isRepeaterPartPicker || !patchData.repeaterParts) return [];
+    let list: RepeaterPartItem[] = [];
+    if (slotType === 'repeaterBarrel') list = patchData.repeaterParts.barrels || [];
+    else if (slotType === 'repeaterChamber') list = patchData.repeaterParts.chambers || [];
+    else if (slotType === 'repeaterGrip') list = patchData.repeaterParts.grips || [];
+    else if (slotType === 'repeaterPrism') list = patchData.repeaterParts.prisms || [];
+    else if (slotType === 'repeaterMod') list = patchData.repeaterParts.mods || [];
+
+    return list.filter(item => {
+      if (selectedElement !== 'All' && item.element && item.element.toLowerCase() !== selectedElement.toLowerCase()) {
+        return false;
+      }
+      if (!searchTerm) return true;
+      const term = searchTerm.toLowerCase();
+      return (
+        item.name.toLowerCase().includes(term) ||
+        (item.element && item.element.toLowerCase().includes(term)) ||
+        (item.description && item.description.toLowerCase().includes(term)) ||
+        (item.uniqueEffect && item.uniqueEffect.toLowerCase().includes(term)) ||
+        (item.partEffect && item.partEffect.some(e => e.toLowerCase().includes(term)))
+      );
+    });
+  }, [isRepeaterPartPicker, slotType, patchData.repeaterParts, selectedElement, searchTerm]);
+
   return (
     <div
       className="modal-layer !p-0 sm:!p-6 !place-items-end sm:!place-items-center animate-fade-in"
@@ -299,7 +343,7 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
           )}
 
           {/* Element Filters */}
-          {(isWeaponPicker || isArmourPicker) && (
+          {(isWeaponPicker || isArmourPicker || slotType === 'repeaterBarrel') && (
             <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs no-scrollbar">
               {elements.map(el => {
                 const isSelected = selectedElement === el;
@@ -860,6 +904,110 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                       <p className="text-[10.5px] text-gray-400 mt-0.5 line-clamp-1">
                         <b className="text-purple-400">Passive:</b> {o.passive}
                       </p>
+                    </span>
+
+                    <span className="self-center shrink-0">
+                      {isEquipped ? (
+                        <span className="w-5 h-5 rounded-full bg-cyan-400 text-black flex items-center justify-center">
+                          <Check className="h-3 w-3 stroke-[3]" />
+                        </span>
+                      ) : (
+                        <ChevronRight className="h-4 w-4 text-gray-500" />
+                      )}
+                    </span>
+                  </button>
+                );
+              })
+            )
+          )}
+
+          {/* Repeater Components (Barrels, Chambers, Grips, Prisms, Mods) */}
+          {isRepeaterPartPicker && (
+            filteredRepeaterParts.length === 0 ? (
+              <div className="text-center py-10 text-gray-500 text-sm">No repeater components found matching filters.</div>
+            ) : (
+              filteredRepeaterParts.map(part => {
+                const isEquipped = currentSelectedId === part.id;
+                const elemStyle = part.element ? getElementStyle(part.element) : null;
+                return (
+                  <button
+                    key={part.id}
+                    type="button"
+                    onClick={() => {
+                      onSelect(part.id);
+                      onClose();
+                    }}
+                    className={`w-full p-2.5 rounded-xl border text-left flex items-start gap-3 transition-all cursor-pointer ${
+                      isEquipped
+                        ? 'bg-[#12262e] border-cyan-400 shadow-md shadow-cyan-500/10'
+                        : 'bg-[#101e25] border-[#203640] hover:border-[#3e6977] hover:bg-[#12222a]'
+                    }`}
+                  >
+                    <span className="w-12 h-12 rounded-lg bg-[#09151a] border border-[#21333d] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                      {part.icon ? (
+                        <img
+                          src={resolveAssetUrl(part.icon)}
+                          alt={part.name}
+                          className="w-full h-full object-contain"
+                          onError={(e) => {
+                            (e.target as HTMLElement).style.display = 'none';
+                          }}
+                        />
+                      ) : (
+                        <Zap className="h-5 w-5 text-cyan-400" />
+                      )}
+                    </span>
+
+                    <span className="flex-1 min-w-0">
+                      <span className="flex items-center justify-between gap-1">
+                        <strong className="font-display font-bold text-base text-white truncate flex items-center gap-1.5">
+                          {part.name}
+                          {part.isLegendary && (
+                            <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold uppercase tracking-wider">
+                              Legendary
+                            </span>
+                          )}
+                        </strong>
+                        {part.slot === 'barrel' && (
+                          <span className="text-xs text-cyan-300 font-mono font-semibold">
+                            {isClassic
+                              ? `${part.maxPower ?? 550} Power (+15)`
+                              : `${powerSurged ? (part.maxPower ?? 120) : (part.basePower ?? 40)} Power`}
+                          </span>
+                        )}
+                      </span>
+
+                      {/* Element Badge for Barrels */}
+                      {part.element && (
+                        <div className="flex items-center gap-1.5 mt-1">
+                          <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded border uppercase tracking-wider inline-flex items-center gap-1 ${elemStyle ? `${elemStyle.bg} ${elemStyle.text} ${elemStyle.border}` : 'bg-gray-800 text-gray-300 border-gray-700'}`}>
+                            {part.element}
+                          </span>
+                        </div>
+                      )}
+
+                      {/* Part effects / descriptions */}
+                      {part.partEffect && part.partEffect.length > 0 && (
+                        <div className="mt-1.5 space-y-1 text-xs">
+                          {part.partEffect.map((eff, i) => (
+                            <p key={i} className="text-[11px] text-gray-300 leading-relaxed">
+                              {eff.startsWith('Empowered:') ? (
+                                <span className="text-amber-300 font-semibold">{eff}</span>
+                              ) : eff.startsWith('Legendary Ability:') ? (
+                                <span className="text-amber-400 font-semibold">{eff}</span>
+                              ) : (
+                                eff
+                              )}
+                            </p>
+                          ))}
+                        </div>
+                      )}
+
+                      {part.uniqueEffect && (!part.partEffect || part.partEffect.length === 0) && (
+                        <p className="text-[11px] text-amber-200/90 mt-1 italic">
+                          {part.uniqueEffect}
+                        </p>
+                      )}
                     </span>
 
                     <span className="self-center shrink-0">

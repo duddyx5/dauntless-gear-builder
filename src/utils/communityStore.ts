@@ -48,6 +48,11 @@ export function getLoadoutFingerprint(build: BuildState): string {
     lt: build.lantern || '',
     ltc: !isAwakening ? (build.lanternCell || '') : '',
     om: (!isAwakening && !isClassic) ? (build.omnicell || '') : '',
+    rb: build.repeaterBarrel || '',
+    rc: build.repeaterChamber || '',
+    rg: build.repeaterGrip || '',
+    rp: build.repeaterPrism || '',
+    rm: build.repeaterMod || '',
     ps: (!isClassic && !isAwakening) ? (build.powerSurged !== false) : false,
     gl: (isClassic || isAwakening) ? JSON.stringify(build.gearLevels || {}) : '',
   };

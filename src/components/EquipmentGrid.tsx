@@ -66,6 +66,16 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
   const currentLantern = patchData.lanterns.find(l => l.id === build.lantern);
   const currentOmnicell = patchData.omnicells.find(o => o.id === build.omnicell);
 
+  const isRepeater = !!currentWeapon && (currentWeapon.type === 'repeater' || currentWeapon.typeName?.toLowerCase().includes('repeater'));
+  const isModularRepeaterEra = isRepeater && (isClassic || patchData.version === '1.6.2');
+  const isReforgedRepeaterEra = isRepeater && !isClassic && patchData.version !== '1.6.2' && !isAwakening;
+
+  const currentBarrel = patchData.repeaterParts?.barrels?.find(b => b.id === build.repeaterBarrel);
+  const currentChamber = patchData.repeaterParts?.chambers?.find(c => c.id === build.repeaterChamber);
+  const currentGrip = patchData.repeaterParts?.grips?.find(g => g.id === build.repeaterGrip);
+  const currentPrism = patchData.repeaterParts?.prisms?.find(p => p.id === build.repeaterPrism);
+  const currentMod = patchData.repeaterParts?.mods?.find(m => m.id === build.repeaterMod);
+
   const getClassicPerkVal = (level: number, baseMaxVal = 3) => {
     if (level >= 10) return Math.min(3, baseMaxVal);
     if (level >= 6) return Math.min(2, baseMaxVal);
@@ -73,6 +83,16 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
   };
 
   const getWeaponPower = (w: WeaponItem, slotKey: string) => {
+    const isModRep = (isClassic || patchData.version === '1.6.2') && (w.type === 'repeater' || w.typeName?.toLowerCase().includes('repeater'));
+    if (isModRep && currentBarrel) {
+      if (isClassic) {
+        const lvl = build.gearLevels?.[slotKey] ?? 15;
+        const bp = currentBarrel.basePower ?? 100;
+        const mp = currentBarrel.maxPower ?? 550;
+        return bp + Math.round((mp - bp) * (lvl / 15));
+      }
+      return powerSurged ? (currentBarrel.maxPower ?? 120) : (currentBarrel.basePower ?? 40);
+    }
     if (isClassic) {
       const lvl = build.gearLevels?.[slotKey] ?? 15;
       return w.basePower + Math.round((w.maxPower - w.basePower) * (lvl / 15));
@@ -554,8 +574,8 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
               <strong>{currentWeapon ? currentWeapon.name : 'Choose a Weapon...'}</strong>
               {currentWeapon ? (
                 <span className="gear-badges">
-                  <em className={`element ${currentWeapon.element.toLowerCase()}`}>
-                    {currentWeapon.element}
+                  <em className={`element ${(isModularRepeaterEra && currentBarrel ? (currentBarrel.element || 'Neutral') : currentWeapon.element).toLowerCase()}`}>
+                    {isModularRepeaterEra && currentBarrel ? (currentBarrel.element || 'Neutral') : currentWeapon.element}
                   </em>
                   <em>
                     <Zap className="h-3 w-3 text-amber-400" /> {getWeaponPower(currentWeapon, 'weapon')} power{isClassic ? ` (+${Math.max(0, Math.min(15, build.gearLevels?.weapon ?? 15))})` : ''}
@@ -579,10 +599,242 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
           </button>
 
           {/* Unique Effect Preview */}
-          {currentWeapon?.uniqueEffect && (
+          {(currentWeapon?.uniqueEffect || (isModularRepeaterEra && currentPrism?.uniqueEffect)) && (
             <div className="px-4 py-2 border-t border-[#1d313a] text-xs text-cyan-200/90 italic leading-snug flex items-start gap-1.5">
               <Sparkles className="h-3.5 w-3.5 text-cyan-400 shrink-0 mt-0.5" />
-              <span>{currentWeapon.uniqueEffect}</span>
+              <span>{isModularRepeaterEra && currentPrism?.uniqueEffect ? currentPrism.uniqueEffect : currentWeapon?.uniqueEffect}</span>
+            </div>
+          )}
+
+          {/* Repeater Modular Components (1.4.4 & 1.6.2: Barrels, Chambers, Grips, Prisms, Mods) */}
+          {isModularRepeaterEra && (
+            <div className="px-3 sm:px-4 py-3 border-t border-[#1d313a] bg-gradient-to-r from-[#071319] via-[#091820] to-[#0c1e27]">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
+                  <Zap className="h-3.5 w-3.5 text-cyan-400" />
+                  Ostian Modular Components ({patchData.version === '1.4.4' ? 'Classic' : 'Early Reforged'})
+                </span>
+                <span className="text-[10px] text-gray-400">
+                  {currentBarrel ? currentBarrel.element : 'Neutral'} · {currentPrism ? currentPrism.name : 'No Prism'}
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-5 gap-2">
+                {/* 1. Barrel */}
+                <button
+                  type="button"
+                  onClick={() => onOpenPicker('repeaterBarrel')}
+                  className="p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex sm:flex-col items-center sm:items-start justify-between gap-2 group"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                      {currentBarrel?.icon ? (
+                        <img src={resolveAssetUrl(currentBarrel.icon)} alt={currentBarrel.name} className="w-full h-full object-contain" />
+                      ) : (
+                        <Zap className="h-3.5 w-3.5 text-cyan-400" />
+                      )}
+                    </span>
+                    <div className="min-w-0">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-gray-400 block">Barrel</span>
+                      <strong className="text-xs text-white truncate block group-hover:text-cyan-300">
+                        {currentBarrel ? currentBarrel.name : 'Choose Barrel'}
+                      </strong>
+                    </div>
+                  </div>
+                  {currentBarrel?.element && (
+                    <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                      {currentBarrel.element}
+                    </span>
+                  )}
+                </button>
+
+                {/* 2. Chamber */}
+                <button
+                  type="button"
+                  onClick={() => onOpenPicker('repeaterChamber')}
+                  className="p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex sm:flex-col items-center sm:items-start justify-between gap-2 group"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                      {currentChamber?.icon ? (
+                        <img src={resolveAssetUrl(currentChamber.icon)} alt={currentChamber.name} className="w-full h-full object-contain" />
+                      ) : (
+                        <Zap className="h-3.5 w-3.5 text-amber-400" />
+                      )}
+                    </span>
+                    <div className="min-w-0">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-gray-400 block">Chamber</span>
+                      <strong className="text-xs text-white truncate block group-hover:text-cyan-300">
+                        {currentChamber ? currentChamber.name : 'Choose Chamber'}
+                      </strong>
+                    </div>
+                  </div>
+                </button>
+
+                {/* 3. Grip */}
+                <button
+                  type="button"
+                  onClick={() => onOpenPicker('repeaterGrip')}
+                  className="p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex sm:flex-col items-center sm:items-start justify-between gap-2 group"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                      {currentGrip?.icon ? (
+                        <img src={resolveAssetUrl(currentGrip.icon)} alt={currentGrip.name} className="w-full h-full object-contain" />
+                      ) : (
+                        <Zap className="h-3.5 w-3.5 text-blue-400" />
+                      )}
+                    </span>
+                    <div className="min-w-0">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-gray-400 block">Grip</span>
+                      <strong className="text-xs text-white truncate block group-hover:text-cyan-300">
+                        {currentGrip ? currentGrip.name : 'Choose Grip'}
+                      </strong>
+                    </div>
+                  </div>
+                </button>
+
+                {/* 4. Prism */}
+                <button
+                  type="button"
+                  onClick={() => onOpenPicker('repeaterPrism')}
+                  className="p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex sm:flex-col items-center sm:items-start justify-between gap-2 group"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                      {currentPrism?.icon ? (
+                        <img src={resolveAssetUrl(currentPrism.icon)} alt={currentPrism.name} className="w-full h-full object-contain" />
+                      ) : (
+                        <Sparkles className="h-3.5 w-3.5 text-pink-400" />
+                      )}
+                    </span>
+                    <div className="min-w-0">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-gray-400 block">Prism</span>
+                      <strong className="text-xs text-white truncate block group-hover:text-cyan-300">
+                        {currentPrism ? currentPrism.name : 'Choose Prism'}
+                      </strong>
+                    </div>
+                  </div>
+                </button>
+
+                {/* 5. Mod */}
+                <button
+                  type="button"
+                  onClick={() => onOpenPicker('repeaterMod')}
+                  className="p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex sm:flex-col items-center sm:items-start justify-between gap-2 group"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                      {currentMod?.icon ? (
+                        <img src={resolveAssetUrl(currentMod.icon)} alt={currentMod.name} className="w-full h-full object-contain" />
+                      ) : (
+                        <Layers className="h-3.5 w-3.5 text-emerald-400" />
+                      )}
+                    </span>
+                    <div className="min-w-0">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-gray-400 block">Mod</span>
+                      <strong className="text-xs text-white truncate block group-hover:text-cyan-300">
+                        {currentMod ? currentMod.name : 'Choose Mod'}
+                      </strong>
+                    </div>
+                  </div>
+                </button>
+              </div>
+
+              {/* Prism Unique Effect Active Preview */}
+              {currentPrism?.uniqueEffect && (
+                <div className="mt-2 text-xs text-pink-300/90 italic flex items-start gap-1 bg-[#09151a] p-2 rounded-lg border border-[#1b313d]">
+                  <Sparkles className="h-3.5 w-3.5 text-pink-400 shrink-0 mt-0.5" />
+                  <span><strong>Prism Effect:</strong> {currentPrism.uniqueEffect}</span>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Repeater Attachments (1.12.0 & 1.14.7: Chambers, Grips, Mods) */}
+          {isReforgedRepeaterEra && (
+            <div className="px-3 sm:px-4 py-3 border-t border-[#1d313a] bg-gradient-to-r from-[#071319] via-[#091820] to-[#0c1e27]">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
+                  <Zap className="h-3.5 w-3.5 text-cyan-400" />
+                  Repeater Attachments & Modifications
+                </span>
+                <span className="text-[10px] text-gray-400">Customizable Attachments</span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                {/* 1. Chamber */}
+                <button
+                  type="button"
+                  onClick={() => onOpenPicker('repeaterChamber')}
+                  className="p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex items-center justify-between gap-2 group"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                      {currentChamber?.icon ? (
+                        <img src={resolveAssetUrl(currentChamber.icon)} alt={currentChamber.name} className="w-full h-full object-contain" />
+                      ) : (
+                        <Zap className="h-3.5 w-3.5 text-amber-400" />
+                      )}
+                    </span>
+                    <div className="min-w-0">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-gray-400 block">Chamber</span>
+                      <strong className="text-xs text-white truncate block group-hover:text-cyan-300">
+                        {currentChamber ? currentChamber.name : 'Choose Chamber'}
+                      </strong>
+                    </div>
+                  </div>
+                  <ChevronRight className="h-3.5 w-3.5 text-gray-500" />
+                </button>
+
+                {/* 2. Grip */}
+                <button
+                  type="button"
+                  onClick={() => onOpenPicker('repeaterGrip')}
+                  className="p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex items-center justify-between gap-2 group"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                      {currentGrip?.icon ? (
+                        <img src={resolveAssetUrl(currentGrip.icon)} alt={currentGrip.name} className="w-full h-full object-contain" />
+                      ) : (
+                        <Zap className="h-3.5 w-3.5 text-blue-400" />
+                      )}
+                    </span>
+                    <div className="min-w-0">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-gray-400 block">Grip</span>
+                      <strong className="text-xs text-white truncate block group-hover:text-cyan-300">
+                        {currentGrip ? currentGrip.name : 'Choose Grip'}
+                      </strong>
+                    </div>
+                  </div>
+                  <ChevronRight className="h-3.5 w-3.5 text-gray-500" />
+                </button>
+
+                {/* 3. Mod */}
+                <button
+                  type="button"
+                  onClick={() => onOpenPicker('repeaterMod')}
+                  className="p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex items-center justify-between gap-2 group"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                      {currentMod?.icon ? (
+                        <img src={resolveAssetUrl(currentMod.icon)} alt={currentMod.name} className="w-full h-full object-contain" />
+                      ) : (
+                        <Layers className="h-3.5 w-3.5 text-emerald-400" />
+                      )}
+                    </span>
+                    <div className="min-w-0">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-gray-400 block">Mod</span>
+                      <strong className="text-xs text-white truncate block group-hover:text-cyan-300">
+                        {currentMod ? currentMod.name : 'Choose Mod'}
+                      </strong>
+                    </div>
+                  </div>
+                  <ChevronRight className="h-3.5 w-3.5 text-gray-500" />
+                </button>
+              </div>
             </div>
           )}
 

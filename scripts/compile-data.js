@@ -35,6 +35,34 @@ const MOBILITY_SVG = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000
 
 const UTILITY_SVG = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128"><polygon points="40,12 88,12 116,40 116,88 88,116 40,116 12,88 12,40" fill="%23a855f7" fill-opacity="0.2" stroke="%23a855f7" stroke-width="4" stroke-linejoin="round"/><g fill="%23ffffff"><path d="M56 22 C56 16 72 16 72 22 L76 28 L52 28 Z" /><path d="M46 32 L82 32 L88 48 L78 86 L50 86 L40 48 Z" fill="none" stroke="%23ffffff" stroke-width="3" /><polygon points="64,42 76,58 64,74 52,58" fill="%23e9d5ff" /><circle cx="64" cy="58" r="4" fill="%23ffffff" /><path d="M46 92 L82 92 L86 102 L42 102 Z" /></g></svg>`;
 
+const BARREL_ICONS = {
+  animus_barrel: '/assets/icons/elements/Terra.png',
+  blizzard_barrel: '/assets/icons/elements/Frost.png',
+  cryo_barrel: '/assets/icons/elements/Frost.png',
+  dawnstar_barrel: '/assets/icons/elements/Radiant.png',
+  dynamic_carbine: '/assets/icons/elements/Shock.png',
+  eldritch_barrel: '/assets/icons/elements/Umbral.png',
+  inferno_barrel: '/assets/icons/elements/Blaze.png',
+  standard_barrel: '/assets/icons/weapons/generic/RecruitsRepeaters.png',
+  storm_barrel: '/assets/icons/elements/Shock.png',
+  sylvan_barrel: '/assets/icons/elements/Terra.png',
+  twilight_barrel: '/assets/icons/elements/Umbral.png',
+  volcanic_barrel: '/assets/icons/elements/Blaze.png',
+};
+
+const PRISM_ICONS = {
+  brilliant_prism: '/assets/icons/elements/Radiant.png',
+  eclipse_prism: '/assets/icons/elements/Umbral.png',
+  ferocious_prism: '/assets/icons/perks/Prismatic.png',
+  firestorm_prism: '/assets/icons/elements/Blaze.png',
+  frostbite_prism: '/assets/icons/elements/Frost.png',
+  glacial_prism: '/assets/icons/elements/Frost.png',
+  primal_prism: '/assets/icons/elements/Terra.png',
+  searing_prism: '/assets/icons/elements/Blaze.png',
+  snowdrift_prism: '/assets/icons/elements/Frost.png',
+  stoneheart_prism: '/assets/icons/elements/Terra.png',
+};
+
 function getCellCategoryIconPath(slot) {
   const key = (slot || 'prismatic').toLowerCase().trim();
   switch (key) {
@@ -381,12 +409,85 @@ function compileYamlPatch(patchId, baseDir) {
     }
   }
 
+  // 7. Repeater Parts
+  const repeaterParts = {
+    barrels: [],
+    chambers: [],
+    grips: [],
+    prisms: [],
+    mods: []
+  };
+
+  const repeaterPartsDir = path.join(baseDir, 'parts/repeater');
+  if (fs.existsSync(repeaterPartsDir)) {
+    const categories = ['barrels', 'chambers', 'grips', 'prisms', 'mods'];
+    for (const cat of categories) {
+      const catDir = path.join(repeaterPartsDir, cat);
+      if (fs.existsSync(catDir)) {
+        const files = scanDir(catDir);
+        for (const f of files) {
+          const doc = yaml.load(fs.readFileSync(f, 'utf8'));
+          if (!doc || !doc.name) continue;
+          const id = slugify(doc.name);
+
+          // Urska barrel was 1.5.3+
+          if (patchId === '1.4.4' && (id.includes('cryo_cannon') || id.includes('urska'))) {
+            continue;
+          }
+
+          let icon = doc.icon || '';
+          if (icon && !fs.existsSync(path.join(process.cwd(), 'public', icon.replace(/^\//, '')))) {
+            if (BARREL_ICONS[id]) icon = BARREL_ICONS[id];
+            else if (PRISM_ICONS[id]) icon = PRISM_ICONS[id];
+            else icon = '/assets/icons/perks/Prismatic.png';
+          } else if (!icon) {
+            if (BARREL_ICONS[id]) icon = BARREL_ICONS[id];
+            else if (PRISM_ICONS[id]) icon = PRISM_ICONS[id];
+            else icon = '/assets/icons/perks/Prismatic.png';
+          }
+
+          let basePower = 40;
+          let maxPower = 120;
+          if (cat === 'barrels') {
+            if (patchId === '1.4.4') {
+              basePower = 100;
+              maxPower = 550;
+            } else if (doc.power) {
+              if (typeof doc.power.base === 'number') basePower = doc.power.base;
+              else if (typeof doc.power[0] === 'number') basePower = doc.power[0];
+              if (typeof doc.power.powerSurged === 'number') maxPower = doc.power.powerSurged;
+              else if (typeof doc.power[1] === 'number') maxPower = doc.power[1];
+            }
+          }
+
+          const rawEffects = Array.isArray(doc.part_effect) ? doc.part_effect : (doc.part_effect ? [doc.part_effect] : []);
+          const isLegendary = ['Animus Barrel', 'Dynamic Carbine', 'Eldritch Barrel', 'Volcanic Barrel'].includes(doc.name) || rawEffects.some(e => typeof e === 'string' && e.includes('Legendary Ability'));
+
+          repeaterParts[cat].push({
+            id,
+            name: doc.name,
+            slot: cat.slice(0, -1), // barrel, chamber, grip, prism, mod
+            description: doc.description || '',
+            icon,
+            element: doc.elemental || (cat === 'barrels' ? 'Neutral' : null),
+            basePower: cat === 'barrels' ? basePower : undefined,
+            maxPower: cat === 'barrels' ? maxPower : undefined,
+            partEffect: rawEffects,
+            uniqueEffect: (cat === 'prisms' || cat === 'barrels') && rawEffects.length > 0 ? rawEffects.join('. ') : undefined,
+            isLegendary
+          });
+        }
+      }
+    }
+  }
+
   fs.writeFileSync(path.join(outDir, 'perks.json'), JSON.stringify(perksMap, null, 2));
   fs.writeFileSync(path.join(outDir, 'cells.json'), JSON.stringify(cellsList, null, 2));
   fs.writeFileSync(path.join(outDir, 'armour.json'), JSON.stringify(armoursList, null, 2));
   fs.writeFileSync(path.join(outDir, 'weapons.json'), JSON.stringify(weaponsList, null, 2));
   fs.writeFileSync(path.join(outDir, 'lanterns.json'), JSON.stringify(lanternsList, null, 2));
   fs.writeFileSync(path.join(outDir, 'omnicells.json'), JSON.stringify(omnicellsList, null, 2));
+  fs.writeFileSync(path.join(outDir, 'repeaterParts.json'), JSON.stringify(repeaterParts, null, 2));
 
   console.log(`[Patch ${patchId}] Compiled:
   - Perks: ${Object.keys(perksMap).length}
@@ -394,7 +495,8 @@ function compileYamlPatch(patchId, baseDir) {
   - Armours: ${armoursList.length}
   - Weapons: ${weaponsList.length}
   - Lanterns: ${lanternsList.length}
-  - Omnicells: ${omnicellsList.length}`);
+  - Omnicells: ${omnicellsList.length}
+  - Repeater Parts: Barrels=${repeaterParts.barrels.length}, Chambers=${repeaterParts.chambers.length}, Grips=${repeaterParts.grips.length}, Prisms=${repeaterParts.prisms.length}, Mods=${repeaterParts.mods.length}`);
 }
 
 // --------------------------------------------------------------------------
@@ -526,6 +628,7 @@ function compileAwakening() {
   fs.writeFileSync(path.join(outDir, 'weapons.json'), JSON.stringify(weaponsList, null, 2));
   fs.writeFileSync(path.join(outDir, 'lanterns.json'), JSON.stringify(lanternsList, null, 2));
   fs.writeFileSync(path.join(outDir, 'omnicells.json'), JSON.stringify([], null, 2));
+  fs.writeFileSync(path.join(outDir, 'repeaterParts.json'), JSON.stringify({ barrels: [], chambers: [], grips: [], prisms: [], mods: [] }, null, 2));
 
   console.log(`[Patch 2.1.1] Compiled:
   - Perks: ${Object.keys(perksMap).length}

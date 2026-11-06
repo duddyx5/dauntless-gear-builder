@@ -1,0 +1,171 @@
+{
+  "barrels": [],
+  "chambers": [
+    {
+      "id": "full_bore_chamber",
+      "name": "Full-Bore Chamber",
+      "slot": "chamber",
+      "description": "The Full-Bore Chamber is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/parts/repeaters/chambers/FullBoreChamber.png",
+      "element": null,
+      "partEffect": [
+        "Fires a piercing bolt in a line, dealing damage that falls as it travels.",
+        "Empowered: Deals greatly increased damage and pushes the slayer backwards."
+      ],
+      "isLegendary": false
+    },
+    {
+      "id": "marksman_chamber",
+      "name": "Marksman Chamber",
+      "slot": "chamber",
+      "description": "The Marksman Chamber is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/parts/repeaters/chambers/MarksmanChamber.png",
+      "element": null,
+      "partEffect": [
+        "Fires a shot in a line, dealing {{damage}} damage to the first Behemoth hit. If a part is struck, that part takes {{percentDamage}}% more damage from Shots for {{damageTime}} seconds.",
+        "Empowered: Damage bonus increased to {{empoweredPercentDamage}}%, and {{empoweredPercentAllyDamage}}% to all allies."
+      ],
+      "isLegendary": false
+    },
+    {
+      "id": "salvo_chamber",
+      "name": "Salvo Chamber",
+      "slot": "chamber",
+      "description": "The Salvo Chamber is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/parts/repeaters/chambers/SalvoChamber.png",
+      "element": null,
+      "partEffect": [
+        "Fires an explosive missile in a line, dealing {{damage}} damage in an area upon impact.",
+        "Empowered: Fires {{missiles}} missiles in a spread."
+      ],
+      "isLegendary": false
+    }
+  ],
+  "grips": [
+    {
+      "id": "captain_s_grip",
+      "name": "Captain's Grip",
+      "slot": "grip",
+      "description": "The Captain's Grip is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/parts/repeaters/grips/CaptainsGrip.png",
+      "element": null,
+      "partEffect": [
+        "Launches a collectible buff a short distance, granting {{percentAttackSpeed}}% increased attack speed for {{attackSpeedTime}} seconds when collected.",
+        "Empowered: Grants the same buff to all Slayers."
+      ],
+      "isLegendary": false
+    },
+    {
+      "id": "saboteur_s_grip",
+      "name": "Saboteur's Grip",
+      "slot": "grip",
+      "description": "The Saboteur's Grip is part of a craftable weapon in Dauntless.",
+      "icon": "/assets/icons/parts/repeaters/grips/SaboteursGrip.png",
+      "element": null,
+      "partEffect": [
+        "Launches an explosive mine that deals {{damage}} damage. Mine charges after a short period, increasing damage to {{increasedDamage}}.",
+        "Empowered: Deals {{empoweredDamage}} damage when charged and can interrupt Behemoths."
+      ],
+      "isLegendary": false
+    }
+  ],
+  "prisms": [],
+  "mods": [
+    {
+      "id": "capacitive_magazine",
+      "name": "Capacitive Magazine",
+      "slot": "mod",
+      "description": "",
+      "icon": "/assets/icons/parts/repeaters/mods/CapacitiveMagazine.png",
+      "element": null,
+      "partEffect": [
+        "Using an ability returns {{ammo}} standard ammo to the magazine."
+      ],
+      "isLegendary": false
+    },
+    {
+      "id": "demolition_sights",
+      "name": "Demolition Sights",
+      "slot": "mod",
+      "description": "",
+      "icon": "/assets/icons/parts/repeaters/mods/DemolitionSights.png",
+      "element": null,
+      "partEffect": [
+        "While empowered, deal +{{percentObjectDamage}}% damage to objects created by Behemoths."
+      ],
+      "isLegendary": false
+    },
+    {
+      "id": "extraction_catalyst",
+      "name": "Extraction Catalyst",
+      "slot": "mod",
+      "description": "",
+      "icon": "/assets/icons/parts/repeaters/mods/ExtractionCatalyst.png",
+      "element": null,
+      "partEffect": [
+        "Reduce both ability cooldowns by {{cooldownReduction}} seconds when dodging through Behemoth attacks."
+      ],
+      "isLegendary": false
+    },
+    {
+      "id": "lightweight_frame",
+      "name": "Lightweight Frame",
+      "slot": "mod",
+      "description": "",
+      "icon": "/assets/icons/parts/repeaters/mods/LightweightFrame.png",
+      "element": null,
+      "partEffect": [
+        "Gain {{percentMovespeed}}% increased movespeed when at {{currentAmmo}} or less ammo."
+      ],
+      "isLegendary": false
+    },
+    {
+      "id": "lucky_magazine",
+      "name": "Lucky Magazine",
+      "slot": "mod",
+      "description": "",
+      "icon": "/assets/icons/parts/repeaters/mods/LuckyMagazine.png",
+      "element": null,
+      "partEffect": [
+        "Grants {{percentCritChance}}% critical strike chance for each round missing from the magazine."
+      ],
+      "isLegendary": false
+    },
+    {
+      "id": "precision_sights",
+      "name": "Precision Sights",
+      "slot": "mod",
+      "description": "",
+      "icon": "/assets/icons/parts/repeaters/mods/PrecisionSights.png",
+      "element": null,
+      "partEffect": [
+        "Deal {{damage}} increased damage when attacking the same part multiple times. Stacks up to {{stacks}} times."
+      ],
+      "isLegendary": false
+    },
+    {
+      "id": "scoped_sights",
+      "name": "Scoped Sights",
+      "slot": "mod",
+      "description": "",
+      "icon": "/assets/icons/parts/repeaters/mods/ScopedSights.png",
+      "element": null,
+      "partEffect": [
+        "Increases damage falloff range by {{damageFalloff}}%"
+      ],
+      "isLegendary": false
+    },
+    {
+      "id": "tactician_s_magazine",
+      "name": "Tactician's Magazine",
+      "slot": "mod",
+      "description": "",
+      "icon": "/assets/icons/parts/repeaters/mods/TacticiansMagazine.png",
+      "element": null,
+      "partEffect": [
+        "Empowered Reloading at exactly {{currentAmmo}} ammo decreases the cooldown of both abilities by {{cooldownReduction}} seconds."
+      ],
+      "isLegendary": false
+    }
+  ]
+}

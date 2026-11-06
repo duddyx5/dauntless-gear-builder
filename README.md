@@ -1,6 +1,6 @@
 # Dauntless Gear Builder
 
-[![Version](https://img.shields.io/badge/version-v0.9.5--beta-cyan.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-v0.9.6--beta-cyan.svg)](CHANGELOG.md)
 [![Status](https://img.shields.io/badge/status-public--testing-amber.svg)](CHANGELOG.md)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](LICENSE)
 [![PWA Ready](https://img.shields.io/badge/PWA-installable_%26_offline-emerald.svg)](public/manifest.webmanifest)
@@ -8,7 +8,7 @@
 A modern, responsive, and version-aware loadout workshop for **Dauntless**, spanning 5 distinct game eras from pre-Reforged classic to Awakening.
 
 > [!NOTE]
-> **Project Status: Public Beta Testing (`v0.9.5-beta`)**
+> **Project Status: Public Beta Testing (`v0.9.6-beta`)**
 > 
 > *Dauntless Gear Builder* is currently in active public beta testing. Equipment datasets, perk curves, and community sharing systems are continuously calibrated and verified against historical archives and live server data. See [CHANGELOG.md](CHANGELOG.md) for full development history.
 
@@ -19,15 +19,24 @@ A modern, responsive, and version-aware loadout workshop for **Dauntless**, span
 ### 1. ⏱️ 5 Historical & Modern Patch Eras
 Switch seamlessly between 5 game eras from the persistent top navigation:
 - **Patch 1.4.4 (Classic / Pre-Reforged - Nov 2020)**:
-  Legacy +0 to +15 gear upgrades (100–550 weapon power, 25–137.5 resistance per piece). Original cell categories (*Power, Technique, Defence, Mobility, Utility*), mastery milestones, legendary weapon bonding, and no Omnicells.
+  Legacy +0 to +15 gear upgrades (100–550 weapon power, 25–137.5 resistance per piece). Original cell categories (*Power, Technique, Defence, Mobility, Utility*), mastery milestones, legendary weapon bonding, fully modular Ostian Repeaters, and no Omnicells.
 - **Patch 1.6.2 (Early Reforged - May 2021)**:
-  Early Reforged era with original cell socket types, Aetherheart Power Surging, legendary weapon bonding, and no Omnicells.
+  Early Reforged era with original cell socket types, Aetherheart Power Surging, legendary weapon bonding, fully modular Ostian Repeaters, and no Omnicells.
 - **Patch 1.12.0 (Reforged Mid-Era - Nov 2022)**:
-  Mid-Reforged overhaul introducing modern cell categories (*Brutality, Finesse, Fortitude, Alacrity, Insight*), all 6 Omnicells, and legendary weapon bonding.
+  Mid-Reforged overhaul introducing modern cell categories (*Brutality, Finesse, Fortitude, Alacrity, Insight*), all 6 Omnicells, legendary weapon bonding, and Behemoth repeaters with customizable Chamber/Grip/Mod attachments.
 - **Patch 1.14.7 (Reforged Final - Nov 2023)**:
-  Peak Reforged meta with full Behemoth rosters (Frostwülf, Phaelanx, Fenroar, Alyra, Chronovore), expanded cell perks, and complete Escalation gear.
+  Peak Reforged meta with full Behemoth rosters (Frostwülf, Phaelanx, Fenroar, Alyra, Chronovore), expanded cell perks, complete Escalation gear, and customizable repeater attachments.
 - **Patch 2.1.1 (Awakening - Feb 2025)**:
   Awakening meta overhaul featuring Dual Weapons (Primary + Secondary), interactive 5-tier Weapon Talent trees, Lantern Cores with distinct passives and abilities, and individual gear levels 1–20.
+
+### 2. 🔫 Era-Accurate Ostian Repeaters Modularity
+- **Pre-1.7.3 Modular Era (Patches 1.4.4 & 1.6.2)**:
+  - Customizes a universal Ostian Repeaters frame across **5 modular slots**: **Barrel**, **Chamber**, **Grip**, **Prism**, and **Mod**.
+  - **12 Barrels**: Sets elemental damage (Neutral, Blaze, Frost, Shock, Terra, Radiant, Umbral) and base/surged power. Includes Legendary Barrels (*Volcanic*, *Dynamic*, *Animus*, *Eldritch*).
+  - **10 Prisms**: Grants inherent Behemoth unique effects and perks (*Searing*, *Eclipse*, *Stoneheart*, *Snowdrift*, *Brilliant*, etc.).
+  - **Chambers, Grips & Mods**: Fine-tune special shots, utility deployables, and magazine modifications.
+- **Post-1.7.3 Reforged Era (Patches 1.12.0 & 1.14.7)**:
+  - Each Behemoth features its own crafted repeater pair with inherent element and perks, accompanied by customizable **Chamber**, **Grip**, and **Mod** attachments.
 
 ```
 public/

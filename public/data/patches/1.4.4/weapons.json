@@ -932,7 +932,7 @@
     "type": "repeater",
     "typeName": "Repeater",
     "behemoth": "Generic",
-    "icon": "/assets/icons/weapons/generic/RecruitsRepeaters.png",
+    "icon": "/assets/icons/weapons/generic/Repeater.png",
     "description": "An Ostian Repeater.",
     "damageType": "Slashing",
     "element": "Neutral",

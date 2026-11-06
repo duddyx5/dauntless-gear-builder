@@ -29,6 +29,11 @@ export const createEmptyBuild = (version: string = '1.14.7'): BuildState => {
     weaponTalents: [0, 0, 0, 0, 0, 0, 0],
     secondaryWeaponTalents: [0, 0, 0, 0, 0, 0, 0],
     weaponCells: [null, null],
+    repeaterBarrel: null,
+    repeaterChamber: null,
+    repeaterGrip: null,
+    repeaterPrism: null,
+    repeaterMod: null,
     head: null,
     headCell: null,
     torso: null,
@@ -51,6 +56,11 @@ export const DEFAULT_BUILD: BuildState = {
   weapon: 'inferno_s_razor',
   bondedWeapon: null,
   secondaryWeapon: null,
+  repeaterBarrel: null,
+  repeaterChamber: null,
+  repeaterGrip: null,
+  repeaterPrism: null,
+  repeaterMod: null,
   gearLevels: {
     weapon: 20,
     secondaryWeapon: 20,
@@ -457,18 +467,36 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
   // 1. Primary Weapon
   const weapon = data.weapons.find(w => w.id === build.weapon);
   if (weapon) {
-    if (isClassic) {
+    const isModularRepeater = (isClassic || data.version === '1.6.2') && (weapon.type === 'repeater' || weapon.typeName?.toLowerCase().includes('repeater'));
+    const equippedBarrel = isModularRepeater && build.repeaterBarrel && data.repeaterParts?.barrels
+      ? data.repeaterParts.barrels.find(b => b.id === build.repeaterBarrel)
+      : null;
+
+    if (equippedBarrel) {
+      element = equippedBarrel.element || 'Neutral';
+      if (isClassic) {
+        const lvl = Math.max(0, Math.min(15, build.gearLevels?.weapon ?? 15));
+        const bp = equippedBarrel.basePower ?? 100;
+        const mp = equippedBarrel.maxPower ?? 550;
+        totalPower = bp + Math.round((mp - bp) * (lvl / 15));
+      } else {
+        totalPower = isSurged ? (equippedBarrel.maxPower ?? 120) : (equippedBarrel.basePower ?? 40);
+      }
+    } else if (isClassic) {
       const lvl = Math.max(0, Math.min(15, build.gearLevels?.weapon ?? 15));
       const power = weapon.basePower + Math.round((weapon.maxPower - weapon.basePower) * (lvl / 15));
       totalPower = power;
+      element = weapon.element;
     } else if (isAwakening) {
       const lvl = Math.max(build.gearLevels?.weapon ?? 20, build.secondaryWeapon ? (build.gearLevels?.secondaryWeapon ?? 20) : 0);
       const power = weapon.basePower + Math.round((weapon.maxPower - weapon.basePower) * ((lvl - 1) / 19));
       totalPower = power;
+      element = weapon.element;
     } else {
       totalPower += isSurged ? weapon.maxPower : weapon.basePower;
+      element = weapon.element;
     }
-    element = weapon.element;
+
     if (weapon.perks) {
       weapon.perks.forEach(p => {
         const val = isClassic
@@ -476,6 +504,19 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
           : (isAwakening ? p.value : (isSurged ? p.value : (p.baseValue ?? p.value)));
         addPerkPoint(p.id, p.name, val, weapon.name, 'Primary Weapon');
       });
+    }
+
+    // Modular Repeater Prism Perks (if any)
+    if (isModularRepeater && build.repeaterPrism && data.repeaterParts?.prisms) {
+      const equippedPrism = data.repeaterParts.prisms.find(p => p.id === build.repeaterPrism);
+      if (equippedPrism && equippedPrism.perks) {
+        equippedPrism.perks.forEach(p => {
+          const val = isClassic
+            ? getClassicPerkValue(build.gearLevels?.weapon ?? 15, p.value)
+            : (isSurged ? p.value : (p.baseValue ?? p.value));
+          addPerkPoint(p.id, p.name, val, equippedPrism.name, 'Repeater Prism');
+        });
+      }
     }
 
     // Legendary Weapon Bonding (Available in all versions except Awakening 2.1.1)
@@ -724,6 +765,11 @@ export function encodeBuildToHash(build: BuildState): string {
     if (build.secondaryWeaponTalents) compact.w2t = build.secondaryWeaponTalents;
     if (build.torsoCell2) compact.tc2 = build.torsoCell2;
     if (build.legsCell2) compact.lc2 = build.legsCell2;
+    if (build.repeaterBarrel) compact.rb = build.repeaterBarrel;
+    if (build.repeaterChamber) compact.rc = build.repeaterChamber;
+    if (build.repeaterGrip) compact.rg = build.repeaterGrip;
+    if (build.repeaterPrism) compact.rp = build.repeaterPrism;
+    if (build.repeaterMod) compact.rm = build.repeaterMod;
     const json = JSON.stringify(compact);
     return encodeURIComponent(btoa(json));
   } catch (err) {
@@ -785,6 +831,11 @@ export function decodeBuildFromHash(hashStr: string): Partial<BuildState> | null
       lantern: compact.lt || null,
       lanternCell: compact.ltc || null,
       omnicell: compact.o || null,
+      repeaterBarrel: compact.rb || null,
+      repeaterChamber: compact.rc || null,
+      repeaterGrip: compact.rg || null,
+      repeaterPrism: compact.rp || null,
+      repeaterMod: compact.rm || null,
       powerSurged: compact.ps !== 0,
     };
   } catch (err) {

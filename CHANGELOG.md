@@ -6,6 +6,22 @@ The project adheres to [Semantic Versioning](https://semver.org/) with pre-relea
 
 ---
 
+## [0.9.6-beta] - 2026-11-07 *(Public Testing)*
+
+### Added
+- **Ostian Modular Repeaters (Patch 1.4.4 Classic & Patch 1.6.2 Early Reforged)**:
+  - Full modular customization for the base "Repeater" frame across 5 interchangeable component slots: **Barrel**, **Chamber**, **Grip**, **Prism**, and **Mod**.
+  - **Barrels (12 options)**: Determine element (Neutral, Blaze, Frost, Shock, Terra, Radiant, Umbral) and scale power up to 550 (Classic) or 120 (Power Surged). Includes Legendary Barrels (*Volcanic*, *Dynamic*, *Animus*, *Eldritch*).
+  - **Prisms (10 options)**: Imbue repeaters with inherent passive effects (*Searing*, *Eclipse*, *Stoneheart*, *Snowdrift*, *Brilliant*, *Glacial*, *Ferocious*, *Firestorm*, *Frostbite*, *Primal*).
+  - **Chambers & Grips**: Full active shot selection (*Full-Bore*, *Salvo*, *Marksman*) and utility abilities (*Captain's Grip*, *Saboteur's Grip*).
+  - **Weapon Modifications (8 options)**: *Lucky Magazine*, *Tactician's Magazine*, *Lightweight Frame*, *Extraction Catalyst*, etc.
+- **Repeater Attachments (Patch 1.12.0 & 1.14.7 Reforged Final)**:
+  - Reflects the post-1.7.3 Behemoth-crafted repeater era with customizable **Chamber**, **Grip**, and **Mod** attachments on every crafted weapon.
+- **Loadout Fingerprinting & Deduplication**:
+  - Modular repeater components are included in URL hash serialization (`encodeBuildToHash` / `decodeBuildFromHash`) and the canonical build deduplication fingerprint.
+
+---
+
 ## [0.9.5-beta] - 2026-11-05 *(Public Testing)*
 
 ### Added

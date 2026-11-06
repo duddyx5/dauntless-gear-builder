@@ -1,6 +1,6 @@
 {
   "name": "dauntless-gear-builder",
-  "version": "0.9.5-beta",
+  "version": "0.9.6-beta",
   "license": "AGPL-3.0-only",
   "type": "module",
   "scripts": {

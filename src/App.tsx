@@ -129,8 +129,9 @@ export const App: React.FC = () => {
       fetch(`${basePath}/perks.json`).then(r => r.json()),
       fetch(`${basePath}/lanterns.json`).then(r => r.json()),
       fetch(`${basePath}/omnicells.json`).then(r => r.json()),
+      fetch(`${basePath}/repeaterParts.json`).then(r => r.ok ? r.json() : null).catch(() => null),
     ])
-      .then(([weapons, armour, cells, perks, lanterns, omnicells]) => {
+      .then(([weapons, armour, cells, perks, lanterns, omnicells, repeaterParts]) => {
         const loaded: PatchData = {
           version: currentVersionId,
           weapons: weapons as WeaponItem[],
@@ -139,6 +140,7 @@ export const App: React.FC = () => {
           perks: perks as Record<string, PerkTierData>,
           lanterns: lanterns as LanternItem[],
           omnicells: omnicells as OmnicellItem[],
+          repeaterParts: repeaterParts || undefined,
         };
         setPatchData(loaded);
         setIsLoading(false);
@@ -155,6 +157,12 @@ export const App: React.FC = () => {
           const lanternExists = prev.lantern ? loaded.lanterns.some(l => l.id === prev.lantern) : false;
           const omnicellExists = prev.omnicell ? loaded.omnicells.some(o => o.id === prev.omnicell) : false;
 
+          const barrelExists = prev.repeaterBarrel && loaded.repeaterParts?.barrels?.some(b => b.id === prev.repeaterBarrel);
+          const chamberExists = prev.repeaterChamber && loaded.repeaterParts?.chambers?.some(c => c.id === prev.repeaterChamber);
+          const gripExists = prev.repeaterGrip && loaded.repeaterParts?.grips?.some(g => g.id === prev.repeaterGrip);
+          const prismExists = prev.repeaterPrism && loaded.repeaterParts?.prisms?.some(p => p.id === prev.repeaterPrism);
+          const modExists = prev.repeaterMod && loaded.repeaterParts?.mods?.some(m => m.id === prev.repeaterMod);
+
           const isClassic = currentVersionId === '1.4.4';
           const maxLevel = isClassic ? 15 : 20;
           const defaultLevel = isClassic ? 15 : 20;
@@ -170,6 +178,11 @@ export const App: React.FC = () => {
             weapon: weaponExists ? prev.weapon : null,
             bondedWeapon: currentVersionId === '2.1.1' ? null : (bondedWeaponExists ? prev.bondedWeapon : null),
             secondaryWeapon: currentVersionId === '2.1.1' ? (secWeaponExists ? prev.secondaryWeapon : null) : null,
+            repeaterBarrel: barrelExists ? prev.repeaterBarrel : null,
+            repeaterChamber: chamberExists ? prev.repeaterChamber : null,
+            repeaterGrip: gripExists ? prev.repeaterGrip : null,
+            repeaterPrism: prismExists ? prev.repeaterPrism : null,
+            repeaterMod: modExists ? prev.repeaterMod : null,
             gearLevels: updatedLevels,
             head: headExists ? prev.head : null,
             torso: torsoExists ? prev.torso : null,
@@ -383,6 +396,16 @@ export const App: React.FC = () => {
         next.lanternCell = id;
       } else if (slot === 'omnicell') {
         next.omnicell = id;
+      } else if (slot === 'repeaterBarrel') {
+        next.repeaterBarrel = id;
+      } else if (slot === 'repeaterChamber') {
+        next.repeaterChamber = id;
+      } else if (slot === 'repeaterGrip') {
+        next.repeaterGrip = id;
+      } else if (slot === 'repeaterPrism') {
+        next.repeaterPrism = id;
+      } else if (slot === 'repeaterMod') {
+        next.repeaterMod = id;
       }
       return next;
     });
@@ -410,6 +433,11 @@ export const App: React.FC = () => {
     if (slot === 'lantern') return build.lantern;
     if (slot === 'lanternCell') return build.lanternCell;
     if (slot === 'omnicell') return build.omnicell;
+    if (slot === 'repeaterBarrel') return build.repeaterBarrel || null;
+    if (slot === 'repeaterChamber') return build.repeaterChamber || null;
+    if (slot === 'repeaterGrip') return build.repeaterGrip || null;
+    if (slot === 'repeaterPrism') return build.repeaterPrism || null;
+    if (slot === 'repeaterMod') return build.repeaterMod || null;
     return null;
   }, [activePicker.slot, build]);
 

@@ -135,6 +135,29 @@ export interface OmnicellItem {
   cooldown: number;
 }
 
+export interface RepeaterPartItem {
+  id: string;
+  name: string;
+  slot: 'barrel' | 'chamber' | 'grip' | 'prism' | 'mod';
+  description: string;
+  icon: string;
+  element?: string | null;
+  basePower?: number;
+  maxPower?: number;
+  perks?: ItemPerkRef[];
+  partEffect?: string[];
+  uniqueEffect?: string;
+  isLegendary?: boolean;
+}
+
+export interface RepeaterPartsData {
+  barrels: RepeaterPartItem[];
+  chambers: RepeaterPartItem[];
+  grips: RepeaterPartItem[];
+  prisms: RepeaterPartItem[];
+  mods: RepeaterPartItem[];
+}
+
 export interface PatchData {
   version: string;
   perks: Record<string, PerkTierData>;
@@ -143,6 +166,7 @@ export interface PatchData {
   weapons: WeaponItem[];
   lanterns: LanternItem[];
   omnicells: OmnicellItem[];
+  repeaterParts?: RepeaterPartsData;
 }
 
 export interface BuildState {
@@ -154,6 +178,11 @@ export interface BuildState {
   secondaryWeaponTalents?: number[];
   gearLevels?: Record<string, number>;
   weaponCells: (string | null)[];
+  repeaterBarrel?: string | null;
+  repeaterChamber?: string | null;
+  repeaterGrip?: string | null;
+  repeaterPrism?: string | null;
+  repeaterMod?: string | null;
   head: string | null;
   headCell: string | null;
   torso: string | null;

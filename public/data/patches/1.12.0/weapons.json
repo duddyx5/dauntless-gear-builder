@@ -4342,7 +4342,7 @@
     "type": "repeater",
     "typeName": "Repeater",
     "behemoth": "Shrike",
-    "icon": "/assets/icons/weapons/shrike/ScreamOfTheShrike.png",
+    "icon": "/assets/icons/weapons/shrike/ScreamsOfTheShrike.png",
     "description": "A Slayer's Repeater forged with Shrike trophies.",
     "damageType": "Slashing",
     "element": "Neutral",
