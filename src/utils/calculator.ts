@@ -10,7 +10,11 @@ import {
   LanternItem,
   OmnicellItem,
 } from '../types/builder';
-import { importFromDauntlessBuilder } from './dauntlessBuilderImport';
+import {
+  importFromDauntlessBuilder,
+  exportToDauntlessBuilder,
+  isDauntlessBuilderUrl,
+} from './dauntlessBuilderImport';
 
 export const EXOTIC_WEAPON_IDS = new Set<string>([
   'the_hunger',
@@ -1664,6 +1668,15 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
 
 export function encodeBuildToHash(build: BuildState): string {
   try {
+    // 1. For non-Awakening builds, attempt ultra-short Sqids encoding (compatible with dauntless-builder-reforged ~60 chars)
+    if (build.version !== '2.1.1') {
+      const shortCode = exportToDauntlessBuilder(build);
+      if (shortCode && shortCode.length >= 20) {
+        return shortCode;
+      }
+    }
+
+    // 2. Fallback to compact JSON Base64 (for Awakening 2.1.1 dual weapons/talents or unmapped entries)
     const compact: Record<string, any> = {
       v: build.version || '1.14.7',
     };
@@ -1714,6 +1727,12 @@ export function decodeBuildFromHash(hashStr: string): Partial<BuildState> | null
     const params = new URLSearchParams(clean);
     let code = params.get('b') || clean;
     if (!code) return null;
+
+    // Check if it's an ultra-short Sqids build ID (from Dauntless Builder Reforged or our short encoder)
+    if (isDauntlessBuilderUrl(code) || isDauntlessBuilderUrl(hashStr)) {
+      const dbBuild = importFromDauntlessBuilder(code) || importFromDauntlessBuilder(hashStr);
+      if (dbBuild) return dbBuild;
+    }
 
     // Decode URL component and normalize URL-safe Base64 back to standard Base64
     code = decodeURIComponent(code).replace(/-/g, '+').replace(/_/g, '/');

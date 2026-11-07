@@ -21,6 +21,48 @@ interface NamesMap {
 
 const names = namesData as NamesMap;
 
+// Build reverse lookup caches
+const weaponReverseMap: Record<string, number> = {};
+for (const [id, val] of Object.entries(names.Weapons || {})) {
+  const norm = normalizeId(val);
+  if (norm) weaponReverseMap[norm] = Number(id);
+}
+
+const cellReverseMap: Record<string, number> = {};
+for (const [id, val] of Object.entries(names.Cells || {})) {
+  const norm = normalizeCellId(val);
+  if (norm) cellReverseMap[norm] = Number(id);
+}
+
+const armourReverseMap: Record<string, number> = {};
+for (const [id, val] of Object.entries(names.Armours || {})) {
+  const norm = normalizeId(val);
+  if (norm) armourReverseMap[norm] = Number(id);
+}
+
+const lanternReverseMap: Record<string, number> = {};
+for (const [id, val] of Object.entries(names.Lanterns || {})) {
+  const norm = normalizeId(val);
+  if (norm) lanternReverseMap[norm] = Number(id);
+}
+
+const omnicellReverseMap: Record<string, number> = {};
+for (const [id, val] of Object.entries(names.Omnicells || {})) {
+  const norm = normalizeId(val);
+  if (norm) omnicellReverseMap[norm] = Number(id);
+}
+
+const partsReverseMap: Record<string, Record<string, number>> = {};
+for (const key of Object.keys(names)) {
+  if (key.startsWith('Parts:')) {
+    partsReverseMap[key] = {};
+    for (const [id, val] of Object.entries(names[key])) {
+      const norm = normalizeId(val);
+      if (norm) partsReverseMap[key][norm] = Number(id);
+    }
+  }
+}
+
 function decodeId(id: string): number[] | null {
   try {
     const d8 = sqidsV8.decode(id);
@@ -135,4 +177,94 @@ export function importFromDauntlessBuilder(input: string): BuildState | null {
       repeaterMod: repeaterMod || 'precision_sights'
     } : {})
   };
+}
+
+export function exportToDauntlessBuilder(build: BuildState): string | null {
+  try {
+    if (build.version === '2.1.1') return null; // Awakening format uses talents/dual weapons
+
+    const wId = build.weapon ? (weaponReverseMap[build.weapon] || 0) : 0;
+    const bondId = build.bondedWeapon ? (weaponReverseMap[build.bondedWeapon] || 0) : 0;
+
+    const wc1 = (build.weaponCells && build.weaponCells[0]) ? (cellReverseMap[build.weaponCells[0]] || 0) : 0;
+    const wc2 = (build.weaponCells && build.weaponCells[1]) ? (cellReverseMap[build.weaponCells[1]] || 0) : 0;
+
+    const isRepeater = build.weapon?.includes('repeater') || build.weapon?.includes('cannons') || build.weapon?.includes('eruptions') || build.weapon?.includes('needles') || build.weapon?.includes('deadlights') || build.weapon?.includes('torments') || build.weapon?.includes('mechanics');
+
+    let p1 = 0;
+    let p2 = 0;
+    let p3 = 0;
+
+    if (isRepeater) {
+      const repMap = partsReverseMap['Parts:Repeater'] || {};
+      if (build.repeaterChamber) p1 = repMap[build.repeaterChamber] || 0;
+      if (build.repeaterGrip) p2 = repMap[build.repeaterGrip] || 0;
+      if (build.repeaterMod) p3 = repMap[build.repeaterMod] || 0;
+    } else if (build.weapon) {
+      let partKey: string | null = null;
+      const w = build.weapon;
+      if (w.includes('sword') || w.includes('razor') || w.includes('hunger') || w.includes('pride') || w.includes('blade') || w.includes('cutlass') || w.includes('saber') || w.includes('fury') || w.includes('call') || w.includes('edicts') || w.includes('edge')) partKey = 'Parts:Sword';
+      else if (w.includes('axe') || w.includes('cleaver') || w.includes('frost') || w.includes('scythe') || w.includes('voltage') || w.includes('judgement') || w.includes('fall') || w.includes('shredder')) partKey = 'Parts:Axe';
+      else if (w.includes('hammer') || w.includes('maul') || w.includes('slam') || w.includes('cyclone') || w.includes('crash') || w.includes('impact') || w.includes('anvil') || w.includes('crusher') || w.includes('break')) partKey = 'Parts:Hammer';
+      else if (w.includes('chain') || w.includes('teeth') || w.includes('skinner') || w.includes('pincers') || w.includes('cruelties') || w.includes('realities') || w.includes('claws') || w.includes('fangs') || w.includes('blades') || w.includes('scythes')) partKey = 'Parts:Chainblades';
+      else if (w.includes('pike') || w.includes('spear') || w.includes('spire') || w.includes('javelin') || w.includes('conductor') || w.includes('glaive') || w.includes('skewer') || w.includes('needle') || w.includes('godhand')) partKey = 'Parts:Warpike';
+      else if (w.includes('striker') || w.includes('breaker') || w.includes('fist') || w.includes('currents') || w.includes('tackler') || w.includes('claw') || w.includes('lion') || w.includes('fists')) partKey = 'Parts:Aetherstrikers';
+
+      if (partKey && partsReverseMap[partKey]) {
+        const pm = partsReverseMap[partKey];
+        if (build.weaponSpecial) p1 = pm[build.weaponSpecial] || 0;
+        if (build.weaponMod) p2 = pm[build.weaponMod] || 0;
+      }
+    }
+
+    const hId = build.head ? (armourReverseMap[build.head] || 0) : 0;
+    const hc = build.headCell ? (cellReverseMap[build.headCell] || 0) : 0;
+
+    const tId = build.torso ? (armourReverseMap[build.torso] || 0) : 0;
+    const tc = build.torsoCell ? (cellReverseMap[build.torsoCell] || 0) : 0;
+
+    const aId = build.arms ? (armourReverseMap[build.arms] || 0) : 0;
+    const ac = build.armsCell ? (cellReverseMap[build.armsCell] || 0) : 0;
+
+    const lId = build.legs ? (armourReverseMap[build.legs] || 0) : 0;
+    const lc = build.legsCell ? (cellReverseMap[build.legsCell] || 0) : 0;
+
+    const ltId = build.lantern ? (lanternReverseMap[build.lantern] || 0) : 0;
+    const ltc = build.lanternCell ? (cellReverseMap[build.lanternCell] || 0) : 0;
+
+    const oId = build.omnicell ? (omnicellReverseMap[build.omnicell] || 0) : 0;
+
+    const params = [
+      8, // CURRENT_BUILD_ID in dauntless-builder-reforged
+      0, // flags
+      wId,
+      build.powerSurged ? 1 : 0,
+      wc1,
+      wc2,
+      p1,
+      p2,
+      p3,
+      bondId,
+      hId,
+      build.powerSurged ? 1 : 0,
+      hc,
+      tId,
+      build.powerSurged ? 1 : 0,
+      tc,
+      aId,
+      build.powerSurged ? 1 : 0,
+      ac,
+      lId,
+      build.powerSurged ? 1 : 0,
+      lc,
+      ltId,
+      ltc,
+      oId,
+    ];
+
+    return sqidsV8.encode(params);
+  } catch (err) {
+    console.error('Failed to export to dauntless-builder format:', err);
+    return null;
+  }
 }

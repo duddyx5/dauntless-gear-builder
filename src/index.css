@@ -1076,10 +1076,23 @@ html.light .text-cyan-400 {
   color: #0284c7 !important;
 }
 
+html.light .text-amber-100,
 html.light .text-amber-200,
+html.light .text-amber-200\/90,
+html.light .text-amber-200\/80,
 html.light .text-amber-300,
-html.light .text-amber-400 {
-  color: #b45309 !important;
+html.light .text-amber-300\/90,
+html.light .text-amber-300\/80,
+html.light .text-amber-400,
+html.light .text-amber-400\/90,
+html.light .text-amber-400\/80,
+html.light .text-amber-400\/70,
+html.light .text-yellow-100,
+html.light .text-yellow-200,
+html.light .text-yellow-300,
+html.light .text-yellow-400,
+html.light .text-yellow-500 {
+  color: #92400e !important;
 }
 
 html.light .text-emerald-300,
@@ -1416,17 +1429,85 @@ html.light .gear-bond-effect svg {
   color: #d97706 !important;
 }
 
-/* Modal Bonding Banner */
+/* Modal Bonding Banner & Bond Picker */
 html.light .picker-bond-banner {
-  background-color: #fffbeb !important;
-  border-color: #fde68a !important;
+  background-color: #fef3c7 !important;
+  border-color: #f59e0b !important;
   color: #78350f !important;
 }
-html.light .picker-bond-banner span.text-amber-300 {
+html.light .picker-bond-banner * {
+  color: #78350f !important;
+}
+html.light .picker-bond-banner span.text-amber-300,
+html.light .picker-bond-banner strong {
   color: #92400e !important;
 }
 html.light .picker-bond-banner svg {
-  color: #d97706 !important;
+  color: #b45309 !important;
+}
+
+html.light .bonded-grants-perk-label {
+  color: #92400e !important;
+}
+
+html.light .bonded-grants-effect,
+html.light .bonded-grants-effect span {
+  color: #78350f !important;
+}
+html.light .bonded-grants-effect svg {
+  color: #b45309 !important;
+}
+
+/* Cell Sockets & Badges in Light Mode */
+html.light .cell-socket-empty {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #475569 !important;
+}
+html.light .cell-socket-empty:hover {
+  border-color: #0284c7 !important;
+  color: #0369a1 !important;
+  background-color: #f0f9ff !important;
+}
+html.light .cell-socket-empty-icon-wrap {
+  background-color: #0f172a !important;
+  border-color: #334155 !important;
+}
+html.light .cell-socket-equipped {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05) !important;
+}
+html.light .cell-socket-equipped:hover {
+  border-color: #0284c7 !important;
+  background-color: #f0f9ff !important;
+}
+html.light .cell-socket-equipped span.text-cyan-300 {
+  color: #0369a1 !important;
+}
+html.light .cell-socket-equipped span.text-gray-400 {
+  color: #64748b !important;
+}
+html.light .cell-socket-tag {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #334155 !important;
+}
+html.light .cell-socket-tag > span:first-child {
+  background-color: #0f172a !important;
+  border-color: #334155 !important;
+}
+html.light .cell-badge-tier-1 {
+  background-color: #059669 !important;
+  border-color: #10b981 !important;
+}
+html.light .cell-badge-tier-2 {
+  background-color: #2563eb !important;
+  border-color: #3b82f6 !important;
+}
+html.light .cell-badge-tier-3 {
+  background-color: #7e22ce !important;
+  border-color: #9333ea !important;
 }
 
 /* Omnicell Details in Light Mode */

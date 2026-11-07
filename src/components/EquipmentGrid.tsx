@@ -309,37 +309,50 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
         <button
           type="button"
           onClick={() => onOpenPicker(slotType, allowedSocket)}
-          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold border border-dashed border-[#2a424e] bg-[#091419]/70 text-gray-400 hover:border-cyan-500/50 hover:text-cyan-300 transition-all cursor-pointer"
+          className="cell-socket-empty inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold border border-dashed border-[#2a424e] bg-[#091419]/70 text-gray-400 hover:border-cyan-500/50 hover:text-cyan-300 transition-all cursor-pointer"
         >
-          <img
-            src={resolveAssetUrl(socketIcon)}
-            alt={allowedSocket}
-            className="w-3.5 h-3.5 object-contain shrink-0 filter drop-shadow opacity-75"
-            onError={(e) => {
-              (e.target as HTMLElement).style.display = 'none';
-            }}
-          />
+          <span className="cell-socket-empty-icon-wrap w-4 h-4 rounded-full bg-[#182a33] flex items-center justify-center p-0.5 shrink-0 shadow-inner">
+            <img
+              src={resolveAssetUrl(socketIcon)}
+              alt={allowedSocket}
+              className="w-full h-full object-contain filter drop-shadow opacity-90"
+              onError={(e) => {
+                (e.target as HTMLElement).style.display = 'none';
+              }}
+            />
+          </span>
           <span className="capitalize text-[10.5px]">Empty {allowedSocket} Socket</span>
         </button>
       );
     }
 
     const equippedIcon = getCellCategoryIcon(parsed.cell?.slot || allowedSocket);
+    const tier = parsed.variantLevel;
+    const tierBadgeClass =
+      tier === 3
+        ? 'cell-badge-tier-3 bg-purple-600 border border-purple-400 shadow-purple-900/30'
+        : tier === 2
+        ? 'cell-badge-tier-2 bg-blue-600 border border-blue-400 shadow-blue-900/30'
+        : tier === 1
+        ? 'cell-badge-tier-1 bg-emerald-600 border border-emerald-400 shadow-emerald-900/30'
+        : 'cell-badge-tier-default bg-cyan-700 border border-cyan-500';
 
     return (
       <button
         type="button"
         onClick={() => onOpenPicker(slotType, allowedSocket)}
-        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold border border-[#2a424e] bg-[#101e25] hover:border-cyan-400 text-cyan-200 transition-all cursor-pointer"
+        className="cell-socket-equipped inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold border border-[#2a424e] bg-[#101e25] hover:border-cyan-400 text-cyan-200 transition-all cursor-pointer"
       >
-        <img
-          src={resolveAssetUrl(equippedIcon)}
-          alt={allowedSocket}
-          className="w-3.5 h-3.5 object-contain shrink-0 filter drop-shadow"
-          onError={(e) => {
-            (e.target as HTMLElement).style.display = 'none';
-          }}
-        />
+        <span className={`w-4 h-4 rounded-full flex items-center justify-center p-0.5 shrink-0 shadow-sm ${tierBadgeClass}`}>
+          <img
+            src={resolveAssetUrl(equippedIcon)}
+            alt={allowedSocket}
+            className="w-full h-full object-contain filter drop-shadow brightness-105"
+            onError={(e) => {
+              (e.target as HTMLElement).style.display = 'none';
+            }}
+          />
+        </span>
         <span className="font-semibold text-cyan-300 truncate text-[11px]">
           {isAwakening ? `${parsed.perkName} Cell` : `+${parsed.variantLevel} ${parsed.perkName}`}
         </span>

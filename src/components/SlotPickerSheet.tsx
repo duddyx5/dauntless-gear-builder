@@ -706,6 +706,14 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                 const perkName = variant?.perkName || c.name.replace(/ Cell$/i, '');
                 const perkDef = patchData.perks[variant?.perkId || ''];
 
+                const tier = isAwakening ? 3 : selectedCellTier;
+                const cellTierBgClass =
+                  tier === 3
+                    ? 'cell-badge-tier-3 bg-purple-700/95 border-purple-400 shadow-purple-950/40'
+                    : tier === 2
+                    ? 'cell-badge-tier-2 bg-blue-700/95 border-blue-400 shadow-blue-950/40'
+                    : 'cell-badge-tier-1 bg-emerald-700/95 border-emerald-400 shadow-emerald-950/40';
+
                 return (
                   <button
                     key={c.id}
@@ -720,11 +728,11 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                         : 'bg-[#101e25] border-[#203640] hover:border-[#3e6977] hover:bg-[#12222a]'
                     }`}
                   >
-                    <span className="w-11 h-11 rounded-lg bg-[#09151a] border border-[#21333d] flex items-center justify-center p-1.5 shrink-0 overflow-hidden relative">
+                    <span className={`w-11 h-11 rounded-xl border flex items-center justify-center p-2 shrink-0 overflow-hidden relative shadow-sm ${cellTierBgClass}`}>
                       <img
                         src={resolveAssetUrl(getCellCategoryIcon(c.slot) || c.icon)}
                         alt={c.name}
-                        className="w-full h-full object-contain filter drop-shadow"
+                        className="w-full h-full object-contain filter drop-shadow brightness-105"
                         onError={(e) => {
                           const img = e.target as HTMLImageElement;
                           img.onerror = null;
@@ -735,11 +743,7 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                         }}
                       />
                       {!isAwakening && (
-                        <span className={`absolute -bottom-0.5 -right-0.5 text-[8.5px] font-black px-1 rounded font-mono ${
-                          selectedCellTier === 3 ? 'bg-purple-600 text-white' :
-                          selectedCellTier === 2 ? 'bg-blue-600 text-white' :
-                          'bg-emerald-600 text-white'
-                        }`}>
+                        <span className="absolute bottom-0 right-0 text-[8.5px] font-black px-1 rounded-tl-md bg-black/65 text-white font-mono border-t border-l border-white/20">
                           +{selectedCellTier}
                         </span>
                       )}
