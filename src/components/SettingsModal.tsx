@@ -412,7 +412,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                   Community Acknowledgements
                 </span>
                 <p className="text-gray-300 leading-relaxed">
-                  • <strong className="text-white">Dauntless Forever Project</strong>: Sincere gratitude to the Dauntless Forever preservation creators and team for keeping classic and legacy versions of Dauntless playable.
+                  • <strong className="text-white">Dauntless Forever Project</strong>: Sincere gratitude to the Dauntless Forever preservation creators and team (including <em>builder.dauntlessforever.com</em>) for keeping classic and legacy versions of Dauntless playable.
                 </p>
                 <p className="text-gray-300 leading-relaxed">
                   • <strong className="text-white">Original Dauntless Builder</strong>: Huge thanks to <strong className="text-white">atomicptr</strong> and community contributors of the original <em>dauntless-builder.com</em> for pioneering loadout tools, algorithms, and meta databases.

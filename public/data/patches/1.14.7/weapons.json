@@ -16,7 +16,7 @@
       "prismatic"
     ],
     "perks": [],
-    "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.\n",
+    "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.",
     "isLegendary": true,
     "bondElement": "Terra",
     "legendaryIcon": "/assets/icons/abilities/AgarusLegendaryWeaponAbility.png"
@@ -38,7 +38,7 @@
       "prismatic"
     ],
     "perks": [],
-    "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.\n",
+    "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.",
     "isLegendary": true,
     "bondElement": "Terra",
     "legendaryIcon": "/assets/icons/abilities/AgarusLegendaryWeaponAbility.png"
@@ -60,7 +60,7 @@
       "prismatic"
     ],
     "perks": [],
-    "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.\n",
+    "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.",
     "isLegendary": true,
     "bondElement": "Terra",
     "legendaryIcon": "/assets/icons/abilities/AgarusLegendaryWeaponAbility.png"
@@ -82,7 +82,7 @@
       "prismatic"
     ],
     "perks": [],
-    "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.\n",
+    "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.",
     "isLegendary": true,
     "bondElement": "Terra",
     "legendaryIcon": "/assets/icons/abilities/AgarusLegendaryWeaponAbility.png"
@@ -104,7 +104,7 @@
       "prismatic"
     ],
     "perks": [],
-    "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.\n",
+    "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.",
     "isLegendary": true,
     "bondElement": "Terra",
     "legendaryIcon": "/assets/icons/abilities/AgarusLegendaryWeaponAbility.png"
@@ -126,7 +126,7 @@
       "prismatic"
     ],
     "perks": [],
-    "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.\n",
+    "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.",
     "isLegendary": true,
     "bondElement": "Terra",
     "legendaryIcon": "/assets/icons/abilities/AgarusLegendaryWeaponAbility.png"
@@ -148,7 +148,7 @@
       "prismatic"
     ],
     "perks": [],
-    "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.\n",
+    "uniqueEffect": "Legendary Ability: Revive all Slayers in a large radius, granting them healing over time and immunity to stagger. Usable while downed.",
     "isLegendary": true,
     "bondElement": "Terra",
     "legendaryIcon": "/assets/icons/abilities/AgarusLegendaryWeaponAbility.png"
@@ -381,6 +381,7 @@
       }
     ],
     "uniqueEffect": "After Surging, continually generate Frost Sprites for 6 seconds that grant your next attack +60 damage and minor frost damage (Max 4 Sprites)",
+    "baseUniqueEffect": "After Surging, continually generate Frost Sprites for 6 seconds that grant your next attack +30 damage and minor frost damage (Max 4 Sprites)",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -410,6 +411,7 @@
       }
     ],
     "uniqueEffect": "After spending ammo, generate generate 2 Frost Sprites that grant your next attack +60 damage and minor frost damage (Max 4 Sprites)",
+    "baseUniqueEffect": "After spending ammo, generate generate 2 Frost Sprites that grant your next attack +30 damage and minor frost damage (Max 4 Sprites)",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -439,6 +441,7 @@
       }
     ],
     "uniqueEffect": "After spending ammo, generate generate 3 Frost Sprites that grant your next attack +60 damage and minor frost damage (Max 4 Sprites)",
+    "baseUniqueEffect": "After spending ammo, generate generate 3 Frost Sprites that grant your next attack +30 damage and minor frost damage (Max 4 Sprites)",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -468,6 +471,7 @@
       }
     ],
     "uniqueEffect": "Using your special continually generates Frost Sprites that grant your next attack +60 damage and minor frost damage (Max 4 Sprites)",
+    "baseUniqueEffect": "Using your special continually generates Frost Sprites that grant your next attack +30 damage and minor frost damage (Max 4 Sprites)",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -497,6 +501,7 @@
       }
     ],
     "uniqueEffect": "Storing or spending ammo continually generates Frost Sprites for 6 seconds that grant your next attack +60 damage and minor frost damage (Max 4 Sprites)",
+    "baseUniqueEffect": "Storing or spending ammo continually generates Frost Sprites for 6 seconds that grant your next attack +30 damage and minor frost damage (Max 4 Sprites)",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -526,6 +531,7 @@
       }
     ],
     "uniqueEffect": "After each charge attack level, generate 2 Frost Sprites that grant your next attack +60 damage and minor frost damage (Max 4 Sprites)",
+    "baseUniqueEffect": "After each charge attack level, generate 2 Frost Sprites that grant your next attack +30 damage and minor frost damage (Max 4 Sprites)",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -555,6 +561,7 @@
       }
     ],
     "uniqueEffect": "The last 4 shots in your magazine generates Frost Sprites that grant your next attack +60 damage and minor frost damage (Max 4 Sprites)",
+    "baseUniqueEffect": "The last 4 shots in your magazine generates Frost Sprites that grant your next attack +30 damage and minor frost damage (Max 4 Sprites)",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -584,6 +591,7 @@
       }
     ],
     "uniqueEffect": "After spending 150 stamina, next attack emits a cone of flame that deals +200 blaze damage to each unique target within the cone",
+    "baseUniqueEffect": "After spending 150 stamina, next attack emits a cone of flame that deals +100 blaze damage to each unique target within the cone",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -613,6 +621,7 @@
       }
     ],
     "uniqueEffect": "After spending 100 stamina, next attack emits a cone of flame that deals +200 blaze damage to each unique target within the cone",
+    "baseUniqueEffect": "After spending 100 stamina, next attack emits a cone of flame that deals +100 blaze damage to each unique target within the cone",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -642,6 +651,7 @@
       }
     ],
     "uniqueEffect": "After spending 50 stamina, next attack emits a cone of flame that deals +200 blaze damage to each unique target within the cone",
+    "baseUniqueEffect": "After spending 50 stamina, next attack emits a cone of flame that deals +100 blaze damage to each unique target within the cone",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -671,6 +681,7 @@
       }
     ],
     "uniqueEffect": "After spending 75 stamina, next attack emits a cone of flame that deals +200 blaze damage to each unique target within the cone",
+    "baseUniqueEffect": "After spending 75 stamina, next attack emits a cone of flame that deals +100 blaze damage to each unique target within the cone",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -700,6 +711,7 @@
       }
     ],
     "uniqueEffect": "After spending 50 stamina, next attack emits a cone of flame that deals +200 blaze damage to each unique target within the cone",
+    "baseUniqueEffect": "After spending 50 stamina, next attack emits a cone of flame that deals +100 blaze damage to each unique target within the cone",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -729,6 +741,7 @@
       }
     ],
     "uniqueEffect": "After spending 75 stamina, next attack emits a cone of flame that deals +200 blaze damage to each unique target within the cone",
+    "baseUniqueEffect": "After spending 75 stamina, next attack emits a cone of flame that deals +100 blaze damage to each unique target within the cone",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -758,6 +771,7 @@
       }
     ],
     "uniqueEffect": "After spending 75 stamina, next attack emits a cone of flame that deals +200 blaze damage to each unique target within the cone",
+    "baseUniqueEffect": "After spending 75 stamina, next attack emits a cone of flame that deals +100 blaze damage to each unique target within the cone",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -787,6 +801,8 @@
       }
     ],
     "uniqueEffect": "Replaces all hammer blasts with unique fireball abilities that deal blaze damage.",
+    "isExotic": true,
+    "restrictSpecials": true,
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -970,6 +986,7 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Tails",
+    "baseUniqueEffect": "20% damage vs Behemoth Tails",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -999,6 +1016,7 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Heads",
+    "baseUniqueEffect": "20% damage vs Behemoth Heads",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -1028,6 +1046,7 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Tails",
+    "baseUniqueEffect": "20% damage vs Behemoth Tails",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -1057,6 +1076,7 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Heads",
+    "baseUniqueEffect": "20% damage vs Behemoth Heads",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -1086,6 +1106,7 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Heads",
+    "baseUniqueEffect": "20% damage vs Behemoth Heads",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -1115,6 +1136,7 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Heads",
+    "baseUniqueEffect": "20% damage vs Behemoth Heads",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -1144,6 +1166,7 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Tails",
+    "baseUniqueEffect": "20% damage vs Behemoth Tails",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -1173,6 +1196,7 @@
       }
     ],
     "uniqueEffect": "The 9th hit in quick succession deals +250 bonus part damage.",
+    "baseUniqueEffect": "The 9th hit in quick succession deals +100 bonus part damage.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -1202,6 +1226,7 @@
       }
     ],
     "uniqueEffect": "The 6th hit in a row deals +250% part damage",
+    "baseUniqueEffect": "The 6th hit in a row deals +100% part damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -1231,6 +1256,7 @@
       }
     ],
     "uniqueEffect": "The 4th hit in a row deals +150% stagger damage",
+    "baseUniqueEffect": "The 4th hit in a row deals +50% stagger damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -1260,6 +1286,7 @@
       }
     ],
     "uniqueEffect": "The 4th hit in a row deals +150% stagger damage",
+    "baseUniqueEffect": "The 4th hit in a row deals +50% stagger damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -1289,6 +1316,7 @@
       }
     ],
     "uniqueEffect": "The 7th hit in a row deals +300 wound damage",
+    "baseUniqueEffect": "The 7th hit in a row deals +100 wound damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -1318,6 +1346,7 @@
       }
     ],
     "uniqueEffect": "The 3rd hit in quick succession deals +250 bonus part damage.",
+    "baseUniqueEffect": "The 3rd hit in quick succession deals +100 bonus part damage.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -1347,6 +1376,7 @@
       }
     ],
     "uniqueEffect": "The 6th hit in a row deals +250% part damage",
+    "baseUniqueEffect": "The 6th hit in a row deals +150% part damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -1378,10 +1408,11 @@
         "id": "galvanized",
         "name": "Galvanized",
         "value": 3,
-        "baseValue": 3
+        "baseValue": 0
       }
     ],
-    "uniqueEffect": "+50% Shield\n +30% Healing\n +300 Max Health",
+    "uniqueEffect": "**Passive:** +50% Shield\n +30% Healing\n +300 Max Health\nUsing your special continually generates Frost Sprites that grant your next attack +60 damage and minor frost damage (Max 4 Sprites)",
+    "baseUniqueEffect": "+10% Shield",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -1413,10 +1444,11 @@
         "id": "nimble",
         "name": "Nimble",
         "value": 3,
-        "baseValue": 3
+        "baseValue": 0
       }
     ],
-    "uniqueEffect": "+30% Part Damage -200 max health",
+    "uniqueEffect": "**Passive:** +30% Part Damage -200 max health\nAfter dodging through an attack, your next attack within 5 seconds deals +150% part damage After dodging through an attack, your next attack within 5 seconds deals +150 stagger damage While below 25% of your maximum health, gain +15% attack speed",
+    "baseUniqueEffect": "+10% Shield",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -1649,6 +1681,7 @@
       }
     ],
     "uniqueEffect": "After using your Lantern ability, create a geyser that frequently deals 70 frost damage. Any Slayer moving through the geyser for the first time is granted a stackable 125 health shield that lasts for 25 seconds (max 600 shields).",
+    "baseUniqueEffect": "After using your Lantern ability, create a geyser that frequently deals 50 frost damage. Any Slayer moving through the geyser for the first time is granted a stackable 125 health shield that lasts for 25 seconds (max 600 shields).",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -1678,6 +1711,7 @@
       }
     ],
     "uniqueEffect": "After using your Lantern ability, create a geyser that frequently deals 70 frost damage. Any Slayer moving through the geyser for the first time is granted a stackable 125 health shield that lasts for 25 seconds (max 600 shields).",
+    "baseUniqueEffect": "After using your Lantern ability, create a geyser that frequently deals 50 frost damage. Any Slayer moving through the geyser for the first time is granted a stackable 125 health shield that lasts for 25 seconds (max 600 shields).",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -1707,6 +1741,7 @@
       }
     ],
     "uniqueEffect": "After using your Lantern ability, create a geyser that frequently deals 70 frost damage. Any Slayer moving through the geyser for the first time is granted a stackable 125 health shield that lasts for 25 seconds (max 600 shields).",
+    "baseUniqueEffect": "After using your Lantern ability, create a geyser that frequently deals 50 frost damage. Any Slayer moving through the geyser for the first time is granted a stackable 125 health shield that lasts for 25 seconds (max 600 shields).",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -1736,6 +1771,7 @@
       }
     ],
     "uniqueEffect": "After using your Lantern ability, create a geyser that frequently deals 70 frost damage. Any Slayer moving through the geyser for the first time is granted a stackable 125 health shield that lasts for 25 seconds (max 600 shields).",
+    "baseUniqueEffect": "After using your Lantern ability, create a geyser that frequently deals 50 frost damage. Any Slayer moving through the geyser for the first time is granted a stackable 125 health shield that lasts for 25 seconds (max 600 shields).",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -1765,6 +1801,7 @@
       }
     ],
     "uniqueEffect": "After using your Lantern ability, create a geyser that frequently deals 70 frost damage. Any Slayer moving through the geyser for the first time is granted a stackable 125 health shield that lasts for 25 seconds (max 600 shields).",
+    "baseUniqueEffect": "After using your Lantern ability, create a geyser that frequently deals 50 frost damage. Any Slayer moving through the geyser for the first time is granted a stackable 125 health shield that lasts for 25 seconds (max 600 shields).",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -1794,6 +1831,7 @@
       }
     ],
     "uniqueEffect": "After using your Lantern ability, create a geyser that frequently deals 70 frost damage. Any Slayer moving through the geyser for the first time is granted a stackable 125 health shield that lasts for 25 seconds (max 600 shields).",
+    "baseUniqueEffect": "After using your Lantern ability, create a geyser that frequently deals 50 frost damage. Any Slayer moving through the geyser for the first time is granted a stackable 125 health shield that lasts for 25 seconds (max 600 shields).",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -1823,6 +1861,7 @@
       }
     ],
     "uniqueEffect": "After using your Lantern ability, create a geyser that frequently deals 70 frost damage. Any Slayer moving through the geyser for the first time is granted a stackable 125 health shield that lasts for 25 seconds (max 600 shields).",
+    "baseUniqueEffect": "After using your Lantern ability, create a geyser that frequently deals 50 frost damage. Any Slayer moving through the geyser for the first time is granted a stackable 125 health shield that lasts for 25 seconds (max 600 shields).",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -1838,7 +1877,7 @@
     "damageType": "Slashing",
     "element": "Neutral",
     "basePower": 10,
-    "maxPower": 120,
+    "maxPower": 10,
     "cellSockets": [],
     "perks": [],
     "uniqueEffect": null,
@@ -1857,7 +1896,7 @@
     "damageType": "Slashing",
     "element": "Neutral",
     "basePower": 10,
-    "maxPower": 120,
+    "maxPower": 10,
     "cellSockets": [],
     "perks": [],
     "uniqueEffect": null,
@@ -1876,7 +1915,7 @@
     "damageType": "Blunt",
     "element": "Neutral",
     "basePower": 10,
-    "maxPower": 120,
+    "maxPower": 10,
     "cellSockets": [],
     "perks": [],
     "uniqueEffect": null,
@@ -1895,7 +1934,7 @@
     "damageType": "Slashing",
     "element": "Neutral",
     "basePower": 10,
-    "maxPower": 120,
+    "maxPower": 10,
     "cellSockets": [],
     "perks": [],
     "uniqueEffect": null,
@@ -1914,7 +1953,7 @@
     "damageType": "Blunt",
     "element": "Neutral",
     "basePower": 10,
-    "maxPower": 120,
+    "maxPower": 10,
     "cellSockets": [],
     "perks": [],
     "uniqueEffect": null,
@@ -1933,7 +1972,7 @@
     "damageType": "Slashing",
     "element": "Neutral",
     "basePower": 10,
-    "maxPower": 120,
+    "maxPower": 10,
     "cellSockets": [],
     "perks": [],
     "uniqueEffect": null,
@@ -1952,7 +1991,7 @@
     "damageType": "Piercing",
     "element": "Neutral",
     "basePower": 10,
-    "maxPower": 120,
+    "maxPower": 10,
     "cellSockets": [],
     "perks": [],
     "uniqueEffect": null,
@@ -1984,7 +2023,9 @@
         "baseValue": 2
       }
     ],
-    "uniqueEffect": "After a critical strike, reduce the cooldown of Mag Bomb mode by 3 seconds.",
+    "uniqueEffect": "**Barrel:** While Empowered, gain +40% critical strike chance instead of bonus damage.\n**Chamber:** Load 8 Mag Bombs into your magazine. They attach to enemies and are detonated on Reload. The first Mag Bomb attached to each Behemoth part deals +300 damage.\n**Grip:** Dash in a direction, becoming invulnerable for the duration. After dodging through an attack, fire 6 mini-shots that always crit. While in Mag Bomb mode, fires 2 Mag Bombs instead.\n**Prism:** After a critical strike, reduce the cooldown of Mag Bomb mode by 3 seconds.",
+    "isExotic": true,
+    "restrictSpecials": true,
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2000,7 +2041,7 @@
     "damageType": "Slashing",
     "element": "Neutral",
     "basePower": 10,
-    "maxPower": 120,
+    "maxPower": 10,
     "cellSockets": [],
     "perks": [],
     "uniqueEffect": null,
@@ -2033,6 +2074,7 @@
       }
     ],
     "uniqueEffect": "Periodically enter a rage, dealing +15% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.",
+    "baseUniqueEffect": "Periodically enter a rage, dealing +5% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2062,6 +2104,7 @@
       }
     ],
     "uniqueEffect": "Periodically enter a rage, dealing +15% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.",
+    "baseUniqueEffect": "Periodically enter a rage, dealing +5% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2091,6 +2134,7 @@
       }
     ],
     "uniqueEffect": "Periodically enter a rage, dealing +15% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.",
+    "baseUniqueEffect": "Periodically enter a rage, dealing +5% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2120,6 +2164,7 @@
       }
     ],
     "uniqueEffect": "Periodically enter a rage, dealing +15% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.",
+    "baseUniqueEffect": "Periodically enter a rage, dealing +5% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2149,6 +2194,7 @@
       }
     ],
     "uniqueEffect": "Periodically enter a rage, dealing +15% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.",
+    "baseUniqueEffect": "Periodically enter a rage, dealing +5% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2178,6 +2224,7 @@
       }
     ],
     "uniqueEffect": "Periodically enter a rage, dealing +15% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.",
+    "baseUniqueEffect": "Periodically enter a rage, dealing +5% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2207,6 +2254,7 @@
       }
     ],
     "uniqueEffect": "Periodically enter a rage, dealing +15% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.",
+    "baseUniqueEffect": "Periodically enter a rage, dealing +5% damage and gaining immunity to stagger. Taking damage causes you to enrage more quickly.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2236,6 +2284,7 @@
       }
     ],
     "uniqueEffect": "The 15th hit in a row deals +200 damage and major blaze damage",
+    "baseUniqueEffect": "The 15th hit in a row deals +150 damage and major blaze damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2265,6 +2314,7 @@
       }
     ],
     "uniqueEffect": "The 5th hit in a row deals +225 damage and major blaze damage",
+    "baseUniqueEffect": "The 5th hit in a row deals +150 damage and major blaze damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2294,6 +2344,7 @@
       }
     ],
     "uniqueEffect": "The 5th hit in a row deals +225 damage and major blaze damage",
+    "baseUniqueEffect": "The 5th hit in a row deals +150 damage and major blaze damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2323,6 +2374,7 @@
       }
     ],
     "uniqueEffect": "The 15th hit in a row deals +225 damage and major blaze damage",
+    "baseUniqueEffect": "The 15th hit in a row deals +150 damage and major blaze damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2352,6 +2404,7 @@
       }
     ],
     "uniqueEffect": "The 8th hit in a row deals +225 damage and major blaze damage",
+    "baseUniqueEffect": "The 8th hit in a row deals +150 damage and major blaze damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2381,6 +2434,7 @@
       }
     ],
     "uniqueEffect": "The 8th hit in a row deals +225 damage and major blaze damage",
+    "baseUniqueEffect": "The 8th hit in a row deals +150 damage and major blaze damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2410,6 +2464,7 @@
       }
     ],
     "uniqueEffect": "The 10th hit in a row deals +225 damage and major blaze damage",
+    "baseUniqueEffect": "The 10th hit in a row deals +150 damage and major blaze damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2439,6 +2494,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 75 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.",
+    "baseUniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 25 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2468,6 +2524,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 75 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.",
+    "baseUniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 25 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2497,6 +2554,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 75 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.",
+    "baseUniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 25 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2526,6 +2584,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 75 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.",
+    "baseUniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 25 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2555,6 +2614,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 75 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.",
+    "baseUniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 25 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2584,6 +2644,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 75 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.",
+    "baseUniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 25 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2613,6 +2674,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 75 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.",
+    "baseUniqueEffect": "Once charged, your next attack unleashes whirling blades that deal 25 terra damage. Additional attacks speed up the blades, which explode at the end of the duration and deal damage based on blade speed.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2642,6 +2704,7 @@
       }
     ],
     "uniqueEffect": "After not dealing damage for 4 seconds, your next 5 attacks deal +50% damage",
+    "baseUniqueEffect": "After not dealing damage for 4 seconds, your next 4 attacks deal +50% damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2671,6 +2734,7 @@
       }
     ],
     "uniqueEffect": "After not dealing damage for 4 seconds, your next 2 attacks deal +50% damage.",
+    "baseUniqueEffect": "After not dealing damage for 4 seconds, your next attack deals +50% damage.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2700,6 +2764,7 @@
       }
     ],
     "uniqueEffect": "After not dealing damage for 4 seconds, your next 6 attacks deal +50% damage",
+    "baseUniqueEffect": "After not dealing damage for 4 seconds, your next 5 attacks deal +50% damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2729,6 +2794,7 @@
       }
     ],
     "uniqueEffect": "After not dealing damage for 4 seconds, your next 5 attacks deal +50% damage",
+    "baseUniqueEffect": "After not dealing damage for 4 seconds, your next 4 attacks deal +50% damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2758,6 +2824,7 @@
       }
     ],
     "uniqueEffect": "After not dealing damage for 4 seconds, your next 5 attacks deal +50% damage",
+    "baseUniqueEffect": "After not dealing damage for 4 seconds, your next 4 attacks deal +50% damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2787,6 +2854,7 @@
       }
     ],
     "uniqueEffect": "After not dealing damage for 4 seconds, your next 4 attacks deal +50% damage",
+    "baseUniqueEffect": "After not dealing damage for 4 seconds, your next 3 attacks deal +50% damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2816,6 +2884,7 @@
       }
     ],
     "uniqueEffect": "After not dealing damage for 4 seconds, your next 2 attacks deal +50% damage.",
+    "baseUniqueEffect": "After not dealing damage for 4 seconds, your next attack deals +50% damage.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -2999,6 +3068,7 @@
       }
     ],
     "uniqueEffect": "After a Behemoth is staggered, heal for 300",
+    "baseUniqueEffect": "After a Behemoth is staggered, heal for 100",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3028,6 +3098,7 @@
       }
     ],
     "uniqueEffect": "+5% lifesteal vs wounded parts",
+    "baseUniqueEffect": "+3% lifesteal vs wounded parts",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3057,6 +3128,7 @@
       }
     ],
     "uniqueEffect": "When Behemoth part is broken, heal for 200",
+    "baseUniqueEffect": "When Behemoth part is broken, heal for 100",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3086,6 +3158,7 @@
       }
     ],
     "uniqueEffect": "When Behemoth part is broken, heal for 200",
+    "baseUniqueEffect": "When Behemoth part is broken, heal for 100",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3115,6 +3188,7 @@
       }
     ],
     "uniqueEffect": "After landing perfectly charged attacks, heal for 100",
+    "baseUniqueEffect": "After landing perfectly charged attacks, heal for 50",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3144,6 +3218,7 @@
       }
     ],
     "uniqueEffect": "After a Behemoth is staggered, heal for 300",
+    "baseUniqueEffect": "After a Behemoth is staggered, heal for 100",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3173,6 +3248,7 @@
       }
     ],
     "uniqueEffect": "When you fire the last shot in your magazine, heal for 25",
+    "baseUniqueEffect": "When you fire the last shot in your magazine, heal for 15",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3202,6 +3278,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack places a frost brand that deals 2500 frost damage after 30 seconds. Slayers\ncan destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds.",
+    "baseUniqueEffect": "Once charged, your next attack places a frost brand that deals 1000 frost damage after 30 seconds. Slayers\ncan destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3231,6 +3308,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack places a frost brand that deals 2500 frost damage after 30 seconds. Slayers\ncan destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds.",
+    "baseUniqueEffect": "Once charged, your next attack places a frost brand that deals 1000 frost damage after 30 seconds. Slayers\ncan destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3260,6 +3338,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack places a frost brand that deals 2500 frost damage after 30 seconds. Slayers\ncan destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds.",
+    "baseUniqueEffect": "Once charged, your next attack places a frost brand that deals 1000 frost damage after 30 seconds. Slayers\ncan destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3289,6 +3368,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack places a frost brand that deals 2500 frost damage after 30 seconds. Slayers\ncan destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds.",
+    "baseUniqueEffect": "Once charged, your next attack places a frost brand that deals 1000 frost damage after 30 seconds. Slayers\ncan destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3318,6 +3398,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack places a frost brand that deals 2500 frost damage after 30 seconds. Slayers\ncan destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds.",
+    "baseUniqueEffect": "Once charged, your next attack places a frost brand that deals 1000 frost damage after 30 seconds. Slayers\ncan destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3347,6 +3428,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack places a frost brand that deals 2500 frost damage after 30 seconds. Slayers\ncan destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds.",
+    "baseUniqueEffect": "Once charged, your next attack places a frost brand that deals 1000 frost damage after 30 seconds. Slayers\ncan destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3376,6 +3458,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack places a frost brand that deals 2500 frost damage after 30 seconds. Slayers\ncan destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds.",
+    "baseUniqueEffect": "Once charged, your next attack places a frost brand that deals 1000 frost damage after 30 seconds. Slayers\ncan destroy the brand, prematurely detonating it for 50% increased damage. Charges every 90 seconds.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3405,6 +3488,7 @@
       }
     ],
     "uniqueEffect": "Attack a Behemoth part to lock onto it and load a homing missile. Missile deals 175 damage and increases the\ndamage of every other missile in the volley by 175. Deal damage to load up to a maximum of 3 additional missiles.\nDodging fires all loaded missiles on the locked-on part. 45 second cooldown.",
+    "baseUniqueEffect": "Attack a Behemoth part to lock onto it and load a homing missile. Missile deals 100 damage and increases the\ndamage of every other missile in the volley by 100. Deal damage to load up to a maximum of 3 additional missiles.\nDodging fires all loaded missiles on the locked-on part. 45 second cooldown.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3434,6 +3518,7 @@
       }
     ],
     "uniqueEffect": "Attack a Behemoth part to lock onto it and load a homing missile. Missile deals 175 damage and increases the\ndamage of every other missile in the volley by 175. Deal damage to load up to a maximum of 3 additional missiles.\nDodging fires all loaded missiles on the locked-on part. 45 second cooldown.",
+    "baseUniqueEffect": "Attack a Behemoth part to lock onto it and load a homing missile. Missile deals 100 damage and increases the\ndamage of every other missile in the volley by 100. Deal damage to load up to a maximum of 3 additional missiles.\nDodging fires all loaded missiles on the locked-on part. 45 second cooldown.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3463,6 +3548,7 @@
       }
     ],
     "uniqueEffect": "Attack a Behemoth part to lock onto it and load a homing missile. Missile deals 175 damage and increases the\ndamage of every other missile in the volley by 175. Deal damage to load up to a maximum of 3 additional missiles.\nDodging fires all loaded missiles on the locked-on part. 45 second cooldown.",
+    "baseUniqueEffect": "Attack a Behemoth part to lock onto it and load a homing missile. Missile deals 100 damage and increases the\ndamage of every other missile in the volley by 100. Deal damage to load up to a maximum of 3 additional missiles.\nDodging fires all loaded missiles on the locked-on part. 45 second cooldown.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3492,6 +3578,7 @@
       }
     ],
     "uniqueEffect": "Attack a Behemoth part to lock onto it and load a homing missile. Missile deals 175 damage and increases the\ndamage of every other missile in the volley by 175. Deal damage to load up to a maximum of 3 additional missiles.\nDodging fires all loaded missiles on the locked-on part. 45 second cooldown.",
+    "baseUniqueEffect": "Attack a Behemoth part to lock onto it and load a homing missile. Missile deals 100 damage and increases the\ndamage of every other missile in the volley by 100. Deal damage to load up to a maximum of 3 additional missiles.\nDodging fires all loaded missiles on the locked-on part. 45 second cooldown.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3521,6 +3608,7 @@
       }
     ],
     "uniqueEffect": "Attack a Behemoth part to lock onto it and load a homing missile. Missile deals 175 damage and increases the\ndamage of every other missile in the volley by 175. Deal damage to load up to a maximum of 3 additional missiles.\nDodging fires all loaded missiles on the locked-on part. 45 second cooldown.",
+    "baseUniqueEffect": "Attack a Behemoth part to lock onto it and load a homing missile. Missile deals 100 damage and increases the\ndamage of every other missile in the volley by 100. Deal damage to load up to a maximum of 3 additional missiles.\nDodging fires all loaded missiles on the locked-on part. 45 second cooldown.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3550,6 +3638,7 @@
       }
     ],
     "uniqueEffect": "Attack a Behemoth part to lock onto it and load a homing missile. Missile deals 175 damage and increases the\ndamage of every other missile in the volley by 175. Deal damage to load up to a maximum of 3 additional missiles.\nDodging fires all loaded missiles on the locked-on part. 45 second cooldown.",
+    "baseUniqueEffect": "Attack a Behemoth part to lock onto it and load a homing missile. Missile deals 100 damage and increases the\ndamage of every other missile in the volley by 100. Deal damage to load up to a maximum of 3 additional missiles.\nDodging fires all loaded missiles on the locked-on part. 45 second cooldown.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3579,6 +3668,7 @@
       }
     ],
     "uniqueEffect": "Attack a Behemoth part to lock onto it and load a homing missile. Missile deals 175 damage and increases the\ndamage of every other missile in the volley by 175. Deal damage to load up to a maximum of 3 additional missiles.\nDodging fires all loaded missiles on the locked-on part. 45 second cooldown.",
+    "baseUniqueEffect": "Attack a Behemoth part to lock onto it and load a homing missile. Missile deals 100 damage and increases the\ndamage of every other missile in the volley by 100. Deal damage to load up to a maximum of 3 additional missiles.\nDodging fires all loaded missiles on the locked-on part. 45 second cooldown.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3811,6 +3901,7 @@
       }
     ],
     "uniqueEffect": "12% chance for attacks to hit twice.",
+    "baseUniqueEffect": "8% chance for attacks to hit twice.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3840,6 +3931,7 @@
       }
     ],
     "uniqueEffect": "12% chance for attacks to hit twice.",
+    "baseUniqueEffect": "8% chance for attacks to hit twice.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3869,6 +3961,7 @@
       }
     ],
     "uniqueEffect": "12% chance for attacks to hit twice.",
+    "baseUniqueEffect": "8% chance for attacks to hit twice.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3898,6 +3991,7 @@
       }
     ],
     "uniqueEffect": "12% chance for attacks to hit twice.",
+    "baseUniqueEffect": "8% chance for attacks to hit twice.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3927,6 +4021,7 @@
       }
     ],
     "uniqueEffect": "12% chance for attacks to hit twice.",
+    "baseUniqueEffect": "8% chance for attacks to hit twice.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3956,6 +4051,7 @@
       }
     ],
     "uniqueEffect": "12% chance for attacks to hit twice.",
+    "baseUniqueEffect": "8% chance for attacks to hit twice.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -3985,6 +4081,7 @@
       }
     ],
     "uniqueEffect": "12% chance for attacks to hit twice.",
+    "baseUniqueEffect": "8% chance for attacks to hit twice.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4014,6 +4111,8 @@
       }
     ],
     "uniqueEffect": "Channel a beam that deals increasing damage, up to 200%, while it continues to hit a target.",
+    "isExotic": true,
+    "restrictSpecials": true,
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4043,6 +4142,7 @@
       }
     ],
     "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 2.25% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
+    "baseUniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 1.5% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4072,6 +4172,7 @@
       }
     ],
     "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 2.25% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
+    "baseUniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 1.5% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4101,6 +4202,7 @@
       }
     ],
     "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 2.25% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
+    "baseUniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 1.5% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4130,6 +4232,7 @@
       }
     ],
     "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 2.25% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
+    "baseUniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 1.5% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4159,6 +4262,7 @@
       }
     ],
     "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 2.25% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
+    "baseUniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 1.5% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4188,6 +4292,7 @@
       }
     ],
     "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 2.25% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
+    "baseUniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 1.5% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4217,6 +4322,7 @@
       }
     ],
     "uniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 2.25% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
+    "baseUniqueEffect": "Dealing damage has a chance (based on damage dealt) to generate a shadow orb that increases damage dealt by 1.5% for 5 seconds. If 5 or more orbs are present, the bonus doubles.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4246,6 +4352,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next weapon swing/shot unleashes a boomerang projectile that frequently deals 325 shock damage to any target hit. Dodging through an attack reduces charge cooldown.",
+    "baseUniqueEffect": "Once charged, your next weapon swing/shot unleashes a boomerang projectile that frequently deals 250 shock damage to any target hit. Dodging through an attack reduces charge cooldown.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4275,6 +4382,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next weapon swing/shot unleashes a boomerang projectile that frequently deals 325 shock damage to any target hit. Dodging through an attack reduces charge cooldown.",
+    "baseUniqueEffect": "Once charged, your next weapon swing/shot unleashes a boomerang projectile that frequently deals 250 shock damage to any target hit. Dodging through an attack reduces charge cooldown.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4304,6 +4412,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next weapon swing/shot unleashes a boomerang projectile that frequently deals 325 shock damage to any target hit. Dodging through an attack reduces charge cooldown.",
+    "baseUniqueEffect": "Once charged, your next weapon swing/shot unleashes a boomerang projectile that frequently deals 250 shock damage to any target hit. Dodging through an attack reduces charge cooldown.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4333,6 +4442,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next weapon swing/shot unleashes a boomerang projectile that frequently deals 325 shock damage to any target hit. Dodging through an attack reduces charge cooldown.",
+    "baseUniqueEffect": "Once charged, your next weapon swing/shot unleashes a boomerang projectile that frequently deals 250 shock damage to any target hit. Dodging through an attack reduces charge cooldown.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4362,6 +4472,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next weapon swing/shot unleashes a boomerang projectile that frequently deals 325 shock damage to any target hit. Dodging through an attack reduces charge cooldown.",
+    "baseUniqueEffect": "Once charged, your next weapon swing/shot unleashes a boomerang projectile that frequently deals 250 shock damage to any target hit. Dodging through an attack reduces charge cooldown.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4391,6 +4502,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next weapon swing/shot unleashes a boomerang projectile that frequently deals 325 shock damage to any target hit. Dodging through an attack reduces charge cooldown.",
+    "baseUniqueEffect": "Once charged, your next weapon swing/shot unleashes a boomerang projectile that frequently deals 250 shock damage to any target hit. Dodging through an attack reduces charge cooldown.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4420,6 +4532,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next weapon swing/shot unleashes a boomerang projectile that frequently deals 325 shock damage to any target hit. Dodging through an attack reduces charge cooldown.",
+    "baseUniqueEffect": "Once charged, your next weapon swing/shot unleashes a boomerang projectile that frequently deals 250 shock damage to any target hit. Dodging through an attack reduces charge cooldown.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4449,6 +4562,7 @@
       }
     ],
     "uniqueEffect": "After dodging, your next attack deals +100 bonus damage and part damage",
+    "baseUniqueEffect": "After dodging, your next attack deals +50 bonus damage and part damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4478,6 +4592,7 @@
       }
     ],
     "uniqueEffect": "After dodging, your next attack deals +100 bonus damage and part damage",
+    "baseUniqueEffect": "After dodging, your next attack deals +50 bonus damage and part damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4507,6 +4622,7 @@
       }
     ],
     "uniqueEffect": "After dodging, your next attack deals +100 bonus damage and part damage",
+    "baseUniqueEffect": "After dodging, your next attack deals +50 bonus damage and part damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4536,6 +4652,7 @@
       }
     ],
     "uniqueEffect": "After dodging, your next attack deals +100 bonus damage and part damage",
+    "baseUniqueEffect": "After dodging, your next attack deals +50 bonus damage and part damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4565,6 +4682,7 @@
       }
     ],
     "uniqueEffect": "After dodging, your next attack deals +100 bonus damage and part damage",
+    "baseUniqueEffect": "After dodging, your next attack deals +50 bonus damage and part damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4594,6 +4712,7 @@
       }
     ],
     "uniqueEffect": "After dodging, your next attack deals +100 bonus damage and part damage",
+    "baseUniqueEffect": "After dodging, your next attack deals +50 bonus damage and part damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4623,6 +4742,7 @@
       }
     ],
     "uniqueEffect": "After dodging, your next attack deals +100 bonus damage and part damage",
+    "baseUniqueEffect": "After dodging, your next attack deals +50 bonus damage and part damage",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4826,6 +4946,8 @@
       }
     ],
     "uniqueEffect": "Activate to enter Feast, taking damage over time but gaining significant lifesteal, attack speed, and creating aetheric waves with each attack that deal area damage.",
+    "isExotic": true,
+    "restrictSpecials": true,
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4884,6 +5006,7 @@
       }
     ],
     "uniqueEffect": "After using your lantern ability, grant a stackable 250 health shield that lasts for 25 seconds (max 600 shields).",
+    "baseUniqueEffect": "After using your lantern ability, grant a stackable 175 health shield that lasts for 25 seconds (max 600 shields).",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4913,6 +5036,7 @@
       }
     ],
     "uniqueEffect": "After using your lantern ability, grant a stackable 250 health shield that lasts for 25 seconds (max 600 shields).",
+    "baseUniqueEffect": "After using your lantern ability, grant a stackable 175 health shield that lasts for 25 seconds (max 600 shields).",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4942,6 +5066,7 @@
       }
     ],
     "uniqueEffect": "After using your lantern ability, grant a stackable 250 health shield that lasts for 25 seconds (max 600 shields).",
+    "baseUniqueEffect": "After using your lantern ability, grant a stackable 175 health shield that lasts for 25 seconds (max 600 shields).",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -4971,6 +5096,7 @@
       }
     ],
     "uniqueEffect": "After using your lantern ability, grant a stackable 250 health shield that lasts for 25 seconds (max 600 shields).",
+    "baseUniqueEffect": "After using your lantern ability, grant a stackable 175 health shield that lasts for 25 seconds (max 600 shields).",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5000,6 +5126,7 @@
       }
     ],
     "uniqueEffect": "After using your lantern ability, grant a stackable 250 health shield that lasts for 25 seconds (max 600 shields).",
+    "baseUniqueEffect": "After using your lantern ability, grant a stackable 175 health shield that lasts for 25 seconds (max 600 shields).",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5029,6 +5156,7 @@
       }
     ],
     "uniqueEffect": "After using your lantern ability, grant a stackable 250 health shield that lasts for 25 seconds (max 600 shields).",
+    "baseUniqueEffect": "After using your lantern ability, grant a stackable 175 health shield that lasts for 25 seconds (max 600 shields).",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5058,6 +5186,7 @@
       }
     ],
     "uniqueEffect": "After using your lantern ability, grant a stackable 250 health shield that lasts for 25 seconds (max 600 shields).",
+    "baseUniqueEffect": "After using your lantern ability, grant a stackable 175 health shield that lasts for 25 seconds (max 600 shields).",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5087,6 +5216,7 @@
       }
     ],
     "uniqueEffect": "After dodging, drop 3 Ice Mines around you on a 30 second cooldown that deal 300 damage.",
+    "baseUniqueEffect": "After dodging, drop 2 Ice Mines around you on a 30 second cooldown that deal 300 damage.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5116,6 +5246,7 @@
       }
     ],
     "uniqueEffect": "After dodging, drop 3 Ice Mines around you on a 30 second cooldown that deal 300 damage.",
+    "baseUniqueEffect": "After dodging, drop 2 Ice Mines around you on a 30 second cooldown that deal 300 damage.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5145,6 +5276,7 @@
       }
     ],
     "uniqueEffect": "After dodging, drop 3 Ice Mines around you on a 30 second cooldown that deal 300 damage.",
+    "baseUniqueEffect": "After dodging, drop 2 Ice Mines around you on a 30 second cooldown that deal 300 damage.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5174,6 +5306,7 @@
       }
     ],
     "uniqueEffect": "After dodging, drop 3 Ice Mines around you on a 30 second cooldown that deal 300 damage.",
+    "baseUniqueEffect": "After dodging, drop 2 Ice Mines around you on a 30 second cooldown that deal 300 damage.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5203,6 +5336,7 @@
       }
     ],
     "uniqueEffect": "After dodging, drop 3 Ice Mines around you on a 30 second cooldown that deal 300 damage.",
+    "baseUniqueEffect": "After dodging, drop 2 Ice Mines around you on a 30 second cooldown that deal 300 damage.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5232,6 +5366,7 @@
       }
     ],
     "uniqueEffect": "After dodging, drop 3 Ice Mines around you on a 30 second cooldown that deal 300 damage.",
+    "baseUniqueEffect": "After dodging, drop 2 Ice Mines around you on a 30 second cooldown that deal 300 damage.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5261,6 +5396,7 @@
       }
     ],
     "uniqueEffect": "After dodging, drop 3 Ice Mines around you on a 30 second cooldown that deal 300 damage.",
+    "baseUniqueEffect": "After dodging, drop 2 Ice Mines around you on a 30 second cooldown that deal 300 damage.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5290,6 +5426,7 @@
       }
     ],
     "uniqueEffect": "After dodging through an attack, your attacks gain 100% bonus meter for +3 seconds",
+    "baseUniqueEffect": "After dodging through an attack, your attacks gain 100% bonus meter for +2 seconds",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5319,6 +5456,7 @@
       }
     ],
     "uniqueEffect": "After dodging though an attack, extend Mantra timeout by 3 seconds",
+    "baseUniqueEffect": "After dodging though an attack, extend Mantra timeout by 2 seconds",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5348,6 +5486,7 @@
       }
     ],
     "uniqueEffect": "After dodging through an attack, your attacks gain 100% bonus meter for +5 seconds",
+    "baseUniqueEffect": "After dodging through an attack, your attacks gain 100% bonus meter for +4 seconds",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5377,6 +5516,7 @@
       }
     ],
     "uniqueEffect": "After dodging through an attack, reload 3 aethercharged ammo",
+    "baseUniqueEffect": "After dodging through an attack, reload 2 aethercharged ammo",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5406,6 +5546,7 @@
       }
     ],
     "uniqueEffect": "After dodging through an attack, your attacks gain 100% bonus meter for +4 seconds",
+    "baseUniqueEffect": "After dodging through an attack, your attacks gain 100% bonus meter for +3 seconds",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5435,6 +5576,7 @@
       }
     ],
     "uniqueEffect": "On dodging through a Behemoth attack, Empowered Reload.",
+    "baseUniqueEffect": "On dodging through a Behemoth attack, Reload.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5464,6 +5606,7 @@
       }
     ],
     "uniqueEffect": "After dodging through an attack, your attacks gain 100% bonus meter for +4 seconds",
+    "baseUniqueEffect": "After dodging through an attack, your attacks gain 100% bonus meter for +3 seconds",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5647,6 +5790,7 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Heads",
+    "baseUniqueEffect": "20% damage vs Behemoth Heads",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5676,6 +5820,7 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Tails",
+    "baseUniqueEffect": "20% damage vs Behemoth Tails",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5705,6 +5850,7 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Tails",
+    "baseUniqueEffect": "20% damage vs Behemoth Tails",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5734,6 +5880,7 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Heads",
+    "baseUniqueEffect": "20% damage vs Behemoth Heads",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5763,6 +5910,7 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Heads",
+    "baseUniqueEffect": "20% damage vs Behemoth Heads",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5792,6 +5940,7 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Tails",
+    "baseUniqueEffect": "20% damage vs Behemoth Tails",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -5821,6 +5970,7 @@
       }
     ],
     "uniqueEffect": "30% damage vs Behemoth Heads",
+    "baseUniqueEffect": "20% damage vs Behemoth Heads",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -6158,6 +6308,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack will deal 700 bonus radiant damage. Charge rate increases with current health.",
+    "baseUniqueEffect": "Once charged, your next attack will deal 550 bonus radiant damage. Charge rate increases with current health.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -6187,6 +6338,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack will deal 700 bonus radiant damage. Charge rate increases with current health.",
+    "baseUniqueEffect": "Once charged, your next attack will deal 550 bonus radiant damage. Charge rate increases with current health.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -6216,6 +6368,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack will deal 700 bonus radiant damage. Charge rate increases with current health.",
+    "baseUniqueEffect": "Once charged, your next attack will deal 550 bonus radiant damage. Charge rate increases with current health.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -6245,6 +6398,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack will deal 700 bonus radiant damage. Charge rate increases with current health.",
+    "baseUniqueEffect": "Once charged, your next attack will deal 550 bonus radiant damage. Charge rate increases with current health.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -6274,6 +6428,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack will deal 700 bonus radiant damage. Charge rate increases with current health.",
+    "baseUniqueEffect": "Once charged, your next attack will deal 550 bonus radiant damage. Charge rate increases with current health.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -6303,6 +6458,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack will deal 700 bonus radiant damage. Charge rate increases with current health.",
+    "baseUniqueEffect": "Once charged, your next attack will deal 550 bonus radiant damage. Charge rate increases with current health.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null
@@ -6332,6 +6488,7 @@
       }
     ],
     "uniqueEffect": "Once charged, your next attack will deal 700 bonus radiant damage. Charge rate increases with current health.",
+    "baseUniqueEffect": "Once charged, your next attack will deal 550 bonus radiant damage. Charge rate increases with current health.",
     "isLegendary": false,
     "bondElement": null,
     "legendaryIcon": null

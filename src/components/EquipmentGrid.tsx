@@ -7,7 +7,7 @@ import {
   ArmourItem,
 } from '../types/builder';
 import { PickerSlotType } from './SlotPickerSheet';
-import { parseCellSpec } from '../utils/calculator';
+import { parseCellSpec, EXOTIC_WEAPON_IDS } from '../utils/calculator';
 import { getElementStyle, resolveAssetUrl, getCellCategoryIcon } from '../utils/theme';
 import { renderFormattedCoreText } from '../utils/formatText';
 import {
@@ -66,9 +66,13 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
   const currentLantern = patchData.lanterns.find(l => l.id === build.lantern);
   const currentOmnicell = patchData.omnicells.find(o => o.id === build.omnicell);
 
+  const isWeaponExotic = Boolean(currentWeapon && (currentWeapon.isExotic || EXOTIC_WEAPON_IDS.has(currentWeapon.id)));
+  const restrictSpecials = Boolean(currentWeapon && (currentWeapon.restrictSpecials || isWeaponExotic));
+
   const isRepeater = !!currentWeapon && (currentWeapon.type === 'repeater' || currentWeapon.typeName?.toLowerCase().includes('repeater'));
-  const isModularRepeaterEra = isRepeater && (isClassic || patchData.version === '1.6.2');
-  const isReforgedRepeaterEra = isRepeater && !isClassic && patchData.version !== '1.6.2' && !isAwakening;
+  const isExoticRepeater = isRepeater && isWeaponExotic && !isAwakening;
+  const isModularRepeaterEra = isRepeater && !isWeaponExotic && (isClassic || patchData.version === '1.6.2');
+  const isReforgedRepeaterEra = isRepeater && !isWeaponExotic && !isClassic && patchData.version !== '1.6.2' && !isAwakening;
 
   const currentBarrel = patchData.repeaterParts?.barrels?.find(b => b.id === build.repeaterBarrel);
   const currentChamber = patchData.repeaterParts?.chambers?.find(c => c.id === build.repeaterChamber);
@@ -78,14 +82,31 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
 
   const normalizedWeaponType = currentWeapon ? currentWeapon.type.toLowerCase().replace(/\s+/g, '') : '';
   const weaponPartsForType = patchData.weaponParts?.[normalizedWeaponType];
-  const hasWeaponParts = !isRepeater && !isAwakening && !!weaponPartsForType && ((weaponPartsForType.specials?.length || 0) > 0 || (weaponPartsForType.mods?.length || 0) > 0);
+  const hasWeaponParts = !isRepeater && !isAwakening && !!weaponPartsForType && (
+    (!restrictSpecials && (weaponPartsForType.specials?.length || 0) > 0) ||
+    (weaponPartsForType.mods?.length || 0) > 0
+  );
 
-  const currentSpecial = weaponPartsForType?.specials?.find(s => s.id === build.weaponSpecial)
-    || weaponPartsForType?.specials?.[0]
-    || null;
-  const currentModPart = weaponPartsForType?.mods?.find(m => m.id === build.weaponMod)
-    || weaponPartsForType?.mods?.[0]
-    || null;
+  const currentSpecial = restrictSpecials || build.weaponSpecial === null
+    ? null
+    : (weaponPartsForType?.specials?.find(s => s.id === build.weaponSpecial)
+      || weaponPartsForType?.specials?.find(s => s.tags?.includes('Recommended'))
+      || weaponPartsForType?.specials?.[0]
+      || null);
+  const currentModPart = build.weaponMod === null
+    ? null
+    : (weaponPartsForType?.mods?.find(m => m.id === build.weaponMod)
+      || weaponPartsForType?.mods?.find(m => m.tags?.includes('Recommended'))
+      || weaponPartsForType?.mods?.[0]
+      || null);
+
+  const getActiveUniqueEffect = (item?: { uniqueEffect?: string | null; baseUniqueEffect?: string | null } | null): string | null => {
+    if (!item) return null;
+    if (!isClassic && !isAwakening && !powerSurged && item.baseUniqueEffect) {
+      return item.baseUniqueEffect;
+    }
+    return item.uniqueEffect || null;
+  };
 
   const getClassicPerkVal = (level: number, baseMaxVal = 3) => {
     if (level >= 10) return Math.min(3, baseMaxVal);
@@ -93,8 +114,17 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
     return Math.min(1, baseMaxVal);
   };
 
+  const getWeaponPerkVal = (p: { value: number; baseValue?: number }) => {
+    if (isClassic) {
+      return getClassicPerkVal(Math.max(0, Math.min(15, build.gearLevels?.weapon ?? 15)), p.value);
+    }
+    if (isAwakening) return p.value;
+    return powerSurged ? p.value : (p.baseValue ?? p.value);
+  };
+
   const getWeaponPower = (w: WeaponItem, slotKey: string) => {
-    const isModRep = (isClassic || patchData.version === '1.6.2') && (w.type === 'repeater' || w.typeName?.toLowerCase().includes('repeater'));
+    const isWepExotic = Boolean(w.isExotic || EXOTIC_WEAPON_IDS.has(w.id));
+    const isModRep = !isWepExotic && (isClassic || patchData.version === '1.6.2') && (w.type === 'repeater' || w.typeName?.toLowerCase().includes('repeater'));
     if (isModRep && currentBarrel) {
       if (isClassic) {
         const lvl = build.gearLevels?.[slotKey] ?? 15;
@@ -149,11 +179,13 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
         }));
       }
     }
-    return a.perks.map(p => ({
-      id: p.id,
-      name: p.name,
-      value: isAwakening ? p.value : (powerSurged ? p.value : (p.baseValue ?? p.value)),
-    }));
+    return a.perks
+      .map(p => ({
+        id: p.id,
+        name: p.name,
+        value: isAwakening ? p.value : (powerSurged ? p.value : (p.baseValue ?? p.value)),
+      }))
+      .filter(p => p.value > 0);
   };
 
   const renderGearLevelControl = (slotKey: string) => {
@@ -598,22 +630,33 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
               <strong>{currentWeapon ? currentWeapon.name : 'Choose a Weapon...'}</strong>
               {currentWeapon ? (
                 <span className="gear-badges">
+                  {isWeaponExotic && (
+                    <em className="border-amber-500/40 bg-amber-500/15 text-amber-300 font-bold">
+                      Exotic
+                    </em>
+                  )}
                   <em className={`element ${(isModularRepeaterEra && currentBarrel ? (currentBarrel.element || 'Neutral') : currentWeapon.element).toLowerCase()}`}>
                     {isModularRepeaterEra && currentBarrel ? (currentBarrel.element || 'Neutral') : currentWeapon.element}
                   </em>
                   <em>
                     <Zap className="h-3 w-3 text-amber-400" /> {getWeaponPower(currentWeapon, 'weapon')} power{isClassic ? ` (+${Math.max(0, Math.min(15, build.gearLevels?.weapon ?? 15))})` : ''}
                   </em>
-                  {currentWeapon.perks.map(p => (
-                    <em key={p.id}>
-                      +{isClassic ? getClassicPerkVal(Math.max(0, Math.min(15, build.gearLevels?.weapon ?? 15)), p.value) : (powerSurged ? p.value : (p.baseValue ?? p.value))} {p.name}
-                    </em>
-                  ))}
-                  {currentWeapon.isLegendary && bondedWeapon && bondedWeapon.perks.map(p => (
-                    <em key={p.id} className="border-amber-500/40 text-amber-300">
-                      +{isClassic ? getClassicPerkVal(Math.max(0, Math.min(15, build.gearLevels?.weapon ?? 15)), p.value) : (powerSurged ? p.value : (p.baseValue ?? p.value))} {p.name} (Bond)
-                    </em>
-                  ))}
+                  {currentWeapon.perks
+                    .map(p => ({ ...p, activeVal: getWeaponPerkVal(p) }))
+                    .filter(p => p.activeVal > 0)
+                    .map(p => (
+                      <em key={p.id}>
+                        +{p.activeVal} {p.name}
+                      </em>
+                    ))}
+                  {currentWeapon.isLegendary && bondedWeapon && bondedWeapon.perks
+                    .map(p => ({ ...p, activeVal: getWeaponPerkVal(p) }))
+                    .filter(p => p.activeVal > 0)
+                    .map(p => (
+                      <em key={p.id} className="border-amber-500/40 text-amber-300">
+                        +{p.activeVal} {p.name} (Bond)
+                      </em>
+                    ))}
                 </span>
               ) : (
                 <span className="gear-subtitle">Tap to browse swords, axes, hammers, chainblades...</span>
@@ -623,10 +666,18 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
           </button>
 
           {/* Unique Effect Preview */}
-          {((!currentWeapon?.isLegendary && currentWeapon?.uniqueEffect) || (isModularRepeaterEra && currentPrism?.uniqueEffect)) && (
+          {((!currentWeapon?.isLegendary && getActiveUniqueEffect(currentWeapon)) || (isModularRepeaterEra && currentPrism?.uniqueEffect)) && (
             <div className="gear-unique-effect-row px-4 py-2 border-t border-[#1d313a] text-xs text-cyan-200/90 italic leading-snug flex items-start gap-1.5">
               <Sparkles className="h-3.5 w-3.5 text-cyan-400 shrink-0 mt-0.5" />
-              <span>{isModularRepeaterEra && currentPrism?.uniqueEffect ? currentPrism.uniqueEffect : currentWeapon?.uniqueEffect}</span>
+              <div className="flex-1 min-w-0">
+                {renderFormattedCoreText(
+                  isModularRepeaterEra && currentPrism?.uniqueEffect
+                    ? currentPrism.uniqueEffect
+                    : getActiveUniqueEffect(currentWeapon),
+                  'space-y-1',
+                  'text-cyan-300'
+                )}
+              </div>
             </div>
           )}
 
@@ -862,48 +913,99 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
             </div>
           )}
 
+          {/* Exotic Repeater Modification (The Twin Suns: Fixed Barrel/Chamber/Grip/Prism, Mod customizable) */}
+          {isExoticRepeater && (
+            <div className="gear-repeater-panel px-3 sm:px-4 py-3 border-t border-[#1d313a] bg-gradient-to-r from-[#071319] via-[#091820] to-[#0c1e27]">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+                  <Sparkles className="h-3.5 w-3.5 text-amber-400" />
+                  Exotic Repeater Modification
+                </span>
+                <span className="text-[10px] text-gray-400">Exotic Abilities Fixed · Mod Customizable</span>
+              </div>
+
+              <div className="grid grid-cols-1 gap-2">
+                <button
+                  type="button"
+                  onClick={() => onOpenPicker('repeaterMod')}
+                  className="gear-repeater-slot p-2.5 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex items-center justify-between gap-2.5 group"
+                >
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <span className="gear-repeater-icon w-8 h-8 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                      {currentMod?.icon ? (
+                        <img src={resolveAssetUrl(currentMod.icon)} alt={currentMod.name} className="w-full h-full object-contain" />
+                      ) : (
+                        <Layers className="h-4 w-4 text-emerald-400" />
+                      )}
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-gray-400 block">Mod</span>
+                      <strong className="text-xs text-white truncate block group-hover:text-cyan-300">
+                        {currentMod ? currentMod.name : 'Choose Mod'}
+                      </strong>
+                    </div>
+                  </div>
+                  <ChevronRight className="h-3.5 w-3.5 text-gray-500" />
+                </button>
+              </div>
+
+              {currentMod?.partEffect && currentMod.partEffect.length > 0 && (
+                <div className="gear-part-desc-box mt-2 p-2 rounded-lg bg-[#09151a] border border-[#1b313d] text-[11px] text-gray-300 leading-relaxed">
+                  <span className="font-bold text-emerald-400">{currentMod.name}: </span>
+                  <span>{currentMod.partEffect.join(' ')}</span>
+                </div>
+              )}
+            </div>
+          )}
+
           {/* Melee Weapon Special & Modification (Swords, Axes, Hammers, Chain Blades, War Pikes, Strikers) */}
           {hasWeaponParts && (
             <div className="gear-weapon-parts-panel px-3 sm:px-4 py-3 border-t border-[#1d313a] bg-gradient-to-r from-[#071319] via-[#091820] to-[#0c1e27]">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
                   <Zap className="h-3.5 w-3.5 text-cyan-400" />
-                  {currentWeapon?.typeName} Special & Modification
+                  {restrictSpecials
+                    ? `${currentWeapon?.typeName} Exotic Modification`
+                    : `${currentWeapon?.typeName} Special & Modification`}
                 </span>
-                <span className="text-[10px] text-gray-400">Customizable Loadout</span>
+                <span className="text-[10px] text-gray-400">
+                  {restrictSpecials ? 'Exotic Special Fixed' : 'Customizable Loadout'}
+                </span>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {/* 1. Special */}
-                <button
-                  type="button"
-                  onClick={() => onOpenPicker('weaponSpecial')}
-                  className="gear-weapon-part-slot p-2.5 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex items-center justify-between gap-2.5 group"
-                >
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    <span className="gear-part-icon w-9 h-9 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-0.5 shrink-0 overflow-hidden">
-                      {currentSpecial?.icon ? (
-                        <img
-                          src={resolveAssetUrl(currentSpecial.icon)}
-                          alt={currentSpecial.name}
-                          className="w-full h-full object-contain"
-                          onError={(e) => {
-                            (e.target as HTMLElement).style.display = 'none';
-                          }}
-                        />
-                      ) : (
-                        <Zap className="h-4 w-4 text-cyan-400" />
-                      )}
-                    </span>
-                    <div className="min-w-0 flex-1">
-                      <span className="text-[9px] font-bold uppercase tracking-wider text-gray-400 block">Special</span>
-                      <strong className="text-xs text-white truncate block group-hover:text-cyan-300 transition-colors">
-                        {currentSpecial ? currentSpecial.name : 'Choose Special'}
-                      </strong>
+              <div className={`grid grid-cols-1 ${restrictSpecials ? '' : 'sm:grid-cols-2'} gap-2`}>
+                {/* 1. Special (Hidden for Exotic melee weapons whose Special is fixed) */}
+                {!restrictSpecials && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenPicker('weaponSpecial')}
+                    className="gear-weapon-part-slot p-2.5 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex items-center justify-between gap-2.5 group"
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <span className="gear-part-icon w-9 h-9 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-0.5 shrink-0 overflow-hidden">
+                        {currentSpecial?.icon ? (
+                          <img
+                            src={resolveAssetUrl(currentSpecial.icon)}
+                            alt={currentSpecial.name}
+                            className="w-full h-full object-contain"
+                            onError={(e) => {
+                              (e.target as HTMLElement).style.display = 'none';
+                            }}
+                          />
+                        ) : (
+                          <Zap className="h-4 w-4 text-cyan-400" />
+                        )}
+                      </span>
+                      <div className="min-w-0 flex-1">
+                        <span className="text-[9px] font-bold uppercase tracking-wider text-gray-400 block">Special</span>
+                        <strong className="text-xs text-white truncate block group-hover:text-cyan-300 transition-colors">
+                          {currentSpecial ? currentSpecial.name : 'Choose Special'}
+                        </strong>
+                      </div>
                     </div>
-                  </div>
-                  <ChevronRight className="h-3.5 w-3.5 text-gray-500 group-hover:text-cyan-400 shrink-0 transition-colors" />
-                </button>
+                    <ChevronRight className="h-3.5 w-3.5 text-gray-500 group-hover:text-cyan-400 shrink-0 transition-colors" />
+                  </button>
+                )}
 
                 {/* 2. Mod */}
                 <button
@@ -938,20 +1040,22 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
               </div>
 
               {/* Special & Mod active description previews */}
-              <div className="mt-2 space-y-1.5 text-xs">
-                {currentSpecial && (
-                  <div className="gear-part-desc-box p-2 rounded-lg bg-[#09151a] border border-[#1b313d] text-[11px] text-gray-300 leading-relaxed">
-                    <span className="font-bold text-cyan-400">{currentSpecial.name}: </span>
-                    <span>{currentSpecial.description}</span>
-                  </div>
-                )}
-                {currentModPart && (
-                  <div className="gear-part-desc-box p-2 rounded-lg bg-[#09151a] border border-[#1b313d] text-[11px] text-gray-300 leading-relaxed">
-                    <span className="font-bold text-emerald-400">{currentModPart.name}: </span>
-                    <span>{currentModPart.description}</span>
-                  </div>
-                )}
-              </div>
+              {(currentSpecial || currentModPart) && (
+                <div className="mt-2 space-y-1.5 text-xs">
+                  {currentSpecial && (
+                    <div className="gear-part-desc-box p-2 rounded-lg bg-[#09151a] border border-[#1b313d] text-[11px] text-gray-300 leading-relaxed">
+                      <span className="font-bold text-cyan-400">{currentSpecial.name}: </span>
+                      <span>{currentSpecial.description}</span>
+                    </div>
+                  )}
+                  {currentModPart && (
+                    <div className="gear-part-desc-box p-2 rounded-lg bg-[#09151a] border border-[#1b313d] text-[11px] text-gray-300 leading-relaxed">
+                      <span className="font-bold text-emerald-400">{currentModPart.name}: </span>
+                      <span>{currentModPart.description}</span>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           )}
 
@@ -1043,14 +1147,17 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                       </span>
                     </div>
                     <div className="flex flex-wrap items-center gap-1.5 mt-0.5 text-[10.5px]">
-                      {bondedWeapon.perks.map(p => (
-                        <span key={p.id} className="text-cyan-300 font-semibold">
-                          +{isClassic ? getClassicPerkVal(Math.max(0, Math.min(15, build.gearLevels?.weapon ?? 15)), p.value) : (powerSurged ? p.value : (p.baseValue ?? p.value))} {p.name}
-                        </span>
-                      ))}
-                      {bondedWeapon.uniqueEffect && (
+                      {bondedWeapon.perks
+                        .map(p => ({ ...p, activeVal: getWeaponPerkVal(p) }))
+                        .filter(p => p.activeVal > 0)
+                        .map(p => (
+                          <span key={p.id} className="text-cyan-300 font-semibold">
+                            +{p.activeVal} {p.name}
+                          </span>
+                        ))}
+                      {getActiveUniqueEffect(bondedWeapon) && (
                         <span className="text-gray-400 italic truncate max-w-[200px] sm:max-w-xs block">
-                          • {bondedWeapon.uniqueEffect}
+                          • {getActiveUniqueEffect(bondedWeapon)?.replace(/\n+/g, ' ')}
                         </span>
                       )}
                     </div>
@@ -1071,26 +1178,37 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
           )}
 
           {/* Bonded Weapon Unique Effect Preview */}
-          {bondedWeapon?.uniqueEffect && (
+          {getActiveUniqueEffect(bondedWeapon) && (
             <div className="gear-bond-effect px-4 py-2 border-t border-[#1d313a] text-xs text-amber-200/90 italic leading-snug flex items-start gap-1.5 bg-[#081217]">
               <Sparkles className="h-3.5 w-3.5 text-amber-400 shrink-0 mt-0.5" />
-              <span><strong>Bond Effect:</strong> {bondedWeapon.uniqueEffect}</span>
+              <div className="flex-1 min-w-0">
+                {renderFormattedCoreText(`Bond Effect: ${getActiveUniqueEffect(bondedWeapon)}`, 'space-y-1', 'text-amber-300')}
+              </div>
             </div>
           )}
 
           {/* Weapon Cell Sockets */}
-          {hasCellSockets && currentWeapon && currentWeapon.cellSockets && currentWeapon.cellSockets.length > 0 && (
+          {hasCellSockets && currentWeapon && currentWeapon.cellSockets && currentWeapon.cellSockets.filter(Boolean).length > 0 && (
             <div className="gear-footer">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="text-[10px] text-gray-400 font-bold uppercase">Sockets:</span>
-                {renderCellButton(build.weaponCells[0] || null, currentWeapon.cellSockets[0] || 'prismatic', 'weaponCell_0')}
+                {currentWeapon.cellSockets[0] &&
+                  renderCellButton(build.weaponCells[0] || null, currentWeapon.cellSockets[0], 'weaponCell_0')}
                 {currentWeapon.cellSockets[1] &&
                   renderCellButton(build.weaponCells[1] || null, currentWeapon.cellSockets[1], 'weaponCell_1')}
               </div>
               <span className="hidden sm:inline text-[11px] text-gray-400">
                 {currentWeapon.isLegendary && bondedWeapon
-                  ? bondedWeapon.perks.map(p => `+${powerSurged ? p.value : (p.baseValue ?? p.value)} ${p.name} (Bond)`).join(', ')
-                  : currentWeapon.perks.map(p => `+${powerSurged ? p.value : (p.baseValue ?? p.value)} ${p.name}`).join(', ')}
+                  ? bondedWeapon.perks
+                      .map(p => ({ ...p, activeVal: getWeaponPerkVal(p) }))
+                      .filter(p => p.activeVal > 0)
+                      .map(p => `+${p.activeVal} ${p.name} (Bond)`)
+                      .join(', ')
+                  : currentWeapon.perks
+                      .map(p => ({ ...p, activeVal: getWeaponPerkVal(p) }))
+                      .filter(p => p.activeVal > 0)
+                      .map(p => `+${p.activeVal} ${p.name}`)
+                      .join(', ')}
               </span>
             </div>
           )}
@@ -1146,6 +1264,11 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
 
                   {item ? (
                     <span className="gear-badges">
+                      {item.isExotic && (
+                        <em className="border-amber-500/40 bg-amber-500/15 text-amber-300 font-bold">
+                          Exotic
+                        </em>
+                      )}
                       <em>
                         <Shield className="h-3 w-3 text-cyan-400" /> {getArmourRes(item, slot)} res{isClassic ? ` (+${Math.max(0, Math.min(15, build.gearLevels?.[slot] ?? 15))})` : ''}
                       </em>
@@ -1166,10 +1289,20 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                 </span>
                 <span className="slot-label">{label} <ChevronRight className="h-3.5 w-3.5" /></span>
               </button>
+
+              {/* Exotic / Unique Armour Effect (e.g. The Skullforge, Prismatic Grace, Tragic Echo) */}
+              {getActiveUniqueEffect(item) && (
+                <div className="gear-unique-effect-row px-3.5 py-2 border-t border-[#1d313a] text-[11px] text-cyan-200/90 italic leading-snug flex items-start gap-1.5">
+                  <Sparkles className="h-3.5 w-3.5 text-cyan-400 shrink-0 mt-0.5" />
+                  <div className="flex-1 min-w-0">
+                    {renderFormattedCoreText(getActiveUniqueEffect(item), 'space-y-1', 'text-cyan-300')}
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Cell Socket Button(s) in Footer */}
-            {hasCellSockets && item && (
+            {hasCellSockets && item && (isAwakening || Boolean(item.cellSocket)) && (
               <div className="gear-footer">
                 <div className="flex flex-wrap items-center gap-1.5">
                   {renderCellButton(cellSpec, item.cellSocket || 'prismatic', cellSlot)}
@@ -1289,12 +1422,12 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
             </div>
           )}
 
-          {/* Cell socket for lantern (ONLY in Reforged / Classic) */}
-          {hasCellSockets && currentLantern && !isAwakening && (
+          {/* Cell socket for lantern (ONLY in Reforged / Classic when socket exists) */}
+          {hasCellSockets && currentLantern && !isAwakening && Boolean(currentLantern.cellSocket) && (
             <div className="gear-footer">
               <div className="flex items-center gap-2">
                 <span className="text-[10px] text-gray-400 font-bold uppercase">Socket:</span>
-                {renderCellButton(build.lanternCell, currentLantern.cellSocket || 'prismatic', 'lanternCell')}
+                {renderCellButton(build.lanternCell, currentLantern.cellSocket!, 'lanternCell')}
               </div>
             </div>
           )}

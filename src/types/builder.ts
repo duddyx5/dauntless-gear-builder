@@ -79,6 +79,9 @@ export interface WeaponItem {
   cellSockets: string[]; // ['brutality', 'brutality']
   perks: ItemPerkRef[];
   uniqueEffect: string | null;
+  baseUniqueEffect?: string | null;
+  isExotic?: boolean;
+  restrictSpecials?: boolean;
   isLegendary?: boolean;
   bondElement?: string | null;
   legendaryIcon?: string | null;
@@ -106,6 +109,9 @@ export interface ArmourItem {
   cellSocket: string;
   cellSockets?: string[];
   perks: ItemPerkRef[];
+  uniqueEffect?: string | null;
+  baseUniqueEffect?: string | null;
+  isExotic?: boolean;
   stats?: {
     min_level: number;
     perks: Record<string, number>;
@@ -196,6 +202,8 @@ export interface BuildState {
   weaponMod?: string | null;
   weaponTalents?: number[];
   secondaryWeaponTalents?: number[];
+  weaponTalentsMask?: number;
+  secondaryWeaponTalentsMask?: number;
   gearLevels?: Record<string, number>;
   weaponCells: (string | null)[];
   repeaterBarrel?: string | null;

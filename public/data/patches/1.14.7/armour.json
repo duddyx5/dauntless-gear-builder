@@ -283,7 +283,9 @@
         "value": 3,
         "baseValue": 2
       }
-    ]
+    ],
+    "uniqueEffect": "1.5% of all damage dealt becomes a stamina shield (max 50) that depletes first when spending stamina. Depletes slowly after 5 seconds not dealing damage.",
+    "isExotic": true
   },
   {
     "id": "volcanic_aegis",
@@ -824,8 +826,8 @@
     "strength": null,
     "weakness": null,
     "baseResistance": 20,
-    "maxResistance": 30,
-    "cellSocket": "prismatic",
+    "maxResistance": 20,
+    "cellSocket": "",
     "perks": []
   },
   {
@@ -839,8 +841,8 @@
     "strength": null,
     "weakness": null,
     "baseResistance": 20,
-    "maxResistance": 30,
-    "cellSocket": "prismatic",
+    "maxResistance": 20,
+    "cellSocket": "",
     "perks": []
   },
   {
@@ -854,8 +856,8 @@
     "strength": null,
     "weakness": null,
     "baseResistance": 20,
-    "maxResistance": 30,
-    "cellSocket": "prismatic",
+    "maxResistance": 20,
+    "cellSocket": "",
     "perks": []
   },
   {
@@ -869,8 +871,8 @@
     "strength": null,
     "weakness": null,
     "baseResistance": 20,
-    "maxResistance": 30,
-    "cellSocket": "prismatic",
+    "maxResistance": 20,
+    "cellSocket": "",
     "perks": []
   },
   {
@@ -1236,8 +1238,8 @@
     "strength": null,
     "weakness": null,
     "baseResistance": 0,
-    "maxResistance": 30,
-    "cellSocket": "prismatic",
+    "maxResistance": 0,
+    "cellSocket": "",
     "perks": []
   },
   {
@@ -1251,8 +1253,8 @@
     "strength": null,
     "weakness": null,
     "baseResistance": 0,
-    "maxResistance": 30,
-    "cellSocket": "prismatic",
+    "maxResistance": 0,
+    "cellSocket": "",
     "perks": []
   },
   {
@@ -1266,8 +1268,8 @@
     "strength": null,
     "weakness": null,
     "baseResistance": 0,
-    "maxResistance": 30,
-    "cellSocket": "prismatic",
+    "maxResistance": 0,
+    "cellSocket": "",
     "perks": []
   },
   {
@@ -1281,8 +1283,8 @@
     "strength": null,
     "weakness": null,
     "baseResistance": 0,
-    "maxResistance": 30,
-    "cellSocket": "prismatic",
+    "maxResistance": 0,
+    "cellSocket": "",
     "perks": []
   },
   {
@@ -1833,7 +1835,9 @@
         "value": 3,
         "baseValue": 2
       }
-    ]
+    ],
+    "uniqueEffect": "After reviving another player, grant them a Radiant Prism that blocks incoming damage for 5 seconds.\nThe first time you take lethal damage, gain a Radiant Prism that blocks incoming damage for 10 seconds.\nWhile active, reviving another player fully restores both players but removes the Prism even at full danger.",
+    "isExotic": true
   },
   {
     "id": "guise_of_the_rift",
@@ -2207,7 +2211,9 @@
         "value": 3,
         "baseValue": 2
       }
-    ]
+    ],
+    "uniqueEffect": "Upon your first death, become a shadow clone that deals 100% increased damage for 15 seconds.",
+    "isExotic": true
   },
   {
     "id": "heart_of_stone",

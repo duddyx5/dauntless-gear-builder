@@ -204,11 +204,11 @@ function compileYamlPatch(patchId, baseDir) {
       behemoth
     });
 
-    let cellSocket = 'prismatic';
-    if (typeof doc.cells === 'string') {
-      cellSocket = doc.cells.toLowerCase();
-    } else if (Array.isArray(doc.cells) && doc.cells.length > 0) {
-      cellSocket = String(doc.cells[0]).toLowerCase();
+    let cellSocket = '';
+    if (typeof doc.cells === 'string' && doc.cells.trim()) {
+      cellSocket = doc.cells.toLowerCase().trim();
+    } else if (Array.isArray(doc.cells) && doc.cells.length > 0 && doc.cells[0]) {
+      cellSocket = String(doc.cells[0]).toLowerCase().trim();
     }
 
     const perks = [];
@@ -220,15 +220,38 @@ function compileYamlPatch(patchId, baseDir) {
         perkGroups[p.name].push(p);
       }
       for (const [pName, group] of Object.entries(perkGroups)) {
-        const psPerk = group.find(p => p.powerSurged === true || p.from === 1 || p.to === 1) || group[group.length - 1];
-        const basePerk = group.find(p => p.powerSurged === false || p.from === 0 || p.to === 0) || group[0];
+        const psPerk = group.find(p => p.powerSurged === true || p.from === 1 || p.to === 1)
+          || group.find(p => p.powerSurged === undefined && p.from === undefined)
+          || group[group.length - 1];
+        const basePerk = group.find(p => p.powerSurged === false || p.from === 0 || (p.powerSurged === undefined && p.from === undefined));
         perks.push({
           id: slugify(pName),
           name: pName,
           value: psPerk ? psPerk.value : 3,
-          baseValue: basePerk ? basePerk.value : (psPerk ? psPerk.value : 1)
+          baseValue: basePerk ? basePerk.value : 0
         });
       }
+    }
+
+    let armourUniqueEffect = null;
+    let armourBaseUniqueEffect = null;
+    if (Array.isArray(doc.unique_effects) && doc.unique_effects.length > 0) {
+      const surgedEffects = doc.unique_effects.filter(u =>
+        u.name !== 'Unsupported' && (u.powerSurged === true || u.from === 1 || u.to === 1 || (u.powerSurged === undefined && u.from === undefined))
+      );
+      const baseEffects = doc.unique_effects.filter(u =>
+        u.name !== 'Unsupported' && (u.powerSurged === false || u.from === 0 || (u.powerSurged === undefined && u.from === undefined))
+      );
+      const formatUeList = (list) => {
+        if (!list.length) return null;
+        return list.map(ue => {
+          const combinedValues = { ...(doc.values || {}), ...(ue.values || {}) };
+          const text = interpolate(ue.description, combinedValues).replace(/[ \t]{2,}/g, ' ').trim();
+          return ue.title && list.length > 1 ? `**${ue.title}:** ${text}` : text;
+        }).filter(Boolean).join('\n');
+      };
+      armourUniqueEffect = formatUeList(surgedEffects);
+      armourBaseUniqueEffect = formatUeList(baseEffects);
     }
 
     let baseResistance = 20;
@@ -237,6 +260,7 @@ function compileYamlPatch(patchId, baseDir) {
       baseResistance = 25;
       maxResistance = 137.5;
     } else if (doc.resistance) {
+      const hasBase = typeof doc.resistance.base === 'number' || typeof doc.resistance[0] === 'number';
       if (typeof doc.resistance.base === 'number') {
         baseResistance = doc.resistance.base;
       } else if (typeof doc.resistance[0] === 'number') {
@@ -246,6 +270,8 @@ function compileYamlPatch(patchId, baseDir) {
         maxResistance = doc.resistance.powerSurged;
       } else if (typeof doc.resistance[1] === 'number') {
         maxResistance = doc.resistance[1];
+      } else if (hasBase) {
+        maxResistance = baseResistance;
       }
     }
 
@@ -262,7 +288,10 @@ function compileYamlPatch(patchId, baseDir) {
       baseResistance,
       maxResistance,
       cellSocket,
-      perks
+      perks,
+      ...(armourUniqueEffect ? { uniqueEffect: armourUniqueEffect } : {}),
+      ...(armourBaseUniqueEffect && armourBaseUniqueEffect !== armourUniqueEffect ? { baseUniqueEffect: armourBaseUniqueEffect } : {}),
+      ...(doc.rarity === 'exotic' ? { isExotic: true } : {})
     });
   }
 
@@ -302,22 +331,38 @@ function compileYamlPatch(patchId, baseDir) {
         perkGroups[p.name].push(p);
       }
       for (const [pName, group] of Object.entries(perkGroups)) {
-        const psPerk = group.find(p => p.powerSurged === true || p.from === 1 || p.to === 1) || group[group.length - 1];
-        const basePerk = group.find(p => p.powerSurged === false || p.from === 0 || p.to === 0) || group[0];
+        const psPerk = group.find(p => p.powerSurged === true || p.from === 1 || p.to === 1)
+          || group.find(p => p.powerSurged === undefined && p.from === undefined)
+          || group[group.length - 1];
+        const basePerk = group.find(p => p.powerSurged === false || p.from === 0 || (p.powerSurged === undefined && p.from === undefined));
         perks.push({
           id: slugify(pName),
           name: pName,
           value: psPerk ? psPerk.value : 3,
-          baseValue: basePerk ? basePerk.value : (psPerk ? psPerk.value : 1)
+          baseValue: basePerk ? basePerk.value : 0
         });
       }
     }
 
     let uniqueEffect = null;
+    let baseUniqueEffect = null;
     if (Array.isArray(doc.unique_effects) && doc.unique_effects.length > 0) {
-      const ue = doc.unique_effects.find(u => u.powerSurged === true || u.from === 1 || u.to === 1) || doc.unique_effects[doc.unique_effects.length - 1];
-      const combinedValues = { ...(doc.values || {}), ...(ue.values || {}) };
-      uniqueEffect = interpolate(ue.description, combinedValues);
+      const surgedEffects = doc.unique_effects.filter(u =>
+        u.name !== 'Unsupported' && (u.powerSurged === true || u.from === 1 || u.to === 1 || (u.powerSurged === undefined && u.from === undefined))
+      );
+      const baseEffects = doc.unique_effects.filter(u =>
+        u.name !== 'Unsupported' && (u.powerSurged === false || u.from === 0 || (u.powerSurged === undefined && u.from === undefined))
+      );
+      const formatUeList = (list) => {
+        if (!list.length) return null;
+        return list.map(ue => {
+          const combinedValues = { ...(doc.values || {}), ...(ue.values || {}) };
+          const text = interpolate(ue.description, combinedValues).replace(/[ \t]{2,}/g, ' ').trim();
+          return ue.title && list.length > 1 ? `**${ue.title}:** ${text}` : text;
+        }).filter(Boolean).join('\n');
+      };
+      uniqueEffect = formatUeList(surgedEffects);
+      baseUniqueEffect = formatUeList(baseEffects);
     }
 
     let basePower = 80;
@@ -326,6 +371,7 @@ function compileYamlPatch(patchId, baseDir) {
       basePower = 100;
       maxPower = 550;
     } else if (doc.power) {
+      const hasBase = typeof doc.power.base === 'number' || typeof doc.power[0] === 'number';
       if (typeof doc.power.base === 'number') {
         basePower = doc.power.base;
       } else if (typeof doc.power[0] === 'number') {
@@ -335,11 +381,15 @@ function compileYamlPatch(patchId, baseDir) {
         maxPower = doc.power.powerSurged;
       } else if (typeof doc.power[1] === 'number') {
         maxPower = doc.power[1];
+      } else if (hasBase) {
+        maxPower = basePower;
       }
     }
 
     const isLegendary = !!doc.bond || ['Malkarion', 'Torgadoro', 'Thrax', 'Agarus', 'Urska', 'Chronovore'].includes(behemoth);
     const bondElement = (doc.bond && doc.bond.elemental) || (isLegendary ? (doc.elemental || 'Neutral') : null);
+    const isExotic = doc.rarity === 'exotic';
+    const restrictSpecials = Boolean(doc.restrict_specials || isExotic);
 
     const legendaryIcons = {
       'Agarus': '/assets/icons/abilities/AgarusLegendaryWeaponAbility.png',
@@ -366,6 +416,9 @@ function compileYamlPatch(patchId, baseDir) {
       cellSockets,
       perks,
       uniqueEffect,
+      ...(baseUniqueEffect && baseUniqueEffect !== uniqueEffect ? { baseUniqueEffect } : {}),
+      ...(isExotic ? { isExotic: true } : {}),
+      ...(restrictSpecials ? { restrictSpecials: true } : {}),
       isLegendary,
       bondElement,
       legendaryIcon
@@ -381,10 +434,12 @@ function compileYamlPatch(patchId, baseDir) {
     let holdDesc = '';
     let instantDesc = '';
     if (doc.lantern_ability) {
-      holdDesc = interpolate(doc.lantern_ability.hold, doc.values);
-      instantDesc = interpolate(doc.lantern_ability.instant, doc.values);
+      holdDesc = interpolate(doc.lantern_ability.hold, doc.values).replace(/[ \t]{2,}/g, ' ').trim();
+      instantDesc = interpolate(doc.lantern_ability.instant, doc.values).replace(/[ \t]{2,}/g, ' ').trim();
     }
-    const cellSocket = (typeof doc.cells === 'string' ? doc.cells : 'prismatic').toLowerCase();
+    const cellSocket = typeof doc.cells === 'string' && doc.cells.trim()
+      ? doc.cells.toLowerCase().trim()
+      : null;
 
     lanternsList.push({
       id: slugify(doc.name),
@@ -405,8 +460,14 @@ function compileYamlPatch(patchId, baseDir) {
     for (const f of omnicellFiles) {
       const doc = yaml.load(fs.readFileSync(f, 'utf8'));
       if (!doc || !doc.name) continue;
-      const passiveDesc = interpolate(doc.passive, { ...(doc.values || {}), ...(doc.passive_values || {}) });
-      const activeDesc = interpolate(doc.active, { ...(doc.values || {}), ...(doc.active_values || {}) });
+      const passiveDesc = interpolate(doc.passive, { ...(doc.values || {}), ...(doc.passive_values || {}) })
+        .replace(/[ \t]{2,}/g, ' ')
+        .trim();
+      const activeDesc = interpolate(doc.active, { ...(doc.values || {}), ...(doc.active_values || {}) })
+        .replace(/[ \t]{2,}/g, ' ')
+        .trim();
+      const cooldown = (doc.active_values && (doc.active_values.cooldown || doc.active_values.damageCooldown))
+        || (doc.name === 'Artificer' ? 20 : 0);
 
       omnicellsList.push({
         id: slugify(doc.name),
@@ -415,7 +476,7 @@ function compileYamlPatch(patchId, baseDir) {
         abilityIcon: doc.ability_icon || '',
         passive: passiveDesc,
         active: activeDesc,
-        cooldown: (doc.active_values && doc.active_values.cooldown) || 0
+        cooldown
       });
     }
   }
@@ -748,7 +809,7 @@ function writeManifest() {
         releaseDate: "2025-02-25",
         description: "The Awakening overhaul featuring Weapon Talents, Lantern Cores, and revised equipment progression.",
         hasOmnicells: false,
-        hasCellSockets: false,
+        hasCellSockets: true,
         hasPowerSurge: false,
         era: "Awakening"
       }
@@ -760,10 +821,9 @@ function writeManifest() {
   console.log("Wrote manifest.json for 1.4.4, 1.6.2, 1.12.0, 1.14.7, 2.1.1");
 }
 
-// Compile all 5 versions requested
+// Compile YAML-backed versions (2.1.1 Phalanx JSON in public/data/patches/2.1.1 is curated separately)
 compileYamlPatch('1.4.4', path.join(process.cwd(), 'data-sources/patch-1.6.2/data'));
 compileYamlPatch('1.6.2', path.join(process.cwd(), 'data-sources/patch-1.6.2/data'));
 compileYamlPatch('1.12.0', path.join(process.cwd(), 'data-sources/patch-1.12.0/data'));
 compileYamlPatch('1.14.7', path.join(process.cwd(), 'data-sources/reforged/data'));
-compileAwakening();
 writeManifest();

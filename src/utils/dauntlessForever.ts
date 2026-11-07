@@ -1,4 +1,4 @@
-import { BuildState, PatchData } from '../types/builder';
+import { BuildState, PatchData, WeaponItem, ArmourItem } from '../types/builder';
 import { parseCellSpec } from './calculator';
 
 export const DAUNTLESS_FOREVER_SUPPORTED_VERSIONS = ['1.6.2', '1.14.7'];
@@ -51,27 +51,126 @@ export async function loadDFItems(): Promise<{ '1.6.2': DFItem[]; '1.14.7': DFIt
   }
 }
 
-// Special alias dictionary for items where display name differs from catalog
-const SPECIAL_ALIASES: Record<string, string> = {
-  // Cells
-  'wild frenzy cell': 'CELL_LOWHP_ATKSPD_E',
-  '+3 wild frenzy cell': 'CELL_LOWHP_ATKSPD_E',
-  '+2 wild frenzy cell': 'CELL_LOWHP_ATKSPD_R',
-  '+1 wild frenzy cell': 'CELL_LOWHP_ATKSPD_UC',
-  'pulse cell': 'CELL_CRIT_ON_HIT_E',
-  '+3 pulse cell': 'CELL_CRIT_ON_HIT_E',
-  'assassin\'s frenzy cell': 'CELL_PART_BREAK_ATKSPD_UP_E',
-  '+3 assassin\'s frenzy cell': 'CELL_PART_BREAK_ATKSPD_UP_E',
-  'catalyst cell': 'CELL_BETTER_CONSUMABLE_E',
-  '+3 catalyst cell': 'CELL_BETTER_CONSUMABLE_E',
+// Phoenix Labs internal Behemoth codenames used in Dauntless Forever's item catalog
+const BEHEMOTH_CODENAMES: Record<string, string> = {
+  agarus: 'FUNGUY',
+  alyra: 'AMBER',
+  boreus: 'HOST',
+  charrogg: 'SALLY',
+  chronovore: 'GLITTER',
+  drask: 'FULGAR',
+  embermane: 'LERAWR',
+  fenroar: 'FENROAR',
+  frostwulf: 'FROSTWOLF',
+  'frostwülf': 'FROSTWOLF',
+  gnasher: 'BEAVER',
+  hellion: 'LAVAROLLER',
+  kharabak: 'SCISSORS',
+  koshai: 'PAPER',
+  malkarion: 'THUNDERBIRD',
+  nayzaga: 'ELECTROQUILL',
+  pangar: 'MCROLLIN',
+  phaelanx: 'HABANERO',
+  quillshot: 'BULLSEYE',
+  rezakiri: 'BUGBEAR',
+  riftstalker: 'SHADOWCAT',
+  sahvyt: 'MANTIS',
+  shrike: 'MOONFACE',
+  shrowd: 'CROWBEAR',
+  skarn: 'ROCK',
+  skraev: 'SNOWFLAKE',
+  stormclaw: 'SHOCKMANE',
+  thrax: 'RANDALL',
+  'thunderdeep drask': 'FULGAR_ALPHA',
+  thunderdeep: 'FULGAR_ALPHA',
+  torgadoro: 'ARMSTRONG',
+  urska: 'MINT',
+  valomyr: 'SALT',
+};
 
-  // Common Gear
+const WEAPON_TYPE_PREFIX: Record<string, string> = {
+  sword: 'WP_EB',
+  axe: 'WP_GA',
+  hammer: 'WP_IH',
+  chainblades: 'WP_CB',
+  'chain blades': 'WP_CB',
+  warpike: 'WP_MS',
+  'war pike': 'WP_MS',
+  aetherstrikers: 'WP_AC',
+  'aether strikers': 'WP_AC',
+  strikers: 'WP_AC',
+  repeater: 'WP_DP',
+  repeaters: 'WP_DP',
+};
+
+const ARMOUR_SLOT_SUFFIX: Record<string, string> = {
+  head: 'HELM',
+  torso: 'CHEST',
+  arms: 'ARMS',
+  legs: 'LEGS',
+};
+
+// Direct ID aliases for Exotics, Event weapons, Cosmetic/Starter sets, and Omnicells
+const DIRECT_GEAR_ALIASES: Record<string, string> = {
   'the hunger': 'WP_EB_CROWBEAR_EXOTIC',
   'the godhand': 'WP_MS_BUGBEAR_EXOTIC',
-  'molten edict': 'WP_IH_SNOUT_EXOTIC',
-  'the skullforge': 'AR_SNOUT_EXOTIC_HELM',
+  'molten edict': 'WP_IH_SALLY_EXOTIC',
+  'the twin suns': 'WP_DP_EXOTIC_BOMBS',
+  repeater: 'WP_DP_OSTIAN',
+  'silver sword': 'WP_EB_FROSTFALL_L10R',
+  'the golden claws': 'WP_AC_SPRINGTIDE_L10',
+  'training sword': 'WP_EB_TRAINING',
+
+  'the skullforge': 'AR_SALLY_EXOTIC_HELM',
   'prismatic grace': 'AR_BUGBEAR_EXOTIC_HELM',
   'tragic echo': 'AR_CROWBEAR_EXOTIC_HELM',
+  'hands of the rift': 'AR_SHADOWCAT_ARMS',
+  'timeweave helm': 'AR_CRYSTAL_HELM',
+  'timeweave robes': 'AR_CRYSTAL_CHEST',
+  'timeweave gauntlets': 'AR_CRYSTAL_ARMS',
+  'timeweave leggings': 'AR_CRYSTAL_LEGS',
+  'krolachi shave': 'AR_NAKED_HELM',
+  'krolachi tunic': 'AR_NAKED_CHEST',
+  'krolachi wraps': 'AR_NAKED_ARMS',
+  'krolachi shorts': 'AR_NAKED_LEGS',
+  "recruit's breastplate": 'AR_BEGINNER_CHEST',
+  "recruit's gloves": 'AR_BEGINNER_ARMS',
+  "recruit's greaves": 'AR_BEGINNER_LEGS',
+
+  artificer: 'PR_FRANK',
+  bastion: 'PR_BASTION',
+  discipline: 'PR_DISCIPLINE',
+  iceborne: 'PR_ICEBORNE',
+  revenant: 'PR_DARKNESS',
+  tempest: 'PR_TEMPEST',
+};
+
+// Cell prefix aliases (without _UC / _R / _E tier suffix) for cells whose internal catalog display name wasn't localized
+const CELL_PREFIX_ALIASES: Record<string, string> = {
+  'wild frenzy cell': 'CELL_LOWHP_ATKSPD',
+  'pulse cell': 'CELL_RHYTHMIC',
+  "assassin's frenzy cell": 'CELL_PART_BREAK_ATKSPD_UP',
+  'catalyst cell': 'CELL_BETTER_CONSUMABLE',
+  'galvanized cell': 'CELL_HPSHIELD_CRIT',
+  'impulse cell': 'CELL_CRIT_DAMAGE_FROM_MS',
+  'inertia cell': 'CELL_CRIT_CHANCE_WHILE_SPRINT',
+  'recycle cell': 'CELL_SAME_PART_DMG_UP',
+  'conservation cell': 'CELL_MS_DOWN_SHIELD_UP',
+  'aegis cell': 'CELL_SHIELDS_HIT_ABSORB',
+  'omnisurge cell': 'CELL_OMNISURGE',
+  'tactician cell': 'CELL_TEAMEXPOSE',
+  'rushdown cell': 'CELL_INTERRUPT_STAM',
+  'aetheric evasion cell': 'CELL_LANTERNCHARGE_FLAT',
+  'stop cell': 'CELL_DODGE_STAGGER',
+  'drop cell': 'CELL_MIN_STAM',
+  'roll cell': 'CELL_STAGGER_FREE_DODGE',
+  'water cell': 'CELL_DODGE_DR',
+  'fire cell': 'CELL_ATKSPD_MVSPD_SELFHARM',
+  'earth cell': 'CELL_SHIELD_DETONATION',
+  'reduce cell': 'CELL_DMGUP_ATKSPDDOWN',
+  'pack hunter cell': 'CELL_KILL_FAUNA_DMG',
+  'pack caller cell': 'CELL_BREAK_SUMMON_FAUNA',
+  'pack walker cell': 'CELL_NEAR_FAUNA_MS_AS',
 };
 
 function normalize(s: string): string {
@@ -79,41 +178,98 @@ function normalize(s: string): string {
 }
 
 /**
- * Find the best matching Dauntless Forever item for a given name and category.
+ * Find the best matching Dauntless Forever item for a given name, category, and optional metadata.
  */
 export function findDFItem(
   name: string,
-  cat: 'Weapons' | 'Armour' | 'Lanterns' | 'Cells',
-  items: DFItem[]
+  cat: 'Weapons' | 'Armour' | 'Lanterns' | 'Cells' | 'Omnicells',
+  items: DFItem[],
+  meta?: { weapon?: WeaponItem; armour?: ArmourItem; cellLevel?: number }
 ): DFItem | null {
   if (!name) return null;
   const lower = name.toLowerCase().trim();
 
-  // 1. Direct alias match
-  if (SPECIAL_ALIASES[lower]) {
-    const id = SPECIAL_ALIASES[lower];
-    const found = items.find(i => i.id === id);
+  // 1. Cells: exact tier-aware resolution (_UC = +1, _R = +2, _E = +3)
+  if (cat === 'Cells') {
+    const levelMatch = lower.match(/^\+([123])\s+(.+)$/);
+    const lvl = meta?.cellLevel || (levelMatch ? parseInt(levelMatch[1], 10) : 3);
+    const rawBase = (levelMatch ? levelMatch[2] : lower).trim();
+    const baseCellName = rawBase.endsWith(' cell') ? rawBase : `${rawBase} cell`;
+    const tierSuffix = lvl === 1 ? '_UC' : lvl === 2 ? '_R' : '_E';
+
+    // 1a. Direct prefix alias
+    const aliasPrefix = CELL_PREFIX_ALIASES[baseCellName];
+    if (aliasPrefix) {
+      const aliased = items.find(i => i.id === `${aliasPrefix}${tierSuffix}`);
+      if (aliased) return aliased;
+    }
+
+    // 1b. Exact "+N <Name>" match
+    const exactTierName = `+${lvl} ${baseCellName}`;
+    const exactTier = items.find(i => i.cat === 'Cells' && i.name.toLowerCase() === exactTierName && i.id.endsWith(tierSuffix));
+    if (exactTier) return exactTier;
+
+    // 1c. Find sibling tier (+3 or +2) by name and swap suffix (_E / _R -> target tierSuffix)
+    // This resolves all +1 cells in 1.6.2 where only +2/+3 have display names in the catalog.
+    const sibling = items.find(
+      i =>
+        i.cat === 'Cells' &&
+        /_(?:UC|R|E)$/.test(i.id) &&
+        (i.name.toLowerCase() === `+3 ${baseCellName}` ||
+          i.name.toLowerCase() === `+2 ${baseCellName}` ||
+          i.name.toLowerCase() === `+1 ${baseCellName}` ||
+          i.name.toLowerCase() === baseCellName)
+    );
+    if (sibling) {
+      const stem = sibling.id.replace(/_(?:UC|R|E)$/, '');
+      const exactIdMatch = items.find(i => i.id === `${stem}${tierSuffix}`);
+      if (exactIdMatch) return exactIdMatch;
+    }
+
+    return null;
+  }
+
+  // 2. Direct gear/omnicell ID alias
+  if (DIRECT_GEAR_ALIASES[lower]) {
+    const aliasId = DIRECT_GEAR_ALIASES[lower];
+    const found = items.find(i => i.id === aliasId);
     if (found) return found;
   }
 
-  // 2. Exact name match within category
+  // 3. Exact display name match within category
   const exact = items.find(i => i.cat === cat && i.name.toLowerCase() === lower);
   if (exact) return exact;
 
-  // 3. For Cells: check "+3 [Name] Cell"
-  if (cat === 'Cells') {
-    const withPlus3 = `+3 ${lower}`;
-    const cellMatch = items.find(i => i.cat === 'Cells' && (i.name.toLowerCase() === withPlus3 || i.name.toLowerCase().includes(lower)));
-    if (cellMatch) return cellMatch;
+  // 4. Codename construction from Behemoth + WeaponType / ArmourSlot
+  if (cat === 'Weapons' && meta?.weapon) {
+    const bKey = (meta.weapon.behemoth || '').toLowerCase().trim();
+    const wPrefix = WEAPON_TYPE_PREFIX[(meta.weapon.type || '').toLowerCase().trim()];
+    const bCode = BEHEMOTH_CODENAMES[bKey] || (lower.startsWith("recruit's") ? 'BEGINNER' : null);
+    if (wPrefix && bCode) {
+      const codeId = `${wPrefix}_${bCode}`;
+      const byCode = items.find(i => i.id === codeId);
+      if (byCode) return byCode;
+    }
   }
 
-  // 4. Normalized string match
+  if (cat === 'Armour' && meta?.armour) {
+    const bKey = (meta.armour.behemoth || '').toLowerCase().trim();
+    const aSuffix = ARMOUR_SLOT_SUFFIX[(meta.armour.slot || '').toLowerCase().trim()];
+    const bCode = BEHEMOTH_CODENAMES[bKey] || (lower.startsWith("recruit's") ? 'BEGINNER' : null);
+    if (aSuffix && bCode) {
+      const codeId = `AR_${bCode}_${aSuffix}`;
+      const byCode = items.find(i => i.id === codeId);
+      if (byCode) return byCode;
+    }
+  }
+
+  // 5. Normalized string match
   const norm = normalize(name);
   const normMatch = items.find(i => i.cat === cat && normalize(i.name) === norm);
   if (normMatch) return normMatch;
 
-  // 5. Partial inclusion match
-  const partial = items.find(i => i.cat === cat && (normalize(i.name).includes(norm) || norm.includes(normalize(i.name))));
+  // 6. Partial inclusion match
+  const partial = items.find(i => i.cat === cat && normalize(i.name).length >= 5 && (normalize(i.name).includes(norm) || norm.includes(normalize(i.name))));
   if (partial) return partial;
 
   return null;
@@ -128,31 +284,35 @@ export function generateDFCommands(
   dfItems: { '1.6.2': DFItem[]; '1.14.7': DFItem[] },
   forcedTargetVersion?: '1.6.2' | '1.14.7'
 ): DFBuildCommands {
-  // Determine target game version (1.6.2 vs 1.14.7)
   const targetVer: '1.6.2' | '1.14.7' = forcedTargetVersion || (build.version === '1.6.2' ? '1.6.2' : '1.14.7');
   const catalog = dfItems[targetVer] || dfItems['1.14.7'] || [];
 
   const gearList: ResolvedDFItem[] = [];
+  const seenGearIds = new Set<string>();
   const cellsMap: Record<string, { dfItem: DFItem; count: number; name: string }> = {};
   const unresolved: string[] = [];
 
-  // Helper to resolve gear
-  function resolveGear(slotName: string, itemId: string | null, cat: 'Weapons' | 'Armour' | 'Lanterns') {
+  function resolveGear(slotName: string, itemId: string | null | undefined, cat: 'Weapons' | 'Armour' | 'Lanterns' | 'Omnicells') {
     if (!itemId) return;
     let displayName = itemId;
+    let weaponMeta: WeaponItem | undefined;
+    let armourMeta: ArmourItem | undefined;
 
     if (cat === 'Weapons') {
-      const item = patchData.weapons.find(w => w.id === itemId);
-      if (item) displayName = item.name;
+      weaponMeta = patchData.weapons.find(w => w.id === itemId);
+      if (weaponMeta) displayName = weaponMeta.name;
     } else if (cat === 'Armour') {
-      const item = patchData.armour.find(a => a.id === itemId);
-      if (item) displayName = item.name;
+      armourMeta = patchData.armour.find(a => a.id === itemId);
+      if (armourMeta) displayName = armourMeta.name;
     } else if (cat === 'Lanterns') {
       const item = patchData.lanterns.find(l => l.id === itemId);
       if (item) displayName = item.name;
+    } else if (cat === 'Omnicells') {
+      const item = patchData.omnicells.find(o => o.id === itemId);
+      if (item) displayName = item.name;
     }
 
-    const matched = findDFItem(displayName, cat, catalog);
+    const matched = findDFItem(displayName, cat, catalog, { weapon: weaponMeta, armour: armourMeta });
     if (matched) {
       gearList.push({
         slotName,
@@ -161,13 +321,18 @@ export function generateDFCommands(
         category: cat,
         how: (matched.how as any) || 'g',
       });
+      seenGearIds.add(matched.id);
     } else {
       unresolved.push(`${slotName}: ${displayName}`);
     }
   }
 
-  // 1. Weapon
+  // 1. Primary Weapon & Bonded Weapon (needed in inventory to bond onto Legendary weapons!)
   resolveGear('Weapon', build.weapon, 'Weapons');
+  const equippedWeapon = patchData.weapons.find(w => w.id === build.weapon);
+  if (equippedWeapon?.isLegendary && build.bondedWeapon) {
+    resolveGear('Bonded Weapon', build.bondedWeapon, 'Weapons');
+  }
 
   // 2. Armour
   resolveGear('Head', build.head, 'Armour');
@@ -175,8 +340,11 @@ export function generateDFCommands(
   resolveGear('Arms', build.arms, 'Armour');
   resolveGear('Legs', build.legs, 'Armour');
 
-  // 3. Lantern
+  // 3. Lantern & Omnicell (1.14.7)
   resolveGear('Lantern', build.lantern, 'Lanterns');
+  if (targetVer === '1.14.7' && build.omnicell) {
+    resolveGear('Omnicell', build.omnicell, 'Omnicells');
+  }
 
   // 4. Cells
   const allCellSpecs = [
@@ -194,12 +362,13 @@ export function generateDFCommands(
     const parsed = parseCellSpec(spec, patchData.cells);
     if (!parsed) return;
     const cellName = parsed.cell ? parsed.cell.name : spec;
-    const tierName = `+${parsed.variantLevel || 3} ${cellName}`;
+    const lvl = parsed.variantLevel || 3;
+    const tierName = `+${lvl} ${cellName}`;
 
-    const matched = findDFItem(tierName, 'Cells', catalog) || findDFItem(cellName, 'Cells', catalog);
+    const matched = findDFItem(tierName, 'Cells', catalog, { cellLevel: lvl });
     if (matched) {
       if (!cellsMap[matched.id]) {
-        cellsMap[matched.id] = { dfItem: matched, count: 0, name: matched.name };
+        cellsMap[matched.id] = { dfItem: matched, count: 0, name: tierName };
       }
       cellsMap[matched.id].count += 1;
     } else {
@@ -216,8 +385,7 @@ export function generateDFCommands(
     how: 's',
   }));
 
-  // Build command strings
-  const gearIds = gearList.map(g => g.dfId);
+  const gearIds = Array.from(seenGearIds);
   const cellAssignments = cellsList.map(c => `${c.dfId}=${c.count || 1}`);
 
   const addGearCmd = gearIds.length > 0 ? `& $node tools\\items.js addgear '*' ${gearIds.join(' ')}` : '';
@@ -230,7 +398,7 @@ export function generateDFCommands(
     'cd $v',
     '$node = (Get-Content config.json -Raw | ConvertFrom-Json).Node; if (-not $node) { $node = "node" }',
     '',
-    gearIds.length > 0 ? `# 1. Add Build Gear (Weapons, Armour, Lantern)\n${addGearCmd}\n` : '',
+    gearIds.length > 0 ? `# 1. Add Build Gear (Weapons, Bond, Armour, Lantern, Omnicell)\n${addGearCmd}\n` : '',
     cellAssignments.length > 0 ? `# 2. Set Cells Inventory\n${setCellsCmd}\n` : '',
     'Write-Host "Build items successfully injected into Dauntless Forever!" -ForegroundColor Green',
   ].filter(Boolean).join('\n');

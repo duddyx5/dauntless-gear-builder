@@ -49,7 +49,7 @@
     "name": "Recruit's Lantern",
     "icon": "/assets/icons/lanterns/GenericLantern.png",
     "description": "",
-    "cellSocket": "prismatic",
+    "cellSocket": null,
     "holdAbility": "Disperses aether that allows the Slayer to track the Behemoth.",
     "instantAbility": "Grants a 50 hit point shield (doesn't stack)"
   },

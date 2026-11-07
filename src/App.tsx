@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import {
   PatchManifest,
   PatchData,
@@ -29,6 +29,7 @@ import { PresetsModal } from './components/PresetsModal';
 import { DauntlessForeverModal } from './components/DauntlessForeverModal';
 import { SettingsModal } from './components/SettingsModal';
 import { OnboardingModal } from './components/OnboardingModal';
+import { ShareModal } from './components/ShareModal';
 import { Toast } from './components/Toast';
 import { Loader2, AlertCircle, Youtube, Github, Coffee, Heart, Sparkles } from 'lucide-react';
 
@@ -57,13 +58,15 @@ export const App: React.FC = () => {
       const decoded = decodeBuildFromHash(window.location.hash);
       if (decoded) {
         return {
-          ...DEFAULT_BUILD,
+          ...createEmptyBuild(decoded.version || '1.14.7'),
           ...decoded,
         };
       }
     }
     return DEFAULT_BUILD;
   });
+
+  const lastSharedHashRef = useRef<string>('');
 
   const [activePicker, setActivePicker] = useState<{
     slot: PickerSlotType | null;
@@ -73,6 +76,7 @@ export const App: React.FC = () => {
   const [isPresetsOpen, setIsPresetsOpen] = useState(false);
   const [isLauncherModalOpen, setIsLauncherModalOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [currentTheme, setCurrentTheme] = useState<ThemeMode>(() => initTheme());
   const [isOnboardingOpen, setIsOnboardingOpen] = useState<boolean>(() => {
     if (typeof window === 'undefined') return false;
@@ -98,6 +102,26 @@ export const App: React.FC = () => {
     setIsOnboardingOpen(false);
     showToast('Welcome Slayer! Start forging your build.');
   };
+
+  // Listen for manual URL hash changes (e.g. pasting #b=<code> or #b.<code> into address bar)
+  useEffect(() => {
+    const onHashChange = () => {
+      const h = window.location.hash;
+      if (!h || h === lastSharedHashRef.current) return;
+      const decoded = decodeBuildFromHash(h);
+      if (decoded) {
+        const targetVer = decoded.version || '1.14.7';
+        setBuild({
+          ...createEmptyBuild(targetVer),
+          ...decoded,
+        });
+        setCurrentVersionId(targetVer);
+        showToast(`Loaded build from URL (Patch ${targetVer})`);
+      }
+    };
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, [showToast]);
 
   // 1. Fetch manifest.json
   useEffect(() => {
@@ -156,8 +180,21 @@ export const App: React.FC = () => {
 
         // Sanitize build to make sure equipped items exist in this patch
         setBuild(prev => {
-          const weaponExists = prev.weapon ? loaded.weapons.some(w => w.id === prev.weapon) : false;
-          const bondedWeaponExists = prev.bondedWeapon ? loaded.weapons.some(w => w.id === prev.bondedWeapon) : false;
+          const weaponObj = prev.weapon ? loaded.weapons.find(w => w.id === prev.weapon) : undefined;
+          const weaponExists = Boolean(weaponObj);
+          const isExoticWep = Boolean(weaponObj && (weaponObj.isExotic || EXOTIC_WEAPON_IDS.has(weaponObj.id)));
+          const restrictSpecials = Boolean(weaponObj && (weaponObj.restrictSpecials || isExoticWep));
+          const isTwinSuns = weaponObj?.id === 'the_twin_suns';
+          const isRepeaterWep = weaponObj?.type === 'repeater';
+
+          const bondedObj = prev.bondedWeapon ? loaded.weapons.find(w => w.id === prev.bondedWeapon) : undefined;
+          const bondedWeaponExists = Boolean(
+            bondedObj &&
+            weaponObj?.isLegendary &&
+            !bondedObj.isLegendary &&
+            !bondedObj.isExotic &&
+            !EXOTIC_WEAPON_IDS.has(bondedObj.id)
+          );
           const secWeaponExists = prev.secondaryWeapon ? loaded.weapons.some(w => w.id === prev.secondaryWeapon) : false;
           const headExists = prev.head ? loaded.armour.some(a => a.id === prev.head && a.slot === 'head') : false;
           const torsoExists = prev.torso ? loaded.armour.some(a => a.id === prev.torso && a.slot === 'torso') : false;
@@ -166,11 +203,20 @@ export const App: React.FC = () => {
           const lanternExists = prev.lantern ? loaded.lanterns.some(l => l.id === prev.lantern) : false;
           const omnicellExists = prev.omnicell ? loaded.omnicells.some(o => o.id === prev.omnicell) : false;
 
-          const barrelExists = prev.repeaterBarrel && loaded.repeaterParts?.barrels?.some(b => b.id === prev.repeaterBarrel);
-          const chamberExists = prev.repeaterChamber && loaded.repeaterParts?.chambers?.some(c => c.id === prev.repeaterChamber);
-          const gripExists = prev.repeaterGrip && loaded.repeaterParts?.grips?.some(g => g.id === prev.repeaterGrip);
-          const prismExists = prev.repeaterPrism && loaded.repeaterParts?.prisms?.some(p => p.id === prev.repeaterPrism);
-          const modExists = prev.repeaterMod && loaded.repeaterParts?.mods?.some(m => m.id === prev.repeaterMod);
+          const normType = weaponObj ? weaponObj.type.toLowerCase().replace(/\s+/g, '') : '';
+          const partsForType = normType && loaded.weaponParts ? loaded.weaponParts[normType] : undefined;
+          const specialExists = !isRepeaterWep && !restrictSpecials && prev.weaponSpecial
+            ? Boolean(partsForType?.specials?.some(s => s.id === prev.weaponSpecial))
+            : false;
+          const weaponModExists = !isRepeaterWep && prev.weaponMod
+            ? Boolean(partsForType?.mods?.some(m => m.id === prev.weaponMod))
+            : false;
+
+          const barrelExists = isRepeaterWep && !isTwinSuns && prev.repeaterBarrel && loaded.repeaterParts?.barrels?.some(b => b.id === prev.repeaterBarrel);
+          const chamberExists = isRepeaterWep && !isTwinSuns && prev.repeaterChamber && loaded.repeaterParts?.chambers?.some(c => c.id === prev.repeaterChamber);
+          const gripExists = isRepeaterWep && !isTwinSuns && prev.repeaterGrip && loaded.repeaterParts?.grips?.some(g => g.id === prev.repeaterGrip);
+          const prismExists = isRepeaterWep && !isTwinSuns && prev.repeaterPrism && loaded.repeaterParts?.prisms?.some(p => p.id === prev.repeaterPrism);
+          const modExists = isRepeaterWep && prev.repeaterMod && loaded.repeaterParts?.mods?.some(m => m.id === prev.repeaterMod);
 
           const isClassic = currentVersionId === '1.4.4';
           const maxLevel = isClassic ? 15 : 20;
@@ -187,6 +233,8 @@ export const App: React.FC = () => {
             weapon: weaponExists ? prev.weapon : null,
             bondedWeapon: currentVersionId === '2.1.1' ? null : (bondedWeaponExists ? prev.bondedWeapon : null),
             secondaryWeapon: currentVersionId === '2.1.1' ? (secWeaponExists ? prev.secondaryWeapon : null) : null,
+            weaponSpecial: restrictSpecials ? null : (prev.weaponSpecial === undefined ? undefined : (specialExists ? prev.weaponSpecial : null)),
+            weaponMod: prev.weaponMod === undefined ? undefined : (weaponModExists ? prev.weaponMod : null),
             repeaterBarrel: barrelExists ? prev.repeaterBarrel : null,
             repeaterChamber: chamberExists ? prev.repeaterChamber : null,
             repeaterGrip: gripExists ? prev.repeaterGrip : null,
@@ -325,33 +373,64 @@ export const App: React.FC = () => {
           }
           next.weaponCells = [c0, c1];
 
-          // Validate weapon specials and mods for the new weapon type (atomicptr validateWepaonParts logic)
+          // Validate weapon specials, mods, and repeater components for the new weapon
+          const isExoticWep = Boolean(newWeapon.isExotic || EXOTIC_WEAPON_IDS.has(newWeapon.id));
+          const restrictSpecials = Boolean(newWeapon.restrictSpecials || isExoticWep);
           const normType = newWeapon.type.toLowerCase().replace(/\s+/g, '');
-          const partsForType = patchData?.weaponParts?.[normType];
-          if (partsForType) {
-            const specialValid = partsForType.specials?.some(s => s.id === prev.weaponSpecial);
-            if (!specialValid) {
-              const recommended = partsForType.specials?.find(s => s.tags?.includes('Recommended')) || partsForType.specials?.[0];
-              next.weaponSpecial = recommended?.id || null;
-            }
-            const modValid = partsForType.mods?.some(m => m.id === prev.weaponMod);
-            if (!modValid) {
-              const recommended = partsForType.mods?.find(m => m.tags?.includes('Recommended')) || partsForType.mods?.[0];
-              next.weaponMod = recommended?.id || null;
-            }
-          } else {
+
+          if (normType === 'repeater') {
             next.weaponSpecial = null;
             next.weaponMod = null;
+            if (newWeapon.id === 'the_twin_suns' || isExoticWep) {
+              next.repeaterBarrel = null;
+              next.repeaterChamber = null;
+              next.repeaterGrip = null;
+              next.repeaterPrism = null;
+            }
+            const repModValid = prev.repeaterMod && patchData?.repeaterParts?.mods?.some(m => m.id === prev.repeaterMod);
+            if (!repModValid) {
+              next.repeaterMod = patchData?.repeaterParts?.mods?.[0]?.id || null;
+            }
+          } else {
+            next.repeaterBarrel = null;
+            next.repeaterChamber = null;
+            next.repeaterGrip = null;
+            next.repeaterPrism = null;
+            next.repeaterMod = null;
+
+            const partsForType = patchData?.weaponParts?.[normType];
+            if (partsForType) {
+              if (restrictSpecials) {
+                next.weaponSpecial = null;
+              } else {
+                const specialValid = partsForType.specials?.some(s => s.id === prev.weaponSpecial);
+                if (!specialValid) {
+                  const recommended = partsForType.specials?.find(s => s.tags?.includes('Recommended')) || partsForType.specials?.[0];
+                  next.weaponSpecial = recommended?.id || null;
+                }
+              }
+              const modValid = partsForType.mods?.some(m => m.id === prev.weaponMod);
+              if (!modValid) {
+                const recommended = partsForType.mods?.find(m => m.tags?.includes('Recommended')) || partsForType.mods?.[0];
+                next.weaponMod = recommended?.id || null;
+              }
+            } else {
+              next.weaponSpecial = null;
+              next.weaponMod = null;
+            }
           }
         }
         next.weapon = id;
         next.weaponTalents = [0, 0, 0, 0, 0];
+        next.weaponTalentsMask = undefined;
         if (!newWeapon?.isLegendary || !prev.bondedWeapon) {
           next.bondedWeapon = null;
         } else {
           const bonded = patchData?.weapons.find(w => w.id === prev.bondedWeapon);
           if (
             !bonded ||
+            bonded.isLegendary ||
+            bonded.isExotic ||
             EXOTIC_WEAPON_IDS.has(bonded.id) ||
             bonded.type.toLowerCase() !== newWeapon.type.toLowerCase() ||
             bonded.element.toLowerCase() !== (newWeapon.bondElement || newWeapon.element).toLowerCase()
@@ -364,6 +443,7 @@ export const App: React.FC = () => {
       } else if (slot === 'secondaryWeapon') {
         next.secondaryWeapon = id;
         next.secondaryWeaponTalents = [0, 0, 0, 0, 0];
+        next.secondaryWeaponTalentsMask = undefined;
       } else if (slot === 'weaponCell_0') {
         const cells = [...prev.weaponCells];
         cells[0] = id;
@@ -513,25 +593,21 @@ export const App: React.FC = () => {
   const handleWeaponTalentChange = useCallback((slotKey: 'weapon' | 'secondaryWeapon', tierIndex: number, optionIndex: number) => {
     setBuild(prev => {
       const key = slotKey === 'weapon' ? 'weaponTalents' : 'secondaryWeaponTalents';
+      const maskKey = slotKey === 'weapon' ? 'weaponTalentsMask' : 'secondaryWeaponTalentsMask';
       const current = [...(prev[key] || [0, 0, 0, 0, 0])];
       current[tierIndex] = optionIndex;
-      return { ...prev, [key]: current };
+      return { ...prev, [key]: current, [maskKey]: undefined };
     });
   }, []);
 
-  // Share handler
+  // Share handler: sync address bar hash and open multi-platform Share & Export modal
   const handleShare = () => {
     const code = encodeBuildToHash(build);
-    const url = `${window.location.origin}${window.location.pathname}#b=${code}`;
-    window.location.hash = `b=${code}`;
-
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(url)
-        .then(() => showToast('Build link copied to clipboard!'))
-        .catch(() => showToast('Build updated in address bar.'));
-    } else {
-      showToast('Build URL updated in address bar.');
+    if (code) {
+      lastSharedHashRef.current = `#b=${code}`;
+      window.history.replaceState(null, '', `${window.location.pathname}#b=${code}`);
     }
+    setIsShareModalOpen(true);
   };
 
   // Reset handler: clear all items and cells from all slots
@@ -725,7 +801,7 @@ export const App: React.FC = () => {
                 Dauntless Forever Project
               </span>
               <p className="text-gray-400">
-                Special thanks to the <strong className="text-gray-200">Dauntless Forever</strong> preservation creators and team for keeping historical versions of Dauntless playable and preserved. Our command generator integrates directly with their local launcher scripts.
+                Special thanks to the <strong className="text-gray-200">Dauntless Forever</strong> preservation creators and team for keeping historical versions of Dauntless playable and preserved, including build code compatibility with <strong className="text-gray-200">builder.dauntlessforever.com</strong> and local launcher script integration.
               </p>
             </div>
 
@@ -776,6 +852,18 @@ export const App: React.FC = () => {
           equippedWeapon={currentWeapon}
         />
       )}
+
+      {/* Share & Multi-Builder Export Modal */}
+      <ShareModal
+        isOpen={isShareModalOpen}
+        onClose={() => setIsShareModalOpen(false)}
+        build={build}
+        onVersionChange={(newVer) => {
+          setCurrentVersionId(newVer);
+          showToast(`Switched to Patch ${newVer}`);
+        }}
+        onShowToast={showToast}
+      />
 
       {/* Presets / Saved Builds Modal */}
       <PresetsModal

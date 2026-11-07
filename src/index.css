@@ -1207,6 +1207,9 @@ html.light .gear-unique-effect-row {
   background-color: #f0fdf4 !important;
   color: #166534 !important;
 }
+html.light .gear-unique-effect-row strong {
+  color: #14532d !important;
+}
 html.light .gear-unique-effect-row svg {
   color: #15803d !important;
 }

@@ -21,8 +21,6 @@ export const EXOTIC_WEAPON_IDS = new Set<string>([
   'the_godhand',
   'molten_edict',
   'the_twin_suns',
-  'silver_sword',
-  'the_golden_claws',
 ]);
 
 export const createEmptyBuild = (version: string = '1.14.7'): BuildState => {
@@ -1394,7 +1392,8 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
   // 1. Primary Weapon
   const weapon = data.weapons.find(w => w.id === build.weapon);
   if (weapon) {
-    const isModularRepeater = (isClassic || data.version === '1.6.2') && (weapon.type === 'repeater' || weapon.typeName?.toLowerCase().includes('repeater'));
+    const isWeaponExotic = Boolean(weapon.isExotic || EXOTIC_WEAPON_IDS.has(weapon.id));
+    const isModularRepeater = (isClassic || data.version === '1.6.2') && !isWeaponExotic && (weapon.type === 'repeater' || weapon.typeName?.toLowerCase().includes('repeater'));
     const equippedBarrel = isModularRepeater && build.repeaterBarrel && data.repeaterParts?.barrels
       ? data.repeaterParts.barrels.find(b => b.id === build.repeaterBarrel)
       : null;
@@ -1668,10 +1667,10 @@ export function calculateBuildStats(build: BuildState, data: PatchData): BuildSt
 
 export function encodeBuildToHash(build: BuildState): string {
   try {
-    // 1. For non-Awakening builds, attempt ultra-short Sqids encoding (compatible with dauntless-builder-reforged ~60 chars)
-    if (build.version !== '2.1.1') {
+    // 1. For Reforged & Awakening patches (1.6.2, 1.12.0, 1.14.7, 2.1.1), use ultra-short encodings compatible with external builders
+    if (build.version !== '1.4.4') {
       const shortCode = exportToDauntlessBuilder(build);
-      if (shortCode && shortCode.length >= 20) {
+      if (shortCode && shortCode.length >= 10) {
         return shortCode;
       }
     }
@@ -1724,13 +1723,19 @@ export function decodeBuildFromHash(hashStr: string): Partial<BuildState> | null
   try {
     if (!hashStr) return null;
     const clean = hashStr.startsWith('#') ? hashStr.slice(1) : hashStr;
+
+    // Support builder.dauntlessforever.com (#b.<code>), reforged.dauntless-builder.com (/b/<code>), and our short codes
+    if (clean.startsWith('b.') || isDauntlessBuilderUrl(clean) || isDauntlessBuilderUrl(hashStr)) {
+      const dbBuild = importFromDauntlessBuilder(clean) || importFromDauntlessBuilder(hashStr);
+      if (dbBuild) return dbBuild;
+    }
+
     const params = new URLSearchParams(clean);
     let code = params.get('b') || clean;
     if (!code) return null;
 
-    // Check if it's an ultra-short Sqids build ID (from Dauntless Builder Reforged or our short encoder)
-    if (isDauntlessBuilderUrl(code) || isDauntlessBuilderUrl(hashStr)) {
-      const dbBuild = importFromDauntlessBuilder(code) || importFromDauntlessBuilder(hashStr);
+    if (isDauntlessBuilderUrl(code)) {
+      const dbBuild = importFromDauntlessBuilder(code);
       if (dbBuild) return dbBuild;
     }
 

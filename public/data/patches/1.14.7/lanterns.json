@@ -5,7 +5,7 @@
     "icon": "/assets/icons/lanterns/BroadsidesLantern.png",
     "description": "",
     "cellSocket": "insight",
-    "holdAbility": "Drop a bomb from above that explodes after 1 second.  Deals 2750 damage and can interrupt Behemoths.",
+    "holdAbility": "Drop a bomb from above that explodes after 1 second. Deals 2750 damage and can interrupt Behemoths.",
     "instantAbility": ""
   },
   {
@@ -49,7 +49,7 @@
     "name": "Recruit's Lantern",
     "icon": "/assets/icons/lanterns/RecruitsLantern.png",
     "description": "",
-    "cellSocket": "prismatic",
+    "cellSocket": null,
     "holdAbility": "Grants a 300 hit point shield that lasts 15 seconds.",
     "instantAbility": ""
   },

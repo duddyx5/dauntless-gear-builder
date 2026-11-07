@@ -88,6 +88,13 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
   const isAwakening = patchData.version === '2.1.1';
   const isClassic = patchData.version === '1.4.4';
 
+  const getItemUniqueEffect = (item: { uniqueEffect?: string | null; baseUniqueEffect?: string | null }) => {
+    if (!isClassic && !isAwakening && !powerSurged && item.baseUniqueEffect) {
+      return item.baseUniqueEffect;
+    }
+    return item.uniqueEffect || null;
+  };
+
   const titleMap: Record<PickerSlotType, string> = {
     weapon: 'Select Primary Weapon',
     bondedWeapon: equippedWeapon ? `Select Bonded Weapon (${equippedWeapon.element} ${equippedWeapon.typeName})` : 'Select Bonded Weapon',
@@ -123,10 +130,12 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
   const filteredWeapons = useMemo(() => {
     if (!isWeaponPicker) return [];
     return patchData.weapons.filter(w => {
+      const q = searchTerm.toLowerCase();
       const matchSearch =
-        w.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        w.behemoth.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        w.perks.some(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()));
+        w.name.toLowerCase().includes(q) ||
+        w.behemoth.toLowerCase().includes(q) ||
+        w.perks.some(p => p.name.toLowerCase().includes(q)) ||
+        Boolean(w.uniqueEffect && w.uniqueEffect.toLowerCase().includes(q));
       const matchElem = selectedElement === 'All' || w.element.toLowerCase() === selectedElement.toLowerCase();
       const matchType = (() => {
         if (selectedWeaponType === 'All') return true;
@@ -147,7 +156,7 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
 
     return patchData.weapons.filter(w => {
       if (w.isLegendary) return false;
-      if (EXOTIC_WEAPON_IDS.has(w.id)) return false;
+      if (w.isExotic || EXOTIC_WEAPON_IDS.has(w.id)) return false;
       if (w.id === equippedWeapon.id) return false;
       if (w.type.toLowerCase() !== targetType) return false;
       if (w.element.toLowerCase() !== targetElement) return false;
@@ -170,10 +179,12 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
     const targetSlot = slotType;
     return patchData.armour.filter(a => {
       if (a.slot !== targetSlot) return false;
+      const q = searchTerm.toLowerCase();
       const matchSearch =
-        a.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        a.behemoth.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        a.perks.some(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()));
+        a.name.toLowerCase().includes(q) ||
+        a.behemoth.toLowerCase().includes(q) ||
+        a.perks.some(p => p.name.toLowerCase().includes(q)) ||
+        Boolean(a.uniqueEffect && a.uniqueEffect.toLowerCase().includes(q));
       const matchElem =
         selectedElement === 'All' ||
         (selectedElement.toLowerCase() === 'neutral'
@@ -454,8 +465,13 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
 
                     <span className="flex-1 min-w-0">
                       <span className="flex items-center justify-between gap-1">
-                        <strong className="font-display font-bold text-base text-white truncate">
-                          {w.name}
+                        <strong className="font-display font-bold text-base text-white truncate flex items-center gap-1.5">
+                          <span>{w.name}</span>
+                          {(w.isExotic || EXOTIC_WEAPON_IDS.has(w.id)) && (
+                            <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40 shrink-0">
+                              Exotic
+                            </span>
+                          )}
                         </strong>
                         <span className={`text-[9px] font-bold uppercase px-1.5 py-0.5 rounded border ${getElementStyle(w.element).bg} ${getElementStyle(w.element).text} ${getElementStyle(w.element).border}`}>
                           {w.element}
@@ -474,12 +490,22 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
 
                       {/* Perks & Sockets */}
                       <span className="flex flex-wrap items-center gap-1.5 mt-1.5">
-                        {w.perks.map(p => (
-                          <em key={p.id} className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-[#0a151b] text-cyan-300 border border-[#21333d] not-italic">
-                            +{isClassic || isAwakening ? p.value : (powerSurged ? p.value : (p.baseValue ?? p.value))} {p.name}
-                          </em>
-                        ))}
-                        {w.cellSockets.map((s, idx) => (
+                        {w.perks.map(p => {
+                          const val = isClassic || isAwakening ? p.value : (powerSurged ? p.value : (p.baseValue ?? p.value));
+                          if (val <= 0) {
+                            return p.value > 0 ? (
+                              <em key={p.id} className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-[#0a151b] text-gray-400 border border-[#21333d] not-italic">
+                                Surged: +{p.value} {p.name}
+                              </em>
+                            ) : null;
+                          }
+                          return (
+                            <em key={p.id} className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-[#0a151b] text-cyan-300 border border-[#21333d] not-italic">
+                              +{val} {p.name}
+                            </em>
+                          );
+                        })}
+                        {w.cellSockets.filter(Boolean).map((s, idx) => (
                           <em key={idx} className="cell-socket-tag text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-[#0a151b] text-gray-300 border border-[#21333d] not-italic inline-flex items-center gap-1">
                             <span className="w-3.5 h-3.5 rounded-full bg-[#182a33] flex items-center justify-center p-0.5 shrink-0">
                               <img
@@ -494,9 +520,9 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                         ))}
                       </span>
 
-                      {w.uniqueEffect && (
-                        <p className="text-[10.5px] text-gray-300 mt-1 italic line-clamp-2">
-                          {w.uniqueEffect}
+                      {getItemUniqueEffect(w) && (
+                        <p className="text-[10.5px] text-gray-300 mt-1 italic line-clamp-3 whitespace-pre-line">
+                          {getItemUniqueEffect(w)}
                         </p>
                       )}
                     </span>
@@ -575,17 +601,27 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                         <span className="bonded-grants-perk-label text-[10px] font-bold uppercase tracking-wider text-amber-400">
                           Grants Perk:
                         </span>
-                        {w.perks.map(p => (
-                          <em key={p.id} className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-[#0a151b] text-cyan-300 border border-[#21333d] not-italic">
-                            +{isClassic || isAwakening ? p.value : (powerSurged ? p.value : (p.baseValue ?? p.value))} {p.name}
-                          </em>
-                        ))}
+                        {w.perks.map(p => {
+                          const val = isClassic || isAwakening ? p.value : (powerSurged ? p.value : (p.baseValue ?? p.value));
+                          if (val <= 0) {
+                            return p.value > 0 ? (
+                              <em key={p.id} className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-[#0a151b] text-gray-400 border border-[#21333d] not-italic">
+                                Surged: +{p.value} {p.name}
+                              </em>
+                            ) : null;
+                          }
+                          return (
+                            <em key={p.id} className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-[#0a151b] text-cyan-300 border border-[#21333d] not-italic">
+                              +{val} {p.name}
+                            </em>
+                          );
+                        })}
                       </span>
 
-                      {w.uniqueEffect && (
-                        <p className="bonded-grants-effect text-[10.5px] text-amber-200/90 mt-1.5 italic line-clamp-2 flex items-start gap-1">
+                      {getItemUniqueEffect(w) && (
+                        <p className="bonded-grants-effect text-[10.5px] text-amber-200/90 mt-1.5 italic line-clamp-3 whitespace-pre-line flex items-start gap-1">
                           <Sparkles className="h-3 w-3 text-amber-400 shrink-0 mt-0.5" />
-                          <span>Grants Effect: {w.uniqueEffect}</span>
+                          <span>Grants Effect: {getItemUniqueEffect(w)}</span>
                         </p>
                       )}
                     </span>
@@ -643,8 +679,13 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
 
                     <span className="flex-1 min-w-0">
                       <span className="flex items-center justify-between gap-1">
-                        <strong className="font-display font-bold text-base text-white truncate">
-                          {a.name}
+                        <strong className="font-display font-bold text-base text-white truncate flex items-center gap-1.5">
+                          <span>{a.name}</span>
+                          {a.isExotic && (
+                            <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40 shrink-0">
+                              Exotic
+                            </span>
+                          )}
                         </strong>
                         <span className="text-xs text-gray-400 font-mono font-semibold">
                           {isClassic ? `${a.maxResistance} Res (+15)` : `${powerSurged ? a.maxResistance : a.baseResistance} Res`}
@@ -657,24 +698,39 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                         {a.weakness && <span className="text-red-400 font-semibold">-{a.weakness}</span>}
                       </span>
 
-                      <span className="flex flex-wrap items-center gap-1.5 mt-1.5">
-                        {a.perks.map(p => (
-                          <em key={p.id} className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-[#0a151b] text-cyan-300 border border-[#21333d] not-italic">
-                            +{isClassic || isAwakening ? p.value : (powerSurged ? p.value : (p.baseValue ?? p.value))} {p.name}
-                          </em>
-                        ))}
-                        <em className="cell-socket-tag text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-[#0a151b] text-gray-300 border border-[#21333d] not-italic inline-flex items-center gap-1">
-                          <span className="w-3.5 h-3.5 rounded-full bg-[#182a33] flex items-center justify-center p-0.5 shrink-0">
-                            <img
-                              src={resolveAssetUrl(getCellCategoryIcon(a.cellSocket))}
-                              alt={a.cellSocket}
-                              className="w-full h-full object-contain"
-                              onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
-                            />
-                          </span>
-                          <span>{isAwakening && a.cellSockets && a.cellSockets.length > 1 ? 'Sockets (2)' : a.cellSocket}</span>
-                        </em>
-                      </span>
+                      {(a.perks.length > 0 || Boolean(a.cellSocket) || (isAwakening && a.cellSockets && a.cellSockets.length > 0)) && (
+                        <span className="flex flex-wrap items-center gap-1.5 mt-1.5">
+                          {a.perks.map(p => {
+                            const val = isClassic || isAwakening ? p.value : (powerSurged ? p.value : (p.baseValue ?? p.value));
+                            if (val <= 0) return null;
+                            return (
+                              <em key={p.id} className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-[#0a151b] text-cyan-300 border border-[#21333d] not-italic">
+                                +{val} {p.name}
+                              </em>
+                            );
+                          })}
+                          {(Boolean(a.cellSocket) || (isAwakening && a.cellSockets && a.cellSockets.length > 0)) && (
+                            <em className="cell-socket-tag text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-[#0a151b] text-gray-300 border border-[#21333d] not-italic inline-flex items-center gap-1">
+                              <span className="w-3.5 h-3.5 rounded-full bg-[#182a33] flex items-center justify-center p-0.5 shrink-0">
+                                <img
+                                  src={resolveAssetUrl(getCellCategoryIcon(a.cellSocket || 'prismatic'))}
+                                  alt={a.cellSocket || 'prismatic'}
+                                  className="w-full h-full object-contain"
+                                  onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
+                                />
+                              </span>
+                              <span>{isAwakening && a.cellSockets && a.cellSockets.length > 1 ? 'Sockets (2)' : a.cellSocket}</span>
+                            </em>
+                          )}
+                        </span>
+                      )}
+
+                      {getItemUniqueEffect(a) && (
+                        <p className="text-[10.5px] text-cyan-200/90 mt-1.5 italic line-clamp-3 whitespace-pre-line flex items-start gap-1">
+                          <Sparkles className="h-3 w-3 text-cyan-400 shrink-0 mt-0.5" />
+                          <span>{getItemUniqueEffect(a)}</span>
+                        </p>
+                      )}
                     </span>
 
                     <span className="self-center shrink-0">

@@ -7,7 +7,7 @@ import React from 'react';
 export function formatInlineTokens(line: string, highlightClass = 'text-cyan-300'): React.ReactNode[] {
   let text = line.replace(/<b>(.*?)<\/b>/gi, '**$1**');
   if (!text.includes('**')) {
-    const colonMatch = text.match(/^([A-Za-z0-9\s]{3,24}:)\s*(.*)$/);
+    const colonMatch = text.match(/^([A-Za-z0-9\s()'-]{3,32}:)\s*(.*)$/);
     if (colonMatch) {
       return [
         <strong key="prefix" className={`font-semibold ${highlightClass}`}>

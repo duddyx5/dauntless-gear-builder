@@ -100,15 +100,15 @@ export const PresetsModal: React.FC<PresetsModalProps> = ({
       const imported = importFromDauntlessBuilder(val);
       if (imported) {
         onLoadBuild(imported);
-        if (onShowToast) onShowToast('Successfully imported build from Dauntless-Builder!');
+        if (onShowToast) onShowToast(`Imported build (Patch ${imported.version || '1.14.7'})!`);
         setImportInput('');
         onClose();
       } else {
-        setImportError('Could not decode build. Ensure it is a valid dauntless-builder.com/b/... URL or code.');
+        setImportError('Could not decode build. Paste a valid dauntless-builder.com/b/... or builder.dauntlessforever.com/#b... link or code.');
       }
     } catch (err) {
       console.warn('Import error', err);
-      setImportError('Failed to parse Dauntless-Builder link.');
+      setImportError('Failed to parse build link or code.');
     }
   };
 
@@ -495,14 +495,14 @@ export const PresetsModal: React.FC<PresetsModalProps> = ({
           {/* ========== TAB: Community Presets ========== */}
           {activeTab === 'presets' && (
             <div className="space-y-3">
-              {/* Import from Dauntless-Builder */}
+              {/* Import from Dauntless-Builder / Dauntless Forever */}
               <form onSubmit={handleImportDauntlessBuilder} className="p-3 bg-gray-900/90 border border-gray-800 rounded-xl space-y-2">
-                <div className="flex items-center justify-between text-xs">
+                <div className="flex items-center justify-between text-xs gap-2 flex-wrap">
                   <span className="font-semibold text-gray-300 flex items-center gap-1.5">
                     <LinkIcon className="h-3.5 w-3.5 text-cyan-400" />
-                    <span>Import from Dauntless-Builder:</span>
+                    <span>Import External Build Link / Code:</span>
                   </span>
-                  <span className="text-[10px] text-gray-500 font-mono">dauntless-builder.com/b/...</span>
+                  <span className="text-[10px] text-gray-500 font-mono">dauntless-builder · builder.dauntlessforever.com</span>
                 </div>
                 <div className="flex gap-2">
                   <input
@@ -512,7 +512,7 @@ export const PresetsModal: React.FC<PresetsModalProps> = ({
                       setImportInput(e.target.value);
                       if (importError) setImportError(null);
                     }}
-                    placeholder="Paste Dauntless-Builder URL or build code..."
+                    placeholder="Paste /b/... or #b... URL or build code (1.6.2, 1.14.7 & 2.1.1)..."
                     className="flex-1 px-3 py-1.5 text-xs bg-gray-950/80 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500"
                   />
                   <button
