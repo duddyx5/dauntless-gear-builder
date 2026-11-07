@@ -71,6 +71,21 @@ const PART_KEY_TO_WT: Record<string, string> = {
   'Parts:Warpike': 'warpike',
 };
 
+const EXOTIC_MELEE_WEAPONS = new Set<string>([
+  'the_hunger',
+  'the_godhand',
+  'molten_edict',
+]);
+
+const DEFAULT_WEAPON_PARTS_BY_KEY: Record<string, { special: string; mod: string }> = {
+  'Parts:Sword': { special: 'valiant_overdrive', mod: 'dynamic_bladecore' },
+  'Parts:Axe': { special: 'grim_onslaught', mod: 'overcharged_cylinder' },
+  'Parts:Hammer': { special: 'mighty_landbreaker', mod: 'extended_clip' },
+  'Parts:Chainblades': { special: 'reaper_s_dance', mod: 'hurricane_blades' },
+  'Parts:Warpike': { special: 'savage_wellspring', mod: 'executioner_s_spearhead' },
+  'Parts:Aetherstrikers': { special: 'titan_s_crash', mod: 'cyclonic_strikeplate' },
+};
+
 function normalizeId(name: string | undefined): string | null {
   if (!name || name === 'REMOVED') return null;
   return name.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
@@ -153,7 +168,7 @@ if (meta?.awakening211) {
 function getWeaponPartMapKey(weaponId: string | null | undefined): string | null {
   if (!weaponId) return null;
   if (meta?.weaponTypes?.[weaponId]) return meta.weaponTypes[weaponId];
-  if (weaponId.includes('repeater') || weaponId === 'the_twin_suns') return 'Parts:Repeater';
+  if (weaponId.includes('repeater') || weaponId === 'the_twin_suns' || weaponId === 'screams_of_the_shrike') return 'Parts:Repeater';
   if (weaponId.includes('sword') || weaponId.includes('razor') || weaponId.includes('hunger')) return 'Parts:Sword';
   if (weaponId.includes('axe') || weaponId.includes('cleaver')) return 'Parts:Axe';
   if (weaponId.includes('hammer') || weaponId.includes('maul') || weaponId.includes('edict')) return 'Parts:Hammer';
@@ -394,10 +409,17 @@ export function encodeDF162(build: BuildState): string | null {
       return df.parts.findIndex(p => p.wt === wt && p.kind === kind && p.id === partId);
     };
 
-    const modId = wt === 'repeater' ? build.repeaterMod : build.weaponMod;
+    const isExoticMelee = Boolean(build.weapon && EXOTIC_MELEE_WEAPONS.has(build.weapon));
+    const defParts = partMapKey ? DEFAULT_WEAPON_PARTS_BY_KEY[partMapKey] : undefined;
+    const effectiveMeleeSpecial = isExoticMelee
+      ? null
+      : (build.weaponSpecial === undefined ? defParts?.special : build.weaponSpecial);
+    const effectiveMeleeMod = build.weaponMod === undefined ? defParts?.mod : build.weaponMod;
+
+    const modId = wt === 'repeater' ? build.repeaterMod : effectiveMeleeMod;
     const partsArr = [
       findPartIdx(modId, 'mods'),
-      findPartIdx(build.weaponSpecial, 'specials'),
+      findPartIdx(wt === 'repeater' ? null : effectiveMeleeSpecial, 'specials'),
       findPartIdx(build.repeaterBarrel, 'barrels'),
       findPartIdx(build.repeaterChamber, 'chambers'),
       findPartIdx(build.repeaterGrip, 'grips'),
@@ -644,6 +666,7 @@ export function importFromDauntlessBuilder(input: string): BuildState | null {
   const partTypeKey = getWeaponPartMapKey(weapon);
   const isRepeater = partTypeKey === 'Parts:Repeater';
   const isExoticRepeater = weapon === 'the_twin_suns';
+  const isExoticMelee = Boolean(weapon && EXOTIC_MELEE_WEAPONS.has(weapon));
 
   let weaponSpecial: string | null = null;
   let weaponMod: string | null = null;
@@ -670,10 +693,10 @@ export function importFromDauntlessBuilder(input: string): BuildState | null {
           else if (slotIdx === 2) repeaterMod = partSlug;
         }
       } else {
-        if (pKind === 'specials') weaponSpecial = partSlug;
+        if (pKind === 'specials' && !isExoticMelee) weaponSpecial = partSlug;
         else if (pKind === 'mods') weaponMod = partSlug;
         else if (!pKind) {
-          if (slotIdx === 0) weaponSpecial = partSlug;
+          if (slotIdx === 0 && !isExoticMelee) weaponSpecial = partSlug;
           else if (slotIdx === 1) weaponMod = partSlug;
         }
       }
@@ -730,20 +753,26 @@ export function encodeReforged1147(build: BuildState): string | null {
     const partKey = getWeaponPartMapKey(build.weapon);
     const isRepeater = partKey === 'Parts:Repeater';
     const isExoticRepeater = build.weapon === 'the_twin_suns';
+    const isExoticMelee = Boolean(build.weapon && EXOTIC_MELEE_WEAPONS.has(build.weapon));
 
     let p1 = 0;
     let p2 = 0;
     let p3 = 0;
 
-    if (partKey && partsReverseMap[partKey]) {
+    if (wId > 0 && partKey && partsReverseMap[partKey]) {
       const pm = partsReverseMap[partKey];
       if (isRepeater) {
         if (!isExoticRepeater && build.repeaterChamber) p1 = pm[build.repeaterChamber] || 0;
         if (!isExoticRepeater && build.repeaterGrip) p2 = pm[build.repeaterGrip] || 0;
         if (build.repeaterMod) p3 = pm[build.repeaterMod] || 0;
       } else {
-        if (build.weaponSpecial) p1 = pm[build.weaponSpecial] || 0;
-        if (build.weaponMod) p2 = pm[build.weaponMod] || 0;
+        const defParts = DEFAULT_WEAPON_PARTS_BY_KEY[partKey];
+        const effectiveSpecial = isExoticMelee
+          ? null
+          : (build.weaponSpecial === undefined ? defParts?.special : build.weaponSpecial);
+        const effectiveMod = build.weaponMod === undefined ? defParts?.mod : build.weaponMod;
+        if (effectiveSpecial) p1 = pm[effectiveSpecial] || 0;
+        if (effectiveMod) p2 = pm[effectiveMod] || 0;
       }
     }
 
@@ -768,27 +797,27 @@ export function encodeReforged1147(build: BuildState): string | null {
       8, // CURRENT_BUILD_ID in dauntless-builder-reforged
       0, // flags
       wId,
-      build.powerSurged ? 1 : 0,
-      wc1,
-      wc2,
-      p1,
-      p2,
-      p3,
-      bondId,
+      wId > 0 && build.powerSurged ? 1 : 0,
+      wId > 0 ? wc1 : 0,
+      wId > 0 ? wc2 : 0,
+      wId > 0 ? p1 : 0,
+      wId > 0 ? p2 : 0,
+      wId > 0 ? p3 : 0,
+      wId > 0 ? bondId : 0,
       hId,
-      build.powerSurged ? 1 : 0,
-      hc,
+      hId > 0 && build.powerSurged ? 1 : 0,
+      hId > 0 ? hc : 0,
       tId,
-      build.powerSurged ? 1 : 0,
-      tc,
+      tId > 0 && build.powerSurged ? 1 : 0,
+      tId > 0 ? tc : 0,
       aId,
-      build.powerSurged ? 1 : 0,
-      ac,
+      aId > 0 && build.powerSurged ? 1 : 0,
+      aId > 0 ? ac : 0,
       lId,
-      build.powerSurged ? 1 : 0,
-      lc,
+      lId > 0 && build.powerSurged ? 1 : 0,
+      lId > 0 ? lc : 0,
       ltId,
-      ltc,
+      ltId > 0 ? ltc : 0,
       oId,
     ];
 

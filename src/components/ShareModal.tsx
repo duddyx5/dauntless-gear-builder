@@ -161,6 +161,11 @@ export const ShareModal: React.FC<ShareModalProps> = ({
                 href={platform.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                referrerPolicy="no-referrer"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  e.currentTarget.blur();
+                }}
                 className="inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg text-xs font-semibold bg-[#0a151b] hover:bg-[#15252e] text-gray-200 border border-[#21333d] hover:border-cyan-500/50 transition-colors"
                 title={`Open build directly on ${platform.domain}`}
               >

@@ -205,6 +205,12 @@ export const App: React.FC = () => {
 
           const normType = weaponObj ? weaponObj.type.toLowerCase().replace(/\s+/g, '') : '';
           const partsForType = normType && loaded.weaponParts ? loaded.weaponParts[normType] : undefined;
+          const defaultSpecialId = !isRepeaterWep && !restrictSpecials
+            ? (partsForType?.specials?.find(s => s.tags?.includes('Recommended'))?.id || partsForType?.specials?.[0]?.id || null)
+            : null;
+          const defaultModId = !isRepeaterWep
+            ? (partsForType?.mods?.find(m => m.tags?.includes('Recommended'))?.id || partsForType?.mods?.[0]?.id || null)
+            : null;
           const specialExists = !isRepeaterWep && !restrictSpecials && prev.weaponSpecial
             ? Boolean(partsForType?.specials?.some(s => s.id === prev.weaponSpecial))
             : false;
@@ -227,14 +233,28 @@ export const App: React.FC = () => {
             updatedLevels[k] = current !== undefined ? Math.min(current, maxLevel) : defaultLevel;
           });
 
+          const resolvedSpecial =
+            !weaponExists || currentVersionId === '2.1.1' || isRepeaterWep || restrictSpecials
+              ? null
+              : prev.weaponSpecial === undefined
+                ? defaultSpecialId
+                : (specialExists ? prev.weaponSpecial : null);
+
+          const resolvedWeaponMod =
+            !weaponExists || currentVersionId === '2.1.1' || isRepeaterWep
+              ? null
+              : prev.weaponMod === undefined
+                ? defaultModId
+                : (weaponModExists ? prev.weaponMod : null);
+
           return {
             ...prev,
             version: currentVersionId,
             weapon: weaponExists ? prev.weapon : null,
             bondedWeapon: currentVersionId === '2.1.1' ? null : (bondedWeaponExists ? prev.bondedWeapon : null),
             secondaryWeapon: currentVersionId === '2.1.1' ? (secWeaponExists ? prev.secondaryWeapon : null) : null,
-            weaponSpecial: restrictSpecials ? null : (prev.weaponSpecial === undefined ? undefined : (specialExists ? prev.weaponSpecial : null)),
-            weaponMod: prev.weaponMod === undefined ? undefined : (weaponModExists ? prev.weaponMod : null),
+            weaponSpecial: resolvedSpecial,
+            weaponMod: resolvedWeaponMod,
             repeaterBarrel: barrelExists ? prev.repeaterBarrel : null,
             repeaterChamber: chamberExists ? prev.repeaterChamber : null,
             repeaterGrip: gripExists ? prev.repeaterGrip : null,
@@ -386,10 +406,28 @@ export const App: React.FC = () => {
               next.repeaterChamber = null;
               next.repeaterGrip = null;
               next.repeaterPrism = null;
+            } else {
+              const repChamberValid = prev.repeaterChamber && patchData?.repeaterParts?.chambers?.some(c => c.id === prev.repeaterChamber);
+              if (!repChamberValid) {
+                next.repeaterChamber =
+                  patchData?.repeaterParts?.chambers?.find(c => c.id === 'marksman_chamber')?.id ||
+                  patchData?.repeaterParts?.chambers?.[0]?.id ||
+                  null;
+              }
+              const repGripValid = prev.repeaterGrip && patchData?.repeaterParts?.grips?.some(g => g.id === prev.repeaterGrip);
+              if (!repGripValid) {
+                next.repeaterGrip =
+                  patchData?.repeaterParts?.grips?.find(g => g.id === 'captain_s_grip')?.id ||
+                  patchData?.repeaterParts?.grips?.[0]?.id ||
+                  null;
+              }
             }
             const repModValid = prev.repeaterMod && patchData?.repeaterParts?.mods?.some(m => m.id === prev.repeaterMod);
             if (!repModValid) {
-              next.repeaterMod = patchData?.repeaterParts?.mods?.[0]?.id || null;
+              next.repeaterMod =
+                patchData?.repeaterParts?.mods?.find(m => m.id === 'precision_sights')?.id ||
+                patchData?.repeaterParts?.mods?.[0]?.id ||
+                null;
             }
           } else {
             next.repeaterBarrel = null;
@@ -871,7 +909,34 @@ export const App: React.FC = () => {
         onClose={() => setIsPresetsOpen(false)}
         currentBuild={build}
         onLoadBuild={(loaded) => {
-          setBuild(loaded);
+          const targetVer = loaded.version || currentVersionId;
+          let hydrated = { ...loaded };
+          if (targetVer === currentVersionId && patchData && hydrated.weapon && targetVer !== '2.1.1') {
+            const wObj = patchData.weapons.find(w => w.id === hydrated.weapon);
+            if (wObj) {
+              const isExoticWep = Boolean(wObj.isExotic || EXOTIC_WEAPON_IDS.has(wObj.id));
+              const restrictSpecials = Boolean(wObj.restrictSpecials || isExoticWep);
+              const normType = wObj.type.toLowerCase().replace(/\s+/g, '');
+              if (normType !== 'repeater') {
+                const partsForType = patchData.weaponParts?.[normType];
+                if (restrictSpecials) {
+                  hydrated.weaponSpecial = null;
+                } else if (hydrated.weaponSpecial === undefined) {
+                  hydrated.weaponSpecial =
+                    partsForType?.specials?.find(s => s.tags?.includes('Recommended'))?.id ||
+                    partsForType?.specials?.[0]?.id ||
+                    null;
+                }
+                if (hydrated.weaponMod === undefined) {
+                  hydrated.weaponMod =
+                    partsForType?.mods?.find(m => m.tags?.includes('Recommended'))?.id ||
+                    partsForType?.mods?.[0]?.id ||
+                    null;
+                }
+              }
+            }
+          }
+          setBuild(hydrated);
           if (loaded.version && loaded.version !== currentVersionId) {
             setCurrentVersionId(loaded.version);
           }
