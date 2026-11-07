@@ -600,7 +600,7 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
 
           {/* Unique Effect Preview */}
           {(currentWeapon?.uniqueEffect || (isModularRepeaterEra && currentPrism?.uniqueEffect)) && (
-            <div className="px-4 py-2 border-t border-[#1d313a] text-xs text-cyan-200/90 italic leading-snug flex items-start gap-1.5">
+            <div className="gear-unique-effect-row px-4 py-2 border-t border-[#1d313a] text-xs text-cyan-200/90 italic leading-snug flex items-start gap-1.5">
               <Sparkles className="h-3.5 w-3.5 text-cyan-400 shrink-0 mt-0.5" />
               <span>{isModularRepeaterEra && currentPrism?.uniqueEffect ? currentPrism.uniqueEffect : currentWeapon?.uniqueEffect}</span>
             </div>
@@ -608,7 +608,7 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
 
           {/* Repeater Modular Components (1.4.4 & 1.6.2: Barrels, Chambers, Grips, Prisms, Mods) */}
           {isModularRepeaterEra && (
-            <div className="px-3 sm:px-4 py-3 border-t border-[#1d313a] bg-gradient-to-r from-[#071319] via-[#091820] to-[#0c1e27]">
+            <div className="gear-repeater-panel px-3 sm:px-4 py-3 border-t border-[#1d313a] bg-gradient-to-r from-[#071319] via-[#091820] to-[#0c1e27]">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
                   <Zap className="h-3.5 w-3.5 text-cyan-400" />
@@ -624,10 +624,10 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                 <button
                   type="button"
                   onClick={() => onOpenPicker('repeaterBarrel')}
-                  className="p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex sm:flex-col items-center sm:items-start justify-between gap-2 group"
+                  className="gear-repeater-slot p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex sm:flex-col items-center sm:items-start justify-between gap-2 group"
                 >
                   <div className="flex items-center gap-2">
-                    <span className="w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                    <span className="gear-repeater-icon w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
                       {currentBarrel?.icon ? (
                         <img src={resolveAssetUrl(currentBarrel.icon)} alt={currentBarrel.name} className="w-full h-full object-contain" />
                       ) : (
@@ -652,10 +652,10 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                 <button
                   type="button"
                   onClick={() => onOpenPicker('repeaterChamber')}
-                  className="p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex sm:flex-col items-center sm:items-start justify-between gap-2 group"
+                  className="gear-repeater-slot p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex sm:flex-col items-center sm:items-start justify-between gap-2 group"
                 >
                   <div className="flex items-center gap-2">
-                    <span className="w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                    <span className="gear-repeater-icon w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
                       {currentChamber?.icon ? (
                         <img src={resolveAssetUrl(currentChamber.icon)} alt={currentChamber.name} className="w-full h-full object-contain" />
                       ) : (
@@ -675,10 +675,10 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                 <button
                   type="button"
                   onClick={() => onOpenPicker('repeaterGrip')}
-                  className="p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex sm:flex-col items-center sm:items-start justify-between gap-2 group"
+                  className="gear-repeater-slot p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex sm:flex-col items-center sm:items-start justify-between gap-2 group"
                 >
                   <div className="flex items-center gap-2">
-                    <span className="w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                    <span className="gear-repeater-icon w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
                       {currentGrip?.icon ? (
                         <img src={resolveAssetUrl(currentGrip.icon)} alt={currentGrip.name} className="w-full h-full object-contain" />
                       ) : (
@@ -698,10 +698,10 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                 <button
                   type="button"
                   onClick={() => onOpenPicker('repeaterPrism')}
-                  className="p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex sm:flex-col items-center sm:items-start justify-between gap-2 group"
+                  className="gear-repeater-slot p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex sm:flex-col items-center sm:items-start justify-between gap-2 group"
                 >
                   <div className="flex items-center gap-2">
-                    <span className="w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                    <span className="gear-repeater-icon w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
                       {currentPrism?.icon ? (
                         <img src={resolveAssetUrl(currentPrism.icon)} alt={currentPrism.name} className="w-full h-full object-contain" />
                       ) : (
@@ -721,10 +721,10 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                 <button
                   type="button"
                   onClick={() => onOpenPicker('repeaterMod')}
-                  className="p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex sm:flex-col items-center sm:items-start justify-between gap-2 group"
+                  className="gear-repeater-slot p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex sm:flex-col items-center sm:items-start justify-between gap-2 group"
                 >
                   <div className="flex items-center gap-2">
-                    <span className="w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                    <span className="gear-repeater-icon w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
                       {currentMod?.icon ? (
                         <img src={resolveAssetUrl(currentMod.icon)} alt={currentMod.name} className="w-full h-full object-contain" />
                       ) : (
@@ -743,7 +743,7 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
 
               {/* Prism Unique Effect Active Preview */}
               {currentPrism?.uniqueEffect && (
-                <div className="mt-2 text-xs text-pink-300/90 italic flex items-start gap-1 bg-[#09151a] p-2 rounded-lg border border-[#1b313d]">
+                <div className="gear-repeater-prism-effect mt-2 text-xs text-pink-300/90 italic flex items-start gap-1 bg-[#09151a] p-2 rounded-lg border border-[#1b313d]">
                   <Sparkles className="h-3.5 w-3.5 text-pink-400 shrink-0 mt-0.5" />
                   <span><strong>Prism Effect:</strong> {currentPrism.uniqueEffect}</span>
                 </div>
@@ -753,7 +753,7 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
 
           {/* Repeater Attachments (1.12.0 & 1.14.7: Chambers, Grips, Mods) */}
           {isReforgedRepeaterEra && (
-            <div className="px-3 sm:px-4 py-3 border-t border-[#1d313a] bg-gradient-to-r from-[#071319] via-[#091820] to-[#0c1e27]">
+            <div className="gear-repeater-panel px-3 sm:px-4 py-3 border-t border-[#1d313a] bg-gradient-to-r from-[#071319] via-[#091820] to-[#0c1e27]">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
                   <Zap className="h-3.5 w-3.5 text-cyan-400" />
@@ -767,10 +767,10 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                 <button
                   type="button"
                   onClick={() => onOpenPicker('repeaterChamber')}
-                  className="p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex items-center justify-between gap-2 group"
+                  className="gear-repeater-slot p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex items-center justify-between gap-2 group"
                 >
                   <div className="flex items-center gap-2">
-                    <span className="w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                    <span className="gear-repeater-icon w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
                       {currentChamber?.icon ? (
                         <img src={resolveAssetUrl(currentChamber.icon)} alt={currentChamber.name} className="w-full h-full object-contain" />
                       ) : (
@@ -791,10 +791,10 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                 <button
                   type="button"
                   onClick={() => onOpenPicker('repeaterGrip')}
-                  className="p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex items-center justify-between gap-2 group"
+                  className="gear-repeater-slot p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex items-center justify-between gap-2 group"
                 >
                   <div className="flex items-center gap-2">
-                    <span className="w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                    <span className="gear-repeater-icon w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
                       {currentGrip?.icon ? (
                         <img src={resolveAssetUrl(currentGrip.icon)} alt={currentGrip.name} className="w-full h-full object-contain" />
                       ) : (
@@ -815,10 +815,10 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                 <button
                   type="button"
                   onClick={() => onOpenPicker('repeaterMod')}
-                  className="p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex items-center justify-between gap-2 group"
+                  className="gear-repeater-slot p-2 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex items-center justify-between gap-2 group"
                 >
                   <div className="flex items-center gap-2">
-                    <span className="w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                    <span className="gear-repeater-icon w-7 h-7 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-1 shrink-0 overflow-hidden">
                       {currentMod?.icon ? (
                         <img src={resolveAssetUrl(currentMod.icon)} alt={currentMod.name} className="w-full h-full object-contain" />
                       ) : (
@@ -840,7 +840,7 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
 
           {/* Legendary Weapon Bond (Every version except Awakening 2.1.1) */}
           {!isAwakening && currentWeapon?.isLegendary && (
-            <div className="px-3 sm:px-4 py-2.5 border-t border-[#1d313a] bg-gradient-to-r from-[#0a151b] via-[#0e1d24] to-[#12242c]">
+            <div className="gear-bond-panel px-3 sm:px-4 py-2.5 border-t border-[#1d313a] bg-gradient-to-r from-[#0a151b] via-[#0e1d24] to-[#12242c]">
               <div className="flex items-center justify-between mb-1.5">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
                   <Link2 className="h-3.5 w-3.5" />
@@ -864,9 +864,9 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
               {bondedWeapon ? (
                 <div
                   onClick={() => onOpenPicker('bondedWeapon')}
-                  className="p-2 sm:p-2.5 rounded-xl bg-[#071116] border border-amber-500/40 hover:border-amber-400 transition-all cursor-pointer flex items-center gap-2.5 group shadow-sm hover:shadow-amber-500/10"
+                  className="gear-bond-card p-2 sm:p-2.5 rounded-xl bg-[#071116] border border-amber-500/40 hover:border-amber-400 transition-all cursor-pointer flex items-center gap-2.5 group shadow-sm hover:shadow-amber-500/10"
                 >
-                  <span className="w-9 h-9 rounded-lg bg-[#0e1c23] border border-amber-500/30 flex items-center justify-center shrink-0 overflow-hidden p-0.5">
+                  <span className="gear-bond-icon w-9 h-9 rounded-lg bg-[#0e1c23] border border-amber-500/30 flex items-center justify-center shrink-0 overflow-hidden p-0.5">
                     {bondedWeapon.icon ? (
                       <img
                         src={resolveAssetUrl(bondedWeapon.icon)}
@@ -908,7 +908,7 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                 <button
                   type="button"
                   onClick={() => onOpenPicker('bondedWeapon')}
-                  className="w-full py-2 px-3 rounded-xl border border-dashed border-amber-500/40 hover:border-amber-400 bg-amber-500/5 hover:bg-amber-500/10 text-amber-300 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+                  className="gear-bond-empty w-full py-2 px-3 rounded-xl border border-dashed border-amber-500/40 hover:border-amber-400 bg-amber-500/5 hover:bg-amber-500/10 text-amber-300 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer"
                 >
                   <Plus className="h-3.5 w-3.5" />
                   <span>Bond a {currentWeapon.bondElement || currentWeapon.element} Weapon (Inherits Perk & Unique Effect)</span>
@@ -919,7 +919,7 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
 
           {/* Bonded Weapon Unique Effect Preview */}
           {bondedWeapon?.uniqueEffect && (
-            <div className="px-4 py-2 border-t border-[#1d313a] text-xs text-amber-200/90 italic leading-snug flex items-start gap-1.5 bg-[#081217]">
+            <div className="gear-bond-effect px-4 py-2 border-t border-[#1d313a] text-xs text-amber-200/90 italic leading-snug flex items-start gap-1.5 bg-[#081217]">
               <Sparkles className="h-3.5 w-3.5 text-amber-400 shrink-0 mt-0.5" />
               <span><strong>Bond Effect:</strong> {bondedWeapon.uniqueEffect}</span>
             </div>

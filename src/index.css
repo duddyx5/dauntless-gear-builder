@@ -1188,6 +1188,168 @@ html.light .bg-cyan-500.text-black svg {
   stroke: #ffffff !important;
 }
 
+/* Unique Effect Row */
+html.light .gear-unique-effect-row {
+  border-top-color: #e2e8f0 !important;
+  background-color: #f0fdf4 !important;
+  color: #166534 !important;
+}
+html.light .gear-unique-effect-row svg {
+  color: #15803d !important;
+}
+
+/* Ostian Modular Repeaters & Attachments UI */
+html.light .gear-repeater-panel {
+  border-top-color: #e2e8f0 !important;
+  background: #f8fafc !important;
+  background-image: none !important;
+}
+html.light .gear-repeater-panel > div > span:first-child {
+  color: #0369a1 !important;
+}
+html.light .gear-repeater-panel > div > span:first-child svg {
+  color: #0284c7 !important;
+}
+html.light .gear-repeater-panel > div > span:last-child {
+  color: #64748b !important;
+}
+html.light .gear-repeater-slot {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05) !important;
+}
+html.light .gear-repeater-slot:hover {
+  border-color: #0ea5e9 !important;
+  background-color: #f0f9ff !important;
+}
+html.light .gear-repeater-slot strong,
+html.light .gear-repeater-slot .text-white {
+  color: #0f172a !important;
+}
+html.light .gear-repeater-slot:hover strong,
+html.light .gear-repeater-slot:hover .text-white {
+  color: #0284c7 !important;
+}
+html.light .gear-repeater-slot span.text-gray-400 {
+  color: #64748b !important;
+}
+html.light .gear-repeater-slot span.text-cyan-300 {
+  color: #0369a1 !important;
+}
+html.light .gear-repeater-slot span.border-cyan-500\/30 {
+  background-color: #e0f2fe !important;
+  color: #0369a1 !important;
+  border-color: #bae6fd !important;
+}
+html.light .gear-repeater-icon {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+}
+html.light .gear-repeater-icon svg {
+  color: #0284c7 !important;
+}
+html.light .gear-repeater-prism-effect {
+  background-color: #fdf2f8 !important;
+  border-color: #fbcfe8 !important;
+  color: #9d174d !important;
+}
+html.light .gear-repeater-prism-effect strong {
+  color: #831843 !important;
+}
+html.light .gear-repeater-prism-effect svg {
+  color: #db2777 !important;
+}
+
+/* Legendary Weapon Bonds UI */
+html.light .gear-bond-panel {
+  border-top-color: #fde68a !important;
+  background: linear-gradient(90deg, #fffbeb, #fef3c7 45%, #fffbeb) !important;
+  background-image: linear-gradient(90deg, #fffbeb, #fef3c7 45%, #fffbeb) !important;
+}
+html.light .gear-bond-panel span.text-amber-400 {
+  color: #92400e !important;
+}
+html.light .gear-bond-panel span.text-amber-400 svg {
+  color: #b45309 !important;
+}
+html.light .gear-bond-panel button[title="Remove bonded weapon"] {
+  color: #64748b !important;
+}
+html.light .gear-bond-panel button[title="Remove bonded weapon"]:hover {
+  color: #dc2626 !important;
+  background-color: #fee2e2 !important;
+}
+html.light .gear-bond-card {
+  background-color: #ffffff !important;
+  border-color: #fcd34d !important;
+  box-shadow: 0 2px 6px rgba(217, 119, 6, 0.12) !important;
+}
+html.light .gear-bond-card:hover {
+  border-color: #f59e0b !important;
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.18) !important;
+}
+html.light .gear-bond-card strong,
+html.light .gear-bond-card span.text-white {
+  color: #0f172a !important;
+}
+html.light .gear-bond-card:hover strong,
+html.light .gear-bond-card:hover span.text-white {
+  color: #b45309 !important;
+}
+html.light .gear-bond-card span.text-gray-400 {
+  color: #475569 !important;
+}
+html.light .gear-bond-card span.text-cyan-300 {
+  color: #0369a1 !important;
+}
+html.light .gear-bond-card span.border-amber-500\/40,
+html.light .gear-bond-card span.bg-amber-500\/20 {
+  background-color: #fef3c7 !important;
+  color: #92400e !important;
+  border-color: #fde68a !important;
+}
+html.light .gear-bond-icon {
+  background-color: #fef3c7 !important;
+  border-color: #fde68a !important;
+}
+html.light .gear-bond-icon svg {
+  color: #d97706 !important;
+}
+html.light .gear-bond-empty {
+  background-color: #fffbeb !important;
+  border-color: #f59e0b !important;
+  color: #92400e !important;
+}
+html.light .gear-bond-empty:hover {
+  background-color: #fef3c7 !important;
+  border-color: #d97706 !important;
+  color: #78350f !important;
+}
+html.light .gear-bond-effect {
+  border-top-color: #fde68a !important;
+  background-color: #fffdf5 !important;
+  color: #78350f !important;
+}
+html.light .gear-bond-effect strong {
+  color: #92400e !important;
+}
+html.light .gear-bond-effect svg {
+  color: #d97706 !important;
+}
+
+/* Modal Bonding Banner */
+html.light .picker-bond-banner {
+  background-color: #fffbeb !important;
+  border-color: #fde68a !important;
+  color: #78350f !important;
+}
+html.light .picker-bond-banner span.text-amber-300 {
+  color: #92400e !important;
+}
+html.light .picker-bond-banner svg {
+  color: #d97706 !important;
+}
+
 /* Custom scrollbars for touch & desktop */
 ::-webkit-scrollbar {
   width: 6px;

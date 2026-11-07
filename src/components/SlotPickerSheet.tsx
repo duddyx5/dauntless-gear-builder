@@ -313,7 +313,7 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
 
           {/* Legendary Weapon Bonding Banner */}
           {isBondedWeaponPicker && equippedWeapon && (
-            <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-amber-500/10 border border-amber-500/30 text-xs text-amber-200">
+            <div className="picker-bond-banner flex items-center gap-2 px-3 py-2 rounded-lg bg-amber-500/10 border border-amber-500/30 text-xs text-amber-200">
               <Link2 className="h-4 w-4 text-amber-400 shrink-0" />
               <div>
                 <span className="font-bold text-amber-300">Bonding with {equippedWeapon.name}:</span>{' '}

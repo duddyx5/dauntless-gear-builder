@@ -39,7 +39,13 @@ const XIcon: React.FC<{ className?: string }> = ({ className = 'h-4 w-4' }) => (
 
 export const App: React.FC = () => {
   const [manifest, setManifest] = useState<PatchManifest | null>(null);
-  const [currentVersionId, setCurrentVersionId] = useState<string>('1.14.7');
+  const [currentVersionId, setCurrentVersionId] = useState<string>(() => {
+    if (typeof window !== 'undefined' && window.location.hash) {
+      const decoded = decodeBuildFromHash(window.location.hash);
+      if (decoded?.version) return decoded.version;
+    }
+    return '1.14.7';
+  });
   const [patchData, setPatchData] = useState<PatchData | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [loadError, setLoadError] = useState<string | null>(null);
