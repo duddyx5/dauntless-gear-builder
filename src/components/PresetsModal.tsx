@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { BuildState } from '../types/builder';
 import { PRESET_BUILDS } from '../utils/calculator';
+import { importFromDauntlessBuilder } from '../utils/dauntlessBuilderImport';
 import {
   CommunityBuild,
   getCommunityBuilds,
@@ -33,6 +34,7 @@ import {
   Search,
   CheckCircle2,
   AlertCircle,
+  Link as LinkIcon,
 } from 'lucide-react';
 
 interface SavedBuildEntry {
@@ -83,6 +85,32 @@ export const PresetsModal: React.FC<PresetsModalProps> = ({
   const [submitAuthor, setSubmitAuthor] = useState('');
   const [submitDescription, setSubmitDescription] = useState('');
   const [submitTags, setSubmitTags] = useState('');
+
+  // Dauntless-Builder import state
+  const [importInput, setImportInput] = useState('');
+  const [importError, setImportError] = useState<string | null>(null);
+
+  const handleImportDauntlessBuilder = (e: React.FormEvent) => {
+    e.preventDefault();
+    setImportError(null);
+    const val = importInput.trim();
+    if (!val) return;
+
+    try {
+      const imported = importFromDauntlessBuilder(val);
+      if (imported) {
+        onLoadBuild(imported);
+        if (onShowToast) onShowToast('Successfully imported build from Dauntless-Builder!');
+        setImportInput('');
+        onClose();
+      } else {
+        setImportError('Could not decode build. Ensure it is a valid dauntless-builder.com/b/... URL or code.');
+      }
+    } catch (err) {
+      console.warn('Import error', err);
+      setImportError('Failed to parse Dauntless-Builder link.');
+    }
+  };
 
   // Load saved builds from localStorage on mount
   useEffect(() => {
@@ -466,7 +494,44 @@ export const PresetsModal: React.FC<PresetsModalProps> = ({
 
           {/* ========== TAB: Community Presets ========== */}
           {activeTab === 'presets' && (
-            <div className="space-y-2.5">
+            <div className="space-y-3">
+              {/* Import from Dauntless-Builder */}
+              <form onSubmit={handleImportDauntlessBuilder} className="p-3 bg-gray-900/90 border border-gray-800 rounded-xl space-y-2">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="font-semibold text-gray-300 flex items-center gap-1.5">
+                    <LinkIcon className="h-3.5 w-3.5 text-cyan-400" />
+                    <span>Import from Dauntless-Builder:</span>
+                  </span>
+                  <span className="text-[10px] text-gray-500 font-mono">dauntless-builder.com/b/...</span>
+                </div>
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={importInput}
+                    onChange={(e) => {
+                      setImportInput(e.target.value);
+                      if (importError) setImportError(null);
+                    }}
+                    placeholder="Paste Dauntless-Builder URL or build code..."
+                    className="flex-1 px-3 py-1.5 text-xs bg-gray-950/80 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500"
+                  />
+                  <button
+                    type="submit"
+                    disabled={!importInput.trim()}
+                    className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-cyan-500 hover:bg-cyan-400 text-black disabled:opacity-40 transition-colors flex items-center gap-1 shrink-0"
+                  >
+                    <FolderDown className="h-3.5 w-3.5" />
+                    <span>Import</span>
+                  </button>
+                </div>
+                {importError && (
+                  <p className="text-[11px] text-red-400 flex items-center gap-1 pt-0.5">
+                    <AlertCircle className="h-3 w-3 shrink-0" />
+                    <span>{importError}</span>
+                  </p>
+                )}
+              </form>
+
               {displayedPresets.length === 0 ? (
                 <div className="text-center py-10 text-gray-500 text-xs space-y-2">
                   <p>No community presets registered specifically for Patch {currentBuild.version}.</p>

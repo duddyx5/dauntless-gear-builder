@@ -22,8 +22,8 @@
       "icon": "/assets/icons/parts/repeaters/chambers/MarksmanChamber.png",
       "element": null,
       "partEffect": [
-        "Fires a shot in a line, dealing {{damage}} damage to the first Behemoth hit. If a part is struck, that part takes {{percentDamage}}% more damage from Shots for {{damageTime}} seconds.",
-        "Empowered: Damage bonus increased to {{empoweredPercentDamage}}%, and {{empoweredPercentAllyDamage}}% to all allies."
+        "Fires a shot in a line, dealing 350 damage to the first Behemoth hit. If a part is struck, that part takes 25% more damage from Shots for 10 seconds.",
+        "Empowered: Damage bonus increased to 60%, and 25% to all allies."
       ],
       "isLegendary": false
     },
@@ -35,8 +35,8 @@
       "icon": "/assets/icons/parts/repeaters/chambers/SalvoChamber.png",
       "element": null,
       "partEffect": [
-        "Fires an explosive missile in a line, dealing {{damage}} damage in an area upon impact.",
-        "Empowered: Fires {{missiles}} missiles in a spread."
+        "Fires an explosive missile in a line, dealing 450 damage in an area upon impact.",
+        "Empowered: Fires 3 missiles in a spread."
       ],
       "isLegendary": false
     }
@@ -50,7 +50,7 @@
       "icon": "/assets/icons/parts/repeaters/grips/CaptainsGrip.png",
       "element": null,
       "partEffect": [
-        "Launches a collectible buff a short distance, granting {{percentAttackSpeed}}% increased attack speed for {{attackSpeedTime}} seconds when collected.",
+        "Launches a collectible buff a short distance, granting 15% increased attack speed for 15 seconds when collected.",
         "Empowered: Grants the same buff to all Slayers."
       ],
       "isLegendary": false
@@ -63,8 +63,8 @@
       "icon": "/assets/icons/parts/repeaters/grips/SaboteursGrip.png",
       "element": null,
       "partEffect": [
-        "Launches an explosive mine that deals {{damage}} damage. Mine charges after a short period, increasing damage to {{increasedDamage}}.",
-        "Empowered: Deals {{empoweredDamage}} damage when charged and can interrupt Behemoths."
+        "Launches an explosive mine that deals 400 damage. Mine charges after a short period, increasing damage to 700.",
+        "Empowered: Deals 900 damage when charged and can interrupt Behemoths."
       ],
       "isLegendary": false
     }
@@ -79,7 +79,7 @@
       "icon": "/assets/icons/parts/repeaters/mods/CapacitiveMagazine.png",
       "element": null,
       "partEffect": [
-        "Using an ability returns {{ammo}} standard ammo to the magazine."
+        "Using an ability returns 8 standard ammo to the magazine."
       ],
       "isLegendary": false
     },
@@ -91,7 +91,7 @@
       "icon": "/assets/icons/parts/repeaters/mods/DemolitionSights.png",
       "element": null,
       "partEffect": [
-        "While empowered, deal +{{percentObjectDamage}}% damage to objects created by Behemoths."
+        "While empowered, deal +100% damage to objects created by Behemoths."
       ],
       "isLegendary": false
     },
@@ -103,7 +103,7 @@
       "icon": "/assets/icons/parts/repeaters/mods/ExtractionCatalyst.png",
       "element": null,
       "partEffect": [
-        "Reduce both ability cooldowns by {{cooldownReduction}} seconds when dodging through Behemoth attacks."
+        "Reduce both ability cooldowns by 2 seconds when dodging through Behemoth attacks."
       ],
       "isLegendary": false
     },
@@ -115,7 +115,7 @@
       "icon": "/assets/icons/parts/repeaters/mods/LightweightFrame.png",
       "element": null,
       "partEffect": [
-        "Gain {{percentMovespeed}}% increased movespeed when at {{currentAmmo}} or less ammo."
+        "Gain 20% increased movespeed when at 6 or less ammo."
       ],
       "isLegendary": false
     },
@@ -127,7 +127,7 @@
       "icon": "/assets/icons/parts/repeaters/mods/LuckyMagazine.png",
       "element": null,
       "partEffect": [
-        "Grants {{percentCritChance}}% critical strike chance for each round missing from the magazine."
+        "Grants 2% critical strike chance for each round missing from the magazine."
       ],
       "isLegendary": false
     },
@@ -139,7 +139,7 @@
       "icon": "/assets/icons/parts/repeaters/mods/PrecisionSights.png",
       "element": null,
       "partEffect": [
-        "Deal {{damage}} increased damage when attacking the same part multiple times. Stacks up to {{stacks}} times."
+        "Deal 8 increased damage when attacking the same part multiple times. Stacks up to 5 times."
       ],
       "isLegendary": false
     },
@@ -151,7 +151,7 @@
       "icon": "/assets/icons/parts/repeaters/mods/ScopedSights.png",
       "element": null,
       "partEffect": [
-        "Increases damage falloff range by {{damageFalloff}}%"
+        "Increases damage falloff range by 25%"
       ],
       "isLegendary": false
     },
@@ -163,7 +163,7 @@
       "icon": "/assets/icons/parts/repeaters/mods/TacticiansMagazine.png",
       "element": null,
       "partEffect": [
-        "Empowered Reloading at exactly {{currentAmmo}} ammo decreases the cooldown of both abilities by {{cooldownReduction}} seconds."
+        "Empowered Reloading at exactly 0 ammo decreases the cooldown of both abilities by 4 seconds."
       ],
       "isLegendary": false
     }

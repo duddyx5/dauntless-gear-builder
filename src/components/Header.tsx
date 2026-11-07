@@ -17,6 +17,7 @@ import {
   Youtube,
   Github,
   Coffee,
+  Heart,
 } from 'lucide-react';
 
 const XIcon: React.FC<{ className?: string }> = ({ className = 'h-4 w-4' }) => (
@@ -486,6 +487,23 @@ export const Header: React.FC<HeaderProps> = ({
                   <Github className="h-4 w-4 text-cyan-400" />
                   <span>GitHub</span>
                 </a>
+              </div>
+
+              {/* Community Credits & Legal Disclaimer */}
+              <div className="pt-3 mt-3 border-t border-dauntless-border space-y-2">
+                <div className="p-2.5 rounded-lg bg-[#0a151b] border border-[#1d313a] space-y-1">
+                  <span className="font-semibold text-cyan-300 flex items-center gap-1 text-[11px]">
+                    <Heart className="h-3 w-3 text-pink-400" />
+                    <span>Community Acknowledgements</span>
+                  </span>
+                  <p className="text-gray-400 text-[10.5px] leading-relaxed">
+                    With special gratitude to the <strong className="text-gray-200">Dauntless Forever</strong> preservation team & <strong className="text-gray-200">atomicptr</strong> (original Dauntless Builder creator).
+                  </p>
+                </div>
+
+                <p className="text-[10px] text-gray-500 leading-normal text-center">
+                  Dauntless and all game properties, names, and assets are owned by <strong className="text-gray-400 font-semibold">Phoenix Labs</strong>. Unofficial non-commercial fan tool.
+                </p>
               </div>
             </div>
           </aside>

@@ -7,9 +7,10 @@ import {
   OmnicellItem,
   PatchData,
   RepeaterPartItem,
+  WeaponPartItem,
 } from '../types/builder';
 import { getElementStyle, getSocketStyle, getCellCategoryIcon, resolveAssetUrl } from '../utils/theme';
-import { formatPerkEffect } from '../utils/calculator';
+import { formatPerkEffect, EXOTIC_WEAPON_IDS } from '../utils/calculator';
 import { renderFormattedCoreText } from '../utils/formatText';
 import { Search, X, Trash2, Shield, Zap, Sparkles, Check, ChevronRight, Link2 } from 'lucide-react';
 
@@ -17,6 +18,8 @@ export type PickerSlotType =
   | 'weapon'
   | 'bondedWeapon'
   | 'secondaryWeapon'
+  | 'weaponSpecial'
+  | 'weaponMod'
   | 'repeaterBarrel'
   | 'repeaterChamber'
   | 'repeaterGrip'
@@ -81,6 +84,7 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
     'repeaterPrism',
     'repeaterMod',
   ].includes(slotType);
+  const isWeaponPartPicker = slotType === 'weaponSpecial' || slotType === 'weaponMod';
   const isAwakening = patchData.version === '2.1.1';
   const isClassic = patchData.version === '1.4.4';
 
@@ -88,6 +92,8 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
     weapon: 'Select Primary Weapon',
     bondedWeapon: equippedWeapon ? `Select Bonded Weapon (${equippedWeapon.element} ${equippedWeapon.typeName})` : 'Select Bonded Weapon',
     secondaryWeapon: 'Select Secondary Weapon',
+    weaponSpecial: equippedWeapon ? `Select ${equippedWeapon.typeName} Special` : 'Select Weapon Special',
+    weaponMod: equippedWeapon ? `Select ${equippedWeapon.typeName} Modification` : 'Select Weapon Modification',
     repeaterBarrel: 'Select Repeater Barrel (Element & Damage)',
     repeaterChamber: 'Select Repeater Chamber (Active Shot)',
     repeaterGrip: 'Select Repeater Grip (Utility Ability)',
@@ -141,6 +147,7 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
 
     return patchData.weapons.filter(w => {
       if (w.isLegendary) return false;
+      if (EXOTIC_WEAPON_IDS.has(w.id)) return false;
       if (w.id === equippedWeapon.id) return false;
       if (w.type.toLowerCase() !== targetType) return false;
       if (w.element.toLowerCase() !== targetElement) return false;
@@ -239,6 +246,24 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
       );
     });
   }, [isRepeaterPartPicker, slotType, patchData.repeaterParts, selectedElement, searchTerm]);
+
+  // Filtered Melee Weapon Parts (Specials & Mods)
+  const filteredWeaponParts = useMemo(() => {
+    if (!isWeaponPartPicker || !patchData.weaponParts) return [];
+    const normalizedType = equippedWeapon?.type ? equippedWeapon.type.toLowerCase().replace(/\s+/g, '') : 'sword';
+    const partsForType = patchData.weaponParts[normalizedType];
+    if (!partsForType) return [];
+    const category = slotType === 'weaponSpecial' ? 'specials' : 'mods';
+    const list: WeaponPartItem[] = partsForType[category] || [];
+    if (!searchTerm) return list;
+    const term = searchTerm.toLowerCase();
+    return list.filter(item =>
+      item.name.toLowerCase().includes(term) ||
+      item.description.toLowerCase().includes(term) ||
+      (item.partEffect && item.partEffect.some(e => e.toLowerCase().includes(term))) ||
+      (item.tags && item.tags.some(t => t.toLowerCase().includes(term)))
+    );
+  }, [isWeaponPartPicker, patchData.weaponParts, equippedWeapon, slotType, searchTerm]);
 
   return (
     <div
@@ -455,13 +480,15 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                           </em>
                         ))}
                         {w.cellSockets.map((s, idx) => (
-                          <em key={idx} className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-[#0a151b] text-gray-300 border border-[#21333d] not-italic inline-flex items-center gap-1">
-                            <img
-                              src={resolveAssetUrl(getCellCategoryIcon(s))}
-                              alt={s}
-                              className="w-2.5 h-2.5 object-contain"
-                              onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
-                            />
+                          <em key={idx} className="cell-socket-tag text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-[#0a151b] text-gray-300 border border-[#21333d] not-italic inline-flex items-center gap-1">
+                            <span className="w-3.5 h-3.5 rounded-full bg-[#182a33] flex items-center justify-center p-0.5 shrink-0">
+                              <img
+                                src={resolveAssetUrl(getCellCategoryIcon(s))}
+                                alt={s}
+                                className="w-full h-full object-contain"
+                                onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
+                              />
+                            </span>
                             <span>{s}</span>
                           </em>
                         ))}
@@ -545,7 +572,7 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
 
                       {/* Inherited Perks */}
                       <span className="flex flex-wrap items-center gap-1.5 mt-1.5">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400">
+                        <span className="bonded-grants-perk-label text-[10px] font-bold uppercase tracking-wider text-amber-400">
                           Grants Perk:
                         </span>
                         {w.perks.map(p => (
@@ -556,7 +583,7 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                       </span>
 
                       {w.uniqueEffect && (
-                        <p className="text-[10.5px] text-amber-200/90 mt-1.5 italic line-clamp-2 flex items-start gap-1">
+                        <p className="bonded-grants-effect text-[10.5px] text-amber-200/90 mt-1.5 italic line-clamp-2 flex items-start gap-1">
                           <Sparkles className="h-3 w-3 text-amber-400 shrink-0 mt-0.5" />
                           <span>Grants Effect: {w.uniqueEffect}</span>
                         </p>
@@ -636,13 +663,15 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                             +{isClassic || isAwakening ? p.value : (powerSurged ? p.value : (p.baseValue ?? p.value))} {p.name}
                           </em>
                         ))}
-                        <em className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-[#0a151b] text-gray-300 border border-[#21333d] not-italic inline-flex items-center gap-1">
-                          <img
-                            src={resolveAssetUrl(getCellCategoryIcon(a.cellSocket))}
-                            alt={a.cellSocket}
-                            className="w-2.5 h-2.5 object-contain"
-                            onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
-                          />
+                        <em className="cell-socket-tag text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-[#0a151b] text-gray-300 border border-[#21333d] not-italic inline-flex items-center gap-1">
+                          <span className="w-3.5 h-3.5 rounded-full bg-[#182a33] flex items-center justify-center p-0.5 shrink-0">
+                            <img
+                              src={resolveAssetUrl(getCellCategoryIcon(a.cellSocket))}
+                              alt={a.cellSocket}
+                              className="w-full h-full object-contain"
+                              onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
+                            />
+                          </span>
                           <span>{isAwakening && a.cellSockets && a.cellSockets.length > 1 ? 'Sockets (2)' : a.cellSocket}</span>
                         </em>
                       </span>
@@ -892,18 +921,26 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                           {o.name}
                         </strong>
                         {o.cooldown > 0 && (
-                          <span className="text-[10px] font-mono text-gray-400">
+                          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 font-semibold">
                             {o.cooldown}s CD
                           </span>
                         )}
                       </span>
 
-                      <p className="text-[11px] text-gray-300 mt-1 line-clamp-2">
-                        <b className="text-cyan-400">Active:</b> {o.active}
-                      </p>
-                      <p className="text-[10.5px] text-gray-400 mt-0.5 line-clamp-1">
-                        <b className="text-purple-400">Passive:</b> {o.passive}
-                      </p>
+                      <div className="mt-2 space-y-1.5 text-xs">
+                        <div className="text-[11px] text-gray-300 leading-relaxed">
+                          <span className="font-bold text-cyan-400">Active: </span>
+                          <div className="mt-0.5 text-gray-300">
+                            {renderFormattedCoreText(o.active, 'space-y-1', 'text-cyan-300')}
+                          </div>
+                        </div>
+                        <div className="text-[11px] text-gray-300 leading-relaxed pt-1.5 border-t border-[#203640]/50">
+                          <span className="font-bold text-purple-400">Passive: </span>
+                          <div className="mt-0.5 text-gray-400">
+                            {renderFormattedCoreText(o.passive, 'space-y-1', 'text-purple-300')}
+                          </div>
+                        </div>
+                      </div>
                     </span>
 
                     <span className="self-center shrink-0">
@@ -1007,6 +1044,82 @@ export const SlotPickerSheet: React.FC<SlotPickerSheetProps> = ({
                         <p className="text-[11px] text-amber-200/90 mt-1 italic">
                           {part.uniqueEffect}
                         </p>
+                      )}
+                    </span>
+
+                    <span className="self-center shrink-0">
+                      {isEquipped ? (
+                        <span className="w-5 h-5 rounded-full bg-cyan-400 text-black flex items-center justify-center">
+                          <Check className="h-3 w-3 stroke-[3]" />
+                        </span>
+                      ) : (
+                        <ChevronRight className="h-4 w-4 text-gray-500" />
+                      )}
+                    </span>
+                  </button>
+                );
+              })
+            )
+          )}
+
+          {/* Weapon Modifications (Specials & Mods for Sword, Axe, Hammer, Chain Blades, War Pike, Strikers) */}
+          {isWeaponPartPicker && (
+            filteredWeaponParts.length === 0 ? (
+              <div className="text-center py-10 text-gray-500 text-sm">
+                No {slotType === 'weaponSpecial' ? 'specials' : 'modifications'} found for this weapon.
+              </div>
+            ) : (
+              filteredWeaponParts.map(part => {
+                const isEquipped = currentSelectedId === part.id;
+                return (
+                  <button
+                    key={part.id}
+                    type="button"
+                    onClick={() => {
+                      onSelect(part.id);
+                      onClose();
+                    }}
+                    className={`w-full p-2.5 rounded-xl border text-left flex items-start gap-3 transition-all cursor-pointer ${
+                      isEquipped
+                        ? 'bg-[#12262e] border-cyan-400 shadow-md shadow-cyan-500/10'
+                        : 'bg-[#101e25] border-[#203640] hover:border-[#3e6977] hover:bg-[#12222a]'
+                    }`}
+                  >
+                    <span className="w-12 h-12 rounded-lg bg-[#09151a] border border-[#21333d] flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                      {part.icon ? (
+                        <img
+                          src={resolveAssetUrl(part.icon)}
+                          alt={part.name}
+                          className="w-full h-full object-contain"
+                          onError={(e) => {
+                            (e.target as HTMLElement).style.display = 'none';
+                          }}
+                        />
+                      ) : (
+                        <Zap className="h-5 w-5 text-cyan-400" />
+                      )}
+                    </span>
+
+                    <span className="flex-1 min-w-0">
+                      <span className="flex items-center justify-between gap-1">
+                        <strong className="font-display font-bold text-base text-white truncate flex items-center gap-1.5">
+                          {part.name}
+                          {part.tags && part.tags.includes('Recommended') && (
+                            <span className="text-[10px] px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold uppercase tracking-wider">
+                              Recommended
+                            </span>
+                          )}
+                        </strong>
+                        <span className="text-[10px] uppercase font-semibold text-gray-400 px-1.5 py-0.5 rounded bg-[#09151a] border border-[#203640]">
+                          {part.category === 'special' ? 'Special' : 'Mod'}
+                        </span>
+                      </span>
+
+                      {/* Description */}
+                      {part.description && (
+                        <div className="mt-1.5 text-xs text-gray-300 leading-relaxed">
+                          {renderFormattedCoreText(part.description, 'space-y-1', 'text-cyan-300')}
+                        </div>
                       )}
                     </span>
 

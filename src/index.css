@@ -1260,6 +1260,85 @@ html.light .gear-repeater-prism-effect svg {
   color: #db2777 !important;
 }
 
+/* Melee Weapon Specials & Modifications UI */
+html.light .gear-weapon-parts-panel {
+  border-top-color: #e2e8f0 !important;
+  background: #f8fafc !important;
+  background-image: none !important;
+}
+html.light .gear-weapon-parts-panel > div > span:first-child {
+  color: #0369a1 !important;
+}
+html.light .gear-weapon-parts-panel > div > span:first-child svg {
+  color: #0284c7 !important;
+}
+html.light .gear-weapon-parts-panel > div > span:last-child {
+  color: #64748b !important;
+}
+html.light .gear-weapon-part-slot {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05) !important;
+}
+html.light .gear-weapon-part-slot:hover {
+  border-color: #0ea5e9 !important;
+  background-color: #f0f9ff !important;
+}
+html.light .gear-weapon-part-slot strong,
+html.light .gear-weapon-part-slot .text-white {
+  color: #0f172a !important;
+}
+html.light .gear-weapon-part-slot:hover strong,
+html.light .gear-weapon-part-slot:hover .text-white {
+  color: #0284c7 !important;
+}
+html.light .gear-weapon-part-slot span.text-gray-400 {
+  color: #64748b !important;
+}
+html.light .gear-part-icon {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+}
+html.light .gear-part-desc-box {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #334155 !important;
+}
+
+/* Legendary Ability Card UI */
+html.light .gear-legendary-ability-card {
+  border-top-color: #fde68a !important;
+  background: linear-gradient(90deg, #fffbeb, #fef3c7 45%, #fffbeb) !important;
+  background-image: linear-gradient(90deg, #fffbeb, #fef3c7 45%, #fffbeb) !important;
+}
+html.light .gear-legendary-ability-card span.text-amber-400 {
+  color: #92400e !important;
+}
+html.light .gear-legendary-ability-card span.text-amber-400 svg {
+  color: #b45309 !important;
+}
+html.light .gear-legendary-ability-card span.border-amber-500\/40,
+html.light .gear-legendary-ability-card span.bg-amber-500\/20 {
+  background-color: #fef3c7 !important;
+  color: #92400e !important;
+  border-color: #fde68a !important;
+}
+html.light .gear-legendary-ability-content {
+  background-color: #ffffff !important;
+  border-color: #fcd34d !important;
+  box-shadow: 0 2px 6px rgba(217, 119, 6, 0.12) !important;
+}
+html.light .gear-legendary-ability-content strong {
+  color: #78350f !important;
+}
+html.light .gear-legendary-ability-content p {
+  color: #334155 !important;
+}
+html.light .gear-legendary-icon-wrap {
+  background-color: #fef3c7 !important;
+  border-color: #fde68a !important;
+}
+
 /* Legendary Weapon Bonds UI */
 html.light .gear-bond-panel {
   border-top-color: #fde68a !important;
@@ -1348,6 +1427,27 @@ html.light .picker-bond-banner span.text-amber-300 {
 }
 html.light .picker-bond-banner svg {
   color: #d97706 !important;
+}
+
+/* Omnicell Details in Light Mode */
+html.light .gear-omnicell-details {
+  border-top-color: #e2e8f0 !important;
+  background-color: #f8fafc !important;
+}
+html.light .gear-omnicell-details span.text-cyan-400 {
+  color: #0369a1 !important;
+}
+html.light .gear-omnicell-details span.text-purple-400 {
+  color: #7e22ce !important;
+}
+html.light .gear-omnicell-details strong.text-cyan-300 {
+  color: #0284c7 !important;
+}
+html.light .gear-omnicell-details strong.text-purple-300 {
+  color: #6b21a8 !important;
+}
+html.light .gear-omnicell-details div.border-t {
+  border-top-color: #e2e8f0 !important;
 }
 
 /* Custom scrollbars for touch & desktop */

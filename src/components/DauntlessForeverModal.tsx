@@ -380,16 +380,22 @@ export const DauntlessForeverModal: React.FC<DauntlessForeverModalProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="p-3 bg-gray-900 border-t border-dauntless-border flex items-center justify-between text-xs">
-          <a
-            href="https://items.dauntlessforever.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-gray-400 hover:text-cyan-300 transition-colors"
-          >
-            <span>Browse Full DF Item Catalog</span>
-            <ExternalLink className="h-3.5 w-3.5" />
-          </a>
+        <div className="p-3 bg-gray-900 border-t border-dauntless-border flex flex-col sm:flex-row items-center justify-between gap-2 text-xs">
+          <div className="flex flex-col sm:flex-row items-center gap-1.5 text-gray-400">
+            <a
+              href="https://items.dauntlessforever.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-colors"
+            >
+              <span>Browse Full DF Item Catalog</span>
+              <ExternalLink className="h-3 w-3" />
+            </a>
+            <span className="hidden sm:inline text-gray-600">•</span>
+            <span className="text-[10.5px] text-gray-500">
+              Dauntless properties owned by Phoenix Labs
+            </span>
+          </div>
 
           <div className="flex items-center gap-2">
             <button

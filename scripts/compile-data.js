@@ -341,6 +341,16 @@ function compileYamlPatch(patchId, baseDir) {
     const isLegendary = !!doc.bond || ['Malkarion', 'Torgadoro', 'Thrax', 'Agarus', 'Urska', 'Chronovore'].includes(behemoth);
     const bondElement = (doc.bond && doc.bond.elemental) || (isLegendary ? (doc.elemental || 'Neutral') : null);
 
+    const legendaryIcons = {
+      'Agarus': '/assets/icons/abilities/AgarusLegendaryWeaponAbility.png',
+      'Chronovore': '/assets/icons/abilities/ChronovoreLegendaryWeaponAbility.png',
+      'Malkarion': '/assets/icons/abilities/MalkarionLegendaryWeaponAbility.png',
+      'Thrax': '/assets/icons/abilities/ThraxLegendaryWeaponAbility.png',
+      'Torgadoro': '/assets/icons/abilities/TorgadoroLegendaryWeaponAbility.png',
+      'Urska': '/assets/icons/abilities/UrskaLegendaryWeaponAbility.png'
+    };
+    const legendaryIcon = isLegendary ? (legendaryIcons[behemoth] || null) : null;
+
     weaponsList.push({
       id: slugify(doc.name),
       name: doc.name,
@@ -357,7 +367,8 @@ function compileYamlPatch(patchId, baseDir) {
       perks,
       uniqueEffect,
       isLegendary,
-      bondElement
+      bondElement,
+      legendaryIcon
     });
   }
 
@@ -460,7 +471,8 @@ function compileYamlPatch(patchId, baseDir) {
             }
           }
 
-          const rawEffects = Array.isArray(doc.part_effect) ? doc.part_effect : (doc.part_effect ? [doc.part_effect] : []);
+          const rawEffects = (Array.isArray(doc.part_effect) ? doc.part_effect : (doc.part_effect ? [doc.part_effect] : []))
+            .map(eff => typeof eff === 'string' ? interpolate(eff, doc.values || {}) : eff);
           const isLegendary = ['Animus Barrel', 'Dynamic Carbine', 'Eldritch Barrel', 'Volcanic Barrel'].includes(doc.name) || rawEffects.some(e => typeof e === 'string' && e.includes('Legendary Ability'));
 
           repeaterParts[cat].push({
@@ -481,6 +493,50 @@ function compileYamlPatch(patchId, baseDir) {
     }
   }
 
+  // 8. Melee Weapon Parts (Specials and Mods for Sword, Axe, Hammer, Chain Blades, War Pike, Aether Strikers)
+  const weaponParts = {
+    sword: { specials: [], mods: [] },
+    axe: { specials: [], mods: [] },
+    hammer: { specials: [], mods: [] },
+    chainblades: { specials: [], mods: [] },
+    warpike: { specials: [], mods: [] },
+    aetherstrikers: { specials: [], mods: [] }
+  };
+
+  const partsDir = path.join(baseDir, 'parts');
+  if (fs.existsSync(partsDir)) {
+    const meleeTypes = ['sword', 'axe', 'hammer', 'chainblades', 'warpike', 'aetherstrikers'];
+    for (const wt of meleeTypes) {
+      const wtDir = path.join(partsDir, wt);
+      if (!fs.existsSync(wtDir)) continue;
+
+      for (const cat of ['specials', 'mods']) {
+        const catDir = path.join(wtDir, cat);
+        if (!fs.existsSync(catDir)) continue;
+
+        const files = scanDir(catDir);
+        for (const f of files) {
+          const doc = yaml.load(fs.readFileSync(f, 'utf8'));
+          if (!doc || !doc.name) continue;
+
+          const rawEffects = (Array.isArray(doc.part_effect) ? doc.part_effect : (doc.part_effect ? [doc.part_effect] : []))
+            .map(eff => typeof eff === 'string' ? interpolate(eff, doc.values || {}) : eff);
+
+          weaponParts[wt][cat].push({
+            id: slugify(doc.name),
+            name: doc.name,
+            category: cat.slice(0, -1), // special or mod
+            weaponType: wt,
+            icon: doc.icon || '',
+            description: rawEffects.join(' '),
+            partEffect: rawEffects,
+            tags: doc.tags || []
+          });
+        }
+      }
+    }
+  }
+
   fs.writeFileSync(path.join(outDir, 'perks.json'), JSON.stringify(perksMap, null, 2));
   fs.writeFileSync(path.join(outDir, 'cells.json'), JSON.stringify(cellsList, null, 2));
   fs.writeFileSync(path.join(outDir, 'armour.json'), JSON.stringify(armoursList, null, 2));
@@ -488,6 +544,7 @@ function compileYamlPatch(patchId, baseDir) {
   fs.writeFileSync(path.join(outDir, 'lanterns.json'), JSON.stringify(lanternsList, null, 2));
   fs.writeFileSync(path.join(outDir, 'omnicells.json'), JSON.stringify(omnicellsList, null, 2));
   fs.writeFileSync(path.join(outDir, 'repeaterParts.json'), JSON.stringify(repeaterParts, null, 2));
+  fs.writeFileSync(path.join(outDir, 'weaponParts.json'), JSON.stringify(weaponParts, null, 2));
 
   console.log(`[Patch ${patchId}] Compiled:
   - Perks: ${Object.keys(perksMap).length}
@@ -629,6 +686,7 @@ function compileAwakening() {
   fs.writeFileSync(path.join(outDir, 'lanterns.json'), JSON.stringify(lanternsList, null, 2));
   fs.writeFileSync(path.join(outDir, 'omnicells.json'), JSON.stringify([], null, 2));
   fs.writeFileSync(path.join(outDir, 'repeaterParts.json'), JSON.stringify({ barrels: [], chambers: [], grips: [], prisms: [], mods: [] }, null, 2));
+  fs.writeFileSync(path.join(outDir, 'weaponParts.json'), JSON.stringify({}, null, 2));
 
   console.log(`[Patch 2.1.1] Compiled:
   - Perks: ${Object.keys(perksMap).length}

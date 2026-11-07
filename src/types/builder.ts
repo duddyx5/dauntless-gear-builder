@@ -81,6 +81,7 @@ export interface WeaponItem {
   uniqueEffect: string | null;
   isLegendary?: boolean;
   bondElement?: string | null;
+  legendaryIcon?: string | null;
   talents?: WeaponTalentTier[];
   specialName?: string;
   specialDesc?: string;
@@ -158,6 +159,22 @@ export interface RepeaterPartsData {
   mods: RepeaterPartItem[];
 }
 
+export interface WeaponPartItem {
+  id: string;
+  name: string;
+  category: 'special' | 'mod';
+  weaponType: string;
+  icon: string;
+  description: string;
+  partEffect?: string[];
+  tags?: string[];
+}
+
+export type WeaponPartsData = Record<string, {
+  specials: WeaponPartItem[];
+  mods: WeaponPartItem[];
+}>;
+
 export interface PatchData {
   version: string;
   perks: Record<string, PerkTierData>;
@@ -167,6 +184,7 @@ export interface PatchData {
   lanterns: LanternItem[];
   omnicells: OmnicellItem[];
   repeaterParts?: RepeaterPartsData;
+  weaponParts?: WeaponPartsData;
 }
 
 export interface BuildState {
@@ -174,6 +192,8 @@ export interface BuildState {
   weapon: string | null;
   bondedWeapon?: string | null;
   secondaryWeapon?: string | null;
+  weaponSpecial?: string | null;
+  weaponMod?: string | null;
   weaponTalents?: number[];
   secondaryWeaponTalents?: number[];
   gearLevels?: Record<string, number>;

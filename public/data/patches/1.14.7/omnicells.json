@@ -15,7 +15,7 @@
     "abilityIcon": "/assets/icons/omnicells/BastionAbility.png",
     "passive": "Increase all shields received by 15%. Dealing damage has a chance to grant a stacking, refreshing 25 health shield that lasts for 25 seconds (max 500 shields).",
     "active": "Leap forward and slam the ground consuming all shields in a blast of energy that deals damage to nearby targets equal to 200% the amount of shields consumed. 20 second cooldown.",
-    "cooldown": 0
+    "cooldown": 20
   },
   {
     "id": "discipline",

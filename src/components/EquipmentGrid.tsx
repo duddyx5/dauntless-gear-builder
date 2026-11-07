@@ -76,6 +76,17 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
   const currentPrism = patchData.repeaterParts?.prisms?.find(p => p.id === build.repeaterPrism);
   const currentMod = patchData.repeaterParts?.mods?.find(m => m.id === build.repeaterMod);
 
+  const normalizedWeaponType = currentWeapon ? currentWeapon.type.toLowerCase().replace(/\s+/g, '') : '';
+  const weaponPartsForType = patchData.weaponParts?.[normalizedWeaponType];
+  const hasWeaponParts = !isRepeater && !isAwakening && !!weaponPartsForType && ((weaponPartsForType.specials?.length || 0) > 0 || (weaponPartsForType.mods?.length || 0) > 0);
+
+  const currentSpecial = weaponPartsForType?.specials?.find(s => s.id === build.weaponSpecial)
+    || weaponPartsForType?.specials?.[0]
+    || null;
+  const currentModPart = weaponPartsForType?.mods?.find(m => m.id === build.weaponMod)
+    || weaponPartsForType?.mods?.[0]
+    || null;
+
   const getClassicPerkVal = (level: number, baseMaxVal = 3) => {
     if (level >= 10) return Math.min(3, baseMaxVal);
     if (level >= 6) return Math.min(2, baseMaxVal);
@@ -599,7 +610,7 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
           </button>
 
           {/* Unique Effect Preview */}
-          {(currentWeapon?.uniqueEffect || (isModularRepeaterEra && currentPrism?.uniqueEffect)) && (
+          {((!currentWeapon?.isLegendary && currentWeapon?.uniqueEffect) || (isModularRepeaterEra && currentPrism?.uniqueEffect)) && (
             <div className="gear-unique-effect-row px-4 py-2 border-t border-[#1d313a] text-xs text-cyan-200/90 italic leading-snug flex items-start gap-1.5">
               <Sparkles className="h-3.5 w-3.5 text-cyan-400 shrink-0 mt-0.5" />
               <span>{isModularRepeaterEra && currentPrism?.uniqueEffect ? currentPrism.uniqueEffect : currentWeapon?.uniqueEffect}</span>
@@ -834,6 +845,135 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                   </div>
                   <ChevronRight className="h-3.5 w-3.5 text-gray-500" />
                 </button>
+              </div>
+            </div>
+          )}
+
+          {/* Melee Weapon Special & Modification (Swords, Axes, Hammers, Chain Blades, War Pikes, Strikers) */}
+          {hasWeaponParts && (
+            <div className="gear-weapon-parts-panel px-3 sm:px-4 py-3 border-t border-[#1d313a] bg-gradient-to-r from-[#071319] via-[#091820] to-[#0c1e27]">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
+                  <Zap className="h-3.5 w-3.5 text-cyan-400" />
+                  {currentWeapon?.typeName} Special & Modification
+                </span>
+                <span className="text-[10px] text-gray-400">Customizable Loadout</span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {/* 1. Special */}
+                <button
+                  type="button"
+                  onClick={() => onOpenPicker('weaponSpecial')}
+                  className="gear-weapon-part-slot p-2.5 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex items-center justify-between gap-2.5 group"
+                >
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <span className="gear-part-icon w-9 h-9 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-0.5 shrink-0 overflow-hidden">
+                      {currentSpecial?.icon ? (
+                        <img
+                          src={resolveAssetUrl(currentSpecial.icon)}
+                          alt={currentSpecial.name}
+                          className="w-full h-full object-contain"
+                          onError={(e) => {
+                            (e.target as HTMLElement).style.display = 'none';
+                          }}
+                        />
+                      ) : (
+                        <Zap className="h-4 w-4 text-cyan-400" />
+                      )}
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-gray-400 block">Special</span>
+                      <strong className="text-xs text-white truncate block group-hover:text-cyan-300 transition-colors">
+                        {currentSpecial ? currentSpecial.name : 'Choose Special'}
+                      </strong>
+                    </div>
+                  </div>
+                  <ChevronRight className="h-3.5 w-3.5 text-gray-500 group-hover:text-cyan-400 shrink-0 transition-colors" />
+                </button>
+
+                {/* 2. Mod */}
+                <button
+                  type="button"
+                  onClick={() => onOpenPicker('weaponMod')}
+                  className="gear-weapon-part-slot p-2.5 rounded-xl bg-[#09151a] border border-[#213742] hover:border-cyan-400 text-left transition-all cursor-pointer flex items-center justify-between gap-2.5 group"
+                >
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <span className="gear-part-icon w-9 h-9 rounded-lg bg-[#0e1f26] border border-[#263e4b] flex items-center justify-center p-0.5 shrink-0 overflow-hidden">
+                      {currentModPart?.icon ? (
+                        <img
+                          src={resolveAssetUrl(currentModPart.icon)}
+                          alt={currentModPart.name}
+                          className="w-full h-full object-contain"
+                          onError={(e) => {
+                            (e.target as HTMLElement).style.display = 'none';
+                          }}
+                        />
+                      ) : (
+                        <Layers className="h-4 w-4 text-emerald-400" />
+                      )}
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-gray-400 block">Mod</span>
+                      <strong className="text-xs text-white truncate block group-hover:text-cyan-300 transition-colors">
+                        {currentModPart ? currentModPart.name : 'Choose Mod'}
+                      </strong>
+                    </div>
+                  </div>
+                  <ChevronRight className="h-3.5 w-3.5 text-gray-500 group-hover:text-cyan-400 shrink-0 transition-colors" />
+                </button>
+              </div>
+
+              {/* Special & Mod active description previews */}
+              <div className="mt-2 space-y-1.5 text-xs">
+                {currentSpecial && (
+                  <div className="gear-part-desc-box p-2 rounded-lg bg-[#09151a] border border-[#1b313d] text-[11px] text-gray-300 leading-relaxed">
+                    <span className="font-bold text-cyan-400">{currentSpecial.name}: </span>
+                    <span>{currentSpecial.description}</span>
+                  </div>
+                )}
+                {currentModPart && (
+                  <div className="gear-part-desc-box p-2 rounded-lg bg-[#09151a] border border-[#1b313d] text-[11px] text-gray-300 leading-relaxed">
+                    <span className="font-bold text-emerald-400">{currentModPart.name}: </span>
+                    <span>{currentModPart.description}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Legendary Ability Card with Authentic In-Game Icon */}
+          {currentWeapon?.isLegendary && currentWeapon.legendaryIcon && (
+            <div className="gear-legendary-ability-card px-3 sm:px-4 py-3 border-t border-[#1d313a] bg-gradient-to-r from-[#0a1816] via-[#0b1c20] to-[#0c1f26]">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+                  <Sparkles className="h-3.5 w-3.5 text-amber-400" />
+                  Legendary Weapon Ability
+                </span>
+                <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">
+                  {currentWeapon.behemoth}
+                </span>
+              </div>
+
+              <div className="gear-legendary-ability-content flex items-start gap-3 p-2.5 rounded-xl bg-[#071317] border border-amber-500/30">
+                <span className="gear-legendary-icon-wrap w-12 h-12 rounded-lg bg-[#0b1b22] border border-amber-500/40 flex items-center justify-center p-0.5 shrink-0 overflow-hidden shadow-sm">
+                  <img
+                    src={resolveAssetUrl(currentWeapon.legendaryIcon)}
+                    alt={`${currentWeapon.behemoth} Legendary Ability`}
+                    className="w-full h-full object-contain"
+                    onError={(e) => {
+                      (e.target as HTMLElement).style.display = 'none';
+                    }}
+                  />
+                </span>
+                <div className="flex-1 min-w-0">
+                  <strong className="font-display font-bold text-xs text-amber-200 block truncate mb-1">
+                    {currentWeapon.behemoth} Legendary Weapon Ability
+                  </strong>
+                  <p className="text-[11px] text-gray-300 leading-relaxed">
+                    {currentWeapon.uniqueEffect?.replace(/^Legendary Ability:\s*/i, '') || currentWeapon.description}
+                  </p>
+                </div>
               </div>
             </div>
           )}
@@ -1185,8 +1325,8 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
                   <strong>{currentOmnicell ? currentOmnicell.name : 'Select Omnicell...'}</strong>
 
                   {currentOmnicell ? (
-                    <span className="gear-subtitle line-clamp-2">
-                      <b className="text-cyan-300">Active:</b> {currentOmnicell.active}
+                    <span className="gear-subtitle">
+                      {currentOmnicell.cooldown > 0 ? `${currentOmnicell.cooldown}s Cooldown · Tap to change` : 'Combat Style · Tap to change'}
                     </span>
                   ) : (
                     <span className="gear-subtitle">Tap to pick (Discipline, Iceborne, Bastion...)</span>
@@ -1197,10 +1337,35 @@ export const EquipmentGrid: React.FC<EquipmentGridProps> = ({
             </div>
 
             {currentOmnicell && (
-              <div className="gear-footer">
-                <span className="text-[10px] text-gray-300 truncate">
-                  <b className="text-purple-300">Passive:</b> {currentOmnicell.passive}
-                </span>
+              <div className="gear-omnicell-details border-t border-[#1d313a] px-3.5 py-2.5 space-y-2 bg-[#09151a]/50">
+                <div className="text-xs">
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <Zap className="h-3.5 w-3.5 text-cyan-400 shrink-0" />
+                    <span className="font-bold uppercase tracking-wider text-[10px] text-cyan-400">
+                      Active Ability
+                    </span>
+                    {currentOmnicell.cooldown > 0 && (
+                      <span className="ml-auto text-[9.5px] font-mono px-1.5 py-0.5 rounded bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 font-semibold">
+                        {currentOmnicell.cooldown}s CD
+                      </span>
+                    )}
+                  </div>
+                  <div className="text-[11px] text-gray-300 leading-relaxed pl-5">
+                    {renderFormattedCoreText(currentOmnicell.active, 'space-y-1', 'text-cyan-300')}
+                  </div>
+                </div>
+
+                <div className="text-xs pt-1.5 border-t border-[#1a2d36]/60">
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <Shield className="h-3.5 w-3.5 text-purple-400 shrink-0" />
+                    <span className="font-bold uppercase tracking-wider text-[10px] text-purple-400">
+                      Passive Effect
+                    </span>
+                  </div>
+                  <div className="text-[11px] text-gray-300 leading-relaxed pl-5">
+                    {renderFormattedCoreText(currentOmnicell.passive, 'space-y-1', 'text-purple-300')}
+                  </div>
+                </div>
               </div>
             )}
           </article>

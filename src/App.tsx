@@ -17,6 +17,7 @@ import {
   encodeBuildToHash,
   decodeBuildFromHash,
   parseCellSpec,
+  EXOTIC_WEAPON_IDS,
 } from './utils/calculator';
 import { resolveAssetUrl, initTheme, setTheme, ThemeMode } from './utils/theme';
 import { Header } from './components/Header';
@@ -29,7 +30,7 @@ import { DauntlessForeverModal } from './components/DauntlessForeverModal';
 import { SettingsModal } from './components/SettingsModal';
 import { OnboardingModal } from './components/OnboardingModal';
 import { Toast } from './components/Toast';
-import { Loader2, AlertCircle, Youtube, Github, Coffee } from 'lucide-react';
+import { Loader2, AlertCircle, Youtube, Github, Coffee, Heart, Sparkles } from 'lucide-react';
 
 const XIcon: React.FC<{ className?: string }> = ({ className = 'h-4 w-4' }) => (
   <svg className={`fill-current ${className}`} viewBox="0 0 24 24" aria-hidden="true">
@@ -136,8 +137,9 @@ export const App: React.FC = () => {
       fetch(`${basePath}/lanterns.json`).then(r => r.json()),
       fetch(`${basePath}/omnicells.json`).then(r => r.json()),
       fetch(`${basePath}/repeaterParts.json`).then(r => r.ok ? r.json() : null).catch(() => null),
+      fetch(`${basePath}/weaponParts.json`).then(r => r.ok ? r.json() : null).catch(() => null),
     ])
-      .then(([weapons, armour, cells, perks, lanterns, omnicells, repeaterParts]) => {
+      .then(([weapons, armour, cells, perks, lanterns, omnicells, repeaterParts, weaponParts]) => {
         const loaded: PatchData = {
           version: currentVersionId,
           weapons: weapons as WeaponItem[],
@@ -147,6 +149,7 @@ export const App: React.FC = () => {
           lanterns: lanterns as LanternItem[],
           omnicells: omnicells as OmnicellItem[],
           repeaterParts: repeaterParts || undefined,
+          weaponParts: weaponParts || undefined,
         };
         setPatchData(loaded);
         setIsLoading(false);
@@ -288,19 +291,58 @@ export const App: React.FC = () => {
 
         if (!id || !newWeapon) {
           next.weaponCells = [null, null];
+          next.weaponSpecial = null;
+          next.weaponMod = null;
         } else {
-          for (let i = 0; i < 2; i++) {
-            const prevSock = prevWeapon?.cellSockets?.[i];
-            const newSock = newWeapon.cellSockets?.[i];
-            if (
-              !newSock ||
-              (prevSock && normalizeSocket(prevSock) !== normalizeSocket(newSock)) ||
-              !isCellCompatibleWithSocket(newCells[i], newSock, patchData?.cells)
-            ) {
-              newCells[i] = null;
+          // Smart cell socket shifting (atomicptr switchAroundWeaponCellsIfNecessary logic)
+          const s0 = newWeapon.cellSockets?.[0];
+          const s1 = newWeapon.cellSockets?.[1];
+          let c0 = newCells[0];
+          let c1 = newCells[1];
+
+          if (c0 && !isCellCompatibleWithSocket(c0, s0, patchData?.cells)) {
+            if (isCellCompatibleWithSocket(c0, s1, patchData?.cells)) {
+              if (!c1 || !isCellCompatibleWithSocket(c1, s1, patchData?.cells)) {
+                const temp = c1;
+                c1 = c0;
+                c0 = temp && isCellCompatibleWithSocket(temp, s0, patchData?.cells) ? temp : null;
+              }
+            } else {
+              c0 = null;
             }
           }
-          next.weaponCells = newCells;
+
+          if (c1 && !isCellCompatibleWithSocket(c1, s1, patchData?.cells)) {
+            if (isCellCompatibleWithSocket(c1, s0, patchData?.cells)) {
+              if (!c0 || !isCellCompatibleWithSocket(c0, s0, patchData?.cells)) {
+                const temp = c0;
+                c0 = c1;
+                c1 = temp && isCellCompatibleWithSocket(temp, s1, patchData?.cells) ? temp : null;
+              }
+            } else {
+              c1 = null;
+            }
+          }
+          next.weaponCells = [c0, c1];
+
+          // Validate weapon specials and mods for the new weapon type (atomicptr validateWepaonParts logic)
+          const normType = newWeapon.type.toLowerCase().replace(/\s+/g, '');
+          const partsForType = patchData?.weaponParts?.[normType];
+          if (partsForType) {
+            const specialValid = partsForType.specials?.some(s => s.id === prev.weaponSpecial);
+            if (!specialValid) {
+              const recommended = partsForType.specials?.find(s => s.tags?.includes('Recommended')) || partsForType.specials?.[0];
+              next.weaponSpecial = recommended?.id || null;
+            }
+            const modValid = partsForType.mods?.some(m => m.id === prev.weaponMod);
+            if (!modValid) {
+              const recommended = partsForType.mods?.find(m => m.tags?.includes('Recommended')) || partsForType.mods?.[0];
+              next.weaponMod = recommended?.id || null;
+            }
+          } else {
+            next.weaponSpecial = null;
+            next.weaponMod = null;
+          }
         }
         next.weapon = id;
         next.weaponTalents = [0, 0, 0, 0, 0];
@@ -310,6 +352,7 @@ export const App: React.FC = () => {
           const bonded = patchData?.weapons.find(w => w.id === prev.bondedWeapon);
           if (
             !bonded ||
+            EXOTIC_WEAPON_IDS.has(bonded.id) ||
             bonded.type.toLowerCase() !== newWeapon.type.toLowerCase() ||
             bonded.element.toLowerCase() !== (newWeapon.bondElement || newWeapon.element).toLowerCase()
           ) {
@@ -402,6 +445,10 @@ export const App: React.FC = () => {
         next.lanternCell = id;
       } else if (slot === 'omnicell') {
         next.omnicell = id;
+      } else if (slot === 'weaponSpecial') {
+        next.weaponSpecial = id;
+      } else if (slot === 'weaponMod') {
+        next.weaponMod = id;
       } else if (slot === 'repeaterBarrel') {
         next.repeaterBarrel = id;
       } else if (slot === 'repeaterChamber') {
@@ -439,6 +486,8 @@ export const App: React.FC = () => {
     if (slot === 'lantern') return build.lantern;
     if (slot === 'lanternCell') return build.lanternCell;
     if (slot === 'omnicell') return build.omnicell;
+    if (slot === 'weaponSpecial') return build.weaponSpecial || null;
+    if (slot === 'weaponMod') return build.weaponMod || null;
     if (slot === 'repeaterBarrel') return build.repeaterBarrel || null;
     if (slot === 'repeaterChamber') return build.repeaterChamber || null;
     if (slot === 'repeaterGrip') return build.repeaterGrip || null;
@@ -597,72 +646,108 @@ export const App: React.FC = () => {
         ) : null}
       </main>
 
-      {/* Page Footer with Social & Project Links (Visible on desktop >= lg, shifts into hamburger menu in small screen mode) */}
-      <footer className="hidden lg:block border-t border-[#1d313a] bg-[#071015]/95 py-6 px-4 sm:px-6 mt-8">
-        <div className="max-w-[1400px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
-          <div className="flex items-center gap-3">
-            <div className="h-8 w-8 rounded-lg bg-[#101c22] border border-[#21333d] flex items-center justify-center p-1 overflow-hidden shrink-0">
-              <img
-                src={resolveAssetUrl('/assets/logo.png')}
-                alt="Logo"
-                className="w-full h-full object-contain"
-              />
+      {/* Page Footer with Social, Community Credits, & Phoenix Labs Disclaimer */}
+      <footer className="border-t border-[#1d313a] bg-[#071015]/95 pt-8 pb-28 lg:pb-8 px-4 sm:px-6 mt-12">
+        <div className="max-w-[1400px] mx-auto space-y-6 text-xs text-gray-400">
+          {/* Top Row: Brand & Creator Social Links */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="h-9 w-9 rounded-lg bg-[#101c22] border border-[#21333d] flex items-center justify-center p-1 overflow-hidden shrink-0">
+                <img
+                  src={resolveAssetUrl('/assets/logo.png')}
+                  alt="Logo"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div>
+                <span className="font-bold text-gray-200 block text-sm">
+                  Dauntless Gear Builder
+                </span>
+                <span className="text-[11px] text-gray-400">
+                  Created with passion by <strong className="text-cyan-400 font-semibold">duddyx5</strong> for the Slayer community
+                </span>
+              </div>
             </div>
-            <div>
-              <span className="font-bold text-gray-200 block text-xs">
-                Dauntless Gear Builder
-              </span>
-              <span className="text-[11px] text-gray-500">
-                Created by <strong className="text-cyan-400 font-semibold">duddyx5</strong> for the Slayer community
-              </span>
+
+            {/* Social Links & Support */}
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <a
+                href="https://buymeacoffee.com/duddyx5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-amber-500/20 to-yellow-500/10 hover:from-amber-500/30 hover:to-yellow-500/20 border border-amber-500/40 hover:border-amber-400 text-amber-300 hover:text-amber-200 transition-colors font-bold text-xs shadow-sm"
+                title="Support duddyx5 on Buy Me a Coffee"
+              >
+                <Coffee className="h-4 w-4 text-amber-400" />
+                <span>Support Me</span>
+              </a>
+
+              <a
+                href="https://www.youtube.com/@duddyx5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#101c22] hover:bg-[#15252e] border border-[#21333d] hover:border-red-500/50 text-gray-300 hover:text-red-400 transition-colors font-semibold text-xs"
+                title="YouTube @duddyx5"
+              >
+                <Youtube className="h-4 w-4 text-red-400" />
+                <span>YouTube</span>
+              </a>
+
+              <a
+                href="https://x.com/duddyx5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#101c22] hover:bg-[#15252e] border border-[#21333d] hover:border-gray-500 text-gray-300 hover:text-white transition-colors font-semibold text-xs"
+                title="X @duddyx5"
+              >
+                <XIcon className="h-3.5 w-3.5" />
+                <span>X</span>
+              </a>
+
+              <a
+                href="https://github.com/duddyx5/dauntless-gear-builder"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#101c22] hover:bg-[#15252e] border border-[#21333d] hover:border-cyan-500/50 text-gray-300 hover:text-cyan-300 transition-colors font-semibold text-xs"
+                title="GitHub Repository"
+              >
+                <Github className="h-4 w-4 text-cyan-400" />
+                <span>GitHub</span>
+              </a>
             </div>
           </div>
 
-          {/* Social Links & Support */}
-          <div className="flex items-center gap-2">
-            <a
-              href="https://buymeacoffee.com/duddyx5"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-amber-500/20 to-yellow-500/10 hover:from-amber-500/30 hover:to-yellow-500/20 border border-amber-500/40 hover:border-amber-400 text-amber-300 hover:text-amber-200 transition-colors font-bold text-xs shadow-sm"
-              title="Support duddyx5 on Buy Me a Coffee"
-            >
-              <Coffee className="h-4 w-4 text-amber-400" />
-              <span>Support Me</span>
-            </a>
+          {/* Middle Row: Community Credits */}
+          <div className="pt-4 border-t border-[#162730] grid grid-cols-1 md:grid-cols-2 gap-4 text-[11.5px] leading-relaxed">
+            <div className="p-3.5 rounded-xl bg-[#0c181f]/80 border border-[#1b2e38]">
+              <span className="font-semibold text-cyan-300 flex items-center gap-1.5 mb-1 text-xs">
+                <Heart className="h-3.5 w-3.5 text-pink-400" />
+                Dauntless Forever Project
+              </span>
+              <p className="text-gray-400">
+                Special thanks to the <strong className="text-gray-200">Dauntless Forever</strong> preservation creators and team for keeping historical versions of Dauntless playable and preserved. Our command generator integrates directly with their local launcher scripts.
+              </p>
+            </div>
 
-            <a
-              href="https://www.youtube.com/@duddyx5"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#101c22] hover:bg-[#15252e] border border-[#21333d] hover:border-red-500/50 text-gray-300 hover:text-red-400 transition-colors font-semibold text-xs"
-              title="YouTube @duddyx5"
-            >
-              <Youtube className="h-4 w-4 text-red-400" />
-              <span>YouTube</span>
-            </a>
+            <div className="p-3.5 rounded-xl bg-[#0c181f]/80 border border-[#1b2e38]">
+              <span className="font-semibold text-cyan-300 flex items-center gap-1.5 mb-1 text-xs">
+                <Sparkles className="h-3.5 w-3.5 text-amber-400" />
+                Original Dauntless Builder
+              </span>
+              <p className="text-gray-400">
+                Heartfelt recognition to <strong className="text-gray-200">atomicptr</strong> and the community contributors of the original <strong className="text-gray-200">dauntless-builder.com</strong> for pioneering the build-sharing architecture and community meta sheets.
+              </p>
+            </div>
+          </div>
 
-            <a
-              href="https://x.com/duddyx5"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#101c22] hover:bg-[#15252e] border border-[#21333d] hover:border-gray-500 text-gray-300 hover:text-white transition-colors font-semibold text-xs"
-              title="X @duddyx5"
-            >
-              <XIcon className="h-3.5 w-3.5" />
-              <span>X</span>
-            </a>
-
-            <a
-              href="https://github.com/duddyx5/dauntless-gear-builder"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#101c22] hover:bg-[#15252e] border border-[#21333d] hover:border-cyan-500/50 text-gray-300 hover:text-cyan-300 transition-colors font-semibold text-xs"
-              title="GitHub Repository"
-            >
-              <Github className="h-4 w-4 text-cyan-400" />
-              <span>GitHub</span>
-            </a>
+          {/* Bottom Row: Phoenix Labs Legal Disclaimer */}
+          <div className="pt-3 border-t border-[#162730] text-[11px] text-gray-500 text-center leading-normal">
+            <p>
+              Dauntless is a registered trademark of <strong className="text-gray-400 font-semibold">Phoenix Labs</strong>. All game content, artwork, item names, Behemoth lore, and icons are the intellectual property of Phoenix Labs.
+            </p>
+            <p className="mt-1 text-gray-600">
+              This website is an unofficial, non-profit community fan project created for Slayer theorycrafting and game preservation. It is not affiliated with, endorsed by, or sponsored by Phoenix Labs.
+            </p>
           </div>
         </div>
       </footer>

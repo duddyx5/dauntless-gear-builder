@@ -1,0 +1,578 @@
+{
+  "sword": {
+    "specials": [
+      {
+        "id": "ardent_cyclone",
+        "name": "Ardent Cyclone",
+        "category": "special",
+        "weaponType": "sword",
+        "icon": "/assets/icons/parts/sword/specials/ArdentCyclone.png",
+        "description": "Activate at full meter to spin, dealing 70 damage constantly to nearby enemies. Grants 1 Valour every 4 seconds. Reactivate to slash in a direction, dealing 500 + (10 x number of spin hits) to the first enemy hit.",
+        "partEffect": [
+          "Activate at full meter to spin, dealing 70 damage constantly to nearby enemies. Grants 1 Valour every 4 seconds. Reactivate to slash in a direction, dealing 500 + (10 x number of spin hits) to the first enemy hit."
+        ],
+        "tags": []
+      },
+      {
+        "id": "avenging_overdrive",
+        "name": "Avenging Overdrive",
+        "category": "special",
+        "weaponType": "sword",
+        "icon": "/assets/icons/parts/sword/specials/AvengingOverdrive.png",
+        "description": "Activate at full meter to enter Overdrive, gaining +20% attacks speed and causing attacks to deal +60-80 aoe damage. Reactivate to parry and riposte a Behemoth attack, dealing 800 damage and granting 1 Valour when successful (2 second cooldown)",
+        "partEffect": [
+          "Activate at full meter to enter Overdrive, gaining +20% attacks speed and causing attacks to deal +60-80 aoe damage. Reactivate to parry and riposte a Behemoth attack, dealing 800 damage and granting 1 Valour when successful (2 second cooldown)"
+        ],
+        "tags": []
+      },
+      {
+        "id": "valiant_overdrive",
+        "name": "Valiant Overdrive",
+        "category": "special",
+        "weaponType": "sword",
+        "icon": "/assets/icons/parts/sword/specials/ValiantOverdrive.png",
+        "description": "Activate at full meter to enter Overdrive, gaining +20% attack speed and causing attacks to deal +60-80 aoe damage. Grants 1 Valour immediately and then 1 Valour every 4 seconds. Reactivate to dash in a direction (Costs 1 Valour).",
+        "partEffect": [
+          "Activate at full meter to enter Overdrive, gaining +20% attack speed and causing attacks to deal +60-80 aoe damage. Grants 1 Valour immediately and then 1 Valour every 4 seconds. Reactivate to dash in a direction (Costs 1 Valour)."
+        ],
+        "tags": []
+      }
+    ],
+    "mods": [
+      {
+        "id": "dynamic_bladecore",
+        "name": "Dynamic Bladecore",
+        "category": "mod",
+        "weaponType": "sword",
+        "icon": "/assets/icons/parts/sword/mods/DynamicBladecore.png",
+        "description": "After using any Valour combo, your next Valour combo within 5 seconds deals +30% damage.",
+        "partEffect": [
+          "After using any Valour combo, your next Valour combo within 5 seconds deals +30% damage."
+        ],
+        "tags": []
+      },
+      {
+        "id": "keen_edge",
+        "name": "Keen Edge",
+        "category": "mod",
+        "weaponType": "sword",
+        "icon": "/assets/icons/parts/sword/mods/KeenEdge.png",
+        "description": "After the Bladesurge projectile travels a short distance, the damage is increased by 100%.",
+        "partEffect": [
+          "After the Bladesurge projectile travels a short distance, the damage is increased by 100%."
+        ],
+        "tags": []
+      },
+      {
+        "id": "mending_bladecore",
+        "name": "Mending Bladecore",
+        "category": "mod",
+        "weaponType": "sword",
+        "icon": "/assets/icons/parts/sword/mods/MendingBladecore.png",
+        "description": "Each Valour gained or spent restores 30 health",
+        "partEffect": [
+          "Each Valour gained or spent restores 30 health"
+        ],
+        "tags": []
+      },
+      {
+        "id": "charged_swordfocus",
+        "name": "Charged Swordfocus",
+        "category": "mod",
+        "weaponType": "sword",
+        "icon": "/assets/icons/parts/sword/mods/ChargedSwordfocus.png",
+        "description": "Instead of dealing damage over time, Resounding Echo deals damage once after it expires and deals +50% total damage.",
+        "partEffect": [
+          "Instead of dealing damage over time, Resounding Echo deals damage once after it expires and deals +50% total damage."
+        ],
+        "tags": []
+      },
+      {
+        "id": "recursive_hilt",
+        "name": "Recursive Hilt",
+        "category": "mod",
+        "weaponType": "sword",
+        "icon": "/assets/icons/parts/sword/mods/RecursiveHilt.png",
+        "description": "Dealing damage with Bladerush restores 20 stamina and generates 3 Valour over 9 seconds. Does not stack.",
+        "partEffect": [
+          "Dealing damage with Bladerush restores 20 stamina and generates 3 Valour over 9 seconds. Does not stack."
+        ],
+        "tags": []
+      }
+    ]
+  },
+  "axe": {
+    "specials": [
+      {
+        "id": "flight_of_ruin",
+        "name": "Flight of Ruin",
+        "category": "special",
+        "weaponType": "axe",
+        "icon": "/assets/icons/parts/axe/specials/FlightOfRuin.png",
+        "description": "Throw the axe forward, damaging enemies while thrown. Reactivate to call the axe and perform a powerful overhand swing that can generate determination.",
+        "partEffect": [
+          "Throw the axe forward, damaging enemies while thrown. Reactivate to call the axe and perform a powerful overhand swing that can generate determination."
+        ],
+        "tags": []
+      },
+      {
+        "id": "grim_onslaught",
+        "name": "Grim Onslaught",
+        "category": "special",
+        "weaponType": "axe",
+        "icon": "/assets/icons/parts/axe/specials/GrimOnslaught.png",
+        "description": "Throw the axe forward, damaging enemies in its path before landing a distance away. Hitting a Behemoth can generate Resolve and will bounce the axe back towards the user.",
+        "partEffect": [
+          "Throw the axe forward, damaging enemies in its path before landing a distance away. Hitting a Behemoth can generate Resolve and will bounce the axe back towards the user."
+        ],
+        "tags": []
+      },
+      {
+        "id": "relentless_onslaught",
+        "name": "Relentless Onslaught",
+        "category": "special",
+        "weaponType": "axe",
+        "icon": "/assets/icons/parts/axe/specials/RelentlessOnslaught.png",
+        "description": "Hurl the axe forward, damaging enemies in its path. Catch the axe to throw it again up to 2 more times in the next 5 seconds, dealing 500/600/1000 damage (further increased by determination). Does not build meter.",
+        "partEffect": [
+          "Hurl the axe forward, damaging enemies in its path. Catch the axe to throw it again up to 2 more times in the next 5 seconds, dealing 500/600/1000 damage (further increased by determination). Does not build meter."
+        ],
+        "tags": []
+      }
+    ],
+    "mods": [
+      {
+        "id": "furious_axecore",
+        "name": "Furious Axecore",
+        "category": "mod",
+        "weaponType": "axe",
+        "icon": "/assets/icons/parts/axe/mods/FuriousAxecore.png",
+        "description": "Perfectly charged attacks grants +15 meter on hit, but no longer grant resolve.",
+        "partEffect": [
+          "Perfectly charged attacks grants +15 meter on hit, but no longer grant resolve."
+        ],
+        "tags": []
+      },
+      {
+        "id": "lightweight_haft",
+        "name": "Lightweight Haft",
+        "category": "mod",
+        "weaponType": "axe",
+        "icon": "/assets/icons/parts/axe/mods/LightweightHaft.png",
+        "description": "Movespeed while charging Horizontal Attacks is now increased instead of decreased and costs no stamina to maintain.",
+        "partEffect": [
+          "Movespeed while charging Horizontal Attacks is now increased instead of decreased and costs no stamina to maintain."
+        ],
+        "tags": []
+      },
+      {
+        "id": "overcharged_cylinder",
+        "name": "Overcharged Cylinder",
+        "category": "mod",
+        "weaponType": "axe",
+        "icon": "/assets/icons/parts/axe/mods/OverchargedCylinder.png",
+        "description": "Determination can now stack up to 4 times.",
+        "partEffect": [
+          "Determination can now stack up to 4 times."
+        ],
+        "tags": []
+      },
+      {
+        "id": "railsplitter_s_canteen",
+        "name": "Railsplitter's Canteen",
+        "category": "mod",
+        "weaponType": "axe",
+        "icon": "/assets/icons/parts/axe/mods/RailsplittersCanteen.png",
+        "description": "Tonics consumed while your axe is thrown have +50% effectiveness.",
+        "partEffect": [
+          "Tonics consumed while your axe is thrown have +50% effectiveness."
+        ],
+        "tags": []
+      },
+      {
+        "id": "volatile_axecore",
+        "name": "Volatile Axecore",
+        "category": "mod",
+        "weaponType": "axe",
+        "icon": "/assets/icons/parts/axe/mods/VolatileAxecore.png",
+        "description": "Charging attack deals aoe damage to nearby enemies at each charge level.",
+        "partEffect": [
+          "Charging attack deals aoe damage to nearby enemies at each charge level."
+        ],
+        "tags": []
+      }
+    ]
+  },
+  "hammer": {
+    "specials": [
+      {
+        "id": "concussive_salvo",
+        "name": "Concussive Salvo",
+        "category": "special",
+        "weaponType": "hammer",
+        "icon": "/assets/icons/parts/hammer/specials/ConcussiveSalvo.png",
+        "description": "Loads ammo into the hammer before releasing, damage and interrupting behemoths.",
+        "partEffect": [
+          "Loads ammo into the hammer before releasing, damage and interrupting behemoths."
+        ],
+        "tags": []
+      },
+      {
+        "id": "ironheart_landbreaker",
+        "name": "Ironheart Landbreaker",
+        "category": "special",
+        "weaponType": "hammer",
+        "icon": "/assets/icons/parts/hammer/specials/IronheartLandbreaker.png",
+        "description": "Hold to load ammo into the hammer. Release to create an aether vent that buffs players who step over it, granting them +40% damage reduction and up to 155 healing over 30 seconds when aethercharged.",
+        "partEffect": [
+          "Hold to load ammo into the hammer. Release to create an aether vent that buffs players who step over it, granting them +40% damage reduction and up to 155 healing over 30 seconds when aethercharged."
+        ],
+        "tags": []
+      },
+      {
+        "id": "mighty_landbreaker",
+        "name": "Mighty Landbreaker",
+        "category": "special",
+        "weaponType": "hammer",
+        "icon": "/assets/icons/parts/hammer/specials/MightyLandbreaker.png",
+        "description": "Loads ammo into the hammer before releasing, creating an aether vent that buffs players.",
+        "partEffect": [
+          "Loads ammo into the hammer before releasing, creating an aether vent that buffs players."
+        ],
+        "tags": []
+      }
+    ],
+    "mods": [
+      {
+        "id": "antique_clip",
+        "name": "Antique Clip",
+        "category": "mod",
+        "weaponType": "hammer",
+        "icon": "/assets/icons/parts/hammer/mods/AntiqueClip.png",
+        "description": "Ammo decreased to 2, but bonus from aethercharged ammo is increased by 300%.",
+        "partEffect": [
+          "Ammo decreased to 2, but bonus from aethercharged ammo is increased by 300%."
+        ],
+        "tags": []
+      },
+      {
+        "id": "extended_clip",
+        "name": "Extended Clip",
+        "category": "mod",
+        "weaponType": "hammer",
+        "icon": "/assets/icons/parts/hammer/mods/ExtendedClip.png",
+        "description": "Ammo increased to 6.",
+        "partEffect": [
+          "Ammo increased to 6."
+        ],
+        "tags": []
+      },
+      {
+        "id": "impulse_crown",
+        "name": "Impulse Crown",
+        "category": "mod",
+        "weaponType": "hammer",
+        "icon": "/assets/icons/parts/hammer/mods/ImpulseCrown.png",
+        "description": "Aerial Strike grants increased damage dealt for 10 seconds. Bonus is doubled if a Behemoth's head is struck.",
+        "partEffect": [
+          "Aerial Strike grants increased damage dealt for 10 seconds. Bonus is doubled if a Behemoth's head is struck."
+        ],
+        "tags": []
+      },
+      {
+        "id": "turbine_trigger",
+        "name": "Turbine Trigger",
+        "category": "mod",
+        "weaponType": "hammer",
+        "icon": "/assets/icons/parts/hammer/mods/TurbineTrigger.png",
+        "description": "Priming attacks increases attack speed by 10% until the combo ends. Stacks.",
+        "partEffect": [
+          "Priming attacks increases attack speed by 10% until the combo ends. Stacks."
+        ],
+        "tags": []
+      },
+      {
+        "id": "weighted_crown",
+        "name": "Weighted Crown",
+        "category": "mod",
+        "weaponType": "hammer",
+        "icon": "/assets/icons/parts/hammer/mods/WeightedCrown.png",
+        "description": "Stagger damage is no longer halved when attacking Behemoth legs.",
+        "partEffect": [
+          "Stagger damage is no longer halved when attacking Behemoth legs."
+        ],
+        "tags": []
+      }
+    ]
+  },
+  "chainblades": {
+    "specials": [
+      {
+        "id": "cruel_riftstrike",
+        "name": "Cruel Riftstrike",
+        "category": "special",
+        "weaponType": "chainblades",
+        "icon": "/assets/icons/parts/chainblades/specials/CruelRiftstrike.png",
+        "description": "Use to teleport forward, damaging enemies if present. Can teleport through Behemoths.",
+        "partEffect": [
+          "Use to teleport forward, damaging enemies if present. Can teleport through Behemoths."
+        ],
+        "tags": []
+      },
+      {
+        "id": "insatiable_dance",
+        "name": "Insatiable Dance",
+        "category": "special",
+        "weaponType": "chainblades",
+        "icon": "/assets/icons/parts/chainblades/specials/InsatiableDance.png",
+        "description": "From afar: Pull to targets and grant a stack of Insatiable Dance. While close: Push off targets, then use primary or secondary attacks to perform a followup. Primary followup grants a stack of Insatiable Dance. Secondary followup expends stacks and creates a 50 health healing orb per stack.",
+        "partEffect": [
+          "From afar: Pull to targets and grant a stack of Insatiable Dance. While close: Push off targets, then use primary or secondary attacks to perform a followup. Primary followup grants a stack of Insatiable Dance. Secondary followup expends stacks and creates a 50 health healing orb per stack."
+        ],
+        "tags": []
+      },
+      {
+        "id": "reaper_s_dance",
+        "name": "Reaper's Dance",
+        "category": "special",
+        "weaponType": "chainblades",
+        "icon": "/assets/icons/parts/chainblades/specials/ReapersDance.png",
+        "description": "From afar: Pull to targets and grant a stack of Reaper's Dance. While close: Push off targets, then use primary or secondary attacks to perform a followup. Primary followup grants a stack of Reaper's Dance. Secondary followup expends stacks to deal +40% damage per stack.",
+        "partEffect": [
+          "From afar: Pull to targets and grant a stack of Reaper's Dance. While close: Push off targets, then use primary or secondary attacks to perform a followup. Primary followup grants a stack of Reaper's Dance. Secondary followup expends stacks to deal +40% damage per stack."
+        ],
+        "tags": []
+      }
+    ],
+    "mods": [
+      {
+        "id": "demolition_blades",
+        "name": "Demolition Blades",
+        "category": "mod",
+        "weaponType": "chainblades",
+        "icon": "/assets/icons/parts/chainblades/mods/DemolitionBlades.png",
+        "description": "After using a special, deal +100% damage to objects created by Behemoths for 6 seconds.",
+        "partEffect": [
+          "After using a special, deal +100% damage to objects created by Behemoths for 6 seconds."
+        ],
+        "tags": []
+      },
+      {
+        "id": "hurricane_blades",
+        "name": "Hurricane Blades",
+        "category": "mod",
+        "weaponType": "chainblades",
+        "icon": "/assets/icons/parts/chainblades/mods/HurricaneBlades.png",
+        "description": "Using Blade Spin grants stacking on-next hit damage that is consumed when using other attacks.",
+        "partEffect": [
+          "Using Blade Spin grants stacking on-next hit damage that is consumed when using other attacks."
+        ],
+        "tags": []
+      },
+      {
+        "id": "lightweight_chain",
+        "name": "Lightweight Chain",
+        "category": "mod",
+        "weaponType": "chainblades",
+        "icon": "/assets/icons/parts/chainblades/mods/LightweightChain.png",
+        "description": "Dashing towards a Behemoth reduces stamina cost of the dash by 50%.",
+        "partEffect": [
+          "Dashing towards a Behemoth reduces stamina cost of the dash by 50%."
+        ],
+        "tags": []
+      },
+      {
+        "id": "momentum_blades",
+        "name": "Momentum Blades",
+        "category": "mod",
+        "weaponType": "chainblades",
+        "icon": "/assets/icons/parts/chainblades/mods/MomentumBlades.png",
+        "description": "After using a special, your next special use within 4 seconds is free.",
+        "partEffect": [
+          "After using a special, your next special use within 4 seconds is free."
+        ],
+        "tags": []
+      },
+      {
+        "id": "serrated_blades",
+        "name": "Serrated Blades",
+        "category": "mod",
+        "weaponType": "chainblades",
+        "icon": "/assets/icons/parts/chainblades/mods/SerratedBlades.png",
+        "description": "Bladed attacks have a chance to cause your next swinging blades to be a critical strike.",
+        "partEffect": [
+          "Bladed attacks have a chance to cause your next swinging blades to be a critical strike."
+        ],
+        "tags": []
+      }
+    ]
+  },
+  "warpike": {
+    "specials": [
+      {
+        "id": "concussive_payload",
+        "name": "Concussive Payload",
+        "category": "special",
+        "weaponType": "warpike",
+        "icon": "/assets/icons/parts/warpike/specials/ConcussivePayload.png",
+        "description": "Use to convert meter into ammo. Hold to spend ammo to fire a missile that damages and can interrupt Behemoths.",
+        "partEffect": [
+          "Use to convert meter into ammo. Hold to spend ammo to fire a missile that damages and can interrupt Behemoths."
+        ],
+        "tags": []
+      },
+      {
+        "id": "reckless_leap",
+        "name": "Reckless Leap",
+        "category": "special",
+        "weaponType": "warpike",
+        "icon": "/assets/icons/parts/warpike/specials/RecklessLeap.png",
+        "description": "Press to convert meter into ammo. Hold to spend ammo and perform a flying lunge attack that deals up to 1200 damage based on distance and ammo quality.",
+        "partEffect": [
+          "Press to convert meter into ammo. Hold to spend ammo and perform a flying lunge attack that deals up to 1200 damage based on distance and ammo quality."
+        ],
+        "tags": []
+      },
+      {
+        "id": "savage_wellspring",
+        "name": "Savage Wellspring",
+        "category": "special",
+        "weaponType": "warpike",
+        "icon": "/assets/icons/parts/warpike/specials/SavageWellspring.png",
+        "description": "Use to convert meter into ammo. Hold to spend ammo to create an aura that buffs nearby allies with critical strike chance. Critical chance with ammo quality.",
+        "partEffect": [
+          "Use to convert meter into ammo. Hold to spend ammo to create an aura that buffs nearby allies with critical strike chance. Critical chance with ammo quality."
+        ],
+        "tags": []
+      }
+    ],
+    "mods": [
+      {
+        "id": "balanced_spearhead",
+        "name": "Balanced Spearhead",
+        "category": "mod",
+        "weaponType": "warpike",
+        "icon": "/assets/icons/parts/warpike/mods/BalancedSpearhead.png",
+        "description": "Increases damage dealt by 3% each time Piercing and Harvesting attacks are alternated. Resets upon combo end.",
+        "partEffect": [
+          "Increases damage dealt by 3% each time Piercing and Harvesting attacks are alternated. Resets upon combo end."
+        ],
+        "tags": []
+      },
+      {
+        "id": "barbed_spearhead",
+        "name": "Barbed Spearhead",
+        "category": "mod",
+        "weaponType": "warpike",
+        "icon": "/assets/icons/parts/warpike/mods/BarbedSpearhead.png",
+        "description": "After a dodge piercing attack, gain +50% wound damage for 8 seconds.",
+        "partEffect": [
+          "After a dodge piercing attack, gain +50% wound damage for 8 seconds."
+        ],
+        "tags": []
+      },
+      {
+        "id": "executioner_s_spearhead",
+        "name": "Executioner's Spearhead",
+        "category": "mod",
+        "weaponType": "warpike",
+        "icon": "/assets/icons/parts/warpike/mods/ExecutionersSpearhead.png",
+        "description": "Each time the Behemoth is wounded, gain +6% damage",
+        "partEffect": [
+          "Each time the Behemoth is wounded, gain +6% damage"
+        ],
+        "tags": []
+      },
+      {
+        "id": "lightweight_shaft",
+        "name": "Lightweight Shaft",
+        "category": "mod",
+        "weaponType": "warpike",
+        "icon": "/assets/icons/parts/warpike/mods/LightweightShaft.png",
+        "description": "Pike charge attack no longer costs stamina and always critically strikes.",
+        "partEffect": [
+          "Pike charge attack no longer costs stamina and always critically strikes."
+        ],
+        "tags": []
+      },
+      {
+        "id": "munitions_amplifier",
+        "name": "Munitions Amplifier",
+        "category": "mod",
+        "weaponType": "warpike",
+        "icon": "/assets/icons/parts/warpike/mods/MunitionsAmplifier.png",
+        "description": "Stored ammo quality increases slowly over time, up to max.",
+        "partEffect": [
+          "Stored ammo quality increases slowly over time, up to max."
+        ],
+        "tags": []
+      }
+    ]
+  },
+  "aetherstrikers": {
+    "specials": [
+      {
+        "id": "adamant_bolt",
+        "name": "Adamant Bolt",
+        "category": "special",
+        "weaponType": "aetherstrikers",
+        "icon": "/assets/icons/parts/aetherstrikers/specials/AdamantBolt.png",
+        "description": "Unleash energy in a focused blast, dealing 900 damage to the first enemy hit. Deals up to +100% damage when Tempest Form and Karma Breaker's effects are active.",
+        "partEffect": [
+          "Unleash energy in a focused blast, dealing 900 damage to the first enemy hit. Deals up to +100% damage when Tempest Form and Karma Breaker's effects are active."
+        ],
+        "tags": []
+      },
+      {
+        "id": "titan_s_crash",
+        "name": "Titan's Crash",
+        "category": "special",
+        "weaponType": "aetherstrikers",
+        "icon": "/assets/icons/parts/aetherstrikers/specials/TitansCrash.png",
+        "description": "Unleash energy forward in a pressure wave, dealing 500 damage to the closest target and 166 damage to nearby target. Deals up to +100% damage when Tempest Form and Karma Breaker's effects are active.",
+        "partEffect": [
+          "Unleash energy forward in a pressure wave, dealing 500 damage to the closest target and 166 damage to nearby target. Deals up to +100% damage when Tempest Form and Karma Breaker's effects are active."
+        ],
+        "tags": []
+      }
+    ],
+    "mods": [
+      {
+        "id": "cyclonic_strikeplate",
+        "name": "Cyclonic Strikeplate",
+        "category": "mod",
+        "weaponType": "aetherstrikers",
+        "icon": "/assets/icons/parts/aetherstrikers/mods/CyclonicStrikeplate.png",
+        "description": "Tempest Form duration increased by 10 seconds. When Tempest Form has less than 10 seconds remaining, deal +15% damage.",
+        "partEffect": [
+          "Tempest Form duration increased by 10 seconds. When Tempest Form has less than 10 seconds remaining, deal +15% damage."
+        ],
+        "tags": []
+      },
+      {
+        "id": "echo_bracedriver",
+        "name": "Echo Bracedriver",
+        "category": "mod",
+        "weaponType": "aetherstrikers",
+        "icon": "/assets/icons/parts/aetherstrikers/mods/EchoBracedriver.png",
+        "description": "Critical strikes increase the damage dealt by Karma Breaker's damage over time by 5% until the debuff ends or is refreshed.",
+        "partEffect": [
+          "Critical strikes increase the damage dealt by Karma Breaker's damage over time by 5% until the debuff ends or is refreshed."
+        ],
+        "tags": []
+      },
+      {
+        "id": "inertial_fistguard",
+        "name": "Inertial Fistguard",
+        "category": "mod",
+        "weaponType": "aetherstrikers",
+        "icon": "/assets/icons/parts/aetherstrikers/mods/InertialFistguard.png",
+        "description": "Surge deals +25% damage. After surging, gain +5% movespeed for 8 seconds. Stacks up to 3 times.",
+        "partEffect": [
+          "Surge deals +25% damage. After surging, gain +5% movespeed for 8 seconds. Stacks up to 3 times."
+        ],
+        "tags": []
+      }
+    ]
+  }
+}

@@ -18,6 +18,7 @@ import {
   Youtube,
   Github,
   Coffee,
+  Heart,
 } from 'lucide-react';
 
 const XIcon: React.FC<{ className?: string }> = ({ className = 'h-4 w-4' }) => (
@@ -395,6 +396,40 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 </div>
                 <ExternalLink className="h-3 w-3 text-gray-500 group-hover:text-cyan-400" />
               </a>
+            </div>
+          </div>
+
+          {/* SECTION 5: CREDITS & LEGAL DISCLAIMER */}
+          <div className="pt-2 border-t border-dauntless-border/60 space-y-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-cyan-400 block mb-2">
+              Community Credits & Legal Notice
+            </span>
+
+            <div className="space-y-2 text-[11px]">
+              <div className="p-3.5 rounded-xl bg-gray-800/30 border border-gray-700/50 space-y-2">
+                <span className="font-semibold text-cyan-300 flex items-center gap-1.5 text-xs">
+                  <Heart className="h-3.5 w-3.5 text-pink-400" />
+                  Community Acknowledgements
+                </span>
+                <p className="text-gray-300 leading-relaxed">
+                  • <strong className="text-white">Dauntless Forever Project</strong>: Sincere gratitude to the Dauntless Forever preservation creators and team for keeping classic and legacy versions of Dauntless playable.
+                </p>
+                <p className="text-gray-300 leading-relaxed">
+                  • <strong className="text-white">Original Dauntless Builder</strong>: Huge thanks to <strong className="text-white">atomicptr</strong> and community contributors of the original <em>dauntless-builder.com</em> for pioneering loadout tools, algorithms, and meta databases.
+                </p>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-gray-950/50 border border-gray-800/80 text-[10.5px] text-gray-400 leading-relaxed space-y-1">
+                <p className="font-semibold text-gray-300 text-[11px]">
+                  Intellectual Property & Trademarks
+                </p>
+                <p>
+                  Dauntless is a registered trademark of <strong className="text-gray-200">Phoenix Labs</strong>. All game content, artwork, item names, Behemoth lore, models, and icons are the intellectual property of Phoenix Labs.
+                </p>
+                <p className="text-gray-500">
+                  This application is an independent, non-commercial fan-made utility created solely for loadout theorycrafting and game preservation. It is not affiliated with, sponsored, or endorsed by Phoenix Labs.
+                </p>
+              </div>
             </div>
           </div>
         </div>
